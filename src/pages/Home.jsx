@@ -38,6 +38,9 @@ export default function Home(){
           <div style={{textAlign:'center', fontSize:'22px', fontWeight:350, maxWidth:'800px'}}>
             Free online courses for anyone making a difference, taught by leading social entrepreneurs and nonprofit leaders.
           </div>
+          <div style={{backgroundColor:'rgba(187, 126, 46, 1)', width:'fit-content', padding:'15px 35px', color:'rgba(19, 32, 54, 0.91)', fontWeight: 700, fontSize:'17px', cursor:'pointer'}}>
+            START LEARNING
+          </div>
         </div>
       </div>
 

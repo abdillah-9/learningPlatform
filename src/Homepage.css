@@ -1,0 +1,22 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.heightHover {
+  transition: transform 0.3s ease;
+  transform-origin: bottom;
+}
+
+.heightHover:hover {
+  transform: scaleY(1.2);
+}
+
+.opacityHover {
+  bottom: -100; /* start below the container */
+  opacity: 0;
+  transition: bottom 0.3s ease, opacity 0.3s ease;
+}
+
+.heightHover:hover .opacityHover {
+  bottom: 0; /* slide up into view */
+  opacity: 1;
+}

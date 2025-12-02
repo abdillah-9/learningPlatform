@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import userPhoto from '../assets/african-man-harvesting-vegetables.jpg';
+import userPhoto from '../assets/african-man-harvesting-vegetables.webp';
 import appLogo from '../assets/react.svg';
 import { LuLogOut } from 'react-icons/lu';
 import { IoCloseCircleOutline, IoListCircleOutline } from 'react-icons/io5';

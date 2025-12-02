@@ -1,5 +1,5 @@
 import React from 'react'
-import aboutPic1 from '../assets/countryside-workers-out-field.jpg';
+import aboutPic1 from '../assets/countryside-workers-out-field.webp';
 import { FaPeopleGroup } from 'react-icons/fa6';
 import { PiPlantFill } from 'react-icons/pi';
 import { FaTractor } from 'react-icons/fa';

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { BsBook, BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
-import pic1 from '../assets/african-man-harvesting-vegetables.jpg';
-import pic2 from '../assets/countryside-workers-out-field.jpg';
-import pic3 from '../assets/african-man-harvesting-vegetables.jpg';
-import pic4 from '../assets/countryside-workers-out-field.jpg';
-import pic5 from '../assets/african-man-harvesting-vegetables.jpg';
+import pic1 from '../assets/african-man-harvesting-vegetables.webp';
+import pic2 from '../assets/countryside-workers-out-field.webp';
+import pic3 from '../assets/african-man-harvesting-vegetables.webp';
+import pic4 from '../assets/countryside-workers-out-field.webp';
+import pic5 from '../assets/african-man-harvesting-vegetables.webp';
+import AI_Gen_2 from '../assets/AI Gen 2.webp';
 import { CgChevronDoubleLeft, CgChevronDoubleRight } from "react-icons/cg";
 import '../Homepage.css';
 import Sospeter from '../assets/Sospeter.webp';
@@ -29,8 +30,15 @@ export default function Home(){
         </nav>
       </div>
       {/** SLIDESHOW */}
-      <div style={{height:'calc(100vh - 90px)', width:'100vw',position:'relative'}}>
-        <SlideShow />
+      <div style={{height:'calc(100vh - 90px)', width:'100vw',position:'relative', backgroundImage:`url(${AI_Gen_2})`, backgroundSize:'cover',backgroundPosition:'center', }}>
+        <div style={{position:'absolute', inset: 0, backgroundColor:'rgba(22, 52, 105, 0.7)', justifyContent:'center', alignItems:'center', color:'white', display:'flex', flexDirection:'column', gap:"50px"}}>
+          <div style={{textAlign:'center', fontSize:'45px', fontWeight:600, maxWidth:'600px'}}>
+            Learning to Change the <span style={{borderBottom:'2px solid white', paddingBottom:'10px'}}>World</span>
+          </div>
+          <div style={{textAlign:'center', fontSize:'22px', fontWeight:350, maxWidth:'800px'}}>
+            Free online courses for anyone making a difference, taught by leading social entrepreneurs and nonprofit leaders.
+          </div>
+        </div>
       </div>
 
       {/** POPULAR Courses */}

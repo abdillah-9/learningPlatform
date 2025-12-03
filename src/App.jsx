@@ -9,6 +9,7 @@ import About from './pages/About';
 import { AuthContext } from './AuthProvider';
 import LoadingSpinner from './components/LoadingSpinner';
 import Course from './components/Course';
+import Auth from './components/Auth/Auth';
 
 export default function App() {
     const userDataContext = useContext(AuthContext);
@@ -27,6 +28,18 @@ export default function App() {
                      element={
                      <PublicRoute>
                       <Home/>
+                     </PublicRoute>}
+              />
+              <Route path={"/auth/register"} 
+                     element={
+                     <PublicRoute>
+                      <Auth />
+                     </PublicRoute>}
+              />
+              <Route path={"/auth/sign_in"} 
+                     element={
+                     <PublicRoute>
+                      <Auth />
                      </PublicRoute>}
               />
               <Route path={"/enroll_course"} 

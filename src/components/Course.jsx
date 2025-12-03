@@ -5,8 +5,10 @@ import { FaPencil } from "react-icons/fa6";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { IoIosMail, IoMdCall } from "react-icons/io";
 import { RiTwitterXFill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 export default function Course(){
+    const navigateTo = useNavigate();
     return(
         <div style={{width:'100vw', display:'flex', flexDirection:'column', gap:'40px', backgroundColor:'rgba(225, 227, 253, 1)',}}>
             <nav style={{backgroundColor:'rgba(0, 29, 82, 1)', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
@@ -27,8 +29,8 @@ export default function Course(){
                 </div>
                 {/** Buotton links */}
                 <div style={{display:'flex', gap:'20px', height:'fit-content'}}>
-                    <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, border:'1px solid rgba(70, 169, 194, 1)', color:'rgba(70, 169, 194, 1)'}}>REGISTER</div>
-                    <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, color:'white', backgroundColor:'rgba(70, 169, 194, 1)'}}>SIGN IN</div>
+                    <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, border:'1px solid rgba(70, 169, 194, 1)', color:'rgba(70, 169, 194, 1)', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/register')}}>REGISTER</div>
+                    <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, color:'white', backgroundColor:'rgba(70, 169, 194, 1)', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/sign_in')}}>SIGN IN</div>
                 </div>
             </nav>
 

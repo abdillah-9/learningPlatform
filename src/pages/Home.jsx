@@ -29,8 +29,8 @@ export default function Home(){
           </div>
         </nav>
       </div>
-      {/** SLIDESHOW */}
-      <div style={{height:'calc(100vh - 90px)', width:'100vw',position:'relative', backgroundImage:`url(${AI_Gen_2})`, backgroundSize:'cover',backgroundPosition:'center', }}>
+      {/** BIG IMAGE */}
+      <div style={{minHeight:'calc(100vh - 90px)', width:'100vw',position:'relative', backgroundImage:`url(${AI_Gen_2})`, backgroundSize:'cover',backgroundPosition:'center', }}>
         <div style={{position:'absolute', inset: 0, backgroundColor:'rgba(22, 52, 105, 0.7)', justifyContent:'center', alignItems:'center', color:'white', display:'flex', flexDirection:'column', gap:"50px"}}>
           <div style={{textAlign:'center', fontSize:'45px', fontWeight:600, maxWidth:'600px'}}>
             Learning to Change the <span style={{borderBottom:'2px solid white', paddingBottom:'10px'}}>World</span>
@@ -210,7 +210,7 @@ function MiniSlideShow({ items }) {
             />
           </div>
 
-          <div style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'rgba(0, 29, 82, 1)', width:'100%', display:'flex', flexDirection:'column', gap:'15px', padding:'20px 0px'}} className="heightHover">
+          <a style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'rgba(0, 29, 82, 1)', width:'100%', display:'flex', flexDirection:'column', gap:'15px', padding:'20px 0px'}} className="heightHover" href="/enroll_course">
             <div>
               {item.text}
             </div>
@@ -218,7 +218,7 @@ function MiniSlideShow({ items }) {
               <span>{item.desc}</span>
               <span><HiMiniArrowLongRight style={{fontSize:'25px'}}/></span>
             </div>
-          </div>
+          </a>
 
         </div>
       ))}

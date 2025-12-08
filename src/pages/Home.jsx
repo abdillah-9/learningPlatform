@@ -6,9 +6,9 @@ import pic3 from '../assets/pic3.jpeg';
 import pic4 from '../assets/pic4.jpeg';
 import pic5 from '../assets/pic5.jpeg';
 import pic6 from '../assets/pic6.jpeg';
-//import pic7 from '../assets/pic7.jpeg';
-//import pic8 from '../assets/pic8.jpeg';
-//import pic9 from '../assets/pic9.jpeg';
+import pic7 from '../assets/pic7.png';
+import pic8 from '../assets/pic8.png';
+import pic9 from '../assets/pic9.jpeg';
 import AI_Gen_2 from '../assets/AI Gen 2.webp';
 import { CgChevronDoubleLeft, CgChevronDoubleRight } from "react-icons/cg";
 import '../Homepage.css';
@@ -319,9 +319,9 @@ useEffect(() => {
 function PopularCourses(){
     // 9 items – 3 will show at a time
 const popularCoursesData = [
-  { img: pic1, text: "Brela and Business Registration", desc:'Own your company and be your own C.E.O' },
-  { img: pic2, text: "shaping an Opportunity", desc:'Its’ 21st century, pursue your business idea through an organization'  },
-  { img: pic3, text: "Financial Literacy", desc:'An asset puts money in my pocket. A liability takes money out of my pocket'  },
+  { img: pic7, text: "Brela and Business Registration", desc:'Own your company and be your own C.E.O' },
+  { img: pic8, text: "shaping an Opportunity", desc:'Its’ 21st century, pursue your business idea through an organization'  },
+  { img: pic9, text: "Financial Literacy", desc:'An asset puts money in my pocket. A liability takes money out of my pocket'  },
   { img: pic4, text: "Intelligent Spending", desc:'It’s not how much money you make. It’s how much money you keep'  },
   { img: pic5, text: "Financial Literacy", desc:'Money without financial intelligence is money soon gone'  },
   { img: pic1, text: "Problem solving through organization", desc:'A recognized business idea should be pursued through creation of business organization'  },

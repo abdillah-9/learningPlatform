@@ -42,6 +42,7 @@ export default function Home(){
 }
 
 function SlideShow() {
+  const navigateTo = useNavigate();
   const [animate, setAnimate] = useState(true);
   const [index, setIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState([]);
@@ -123,6 +124,14 @@ useEffect(() => {
 
   return (
     <div className={`slideShowHeight ${animate ? 'slideScale' : ''}`} style={{ width: "100vw", position: "relative", overflow: "hidden",height:'100%' }}>
+      {/* Top nav bar */}
+      <div style={{position:'absolute', top:0, left:0, width:'100%', height:'80px', backgroundColor:'#0C2B4E',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center'}}>
+        <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
+            <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
+          <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
+        </div>
+        <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500}}> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us </span> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>View All Courses</span> </div>
+      </div>
       {/* Image */}
       <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%', minHeight:'400px' }}>
         <img
@@ -145,7 +154,7 @@ useEffect(() => {
     background: `
       radial-gradient(
         circle at center,
-        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.55) 0%,
         rgba(0, 0, 0, 0.20) 35%,
         rgba(0, 0, 0, 0.40) 60%,
         rgba(0, 0, 0, 0.60) 80%,
@@ -183,7 +192,7 @@ function MiniSlideShow({ items }) {
   return (
     <div style={{display:'flex', justifyContent:'space-between', gap:'25px', flexWrap:'wrap',padding:'0px 20px'}}>
       {items.map((item, i) => (
-        <div key={i} className="slideShowHeight" style={{ minWidth:'150px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85}}>
+        <div key={i} className="slideShowHeight" style={{ minWidth:'150px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
           
           <div style={{ position: 'relative', width: '100%',height:'100%' }}>
             <img
@@ -193,13 +202,13 @@ function MiniSlideShow({ items }) {
             />
           </div>
 
-          <a style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'rgba(0, 29, 82, 1)', width:'100%', display:'flex', flexDirection:'column', gap:'15px', padding:'20px 0px'}} className="heightHover" href="/enroll_course">
+          <a style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#0C2B4E', width:'100%', display:'flex', flexDirection:'column', gap:'15px', padding:'20px 0px'}} className="heightHover" href="/enroll_course">
             <div>
               {item.text}
             </div>
             <div style={{fontSize:'15px', color:'rgba(250, 250, 250, 0.66)',display:'flex', gap:'5px', flexDirection:'column'}} className="opacityHover">
               <span>{item.desc}</span>
-              <span><HiMiniArrowLongRight style={{fontSize:'25px'}}/></span>
+              <span style={{display:'flex',alignItems:'center', gap:'10px'}}><span>View Course </span><HiMiniArrowLongRight style={{fontSize:'25px'}}/></span>
             </div>
           </a>
 
@@ -300,7 +309,7 @@ useEffect(() => {
           <div style={{width:'60%'}}> 
             {texts[index]}
           </div>
-          <img src={images[index]} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid rgba(0, 29, 82, 1)'}}/>
+          <img src={images[index]} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid #0C2B4E'}}/>
         </div>
       </div>
 
@@ -344,7 +353,7 @@ const popularCoursesData = [
 
   return(
     <div style={{display:'flex',gap:'60px', flexDirection:'column', padding:'50px 20px'}}>
-      <div style={{fontWeight:700, fontSize:'20px', padding:'10px 13px'}}>POPULAR COURSES</div>
+      <div style={{fontWeight:700, fontSize:'20px', padding:'10px 13px'}}>COURSES</div>
       
       <div style={{display:'flex', width:'100%',  alignItems:'center'}}>
         
@@ -383,9 +392,10 @@ function Testimonials(){
         <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', textAlign:'justify', gap:'15px'}}>
           <div style={{width:'60%', flex:'1 1 250px',}}> 
             Sospeter Owuor is a visionary businessman, investor, and corporate leader whose focuses is modernizing Tanzania's agricultural sector to meet global standards. He has extensive experience in agricultural value chains, export operations, agro-processing and international trade. As the acting Managing Director and Co-Founder of TANZCOFFEE TRADING COMPANY LTD, he provides strategic leadership in operations, commercial development, and organizational expansion.
+            <br/>
             He previously co-founded Brice Agribusiness Ltd and Brice Agribusiness UK, a London-based company branch where he served as Operations Director, following his resignation from Room to Read Tanzania. He effectively managed and coordinated exports to international markets, including South Africa, China, and Turkey.
           </div>
-          <img src={Sospeter} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid rgba(0, 29, 82, 1)', flex:'1 1 100px'}}/>
+          <img src={Sospeter} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid #0C2B4E', flex:'1 1 100px'}}/>
         </div>
       </div>
       <div style={{ width:'45%', flexGrow:1, minWidth:'250px',display:'flex', padding:'20px', background:'linear-gradient(45deg, blue, purple', color:'white'}}>
@@ -398,7 +408,7 @@ function Testimonials(){
 function Footer(){
     const navigateTo = useNavigate();
   return(
-    <div style={{backgroundColor:'rgba(0, 29, 82, 1)', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
+    <div style={{backgroundColor:'#0C2B4E', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
       <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'30%', minWidth:'300px', gap:'20px'}}>
         <div style={{display:'flex',gap:'5px', flexDirection:'column', justifyContent:'center'}}>
           <span style={{display:'block',left:'95px', position:'relative'}}>
@@ -458,6 +468,5 @@ const miniSlideshowTexts = {
   fontWeight: "500",
   textAlign: "center",
   width: "100%",
-  height:'60%',
   zIndex:10,
 }

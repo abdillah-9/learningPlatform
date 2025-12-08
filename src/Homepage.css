@@ -1,22 +1,26 @@
-*{
+* {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.heightHover {
-  transition: transform 0.3s ease;
-  transform-origin: bottom;
-}
 
-.heightHover:hover {
-  transform: scaleY(1.2);
+.heightHover {
+  height: 40%;            /* initial height */
+  overflow: hidden;       /* hide overflowing content */
+  transition: height 0.3s ease;  /* animate height */
 }
 
 .opacityHover {
-  bottom: -100; /* start below the container */
+  bottom: -100px;         /* start below the container */
   opacity: 0;
   transition: bottom 0.3s ease, opacity 0.3s ease;
 }
 
-.heightHover:hover .opacityHover {
-  bottom: 0; /* slide up into view */
-  opacity: 1;
+/* Hover triggered by parent container */
+.slideShowHeight:hover > a.heightHover {
+  height: 85%;           /* expand anchor on hover */
 }
+
+.slideShowHeight:hover .opacityHover {
+  bottom: 0;             /* slide text up */
+  opacity: 1;            /* fade in text */
+}
+

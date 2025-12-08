@@ -12,6 +12,7 @@ import Course from './components/Course';
 import Auth from './components/Auth/Auth';
 import ForgotPassword from './components/Auth/ForgotPassword';
 import ResetPassword from './components/Auth/ResetPassword';
+import ViewAllCourses from './components/ViewAllCourses';
 
 export default function App() {
     const userDataContext = useContext(AuthContext);
@@ -60,6 +61,12 @@ export default function App() {
                      element={
                      <PublicRoute>
                       <Course />
+                     </PublicRoute>}
+              />
+              <Route path={"/view_all_courses"} 
+                     element={
+                     <PublicRoute>
+                      <ViewAllCourses />
                      </PublicRoute>}
               />
               <Route path={"/about"} 

@@ -7,90 +7,37 @@ import { FaTractor } from 'react-icons/fa';
 export default function About(){
 
   return(
-    <div style={{display:"flex", flexGrow:1, flexWrap:"wrap", gap:"35px",
-      justifyContent:"space-between", padding:"10px 25px"}} 
-      className='whiteSmokeBody'>
-      <section style={{display:"flex",flexDirection:"column",gap:"15px",justifyContent:"center",
-         width:"45%"}} className='minW200'>
-        <div className='h4 midGreenText'>
-          Who we are
-        </div>
-        <div className='h2 pureBlackText'>
-          We are tech savy who made your life easy on agriculture.
-        </div>
-        <div className='p3 midBlackText'>
-          This tech industry made your life easy on agriculture, we serve the farmers, sellers of crops, and 
-          sellers of resources ie pests to farmers, this system joins them all.
-          This tech industry made your life easy on agriculture, we serve the farmers, sellers of crops, and 
-          sellers of resources ie pests to farmers, this system joins them all.
-        </div>
-      </section>
-      <section className='greenYellowBody' 
-      style={{borderRadius:"15px",width:"45%", padding:"20px",display:"flex", flexGrow:1}} >
-        <img alt={"about_photo"} width={"100%"} height={"auto"} src={aboutPic1} style={{borderRadius:"15px"}}/>
-      </section>
-      <section style={{width:"100%", display:"flex",justifyContent:"space-between", flexWrap:'wrap', gap:"15px"}}>
-        <div style={{display:"flex",flexDirection:"column",gap:"10px",alignItems:"center",borderRadius:"10px",
-         width:"30%",boxShadow:"2px 2px 13px rgb(10,10,10)", padding:"20px",textAlign:"center", flexGrow:1}}
-         className='minW200 pureWhiteBody'>
-          <div style={{padding:"20px", borderRadius:"50%"}} className='midGreenBody'>
-            <FaPeopleGroup className='h1 pureWhiteText' />
-          </div>
-          <div className='h3 midGreenText maxW200'>Sell your crops to valuable customers</div>
-          <div className='p1 midBlackText maxW200'>
-            Farmers are can buy viable resources from trusted stores any moment with ease
-          </div>
+    <div style={{display:"flex"}}>
+      <div>
+        <h2>ABOUT US</h2>
+        <p>
+          We are a business and investment educational hub, offering real-ground business expertise from real entrepreneurs and businessmen. These are skills that you won't learn in business school.
+          As a team with a variety of expertise, we charge between TZS 3,500 and TZS 5,000 to cover platform operating expenses.
+          One might ask, why should I bother improving my financial IQ? "Just to have more options," I reply. Significant global changes will occur in coming years, and if you don't adapt, it will be a frightening period. In the real world, something more than just school grades are required.
+        </p>
+
+        <h2>What’s Ahead</h2>
+
+        <div>
+          You’ll learn how identify and evaluate potential business opportunities particularly focusing on the existing social problem. The pursuit of opportunity without regard to resources you currently control.
         </div>
 
-        <div style={{display:"flex",flexDirection:"column",gap:"10px",alignItems:"center",borderRadius:"10px",
-         width:"30%",boxShadow:"2px 2px 13px rgb(10,10,10)", padding:"20px",textAlign:"center", flexGrow:1}}
-         className='minW200 pureWhiteBody'>
-          <div style={{padding:"20px", borderRadius:"50%"}} className='midGreenBody'>
-            <FaPeopleGroup className='h1 pureWhiteText' />
-          </div>
-          <div className='h3 midGreenText maxW200'>Buy crops from trustworthy farmers</div>
-          <div className='p1 midBlackText maxW200'>
-            Farmers are can buy viable resources from trusted stores any moment with ease
-          </div>
+        <div>
+          You’ll learn about the various legal forms of business organization, their pros and cons and decide which organization is best for your venture. How to comply with authority legal compliance.
         </div>
 
-        <div style={{display:"flex",flexDirection:"column",gap:"10px",alignItems:"center",borderRadius:"10px",
-         width:"30%",boxShadow:"2px 2px 13px rgb(10,10,10)", padding:"20px",textAlign:"center", flexGrow:1}}
-         className='minW200 pureWhiteBody'>
-          <div style={{padding:"20px", borderRadius:"50%"}} className='midGreenBody'>
-            <FaPeopleGroup className='h1 pureWhiteText' />
-          </div>
-          <div className='h3 midGreenText maxW200'>Buy farming inputs/resources from best sellers</div>
-          <div className='p1 midBlackText maxW200'>
-            Farmers are can buy viable resources from trusted stores any moment with ease
-          </div>
+        <div>
+          You’ll learn how key components of the enterprise work together to make money and how to begin to test your business model with real customers. And step process for formulating strategy and aligning business activities with it.
         </div>
 
-        <div style={{display:"flex",flexDirection:"column",gap:"10px",alignItems:"center",borderRadius:"10px",
-         width:"30%",boxShadow:"2px 2px 13px rgb(10,10,10)", padding:"20px",textAlign:"center", flexGrow:1}}
-         className='minW200 pureWhiteBody'>
-          <div style={{padding:"20px", borderRadius:"50%"}} className='midGreenBody'>
-            <PiPlantFill className='h1 pureWhiteText' />
-          </div>
-          <div className='h3 midGreenText maxW200'>Sell agriculure resources/inputs to farmers</div>
-          <div className='p1 midBlackText maxW200'>
-            Farmers are can buy viable resources from trusted stores any moment with ease
-          </div>
+        <div>
+          You’ll learn how to write a Business Plan or Investors Pitch Deck that incorporates all elements of your business idea, explaining the opportunity, target market and all details about how your business expects to pursue the opportunity.
         </div>
-        <div style={{display:"flex",flexDirection:"column",gap:"10px",alignItems:"center",borderRadius:"10px",
-         width:"30%",boxShadow:"2px 2px 13px rgb(10,10,10)", padding:"20px",textAlign:"center", flexGrow:1}}
-         className='minW200 pureWhiteBody'>
-          <div style={{padding:"20px", borderRadius:"50%"}} className='midGreenBody'>
-            <FaTractor className='h1 pureWhiteText' />
-          </div>
-          <div className='h3 midGreenText maxW200'>Reach great pool of workers</div>
-          <div className='p1 midBlackText maxW200'>
-            Farmers are can buy viable resources from trusted stores any moment with ease
-            Farmers are can buy viable resources from trusted stores any moment with ease
-          </div>
+
+        <div>
+          You’ll learn the financing requirements that businesses typically encounter in the first phase of their life cycles and how to get the funding to finance these various stages of your enterprise.
         </div>
-      </section>
-      
+      </div>
     </div>
   )
 }

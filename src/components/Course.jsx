@@ -6,6 +6,7 @@ import { MdMarkEmailUnread } from "react-icons/md";
 import { IoIosMail, IoMdCall } from "react-icons/io";
 import { RiTwitterXFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 
 export default function Course(){
     const navigateTo = useNavigate();
@@ -14,12 +15,10 @@ export default function Course(){
             <nav style={{backgroundColor:'rgba(0, 29, 82, 1)', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
                 {/** Logo and company name */}
-                <div style={{fontSize:'25px', fontWeight:500}}>
+                <div style={{fontSize:'20px', fontWeight:500, display:'flex', justifyContent:'center', alignItems:'center', flexWrap:'wrap', gap:'15px',height:'fit-content'}}>
+                    <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
                     <span>
-                        <BookOpenCheck/>
-                    </span>
-                    <span>
-                        The African Investment School
+                        MWANGAZA BUSINESS & INVESTMENT SCHOOL
                     </span>
                 </div>
                 {/** Course number & Course name */}
@@ -28,7 +27,7 @@ export default function Course(){
                     <span>Planning for Evaluation and Monitoring</span>
                 </div>
                 {/** Buotton links */}
-                <div style={{display:'flex', gap:'20px', height:'fit-content'}}>
+                <div style={{display:'flex', gap:'20px', height:'fit-content', }}>
                     <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, border:'1px solid rgba(70, 169, 194, 1)', color:'rgba(70, 169, 194, 1)', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/register')}}>REGISTER</div>
                     <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, color:'white', backgroundColor:'rgba(70, 169, 194, 1)', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/sign_in')}}>SIGN IN</div>
                 </div>
@@ -135,12 +134,10 @@ export default function Course(){
             <footer style={{backgroundColor:'rgba(0, 29, 82, 1)', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
                 {/** Logo and company name */}
-                <div style={{fontSize:'25px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>
+                <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>
+                    <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
                     <span>
-                        <BookOpenCheck/>
-                    </span>
-                    <span>
-                        The African Investment School
+                        MWANGAZA BUSINESS & INVESTMENT SCHOOL
                     </span>
                 </div>
                 {/** Course number & Course name */}

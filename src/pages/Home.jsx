@@ -9,22 +9,25 @@ import AI_Gen_2 from '../assets/AI Gen 2.webp';
 import { CgChevronDoubleLeft, CgChevronDoubleRight } from "react-icons/cg";
 import '../Homepage.css';
 import Sospeter from '../assets/Sospeter.webp';
+import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { PiArrowBendUpRightThin } from "react-icons/pi";
 import { HiArrowRight, HiMiniArrowLongRight } from "react-icons/hi2";
 import { BookAIcon, BookOpenCheckIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home(){
+  const navigateTo = useNavigate();
   return(
     <div>
       <div style={{width:'100vw', backgroundColor:'rgba(0, 29, 82, 1)',color:'white', padding:'0px 25px', textTransform:'uppercase', fontSize:'20px', fontWeight:500 }}>
         {/** Top nav bar */}
         <nav style={{display:'flex', alignItems:'center', justifyContent:'space-between', width:'100%', height:'90px'}}>
           <div style={{display:'flex', gap:'7px', alignItems:'center'}}> 
-            <BsBook/>
-            <span>The African Investment School</span>
+            <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
+            <span> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
           </div>
           <div style={{display:'flex', gap:'40px', flexWrap:'wrap',}}>
-            <span>About</span>
+            <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About</span>
             <span>Courses</span>
           </div>
         </nav>
@@ -395,13 +398,14 @@ function Testimonials(){
   return(
     <div style={{display:'flex', flexWrap:'wrap', gap:'50px', margin:'50px 0px'}}>
       <div style={{display:'flex', flexDirection:'column', gap:'40px', width:'45%', flexGrow:1, minWidth:'250px', padding:'20px'}}>
-        <div>Mr SosPeter Owur</div>
-        <div>pargraph one ... pargraph one ... pargraph one ... pargraph one ... pargraph one ... pargraph one ... pargraph one ... pargraph one ... pargraph one ... pargraph one ... pargraph one ...
-        </div>
-        <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center'}}>
-          <div style={{width:'60%'}}> author words, author words author words, author words author words, author wordsauthor words, author wordsauthor words, author words
+        {/* <div style={{style:'20px ', fontWeight:500}}>Mr SosPeter Owur</div> */}
+        <div style={{style:'20px ', fontWeight:500}}>ABOUT FOUNDER</div>
+        <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', textAlign:'justify', gap:'15px'}}>
+          <div style={{width:'60%', flex:'1 1 250px',}}> 
+            Sospeter Owuor is a visionary businessman, investor, and corporate leader whose focuses is modernizing Tanzania's agricultural sector to meet global standards. He has extensive experience in agricultural value chains, export operations, agro-processing and international trade. As the acting Managing Director and Co-Founder of TANZCOFFEE TRADING COMPANY LTD, he provides strategic leadership in operations, commercial development, and organizational expansion.
+            He previously co-founded Brice Agribusiness Ltd and Brice Agribusiness UK, a London-based company branch where he served as Operations Director, following his resignation from Room to Read Tanzania. He effectively managed and coordinated exports to international markets, including South Africa, China, and Turkey.
           </div>
-          <img src={Sospeter} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid rgba(0, 29, 82, 1)'}}/>
+          <img src={Sospeter} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid rgba(0, 29, 82, 1)', flex:'1 1 100px'}}/>
         </div>
       </div>
       <div style={{ width:'45%', flexGrow:1, minWidth:'250px',display:'flex', padding:'20px', background:'linear-gradient(45deg, blue, purple', color:'white'}}>
@@ -412,12 +416,15 @@ function Testimonials(){
 }
 
 function Footer(){
+    const navigateTo = useNavigate();
   return(
     <div style={{backgroundColor:'rgba(0, 29, 82, 1)', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
       <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'30%', minWidth:'300px', gap:'20px'}}>
         <div style={{display:'flex',gap:'5px', flexDirection:'column', justifyContent:'center'}}>
-          <span style={{display:'block',left:'135px', position:'relative'}}><BookOpenCheckIcon style={{fontSize:'50px'}}/></span>
-          <span style={{fontSize:'22px', fontWeight:500}}>The African Investment School</span>
+          <span style={{display:'block',left:'95px', position:'relative'}}>
+            <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
+          </span>
+          <span style={{fontSize:'22px', fontWeight:500}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
         </div>
         <div>
           Philanthropy University is an online learning platform  for social impact organizations.
@@ -434,7 +441,7 @@ function Footer(){
           <span style={{fontSize:'22px', fontWeight:500}}>Quick links</span>
         </div>
         <div style={{display:'flex', gap:'15px', flexDirection:'column'}}>
-          <span>About Us</span>
+          <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us</span>
           <span>Terms Of Use</span>
           <span>Privacy</span>
         </div>

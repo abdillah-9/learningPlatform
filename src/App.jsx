@@ -10,6 +10,8 @@ import { AuthContext } from './AuthProvider';
 import LoadingSpinner from './components/LoadingSpinner';
 import Course from './components/Course';
 import Auth from './components/Auth/Auth';
+import ForgotPassword from './components/Auth/ForgotPassword';
+import ResetPassword from './components/Auth/ResetPassword';
 
 export default function App() {
     const userDataContext = useContext(AuthContext);
@@ -42,6 +44,18 @@ export default function App() {
                       <Auth />
                      </PublicRoute>}
               />
+              <Route path={"/auth/forgot_password"} 
+                     element={
+                     <PublicRoute>
+                      <ForgotPassword />
+                     </PublicRoute>}
+              />
+              <Route path={"/auth/reset_password"} 
+                     element={
+                     <PublicRoute>
+                      <ResetPassword />
+                     </PublicRoute>}
+              />
               <Route path={"/enroll_course"} 
                      element={
                      <PublicRoute>
@@ -51,7 +65,7 @@ export default function App() {
               <Route path={"/about"} 
                      element={
                       <PublicRoute>
-                        <Home passedActiveLink={'About'}/>
+                        <About />
                       </PublicRoute>}
               />
               <Route path={"/signIn"} 

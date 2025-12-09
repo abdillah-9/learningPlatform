@@ -6,8 +6,8 @@ import pic3 from '../assets/pic3.jpeg';
 import pic4 from '../assets/pic4.jpeg';
 import pic5 from '../assets/pic5.jpeg';
 import pic6 from '../assets/pic6.jpeg';
-import pic7 from '../assets/pic7.png';
-import pic8 from '../assets/pic8.png';
+import pic7 from '../assets/pic7.jpg';
+import pic8 from '../assets/pic8.jpg';
 import pic9 from '../assets/pic9.jpeg';
 import AI_Gen_2 from '../assets/AI Gen 2.webp';
 import { CgChevronDoubleLeft, CgChevronDoubleRight } from "react-icons/cg";
@@ -125,12 +125,13 @@ useEffect(() => {
   return (
     <div className={`slideShowHeight ${animate ? 'slideScale' : ''}`} style={{ width: "100vw", position: "relative", overflow: "hidden",height:'100%' }}>
       {/* Top nav bar */}
-      <div style={{position:'absolute', top:0, left:0, width:'100%', height:'80px', backgroundColor:'#0C2B4E',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center'}}>
+      <div style={{position:'absolute', top:0, left:0, width:'100%', height:'fit-content',minHeight:'80px', backgroundColor:'#0C2B4E',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'15px'}}>
         <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
             <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
-          <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
+          <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
         </div>
-        <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500}}> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us </span> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>View All Courses</span> </div>
+        <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500}}> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us </span> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>View All Courses</span> 
+        </div>
       </div>
       {/* Image */}
       <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%', minHeight:'400px' }}>
@@ -166,12 +167,8 @@ useEffect(() => {
 
 
       {/* Heading */}
-      <div className={`${animate ? 'slideTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white', top:'30%', fontSize:'40px',fontWeight:800 }}>
-        {headings[index]}
-      </div>
-
-      {/* Text */}
-      <div className={`${animate ? 'slideTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white', fontSize:'21px' }}>
+      <div className={`${animate ? 'slideTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white', top:'50%', fontSize:'17px',fontWeight:200 }}>
+        <div style={{fontSize:'30px', fontWeight:600}}>{headings[index]}</div>
         {texts[index]}
       </div>
 
@@ -198,7 +195,7 @@ function MiniSlideShow({ items }) {
             <img
               src={item.img}
               alt="slide"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', position:'relative', top:'-40px' }}
             />
           </div>
 
@@ -208,7 +205,7 @@ function MiniSlideShow({ items }) {
             </div>
             <div style={{fontSize:'15px', color:'rgba(250, 250, 250, 0.66)',display:'flex', gap:'5px', flexDirection:'column'}} className="opacityHover">
               <span>{item.desc}</span>
-              <span style={{display:'flex',alignItems:'center', gap:'10px'}}><span>View Course </span><HiMiniArrowLongRight style={{fontSize:'25px'}}/></span>
+              <span style={{display:'flex',alignItems:'center', gap:'10px', justifyContent:'center'}}><span>View Course </span><HiMiniArrowLongRight style={{fontSize:'25px'}}/></span>
             </div>
           </a>
 
@@ -357,13 +354,13 @@ const popularCoursesData = [
       
       <div style={{display:'flex', width:'100%',  alignItems:'center'}}>
         
-        <div style={{ zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer', height:'fit-content' }} onClick={prev}>
+        <div style={{ zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#0C2B4E', cursor: 'pointer', height:'fit-content' }} onClick={prev}>
           <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
         </div>
 
         <MiniSlideShow items={itemsToShow} />
 
-        <div style={{zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer', height:'fit-content' }} onClick={next}>
+        <div style={{zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#0C2B4E', cursor: 'pointer', height:'fit-content' }} onClick={next}>
           <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
         </div>
 
@@ -375,10 +372,10 @@ const popularCoursesData = [
 
 function StartJourney(){
   return(
-    <div style={{width:'100%', height:'fit-content', display:'flex', justifyContent:'center', alignItems:'center', padding:'50px 20px', background:'linear-gradient(45deg, blue, purple', gap:'20px', flexDirection:'column', color:'white'}}>
+    <div style={{width:'100%', height:'fit-content', display:'flex', justifyContent:'center', alignItems:'center', padding:'50px 20px', backgroundColor:'#0C2B4E', gap:'20px', flexDirection:'column', color:'white'}}>
       <div>Ready to Start Your Journey</div>
       <div>Join thousands entrepreneurs who are building their dreamswith Our app</div>
-      <div style={{backgroundColor:'white', color:'blue', padding:'15px', width:'150px', borderRadius:'15px'}}>Sign Up Now</div>
+      <div style={{backgroundColor:'white', color:'#0C2B4E', padding:'15px', width:'150px', borderRadius:'15px', textAlign:'center',fontWeight:600}}>Sign Up Now</div>
     </div>
   )
 }
@@ -386,19 +383,22 @@ function StartJourney(){
 function Testimonials(){
   return(
     <div style={{display:'flex', flexWrap:'wrap', gap:'50px', margin:'50px 0px'}}>
-      <div style={{display:'flex', flexDirection:'column', gap:'40px', width:'45%', flexGrow:1, minWidth:'250px', padding:'20px'}}>
+      <div style={{display:'flex', flexDirection:'column', gap:'10px', width:'45%', flexGrow:1, minWidth:'250px', padding:'20px'}}>
         {/* <div style={{style:'20px ', fontWeight:500}}>Mr SosPeter Owur</div> */}
-        <div style={{style:'20px ', fontWeight:500}}>ABOUT FOUNDER</div>
+        <div style={{fontSize:'25px ', fontWeight:600}}>ABOUT FOUNDER</div>
         <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', textAlign:'justify', gap:'15px'}}>
-          <div style={{width:'60%', flex:'1 1 250px',}}> 
-            Sospeter Owuor is a visionary businessman, investor, and corporate leader whose focuses is modernizing Tanzania's agricultural sector to meet global standards. He has extensive experience in agricultural value chains, export operations, agro-processing and international trade. As the acting Managing Director and Co-Founder of TANZCOFFEE TRADING COMPANY LTD, he provides strategic leadership in operations, commercial development, and organizational expansion.
-            <br/>
-            He previously co-founded Brice Agribusiness Ltd and Brice Agribusiness UK, a London-based company branch where he served as Operations Director, following his resignation from Room to Read Tanzania. He effectively managed and coordinated exports to international markets, including South Africa, China, and Turkey.
+          <div style={{width:'60%', flex:'1 1 250px',gap:'30px', display:'flex', flexDirection:'column'}}> 
+            <p>
+              Sospeter Owuor is a visionary businessman, investor, and corporate leader whose focuses is modernizing Tanzania's agricultural sector to meet global standards. He has extensive experience in agricultural value chains, export operations, agro-processing and international trade. As the acting Managing Director and Co-Founder of TANZCOFFEE TRADING COMPANY LTD, he provides strategic leadership in operations, commercial development, and organizational expansion.
+            </p>
+            <p>
+              He previously co-founded Brice Agribusiness Ltd and Brice Agribusiness UK, a London-based company branch where he served as Operations Director, following his resignation from Room to Read Tanzania. He effectively managed and coordinated exports to international markets, including South Africa, China, and Turkey.
+            </p>
           </div>
           <img src={Sospeter} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid #0C2B4E', flex:'1 1 100px'}}/>
         </div>
       </div>
-      <div style={{ width:'45%', flexGrow:1, minWidth:'250px',display:'flex', padding:'20px', background:'linear-gradient(45deg, blue, purple', color:'white'}}>
+      <div style={{ width:'45%', flexGrow:1, minWidth:'250px',display:'flex', padding:'20px', background:'#0C2B4E', color:'white'}}>
         <UltraMiniSlideShow/>
       </div>
     </div>

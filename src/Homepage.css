@@ -3,7 +3,7 @@
 }
 
 .heightHover {
-  height: 40%;            /* initial height */
+  height: 33%;            /* initial height */
   overflow: hidden;       /* hide overflowing content */
   transition: height 0.3s ease;  /* animate height */
 }
@@ -16,7 +16,7 @@
 
 /* Hover triggered by parent container */
 .slideShowHeight:hover > a.heightHover {
-  height: 85%;           /* expand anchor on hover */
+  height: 60%;           /* expand anchor on hover */
 }
 
 .slideShowHeight:hover .opacityHover {

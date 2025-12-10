@@ -116,7 +116,7 @@ export default function Course(){
                             </h2>
                             <section style={{display:'flex', flexDirection:'column', gap:'20px'}}>
                                 <div style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
-                                    <div>
+                                    <div style={{paddingLeft:'30px'}}>
                                         <h2 style={{fontSize:'16px', fontWeight:500,}}>
                                             Module 1: Project Management
                                         </h2>
@@ -135,7 +135,7 @@ export default function Course(){
                                 </div>
                                 
                                 <div style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
-                                    <div>
+                                    <div style={{paddingLeft:'30px'}}>
                                         <h2 style={{fontSize:'16px', fontWeight:500,}}>Module 2: Project Design</h2>
                                         <p style={{color:'rgba(80,80,80,0.8)', maxWidth:'700px'}}>
                                             This will help to govern the project of your choice .. .. .. .. ... ... .....
@@ -163,7 +163,7 @@ export default function Course(){
                                 </div>
 
                                 <div style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
-                                    <div>
+                                    <div style={{paddingLeft:'30px'}}>
                                         <h2 style={{fontSize:'16px', fontWeight:500,}}>
                                             Module 3: Data Evaluation
                                         </h2>
@@ -179,7 +179,7 @@ export default function Course(){
                                 </div>
 
                                 <div style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
-                                    <div>
+                                    <div style={{paddingLeft:'30px'}}>
                                         <h2 style={{fontSize:'16px', fontWeight:500,}}>Module 4: Data Collection    
                                         </h2>
                                         <p style={{color:'rgba(80,80,80,0.8)', maxWidth:'700px'}}>
@@ -216,7 +216,7 @@ export default function Course(){
                             <h2 style={{textAlign:'left'}}>
                                 Hint
                             </h2>
-                            <p style={{backgroundColor:'#0C2B4E', color:'white', padding:'15px', borderRadius:'5px', cursor:'pointer'}}>
+                            <p style={{boxShadow:'1px 0.5px 5px #0c2b4e96', padding:'20px', borderRadius:'40px', cursor:'pointer'}}>
                                 Costs (TZS 50,000 for company name reservation and minimum amount of TZS 20,000 and
                                 maximum 550,000 depending on the nature of company and initial capital invested)
                             </p>

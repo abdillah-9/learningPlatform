@@ -1,3 +1,55 @@
+/* add in your global.css or tiptap-editor.css */
+.table-bordered {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid #999;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+/* TipTap editor styling */
+.tiptap-editor table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tiptap-editor th,
+.tiptap-editor td {
+  border: 1px solid #999;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.tiptap-editor .ProseMirror {
+  min-height: 300px; /* ensures tables/cells are visible */
+}
+/* Student-view table styling */
+.tiptap-content table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tiptap-content th,
+.tiptap-content td {
+  border: 1px solid #999;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.tiptap-content th {
+  background-color: #a1c6d1; /* optional header color */
+}
+
+.tiptap-content tr:nth-child(even) td {
+  background-color: #fafafa; /* optional zebra stripes */
+}
+
+
 *{
   box-sizing: border-box;
   margin: 0px;

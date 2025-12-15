@@ -1,160 +1,8 @@
-/****************************************************
- FULL ADMIN HOME — FIXED VERSION
-****************************************************/
-
 import { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import TipTapEditor from "../../components/editor/TipTapEditor";
 
-import MwangazaLogo from "../assets/MwangazaLogo.jpg";
-import userPic from "../assets/Sospeter.webp";
+export default function CourseManager() {
 
-import { HiHome, HiUser } from "react-icons/hi2";
-import { FaBookOpenReader } from "react-icons/fa6";
-
-export default function AdminHome() {
-  const [active, setActive] = useState("courses");
-
-  const renderContent = () => {
-    switch (active) {
-      case "dashboard":
-        return <Dashboard />;
-      case "users":
-        return <UserManager />;
-      case "courses":
-      default:
-        return <CourseManager />;
-    }
-  };
-
-  return (
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
-      <TopNavBar />
-      <SideBar active={active} setActive={setActive} />
-      <div style={{ flexGrow: 1, width: "calc(100% - 200px)" }}>
-        {renderContent()}
-      </div>
-    </div>
-  );
-}
-
-/****************************************************
- SIDEBAR
-****************************************************/
-
-function SideBar({ active, setActive }) {
-  const links = [
-    { name: "Dashboard", key: "dashboard", icon: <HiHome /> },
-    { name: "User Management", key: "users", icon: <HiUser /> },
-    { name: "Courses Management", key: "courses", icon: <FaBookOpenReader /> },
-  ];
-
-  return (
-    <div
-      style={{
-        backgroundColor: "#F4B342",
-        width: "200px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "20px",
-        padding: "25px 0px 0px 15px",
-      }}
-    >
-      {links.map((link) => (
-        <div
-          key={link.key}
-          onClick={() => setActive(link.key)}
-          style={{
-            borderRadius: "30px 0px 0px 30px",
-            padding: "5px",
-            display: "flex",
-            gap: "7px",
-            alignItems: "center",
-            cursor: "pointer",
-            backgroundColor: active === link.key ? "white" : "transparent",
-          }}
-        >
-          <span
-            style={{
-              padding: "7px 11px",
-              borderRadius: "50%",
-              backgroundColor: active === link.key ? "#F4B342" : "black",
-              color: active === link.key ? "black" : "#F4B342",
-            }}
-          >
-            {link.icon}
-          </span>
-          <span
-            style={{
-              color: active === link.key ? "#835912ff" : "#000000ff",
-            }}
-          >
-            {link.name}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-/****************************************************
- TOP NAV BAR
-****************************************************/
-
-function TopNavBar() {
-  return (
-    <section>
-      <div
-        style={{
-          width: "100vw",
-          minHeight: "80px",
-          backgroundColor: "#0C2B4E",
-          color: "white",
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "10px 15px",
-          alignItems: "center",
-          flexWrap: "wrap",
-        }}
-      >
-        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <img
-            src={MwangazaLogo}
-            width="60"
-            height="60"
-            style={{ borderRadius: "50%" }}
-          />
-          <span style={{ fontSize: "17px", fontWeight: 600 }}>
-            MWANGAZA BUSINESS & INVESTMENT SCHOOL
-          </span>
-        </div>
-
-        <div style={{ display: "flex", gap: "50px" }}>
-          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-            <img
-              src={userPic}
-              width="60"
-              height="60"
-              style={{ borderRadius: "50%" }}
-            />
-            <div style={{ fontSize: "14px" }}>
-              <span style={{ color: "rgba(200,200,200,0.8)", fontSize: "16px" }}>
-                Hello{" "}
-              </span>
-              <span>Mayani</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/****************************************************
- COURSE MANAGER (MAIN)
-****************************************************/
-
-function CourseManager() {
   /* COURSE MAIN DATA */
   const [courseData, setCourseData] = useState({
     number: "",
@@ -210,7 +58,7 @@ function CourseManager() {
           ...mod,
           blocks: [
             ...mod.blocks,
-            { type, content: "", file: null, fileType: "" },
+            { type, content: "", file: null, fileType: "", layout: "row" }, // default layout
           ],
         };
       })
@@ -257,14 +105,71 @@ function CourseManager() {
     );
 
   /****************************************************
-   SUBMIT
+   SUBMIT HANDLER
   ****************************************************/
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("FINAL DATA SENT →", { courseData, modules });
-    alert("Course uploaded! Check console for data.");
+    if (!courseData.startDate) {
+      alert("Start date is required");
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+
+      // Append basic course info
+      formData.append("number", courseData.number);
+      formData.append("name", courseData.name);
+      formData.append("description", courseData.description);
+      formData.append("startDate", courseData.startDate);
+      formData.append("about", courseData.about);
+      formData.append("hint", courseData.hint);
+      formData.append("targetAudience", courseData.targetAudience);
+      formData.append("duration", courseData.duration);
+
+      // Append course picture
+      if (courseData.picture) {
+        formData.append("picture", courseData.picture);
+      }
+
+      // Append modules as JSON
+      formData.append("modules", JSON.stringify(modules));
+
+      // Append block files separately
+      modules.forEach((mod, mIndex) => {
+        mod.blocks.forEach((block, bIndex) => {
+          if (
+            (block.type === "file" || block.type === "fileFull") &&
+            block.file
+          ) {
+            formData.append(
+              `modules_${mIndex}_blocks_${bIndex}_file`,
+              block.file
+            );
+          }
+
+        });
+      });
+
+      // Send to PHP backend
+      const response = await fetch("http://localhost/mwangaza-backend/upload_course.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      const text = await response.text();
+      console.log("RAW RESPONSE FROM PHP:", text);
+      alert(text);
+      return;
+
+
+    } catch (err) {
+      console.error("Error uploading course:", err);
+      alert("Failed to upload course. Check console.");
+    }
   };
+
 
   /****************************************************/
 
@@ -454,6 +359,30 @@ function CourseManager() {
                     marginTop: "10px",
                   }}
                 >
+                  {/* LAYOUT SELECTOR */}
+                  <label style={{ marginTop: "10px" }}>Layout:</label>
+                  <select
+                    value={block.layout}  // this is the property we added in step 1
+                    onChange={(e) => {
+                      const newLayout = e.target.value;
+                      setModules((prev) =>
+                        prev.map((mod, mIndex) => {
+                          if (mIndex !== index) return mod; // leave other modules untouched
+                          return {
+                            ...mod,
+                            blocks: mod.blocks.map((b, i) =>
+                              i === bIndex ? { ...b, layout: newLayout } : b // update just this block
+                            ),
+                          };
+                        })
+                      );
+                    }}
+                    style={input} // reusing your input style
+                  >
+                    <option value="row">Row: Text & Image Side by Side</option>
+                    <option value="column">Column: Vertical Stack</option>
+                  </select>
+
                   <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <strong>Block {bIndex + 1}</strong>
 
@@ -494,51 +423,74 @@ function CourseManager() {
                     style={input}
                   >
                     <option value="text">Text Block</option>
+                    <option value="textFull">Full Width Text</option>
                     <option value="file">File Block</option>
+                    <option value="fileFull">Full Width File</option>
+                    <option value="button">Button</option>
                   </select>
 
-                  {/* TEXT BLOCK */}
-                  {block.type === "text" && (
-                    <ReactQuill
-                      theme="snow"
-                      value={block.content}
-                      onChange={(val) =>
-                        updateTextBlock(index, bIndex, val)
-                      }
-                      style={{ marginTop: "10px" }}
-                    />
-                  )}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: block.layout === "row" ? "row" : "column",
+                      gap: "15px",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexWrap: block.layout === "row" ? "wrap" : "nowrap",
+                      marginTop: "10px",
+                    }}
+                  >
+                    {/* TEXT BLOCK */}
+                    {(block.type === "text" || block.type === "textFull") && (
+                      <TipTapEditor
+                        value={block.content}
+                        onChange={(html) => updateTextBlock(index, bIndex, html)}
+                      />
+                    )}
 
-                  {/* FILE BLOCK */}
-                  {block.type === "file" && (
-                    <input
-                      type="file"
-                      onChange={(e) =>
-                        updateFileBlock(index, bIndex, e.target.files[0])
-                      }
-                      style={{ marginTop: "10px" }}
-                    />
-                  )}
+                    {/* FILE BLOCK */}
+                    {(block.type === "file" || block.type === "fileFull") && (
+                      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                        <input
+                          type="file"
+                          onChange={(e) =>
+                            e.target.files[0] && updateFileBlock(index, bIndex, e.target.files[0])
+                          }
+                        />
+
+                        {block.file && (
+                          <a
+                            href={URL.createObjectURL(block.file)}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {block.file.name}
+                          </a>
+                        )}
+                      </div>
+                    )}
+
+                    {/* BUTTON BLOCK EDITOR */}
+                    {block.type === "button" && (
+                      <TipTapEditor
+                        value={block.content}
+                        onChange={(html) => updateTextBlock(index, bIndex, html)}
+                      />
+                    )}
+
+
+                  </div>
+
                 </div>
               ))}
 
               {/* ADD BLOCK BUTTONS */}
-              <div style={{ marginTop: "10px", display: "flex", gap: "10px" }}>
-                <button
-                  type="button"
-                  onClick={() => addBlock(index, "text")}
-                  style={btnAdd}
-                >
-                  + Add Text Block
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => addBlock(index, "file")}
-                  style={btnAdd}
-                >
-                  + Add File Block
-                </button>
+              <div style={{ marginTop: "10px", display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                <button type="button" onClick={() => addBlock(index, "text")} style={btnAdd}>+ Add Text Block</button>
+                <button type="button" onClick={() => addBlock(index, "textFull")} style={btnAdd}>+ Add Full Text Block</button>
+                <button type="button" onClick={() => addBlock(index, "file")} style={btnAdd}>+ Add File Block</button>
+                <button type="button" onClick={() => addBlock(index, "fileFull")} style={btnAdd}>+ Add Full File Block</button>
+                <button type="button" onClick={() => addBlock(index, "button")} style={btnAdd}>+ Add Button Block</button>
               </div>
             </div>
           ))}
@@ -556,7 +508,6 @@ function CourseManager() {
     </div>
   );
 }
-
 /****************************************************
  STYLES
 ****************************************************/
@@ -614,15 +565,3 @@ const btnSmallDelete = {
   border: "none",
   cursor: "pointer",
 };
-
-/****************************************************
- OTHER SCREENS
-****************************************************/
-
-function Dashboard() {
-  return <div style={{ height: "600px" }}>Dashboard</div>;
-}
-
-function UserManager() {
-  return <div style={{ height: "600px" }}>Form to manage user account</div>;
-}

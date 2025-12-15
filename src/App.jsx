@@ -2,8 +2,6 @@ import React, { useContext, useEffect } from 'react'
 import "./Global.css"
 import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Home from './pages/Home';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
 import MainApp from './pages/MainApp';
 import About from './pages/About';
 import { AuthContext } from './AuthProvider';
@@ -13,7 +11,7 @@ import Auth from './components/Auth/Auth';
 import ForgotPassword from './components/Auth/ForgotPassword';
 import ResetPassword from './components/Auth/ResetPassword';
 import ViewAllCourses from './components/ViewAllCourses';
-import AdminHome from './components/AdminHome';
+import AdminUploadCourse from './features/admin/AdminUploadCourse';
 
 export default function App() {
     const userDataContext = useContext(AuthContext);
@@ -67,7 +65,7 @@ export default function App() {
               <Route path={"/auth/admin_home"} 
                      element={
                      <PublicRoute>
-                      <AdminHome />
+                      <AdminUploadCourse/>
                      </PublicRoute>}
               />
               <Route path={"/view_all_courses"} 

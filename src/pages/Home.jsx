@@ -20,13 +20,39 @@ import { BookAIcon, BookOpenCheckIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Home(){
+  const [coursesList, setCoursesList] = useState([]);
+
+  useEffect(()=>{
+      async function FetchCourses(){
+    try{
+      const res = await fetch("http://localhost/mwangaza-backend/get_all_courses.php",{
+        method:'POST',
+        body:''
+      });
+
+      if(res.ok){
+        const data = await res.json();
+        console.log('Courses are '+JSON.stringify(data));
+        setCoursesList(data.data);
+      }
+    }
+    catch(e){
+      alert('Err is '+e);
+    }
+  }
+  FetchCourses();
+  },[]);
+
   const navigateTo = useNavigate();
+  if(!coursesList){
+    return
+  }
   return(
     <div>
       {/** SLIDESHOW */}
       <SlideShow />
       {/** POPULAR Courses */}
-      <PopularCourses/>
+      <PopularCourses coursesList={coursesList}/>
     
       {/** StartJourney */}
       <StartJourney />
@@ -156,10 +182,10 @@ useEffect(() => {
       radial-gradient(
         circle at center,
         rgba(0, 0, 0, 0.55) 0%,
-        rgba(0, 0, 0, 0.20) 35%,
-        rgba(0, 0, 0, 0.40) 60%,
+        rgba(0, 0, 0, 0.30) 35%,
+        rgba(0, 0, 0, 0.20) 60%,
         rgba(0, 0, 0, 0.60) 80%,
-        rgba(0, 0, 0, 0.75) 100%
+        rgba(0, 0, 0, 0.85) 100%
       )
     `
   }}
@@ -185,29 +211,31 @@ useEffect(() => {
 }
 
 function MiniSlideShow({ items }) {
+  const navigateTo = useNavigate();
 
   return (
     <div style={{display:'flex', justifyContent:'space-between', gap:'25px', flexWrap:'wrap',padding:'0px 20px'}}>
       {items.map((item, i) => (
         <div key={i} className="slideShowHeight" style={{ minWidth:'150px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
           
-          <div style={{ position: 'relative', width: '100%',height:'100%' }}>
-            <img
-              src={item.img}
-              alt="slide"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', position:'relative', top:'-40px' }}
-            />
+          <div style={{ position: 'relative', width: '100%',height:'auto', aspectRatio:16/9, backgroundColor:'#0C2B4E' }}>
+          <img
+            src={ item.picture != null ? `http://localhost/mwangaza-backend/${item.picture}` : pic1}
+            alt={item.name}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+
           </div>
 
-          <a style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#0C2B4E', width:'100%', display:'flex', flexDirection:'column', gap:'15px', padding:'20px 0px'}} className="heightHover" href="/enroll_course">
+          <div style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#0C2B4E', width:'100%', display:'flex', flexDirection:'column', gap:'15px', padding:'20px 0px'}} className="heightHover" onClick={()=>{navigateTo(`enroll_course/${item.id}`)}}>
             <div>
-              {item.text}
+              {item.name}
             </div>
             <div style={{fontSize:'15px', color:'rgba(250, 250, 250, 0.66)',display:'flex', gap:'5px', flexDirection:'column'}} className="opacityHover">
-              <span>{item.desc}</span>
+              <span>{item.description}</span>
               <span style={{display:'flex',alignItems:'center', gap:'10px', justifyContent:'center'}}><span>View Course </span><HiMiniArrowLongRight style={{fontSize:'25px'}}/></span>
             </div>
-          </a>
+          </div>
 
         </div>
       ))}
@@ -322,31 +350,34 @@ useEffect(() => {
   );
 }
 
-function PopularCourses(){
+function PopularCourses({coursesList}){
     // 9 items – 3 will show at a time
-const popularCoursesData = [
-  { img: pic7, text: "Brela and Business Registration", desc:'Own your company and be your own C.E.O' },
-  { img: pic8, text: "shaping an Opportunity", desc:'Its’ 21st century, pursue your business idea through an organization'  },
-  { img: pic9, text: "Financial Literacy", desc:'An asset puts money in my pocket. A liability takes money out of my pocket'  },
-  { img: pic4, text: "Intelligent Spending", desc:'It’s not how much money you make. It’s how much money you keep'  },
-  { img: pic5, text: "Financial Literacy", desc:'Money without financial intelligence is money soon gone'  },
-  { img: pic1, text: "Problem solving through organization", desc:'A recognized business idea should be pursued through creation of business organization'  },
-  { img: pic2, text: "Course 7", desc:'desc 7'  },
-  { img: pic3, text: "Course 8", desc:'desc 8'  },
-  { img: pic4, text: "Course 9", desc:'desc 9'  },
-];
+// const popularData = [
+//   { img: pic7, text: "Brela and Business Registration", desc:'Own your company and be your own C.E.O' },
+//   { img: pic8, text: "shaping an Opportunity", desc:'Its’ 21st century, pursue your business idea through an organization'  },
+//   { img: pic9, text: "Financial Literacy", desc:'An asset puts money in my pocket. A liability takes money out of my pocket'  },
+//   { img: pic4, text: "Intelligent Spending", desc:'It’s not how much money you make. It’s how much money you keep'  },
+//   { img: pic5, text: "Financial Literacy", desc:'Money without financial intelligence is money soon gone'  },
+//   { img: pic1, text: "Problem solving through organization", desc:'A recognized business idea should be pursued through creation of business organization'  },
+//   { img: pic2, text: "Course 7", desc:'desc 7'  },
+//   { img: pic3, text: "Course 8", desc:'desc 8'  },
+//   { img: pic4, text: "Course 9", desc:'desc 9'  },
+// ];
+if(!coursesList){
+  return;
+}
   const [index, setIndex] = useState(0); // 0, 3, 6
 
   const next = () => {
-    setIndex((prev) => (prev + 3) % popularCoursesData.length);
+    setIndex((prev) => (prev + 3) % coursesList.length);
   };
 
   const prev = () => {
-    setIndex((prev) => (prev - 3 + popularCoursesData.length) % popularCoursesData.length);
+    setIndex((prev) => (prev - 3 + coursesList.length) % coursesList.length);
   };
 
   // slice 3 items
-  const itemsToShow = popularCoursesData.slice(index, index + 3);
+  const itemsToShow = coursesList.slice(index, index + 3);
 
   return(
     <div style={{display:'flex',gap:'60px', flexDirection:'column', padding:'50px 20px'}}>

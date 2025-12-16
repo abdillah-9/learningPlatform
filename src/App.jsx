@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react'
 import "./Global.css"
 import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Home from './pages/Home';
-import MainApp from './pages/MainApp';
 import About from './pages/About';
 import { AuthContext } from './AuthProvider';
 import LoadingSpinner from './components/LoadingSpinner';
@@ -11,7 +10,7 @@ import Auth from './components/Auth/Auth';
 import ForgotPassword from './components/Auth/ForgotPassword';
 import ResetPassword from './components/Auth/ResetPassword';
 import ViewAllCourses from './components/ViewAllCourses';
-import AdminUploadCourse from './features/admin/AdminUploadCourse';
+import MainApp from './features/admin/MainApp';
 
 export default function App() {
     const userDataContext = useContext(AuthContext);
@@ -56,16 +55,16 @@ export default function App() {
                       <ResetPassword />
                      </PublicRoute>}
               />
-              <Route path={"/enroll_course"} 
+              <Route path={"/enroll_course/:courseId"} 
                      element={
                      <PublicRoute>
                       <Course />
                      </PublicRoute>}
               />
-              <Route path={"/auth/admin_home"} 
+              <Route path={"/auth/main_App"} 
                      element={
                      <PublicRoute>
-                      <AdminUploadCourse/>
+                      <MainApp />
                      </PublicRoute>}
               />
               <Route path={"/view_all_courses"} 

@@ -6,6 +6,7 @@
   height: 33%;            /* initial height */
   overflow: hidden;       /* hide overflowing content */
   transition: height 0.3s ease;  /* animate height */
+  cursor: pointer;
 }
 
 .opacityHover {
@@ -15,7 +16,7 @@
 }
 
 /* Hover triggered by parent container */
-.slideShowHeight:hover > a.heightHover {
+.slideShowHeight:hover > div.heightHover {
   height: 60%;           /* expand anchor on hover */
 }
 

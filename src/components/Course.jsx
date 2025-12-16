@@ -1,18 +1,47 @@
-import { BookOpenCheck, MailIcon } from "lucide-react";
 import course_image from '../assets/AI Gen 2.webp';
 import { BsCalendar2Date, BsFillInfoCircleFill, BsTwitterX } from "react-icons/bs";
 import { FaPaperPlane, FaPencil } from "react-icons/fa6";
-import { MdMarkEmailUnread } from "react-icons/md";
-import { IoIosMail, IoMdCall } from "react-icons/io";
 import { RiTwitterXFill } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { SiFacebook } from "react-icons/si";
 import { TbBrandLinkedin, TbBrandLinkedinFilled } from "react-icons/tb";
 import { TiSocialInstagram } from "react-icons/ti";
+import { useEffect, useState } from 'react';
 
 export default function Course(){
     const navigateTo = useNavigate();
+    const {courseId} = useParams();
+    const [courseData, setCourseData] = useState(null);
+
+    //fetch respective course
+    useEffect(()=>{
+        async function fetchCourse() {
+            const formData = new FormData();
+            formData.append('courseId',courseId);
+            try{
+                const res = await fetch('http://localhost/mwangaza-backend/get_selected_course.php',{
+                    method:"POST",
+                    body:formData
+                });
+
+                if(res.ok){
+                    const data = await res.json();
+                    console.log(JSON.stringify(data));
+                    setCourseData(data);
+                }
+            }   
+            catch(err){
+                alert('Error '+err);
+            }         
+        }
+        fetchCourse();
+    },[]);
+    
+    if(!courseData){
+        return
+    }
+
     return(
         <div style={{width:'100vw', display:'flex', flexDirection:'column', gap:'40px', backgroundColor:'rgba(225, 227, 253, 1)',}}>
             <nav style={{backgroundColor:'rgba(0, 29, 82, 1)', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
@@ -26,8 +55,8 @@ export default function Course(){
                 </div>
                 {/** Course number & Course name */}
                 <div style={{display:'flex', gap:'3px', fontSize:'17px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'40px'}}>
-                    <span>FZ234:</span>
-                    <span>Planning for Evaluation and Monitoring</span>
+                    <span>{courseData.course.number}:</span>
+                    <span>{courseData.course.name}</span>
                 </div>
                 {/** Buotton links */}
                 <div style={{display:'flex', gap:'20px', height:'fit-content', }}>
@@ -40,19 +69,19 @@ export default function Course(){
             <section style={{width:'93%', backgroundColor:'white', alignSelf:'center', padding:'15px'}}>
                 {/** Heading */}
                 <div style={{border:'1px solid black', display:'flex', flexWrap:'wrap', padding:'20px', gap:'30px', justifyContent:'space-between', alignItems:'center'}}>
-                    <div style={{width:'fit-content', display:'flex', flexDirection:'column'}}>
+                    <div style={{flex:'1 1 60%',display:'flex', flexDirection:'column'}}>
                         <div style={{display:'flex', gap:'10px'}}>
                             <p style={{fontSize:'33px'}}>
-                                Planning for Monitoring and Evaluation
+                                {courseData.course.name}
                             </p>
-                            <span style={{backgroundColor:'rgba(70, 169, 194, 1)',padding:'5px 20px', color:'white', borderRadius:"10px", height:'fit-content'}}>FZ234</span>
+                            <span style={{backgroundColor:'rgba(70, 169, 194, 1)',padding:'5px 20px', color:'white', borderRadius:"10px", height:'fit-content'}}>{courseData.course.number}</span>
                         </div>
                         <p style={{paddingBottom:'20px', borderBottom:'2px solid rgba(200,200,200,0.8)',fontSize:'16px', color:'rgba(54, 53, 53, 0.8)',width:'90%'}}>
-                            Learn how successful projects plan for data collection, management, analysis, and use.
+                            {courseData.course.description}
                         </p>
                         <span style={{background:'linear-gradient(180deg,rgba(23, 161, 241, 1) 40%, rgba(0, 116, 184, 1) 60%', padding:'10px', color:'white', fontSize:'20px', textAlign:'center', marginTop:'20px', width:'90%',maxWidth:'400px', border:'1px solid black', borderRadius:'5px', cursor:'pointer'}}>Enroll Now</span>
                     </div>
-                    <img src={course_image} alt="pic" width={'40%'} style={{aspectRatio:1/0.6, maxWidth:"350px"}}/>
+                    <img src={`http://localhost/mwangaza-backend/${courseData.course.picture}`} alt="pic" width={'40%'} style={{aspectRatio:1/0.6, maxWidth:"300px"}}/>
                 </div>
 
                 {/** Body */}
@@ -64,7 +93,7 @@ export default function Course(){
                             <div style={{maxWidth:'700px', width:'100%'}}>
                                 <h2 style={{textAlign:'left'}}>About This Course</h2>
                                 <p>
-                                    How will you measure your project’s success? This free online course will help you answer this question by introducing the basics of monitoring and evaluation (M&E). In this course, you will learn how successful projects plan for data collection, management, analysis, and use. As you complete the course assignments, you will create an M&E plan for your own project. Learners who complete this free online M&E course are eligible to receive a Certificate of Achievement through the Haas School of Business at the University of California, Berkeley (Berkeley Haas).
+                                    {courseData.course.about}
                                 </p>
                             </div>
 
@@ -83,7 +112,7 @@ export default function Course(){
                                             <span>Course Number</span>
                                         </div>
                                         <div  style={{fontWeight:600}}>
-                                            FZ234
+                                            {courseData.course.number}
                                         </div>
                                     </div>
                                     <div style={{display:'flex', justifyContent:'space-between', gap:'15px', flexWrap:'wrap', minWidth:'250px', padding:'10px 0px',borderBottom:'1px solid rgba(100,100,100,0.8)',color:'rgba(80,80,80,0.8)',height:'fit-content'}}>
@@ -92,7 +121,7 @@ export default function Course(){
                                             <span>Classes Start</span>
                                         </div>
                                         <div style={{fontWeight:600}}>
-                                            Jan, 2 2025
+                                            {courseData.course.start_date}
                                         </div>
                                     </div>
                                     <div style={{display:'flex', justifyContent:'space-between', gap:'15px', flexWrap:'wrap', minWidth:'250px', padding:'10px 0px',borderBottom:'1px solid rgba(100,100,100,0.8)',color:'rgba(80,80,80,0.8)',height:'fit-content'}}>
@@ -101,7 +130,7 @@ export default function Course(){
                                             <span>Course duration</span>
                                         </div>
                                         <div style={{fontWeight:600}}>
-                                            30 minutes
+                                            {courseData.course.duration}
                                         </div>
                                     </div>
 
@@ -115,87 +144,28 @@ export default function Course(){
                                 Course Modules
                             </h2>
                             <section style={{display:'flex', flexDirection:'column', gap:'20px'}}>
-                                <div style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
+                                {
+                                    courseData.courseModules.map((item, index)=>
+                                <div key={index}  style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
                                     <div style={{paddingLeft:'30px'}}>
                                         <h2 style={{fontSize:'16px', fontWeight:500,}}>
-                                            Module 1: Project Management
+                                            Module {++index}: {item.title}
                                         </h2>
                                         <p style={{color:'rgba(80,80,80,0.8)', maxWidth:'700px'}}>
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
+                                            {item.description}
                                         </p>
                                     </div>
                                     <div style={{display:'flex', justifyContent:'space-between', gap:'15px', flexWrap:'wrap', minWidth:'250px', padding:'10px 0px',borderBottom:'1px solid rgba(100,100,100,0.8)',color:'rgba(80,80,80,0.8)',height:'fit-content'}}>
                                         <div style={{display:'flex', gap:'7px', }}>
-                                            <span>Video Session Cost</span>
+                                            <span>Session Costs</span>
                                         </div>
                                         <div style={{fontWeight:600}}>
-                                            50,000Tsh
+                                            {item.cost}
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
-                                    <div style={{paddingLeft:'30px'}}>
-                                        <h2 style={{fontSize:'16px', fontWeight:500,}}>Module 2: Project Design</h2>
-                                        <p style={{color:'rgba(80,80,80,0.8)', maxWidth:'700px'}}>
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                        </p> 
-                                    </div>
-                                    <div style={{display:'flex', justifyContent:'space-between', gap:'15px', flexWrap:'wrap', minWidth:'250px', padding:'10px 0px',borderBottom:'1px solid rgba(100,100,100,0.8)',color:'rgba(80,80,80,0.8)',height:'fit-content'}}>
-                                        <div style={{display:'flex', gap:'7px'}}>
-                                            <span>Video Session Cost</span>
-                                        </div>
-                                        <div style={{fontWeight:600}}>
-                                            1,700Tsh
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
-                                    <div style={{paddingLeft:'30px'}}>
-                                        <h2 style={{fontSize:'16px', fontWeight:500,}}>
-                                            Module 3: Data Evaluation
-                                        </h2>
-                                    </div>
-                                    <div style={{display:'flex', justifyContent:'space-between', gap:'15px', flexWrap:'wrap', minWidth:'250px', padding:'10px 0px',borderBottom:'1px solid rgba(100,100,100,0.8)',color:'rgba(80,80,80,0.8)',height:'fit-content'}}>
-                                        <div style={{display:'flex', gap:'7px'}}>
-                                            <span>Reading Session Cost</span>
-                                        </div>
-                                        <div style={{fontWeight:600}}>
-                                            1,000Tsh
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
-                                    <div style={{paddingLeft:'30px'}}>
-                                        <h2 style={{fontSize:'16px', fontWeight:500,}}>Module 4: Data Collection    
-                                        </h2>
-                                        <p style={{color:'rgba(80,80,80,0.8)', maxWidth:'700px'}}>
-                                            This will help to govern the project of your choice .. .. .. .. ... ... .....
-                                        </p>
-                                    </div>
-                                    <div style={{display:'flex', justifyContent:'space-between', gap:'15px', flexWrap:'wrap', minWidth:'250px', padding:'10px 0px',borderBottom:'1px solid rgba(100,100,100,0.8)',color:'rgba(80,80,80,0.8)',height:'fit-content'}}>
-                                        <div style={{display:'flex', gap:'7px'}}>
-                                            <span>Video Session Cost</span>
-                                        </div>
-                                        <div style={{fontWeight:600}}>
-                                            23,000Tsh
-                                        </div>
-                                    </div>
-                                </div>
-
+                                )
+                                }
                             </section>
                         </div>
 
@@ -205,9 +175,9 @@ export default function Course(){
                                 Who Should Take This Course
                             </h2>
                             <div>
-                                Choice .. .. .. .. ... ... ..... This will help to govern the project of your choice .. .. .. .. ... ... ..... This will help to govern the project of your choice .. .. .. .. ... ... ..... This will help to govern the project of your choice .. .. .. .. ... ... ..... This will help to govern the project of your choice .. .. .. .. ... ... .....
+                                {courseData.course.target_audience}
                             </div>
-                            <h2 style={{textAlign:'left', color:'black', fontSize:'17px'}}>
+                            <h2 style={{textAlign:'left', color:'black', fontSize:'16px'}}>
                                 Click Enroll Now to get started
                             </h2>
                         </div>
@@ -217,8 +187,7 @@ export default function Course(){
                                 Hint
                             </h2>
                             <p style={{boxShadow:'1px 0.5px 5px #0c2b4e96', padding:'20px', borderRadius:'40px', cursor:'pointer'}}>
-                                Costs (TZS 50,000 for company name reservation and minimum amount of TZS 20,000 and
-                                maximum 550,000 depending on the nature of company and initial capital invested)
+                                {courseData.course.hint}
                             </p>
                         </div>
                     </div>

@@ -7,7 +7,7 @@ import UserManager from "./UserManagment.jsx";
 import Dashboard from "./AdminDashboard.jsx";
 import CourseManager from "./CourseManager.jsx";
 
-export default function AdminUploadCourse() {
+export default function MainApp() {
   const [active, setActive] = useState("courses");
   const [sideBarOpened, setSideBar] = useState(true);
 

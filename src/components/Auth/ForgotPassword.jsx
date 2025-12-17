@@ -14,7 +14,7 @@ export default function ForgotPassword() {
     formData.append("email", email);
 
     try {
-      const res = await fetch("http://localhost/learnAPI/forgot_password.php", {
+      const res = await fetch("http://localhost/mwangaza-backend/forgot_password.php", {
         method: "POST",
         credentials: "include",
         body: formData,

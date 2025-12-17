@@ -21,7 +21,7 @@ export default function ResetPassword() {
     formData.append("token", token);
     formData.append("new_password", password);
 
-    const res = await fetch("http://localhost/learnAPI/reset_password.php", {
+    const res = await fetch("http://localhost/mwangaza-backend/reset_password.php", {
       method: "POST",
       credentials: "include",
       body: formData,

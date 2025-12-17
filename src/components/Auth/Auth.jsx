@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { HiBookOpen } from "react-icons/hi2";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import MwangazaLogo from '../../assets/MwangazaLogo.jpg';
+import { AuthContext } from "../../AuthProvider";
 
 export default function Auth(){
   const navigateTo = useNavigate();
@@ -49,7 +50,7 @@ function SignUp(){
         
         // send data to Backend
         try{
-            const res = await fetch('http://localhost/learnAPI/register.php',{
+            const res = await fetch('http://localhost/mwangaza-backend/register.php',{
                 method:'POST',
                 credentials:'include',
                 body: formdata
@@ -87,6 +88,7 @@ function SignUp(){
 }
 
 function SignIn(){
+    const {userData, setUserData} = useContext(AuthContext);
     const navigateTo = useNavigate();
     async function signInSubmit(e) {
     e.preventDefault();
@@ -94,7 +96,7 @@ function SignIn(){
     const formdata = new FormData(e.target);
 
     try {
-        const res = await fetch("http://localhost/learnAPI/sign_in.php", {
+        const res = await fetch("http://localhost/mwangaza-backend/sign_in.php", {
             method: "POST",
             credentials: "include",
             body: formdata
@@ -103,8 +105,8 @@ function SignIn(){
         const data = await res.json();
 
         if (res.ok) {
+            setUserData(data.user);
             alert(data.message);
-            console.log("Logged in user:", data.user);
         } else {
             alert(data.error || "Login failed");
         }

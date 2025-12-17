@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import MwangazaLogo from "../../assets/MwangazaLogo.jpg";
 import userPic from "../../assets/Sospeter.webp";
 import { HiHome, HiUser } from "react-icons/hi2";
@@ -6,6 +6,8 @@ import { FaBars, FaBookOpenReader, FaCircleXmark } from "react-icons/fa6";
 import UserManager from "./UserManagment.jsx";
 import Dashboard from "./AdminDashboard.jsx";
 import CourseManager from "./CourseManager.jsx";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider.jsx";
 
 export default function MainApp() {
   const [active, setActive] = useState("courses");
@@ -102,6 +104,33 @@ function SideBar({ active, setActive, sideBarOpened }) {
 ****************************************************/
 
 function TopNavBar({sideBarOpened, setSideBar}) {
+  const {setUserData} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  async function LogoutHandler() {
+    try {
+      const res = await fetch("http://localhost/mwangaza-backend/logout.php", {
+        method: "POST",
+        credentials: "include", // VERY IMPORTANT for cookies
+      });
+
+      if (!res.ok) {
+        throw new Error("Logout failed");
+      }
+
+      // Optional: clear any local storage
+      localStorage.clear();
+      sessionStorage.clear();
+
+      // Redirect to login
+      setUserData(null)
+      navigate("/auth/sign_in", { replace: true });
+      alert("You have successfully logget out ");
+    } catch (err) {
+      console.error("Logout error:", err);
+      alert("Failed to logout. Please try again.");
+    }
+  }
   return (
     <section>
       <div
@@ -133,9 +162,17 @@ function TopNavBar({sideBarOpened, setSideBar}) {
           <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
             {
               sideBarOpened ? 
-              <FaCircleXmark style={{fontSize:'25px', cursor:'pointer', marginRight:'20px'}} onClick={()=>{setSideBar(false)}}/> :             
-              <FaBars style={{fontSize:'25px', cursor:'pointer', marginRight:'20px'}} onClick={()=>{setSideBar(true)}}/>
-            }            
+              <div style={{padding:'10px 20px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                <FaCircleXmark style={{fontSize:'16px', cursor:'pointer'}} onClick={()=>{setSideBar(false)}}/> 
+              </div>
+              :
+              <div style={{padding:'10px 20px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center'}}> 
+                <FaBars style={{fontSize:'16px', cursor:'pointer'}} onClick={()=>{setSideBar(true)}}/>
+              </div>             
+            }
+            <div style={{marginRight:'20px',padding:'10px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer'}} onClick={LogoutHandler}>
+              Logout  
+            </div>            
             <img
               src={userPic}
               width="60"

@@ -61,12 +61,6 @@ export default function App() {
                       <Course />
                      </PublicRoute>}
               />
-              <Route path={"/auth/main_App"} 
-                     element={
-                     <PublicRoute>
-                      <MainApp />
-                     </PublicRoute>}
-              />
               <Route path={"/view_all_courses"} 
                      element={
                      <PublicRoute>
@@ -95,9 +89,9 @@ export default function App() {
               />
 
               {/* Protected routes */}
-              <Route path={"/mainApp"} 
+              <Route path={"/auth/main_App"} 
                      element={
-                      <ProtectedRoute role={['farmer','seller']}>
+                      <ProtectedRoute>
                         <MainApp/>
                       </ProtectedRoute>
                      }
@@ -122,45 +116,26 @@ export function NotFoundPage(){
   )
 }
 
-export function ProtectedRoute({children, role}){
-  const move = useNavigate();
-  const {userData} = useContext(AuthContext);
-  const {user_role, user_id} = userData;
+export function ProtectedRoute({ children }) {
+  const { userData, loading } = useContext(AuthContext);
   const location = useLocation();
 
-  console.log("value of user_role is "+user_role);
-  const path = location.pathname; 
-  if(path == '/'  || path == '/signIn' || path == 'signUp'){
-    return <Navigate to='/mainApp' replace/>
+  if (loading) return <LoadingSpinner />;
+
+  if (!userData) {
+    return <Navigate to="/auth/sign_in" replace state={{ from: location }} />;
   }
 
-  if(role.includes(user_role)){
-    return(
-      children
-    );
-  }
-  else if(!role.includes(user_role)){
-    return <Navigate to={'/unAuthorized'} replace />
-    // useEffect(()=>{move('/unAuthorized',{replace: true})}, []);
-  }
+  return children;
 }
 
 export function PublicRoute({children}){
-  // const move = useNavigate();
-  // const {userData} = useContext(AuthContext);
-  // const {user_role, user_id} = userData;
+  const {userData} = useContext(AuthContext);
+  const location = useLocation();
+  let path = location.pathname;
 
-  const user_id = null;
-  console.log("value of user_id is "+user_id);
-
-  if(user_id){
-    return(
-      <Navigate to={'/Home'} replace />  
-    );
+  if((path.includes('sign_in') || path.includes('register'))&& userData){
+    return <Navigate to={'/auth/main_App'} replace />  
   }
-  else{
-    return (
-      children
-    );
-  }
+  return children;
 }

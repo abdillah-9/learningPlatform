@@ -2,12 +2,13 @@ import React, { useContext, useState } from "react";
 import MwangazaLogo from "../../assets/MwangazaLogo.jpg";
 import userPic from "../../assets/Sospeter.webp";
 import { HiHome, HiUser } from "react-icons/hi2";
-import { FaBars, FaBookOpenReader, FaCircleXmark } from "react-icons/fa6";
+import { FaBars, FaBookOpenReader, FaCircleXmark, FaXmark } from "react-icons/fa6";
 import UserManager from "./UserManagment.jsx";
 import Dashboard from "./AdminDashboard.jsx";
 import CourseManager from "./CourseManager.jsx";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider.jsx";
+import Userpage from "../Users/UserPage.jsx";
 
 export default function MainApp() {
   const [active, setActive] = useState("courses");
@@ -18,6 +19,8 @@ export default function MainApp() {
       case "dashboard":
         return <Dashboard />
       case "users":
+        return <Userpage />
+      case "viewer":
         return <UserManager/>
       case "courses":
       default:
@@ -45,7 +48,8 @@ export default function MainApp() {
 function SideBar({ active, setActive, sideBarOpened }) {
   const links = [
     { name: "Dashboard", key: "dashboard", icon: <HiHome /> },
-    { name: "User Management", key: "users", icon: <HiUser /> },
+    { name: "Course Viewer", key: "viewer", icon: <HiUser /> },
+    { name: "User Account", key: "users", icon: <HiUser /> },
     { name: "Courses Management", key: "courses", icon: <FaBookOpenReader /> },
   ];
 
@@ -54,6 +58,7 @@ function SideBar({ active, setActive, sideBarOpened }) {
       style={{
         backgroundColor: "#F4B342",
         width: sideBarOpened ? "200px" : '0px',
+        minHeight:'100vh',
         overflow:'hidden',
         display: "flex",
         flexDirection: "column",
@@ -104,7 +109,7 @@ function SideBar({ active, setActive, sideBarOpened }) {
 ****************************************************/
 
 function TopNavBar({sideBarOpened, setSideBar}) {
-  const {setUserData} = useContext(AuthContext);
+  const {setUserData, userData} = useContext(AuthContext);
   const navigate = useNavigate();
 
   async function LogoutHandler() {
@@ -131,6 +136,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
       alert("Failed to logout. Please try again.");
     }
   }
+
   return (
     <section>
       <div
@@ -163,7 +169,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
             {
               sideBarOpened ? 
               <div style={{padding:'10px 20px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center'}}>
-                <FaCircleXmark style={{fontSize:'16px', cursor:'pointer'}} onClick={()=>{setSideBar(false)}}/> 
+                <FaXmark style={{fontSize:'16px', cursor:'pointer'}} onClick={()=>{setSideBar(false)}}/> 
               </div>
               :
               <div style={{padding:'10px 20px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center'}}> 
@@ -174,16 +180,20 @@ function TopNavBar({sideBarOpened, setSideBar}) {
               Logout  
             </div>            
             <img
-              src={userPic}
+              src={`http://localhost/mwangaza-backend/uploads/users/${userData.user_pic}`}
               width="60"
               height="60"
               style={{ borderRadius: "50%" }}
             />
-            <div style={{ fontSize: "14px" }}>
+            <div style={{ fontSize: "14px", display:'flex', flexWrap:'wrap', gap:'7px', alignItems:'center' }}>
               <span style={{ color: "rgba(200,200,200,0.8)", fontSize: "16px" }}>
-                Hello{" "}
+                Hello,
               </span>
-              <span>Mayani</span>
+              <span style={{textTransform:'capitalize', fontSize:'13.5px'}}>
+                {
+                   userData.full_name
+                }
+              </span>
             </div>
           </div>
         </div>

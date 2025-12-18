@@ -89,7 +89,7 @@ export default function App() {
               />
 
               {/* Protected routes */}
-              <Route path={"/auth/main_App"} 
+              <Route path={"/enroll_course/:courseId/main_App/moduleId/:moduleId"} 
                      element={
                       <ProtectedRoute>
                         <MainApp/>

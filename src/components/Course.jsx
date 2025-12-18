@@ -146,8 +146,8 @@ export default function Course(){
                             <section style={{display:'flex', flexDirection:'column', gap:'20px'}}>
                                 {
                                     courseData.courseModules.map((item, index)=>
-                                <div key={index}  style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}}> 
-                                    <div style={{paddingLeft:'30px'}}>
+                                <div key={index}  style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}} > 
+                                    <div style={{paddingLeft:'30px', cursor:'pointer'}} onClick={()=>{navigateTo(`main_App/moduleId/${item.id}`)}}>
                                         <h2 style={{fontSize:'16px', fontWeight:500,}}>
                                             Module {++index}: {item.title}
                                         </h2>

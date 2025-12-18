@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { HiBookOpen } from "react-icons/hi2";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import MwangazaLogo from '../../assets/MwangazaLogo.jpg';
 import { AuthContext } from "../../AuthProvider";
 
@@ -78,6 +77,17 @@ function SignUp(){
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="text" name="full_name" placeholder="Full Name" />
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="text" name="username_email" placeholder="Username or Email" />
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="password" name="p_word" placeholder="Password" />
+                <input
+                    type="file"
+                    name="user_pic"
+                    accept="image/*"
+                    style={{
+                        fontSize:'16px',
+                        padding:'10px 15px',
+                        border:'1px solid rgba(146,146,146,1)',
+                        borderRadius:'5px'
+                    }}
+                    />
                 <p style={{color:'rgba(146,146,146,1)', fontSize:'14px'}}>
                     By continuing, you confirm that you are at least 16 years of age and agree to Africa Investment School Terms of Use.
                 </p>

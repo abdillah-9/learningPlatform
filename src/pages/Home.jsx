@@ -7,12 +7,14 @@ import pic4 from '../assets/pic4.jpeg';
 import pic5 from '../assets/pic5.jpeg';
 import pic6 from '../assets/pic6.jpeg';
 import pic7 from '../assets/pic7.jpg';
-import pic8 from '../assets/pic8.jpg';
+import man from '../assets/man.png';
+import woman from '../assets/woman.png';
 import pic9 from '../assets/pic9.jpeg';
 import AI_Gen_2 from '../assets/AI Gen 2.webp';
 import { CgChevronDoubleLeft, CgChevronDoubleRight } from "react-icons/cg";
 import '../Homepage.css';
 import Sospeter from '../assets/Sospeter.webp';
+import SospeterNew from '../assets/SospeterNew.jpg';
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { PiArrowBendUpRightThin } from "react-icons/pi";
 import { HiArrowRight, HiMiniArrowLongRight } from "react-icons/hi2";
@@ -249,15 +251,22 @@ function UltraMiniSlideShow() {
   const [loadedImages, setLoadedImages] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);
 
-  const images = [pic1, pic2, pic3, pic4, pic5];
+  const images = [man, woman];
   const texts = [
-    "Student 1",
-    "Student 2",
-    "Student 3",
-    "Student 4",
-    "Student 5"
-  ];
+    `As a graphic designer, I have created posters, company profiles and stickers for TanzCoffee Trading Company Ltd, Brice Agribusiness Limited, and many other companies. However, I must admit that during my years of freelancing, Sospeter introduced me to this platform, where I learned a lot. Today, I have opened and registered my own sole proprietorship, and I can tell you that registering a business has taken me from creating simple posters to receiving large contracts to create larger roadside billboards, company t-shirts, calendar design and printing.
 
+    In fact, I have an office at Mavuno House, Poster Dar es Salaam. I am also working on upgrading from sole proprietorship to a corporate limited liability company`,
+
+    `Following my graduation from University, I struggled to get employment as usual before being introduced to Mwangaza Business and Investment School. I began studying Shaping a Business Idea slowly, and I was excited to discover that we university students are not taught several important details about business. I currently own my own business in town, and while I hope to open a limited liability corporation in the future, I am currently working to register a sole proprietorship very soon.`,
+  ];
+  const names=[
+    'BAKARI M BAKARI',
+    `ASIA L. KASUBI`,
+  ]
+  const positions=[
+    'Founder & Managing Director Brain Media Tech',
+    `Founder Asmarah Radiance`,
+  ]
   // Preload all images
 useEffect(() => {
   const temp = new Array(images.length);
@@ -330,9 +339,17 @@ useEffect(() => {
         <div>TESTIMONIALS FROM OUR LEARNERS</div>
         <div>Discover what it looks like when organizations approach their work with new skill sets &  support ready for challenges and confident to lead.
         </div>
-        <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center'}}>
-          <div style={{width:'60%'}}> 
-            {texts[index]}
+        <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', flexDirection:'column'}}>
+          <div style={{width:'85%', display:'flex', gap:'10px', flexDirection:'column'}}>
+            <span style={{fontSize:'20px', fontWeight:700}}>
+              {names[index]}
+            </span>
+            <span style={{fontSize:'17px', fontWeight:400}}>
+              {positions[index]}
+            </span> 
+            <span  style={{fontSize:'15px', fontWeight:200}}>
+              {texts[index]}
+            </span>
           </div>
           <img src={images[index]} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid #0C2B4E'}}/>
         </div>
@@ -404,9 +421,9 @@ if(!coursesList){
 function StartJourney(){
   return(
     <div style={{width:'100%', height:'fit-content', display:'flex', justifyContent:'center', alignItems:'center', padding:'50px 20px', backgroundColor:'#0C2B4E', gap:'20px', flexDirection:'column', color:'white'}}>
-      <div>Ready to Start Your Journey</div>
-      <div>Join thousands entrepreneurs who are building their dreamswith Our app</div>
-      <div style={{backgroundColor:'white', color:'#0C2B4E', padding:'15px', width:'150px', borderRadius:'15px', textAlign:'center',fontWeight:600}}>Sign Up Now</div>
+      <div style={{fontSize:'22px', fontWeight:700}}>Upcoming Courses</div>
+      <div>Stay With Us</div>
+      <div style={{backgroundColor:'white', color:'#0C2B4E', padding:'15px', width:'150px', borderRadius:'15px', textAlign:'center',fontWeight:600}}>View</div>
     </div>
   )
 }
@@ -418,15 +435,18 @@ function Testimonials(){
         {/* <div style={{style:'20px ', fontWeight:500}}>Mr SosPeter Owur</div> */}
         <div style={{fontSize:'25px ', fontWeight:600}}>ABOUT FOUNDER</div>
         <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', textAlign:'justify', gap:'15px'}}>
-          <div style={{width:'60%', flex:'1 1 250px',gap:'30px', display:'flex', flexDirection:'column'}}> 
+          <div style={{width:'100%', flex:'1 1 250px',gap:'30px', display:'flex', flexDirection:'column'}}> 
             <p>
               Sospeter Owuor is a visionary businessman, investor, and corporate leader whose focuses is modernizing Tanzania's agricultural sector to meet global standards. He has extensive experience in agricultural value chains, export operations, agro-processing and international trade. As the acting Managing Director and Co-Founder of TANZCOFFEE TRADING COMPANY LTD, he provides strategic leadership in operations, commercial development, and organizational expansion.
             </p>
+            <img src={SospeterNew} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1,flex:'1 1 100px', objectFit:'cover',alignSelf:'flex-end'}}/>
             <p>
               He previously co-founded Brice Agribusiness Ltd and Brice Agribusiness UK, a London-based company branch where he served as Operations Director, following his resignation from Room to Read Tanzania. He effectively managed and coordinated exports to international markets, including South Africa, China, and Turkey.
             </p>
+            <p>
+              Before resigning and transitioning fully into business, Sospeter built a solid foundation in management and research while working with Room to Read Tanzania as a Research, Monitoring, and Evaluation (RME) Associate from 2018 to 2023, overseeing data analysis, program evaluation and performance measurement.
+            </p>
           </div>
-          <img src={Sospeter} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid #0C2B4E', flex:'1 1 100px'}}/>
         </div>
       </div>
       <div style={{ width:'45%', flexGrow:1, minWidth:'250px',display:'flex', padding:'20px', background:'#0C2B4E', color:'white'}}>

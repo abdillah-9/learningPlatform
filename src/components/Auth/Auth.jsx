@@ -41,6 +41,7 @@ export default function Auth(){
 }
 
 function SignUp(){
+    const {setUserData} = useContext(AuthContext);
     async function formSubmit(e){
         e.preventDefault();
 
@@ -57,7 +58,8 @@ function SignUp(){
 
             if(res.ok){
                 const data = await res.json();
-                console.log(data)
+                console.log(data);
+                setUserData(data.user)
                 alert(data.message);
             }
             else{
@@ -98,6 +100,11 @@ function SignUp(){
 }
 
 function SignIn(){
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
     const {userData, setUserData} = useContext(AuthContext);
     const navigateTo = useNavigate();
     async function signInSubmit(e) {
@@ -116,6 +123,7 @@ function SignIn(){
 
         if (res.ok) {
             setUserData(data.user);
+            navigate(from, { replace: true });
             alert(data.message);
         } else {
             alert(data.error || "Login failed");

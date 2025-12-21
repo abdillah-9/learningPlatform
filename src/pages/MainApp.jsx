@@ -1,91 +1,221 @@
-import React, { createContext, useContext, useEffect, useReducer, useState } from 'react'
-import TopNavBar from '../components/TopNavBar'
-import SideNavBar from '../components/SideNavBar'
-import MiniMainApp from '../components/MiniMainApp'
-import Overlay from '../components/Overlay';
-import { AuthContext } from '../AuthProvider';
+import React, { useContext, useEffect, useState } from "react";
+import MwangazaLogo from "../assets/MwangazaLogo.jpg";
+import userPic from "../assets/Sospeter.webp";
+import { HiHome, HiUser } from "react-icons/hi2";
+import { FaBars, FaBookOpenReader, FaCircleXmark, FaComment, FaXmark } from "react-icons/fa6";
+import UserManager from "../features/admin/UserManagment.jsx";
+import CourseManager from "../features/admin/CourseManager.jsx";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthProvider.jsx";
+import Userpage from "../features/Users/UserPage.jsx";
+import DashboardPage from "../features/Dashboards/DashboardPage.jsx";
 
-//create Context here
-export const AppContext = createContext();
-
-function overlayReducer(init, final){
- return final;
-}
 export default function MainApp() {
-  const {userData, setUserData} = useContext(AuthContext);
-  const [loading, setLoading] = useState(true);
+  const {userData} = useContext(AuthContext);
+  let defaultMenu = userData.user_role == "admin" ? 'Courses Management' : 'Course Module'
+  const [active, setActive] = useState(defaultMenu);
+  const [sideBarOpened, setSideBar] = useState(true);
 
-useEffect(() => {
-  async function fetchCookie() {
+  const renderContent = () => {
+    
+    switch (active) {
+      case "Dashboard":
+        return <DashboardPage/>
+      case "User Account":
+        return <Userpage />
+      case "Course Module":
+        return <UserManager/>
+      case "Discussions":
+        return <UserManager/>
+      case "Courses Management":
+      default:
+        return (
+      <div>
+        {userData.user_role == 'admin' ? <CourseManager /> : ''}
+      </div>
+        )
+    }
+  };
+
+  return (
+    <div>
+      <TopNavBar sideBarOpened={sideBarOpened} setSideBar={setSideBar}/>
+      <div style={{ display: "flex"}}>
+        <SideBar active={active} setActive={setActive} sideBarOpened={sideBarOpened}/>
+        <div style={{ flexGrow: 1, width: "calc(100% - 200px)" }}>
+          {renderContent()}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/****************************************************
+ SIDEBAR
+****************************************************/
+
+function SideBar({ active, setActive, sideBarOpened }) {
+  const {userData} = useContext(AuthContext);
+  const links = [
+    { name: "Dashboard", key: "Dashboard", icon: <HiHome /> },
+    { name: "Course module", key: "Course Module", icon: <FaBookOpenReader /> },
+    { name: "User Account", key: "User Account", icon: <HiUser /> },
+    { name: "Discussions", key: "Discussions", icon: <FaComment /> },
+    { adminOnly: true,name: "Courses Management", key: "Courses Management", icon: <FaBookOpenReader /> },
+  ];
+// Filter links based on user role
+  const filteredLinks = links.filter(link => !link.adminOnly || userData.user_role === 'admin');
+
+  return (
+    <div
+      style={{
+        backgroundColor: "#F4B342",
+        width: sideBarOpened ? "200px" : '0px',
+        minHeight:'100vh',
+        overflow:'hidden',
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+        padding: sideBarOpened ? "25px 0px 0px 15px": '0px',
+        fontSize:'13px'
+      }}
+    >
+      {filteredLinks.map((link) => (
+
+        <div
+          key={link.key}
+          onClick={() => setActive(link.key)}
+          style={{
+            borderRadius: "30px 0px 0px 30px",
+            padding: "5px",
+            display: "flex",
+            gap: "7px",
+            alignItems: "center",
+            cursor: "pointer",
+            backgroundColor: active === link.key ? "white" : "transparent",
+          }}
+        >
+          <span
+            style={{
+              padding: "7px 11px",
+              borderRadius: "50%",
+              backgroundColor: active === link.key ? "#F4B342" : "black",
+              color: active === link.key ? "black" : "#F4B342",
+            }}
+          >
+            {link.icon}
+          </span>
+          <span
+            style={{
+              color: active === link.key ? "#835912ff" : "#000000ff",
+            }}
+          >
+            {link.name}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/****************************************************
+ TOP NAV BAR
+****************************************************/
+
+function TopNavBar({sideBarOpened, setSideBar}) {
+  const {setUserData, userData} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  async function LogoutHandler() {
     try {
-      const res = await fetch('http://localhost:4000/get_user_from_cookie', {
+      const res = await fetch("http://localhost/mwangaza-backend/logout.php", {
         method: "POST",
-        credentials: 'include',
+        credentials: "include", // VERY IMPORTANT for cookies
       });
 
-      if (res.ok) {
-        const data = await res.json();
-        setUserData(data);
-      } else {
-        console.log('cannot fetch cookie');
+      if (!res.ok) {
+        throw new Error("Logout failed");
       }
-    } catch (e) {
-      console.log("Cookie fetch err: " + e);
-    } finally {
-      setLoading(false);
+
+      // Optional: clear any local storage
+      localStorage.clear();
+      sessionStorage.clear();
+
+      // Redirect to login
+      setUserData(null)
+      navigate("/auth/sign_in", { replace: true });
+      alert("You have successfully logget out ");
+    } catch (err) {
+      console.error("Logout error:", err);
+      alert("Failed to logout. Please try again.");
     }
   }
 
-  fetchCookie();
-}, []); 
-
-  const [showSideBar, setshowSidebar] = useState(false);
-  const [activeMenu,setActiveMenu] = useState("dashboard");
-  const [showOverlay, setShowOverlay] = useReducer(overlayReducer,false); //I need state that do not cause rerender
-  const [buyResourceForm, setBuyResourceForm] = useState(false);
-  const [resourceMoreDetails, setResourceMoreDetails] = useState(false);
-  const [buyCropsForm, setBuyCropsForm] = useState(false);
-  const [sellResourceForm, setSellResourceForm] = useState(false);
-  const [sellCropsForm, setSellCropsForm] = useState(false);
-  const [searchItem, setSearchItem] = useState(false); 
-  const [sortItem, setSortItem] = useState(false);
-  const [deleteCard,setDeleteCard] = useState(false);
-  const [editProfile, setEditProfile] = useState(false);
-  const [profilePhoto, setProfilePhoto] = useState(false);
-  const [rowToRemove, setRowToRemove] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(false);
-
-  useEffect(()=>{
-    if(window.innerWidth > 720){
-      setshowSidebar(true)
-    }
-  },[])
-
   return (
-    <AppContext.Provider value={
-      {
-        showSideBar, setshowSidebar, 
-        showOverlay, setShowOverlay, 
-        activeMenu, setActiveMenu,
-        buyResourceForm, setBuyResourceForm,
-        buyCropsForm, setBuyCropsForm,
-        sellResourceForm, setSellResourceForm,
-        sellCropsForm, setSellCropsForm,
-        resourceMoreDetails, setResourceMoreDetails,
-        searchItem, setSearchItem,
-        sortItem, setSortItem,
-        profilePhoto, setProfilePhoto,
-        editProfile, setEditProfile,
-        rowToRemove, setRowToRemove,
-        selectedFile, setSelectedFile,
-      }
-      }>
-      <div className='flex-Row-Grow-Wrap'>
-        <TopNavBar/>
-        <SideNavBar/>
-        <Overlay/>
-        <MiniMainApp/>
+    <section>
+      <div
+        style={{
+          width: "100vw",
+          minHeight: "80px",
+          backgroundColor: "#0C2B4E",
+          color: "white",
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "10px 15px",
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <img
+            src={MwangazaLogo}
+            width="60"
+            height="60"
+            style={{ borderRadius: "50%" }}
+          />
+          <span style={{ fontSize: "17px", fontWeight: 600 }}>
+            MWANGAZA BUSINESS & INVESTMENT SCHOOL
+          </span>
+        </div>
+
+        <div style={{ display: "flex", gap: "50px" }}>
+          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            {
+              sideBarOpened ? 
+              <div style={{padding:'10px 20px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                <FaXmark style={{fontSize:'16px', cursor:'pointer'}} onClick={()=>{setSideBar(false)}}/> 
+              </div>
+              :
+              <div style={{padding:'10px 20px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center'}}> 
+                <FaBars style={{fontSize:'16px', cursor:'pointer'}} onClick={()=>{setSideBar(true)}}/>
+              </div>             
+            }
+            <div style={{marginRight:'20px',padding:'10px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer'}} onClick={LogoutHandler}>
+              Logout  
+            </div>            
+            <img
+              src={`http://localhost/mwangaza-backend/uploads/users/${userData.user_pic}`}
+              style={{ borderRadius: "50%", width:'50px' }}
+            />
+            <div style={{ fontSize: "14px", display:'flex', flexWrap:'wrap', gap:'7px', alignItems:'center' }}>
+              <span style={{ color: "rgba(200,200,200,0.8)", fontSize: "16px" }}>
+                Hello,
+              </span>
+              <span style={{textTransform:'capitalize', fontSize:'13.5px'}}>
+                {
+                   userData.full_name
+                }
+              </span>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </AppContext.Provider>
-  )
+    </section>
+  );
 }
+
+
+
+
+

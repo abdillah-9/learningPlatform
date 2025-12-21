@@ -10,7 +10,7 @@ import Auth from './components/Auth/Auth';
 import ForgotPassword from './components/Auth/ForgotPassword';
 import ResetPassword from './components/Auth/ResetPassword';
 import ViewAllCourses from './components/ViewAllCourses';
-import MainApp from './features/admin/MainApp';
+import MainApp from './pages/MainApp';
 
 export default function App() {
     const userDataContext = useContext(AuthContext);
@@ -134,8 +134,22 @@ export function PublicRoute({children}){
   const location = useLocation();
   let path = location.pathname;
 
-  if((path.includes('sign_in') || path.includes('register'))&& userData){
-    return <Navigate to={'/auth/main_App'} replace />  
+  if(userData && location.state?.from?.pathname) {
+    return (
+      <Navigate
+        to={location.state.from.pathname}
+        replace
+      />
+    );
+  }
+
+  else if(userData && !location.state?.from?.pathname && (location.pathname == '/auth/sign_in' || location.pathname == '/auth/register')) {
+    return (
+      <Navigate
+        to={'/'}
+        replace
+      />
+    );
   }
   return children;
 }

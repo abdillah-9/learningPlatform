@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TipTapEditor from "../../components/editor/TipTapEditor";
+import { AuthContext } from "../../AuthProvider";
 
 export default function CourseManager() {
 
@@ -173,6 +174,10 @@ export default function CourseManager() {
 
   /****************************************************/
 
+  const {userData} = useContext(AuthContext);
+  if(userData.user_role !== 'admin'){
+    return
+  }
   return (
     <div style={{ padding: "20px", display: "flex", flexDirection: "column" }}>
       <h2>Upload New Course</h2>

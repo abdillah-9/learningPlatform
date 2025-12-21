@@ -1,19 +1,41 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";  // <-- added to get moduleId
 
 export default function AAviewLastCourse() {
+  //Main App prevents copying anyshit
+  useEffect(() => {
+      const handleCopy = (e) => e.preventDefault();
+      const handleContext = (e) => e.preventDefault();
+      const handleSelect = (e) => e.preventDefault();
+
+      document.addEventListener("copy", handleCopy);
+      document.addEventListener("contextmenu", handleContext);
+      document.addEventListener("selectstart", handleSelect);
+
+      return () => {
+        document.removeEventListener("copy", handleCopy);
+        document.removeEventListener("contextmenu", handleContext);
+        document.removeEventListener("selectstart", handleSelect);
+      };
+    }, []);
+
+  let { moduleId } = useParams(); // <-- grab moduleId from URL
+  //let moduleId = '56' 
   const [course, setCourse] = useState(null);
   const [slideIndex, setSlideIndex] = useState(0);
 
   const BLOCKS_PER_SLIDE = 5;
 
   useEffect(() => {
-    fetch("http://localhost/mwangaza-backend/get_last_course.php")
+    if (!moduleId) return;
+
+    fetch(`http://localhost/mwangaza-backend/get_module_by_id.php?module_id=${moduleId}`) // <-- fetch by moduleId
       .then(res => res.json())
       .then(data => {
         console.log("FULL COURSE DATA:", data);
         setCourse(data);
       });
-  }, []);
+  }, [moduleId]);
 
   if (!course) return <p>Loading...</p>;
 
@@ -45,47 +67,47 @@ export default function AAviewLastCourse() {
 
   /* ---------------- FILE RENDER ---------------- */
 
-  function renderFile(url) {
-    if (!url) return null;
+/* ---------------- FILE RENDER ---------------- */
 
-    url = `http://localhost/mwangaza-backend/` + url;
-    const ext = url.split(".").pop().toLowerCase();
+function renderFile(block) {
+  // For file blocks, we use videoToken; for others we might still use block.content/url
+  if (!block) return null;
 
-    if (["jpg", "jpeg", "png", "gif", "webp"].includes(ext)) {
-      return (
-        <img
-          src={url}
-          alt="block file"
-          style={{ width: "100%", height: "100%" }}
-        />
-      );
-    } else if (["mp4", "webm", "ogg", "mkv"].includes(ext)) {
-      return (
-        <video
-          src={url}
-          controls
-          style={{ width: "100%", height: "100%" }}
-        />
-      );
-    } else if (["mp3", "wav", "ogg"].includes(ext)) {
-      return <audio src={url} controls />;
-    } else if (ext === "pdf") {
-      return (
-        <iframe
-          src={url}
-          width="100%"
-          height="100%"
-          title="PDF file"
-        ></iframe>
-      );
-    } else {
-      return (
-        <a href={url} target="_blank" rel="noreferrer">
-          Download File
-        </a>
-      );
-    }
+  // FILE / FILEFULL BLOCK
+  if (block.type === "file" || block.type === "fileFull") {
+    if (!block.videoToken) return null;
+
+    const url = `http://localhost/mwangaza-backend/stream_video.php?token=${block.videoToken}`;
+
+    // Determine file type from token? We can pass ext too if needed, else assume video
+    return (
+      <video
+        src={url}
+        controls
+        controlsList="nodownload"
+        disablePictureInPicture
+        onContextMenu={(e) => e.preventDefault()}
+        style={{ width: "100%", height: "100%" }}
+      />
+    );
   }
+
+  // TEXT / OTHER FILE TYPES
+  const url = block.file || ""; // fallback if you want
+  if (!url) return null;
+  const ext = url.split(".").pop().toLowerCase();
+
+  if (["jpg", "jpeg", "png", "gif", "webp"].includes(ext)) {
+    return <img src={url} alt="block file" style={{ width: "100%", height: "100%" }} />;
+  } else if (["mp3", "wav", "ogg"].includes(ext)) {
+    return <audio src={url} controls />;
+  } else if (ext === "pdf") {
+    return <iframe src={url} width="100%" height="100%" title="PDF file"></iframe>;
+  } else {
+    return <a href={url} target="_blank" rel="noreferrer">Download File</a>;
+  }
+}
+
 
   /* ---------------- RENDER ---------------- */
 
@@ -142,7 +164,7 @@ export default function AAviewLastCourse() {
                   aspectRatio: 16/9,
                 }}
               >
-                {renderFile(block.file)}
+                {renderFile(block)}
               </div>
             )}
 
@@ -166,7 +188,7 @@ export default function AAviewLastCourse() {
                   aspectRatio: 16/9,
                 }}
               >
-                {renderFile(block.file)}
+                {renderFile(block)}
               </div>
             )}
 

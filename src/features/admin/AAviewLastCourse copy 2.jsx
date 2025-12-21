@@ -1,23 +1,19 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";  // <-- added to get moduleId
 
 export default function AAviewLastCourse() {
-  const { moduleId } = useParams(); // <-- grab moduleId from URL
   const [course, setCourse] = useState(null);
   const [slideIndex, setSlideIndex] = useState(0);
 
   const BLOCKS_PER_SLIDE = 5;
 
   useEffect(() => {
-    if (!moduleId) return;
-
-    fetch(`http://localhost/mwangaza-backend/get_module_by_id.php?module_id=${moduleId}`) // <-- fetch by moduleId
+    fetch("http://localhost/mwangaza-backend/get_last_module_by_id.php")
       .then(res => res.json())
       .then(data => {
         console.log("FULL COURSE DATA:", data);
         setCourse(data);
       });
-  }, [moduleId]);
+  }, []);
 
   if (!course) return <p>Loading...</p>;
 

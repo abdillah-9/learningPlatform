@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TipTapEditor from "../../components/editor/TipTapEditor";
 import { AuthContext } from "../../AuthProvider";
 
-export default function CourseManager() {
+export default function CourseManager({ formState, setFormState, editModeState, courseData: initialCourseData }) {
 
   /* COURSE MAIN DATA */
   const [courseData, setCourseData] = useState({
@@ -16,6 +16,39 @@ export default function CourseManager() {
     targetAudience: "",
     duration: "",
   });
+
+  // Prefill the form if in edit mode
+  useEffect(() => {
+    if (editModeState && initialCourseData) {
+      setCourseData({
+        number: initialCourseData.number || "",
+        name: initialCourseData.name || "",
+        description: initialCourseData.description || "",
+        startDate: initialCourseData.startDate || new Date().toISOString().split("T")[0],
+        about: initialCourseData.about || "",
+        hint: initialCourseData.hint || "",
+        picture: null, // we can't prefill file inputs
+        targetAudience: initialCourseData.targetAudience || "",
+        duration: initialCourseData.duration || "",
+      });
+
+      setModules(
+        initialCourseData.modules?.map((mod) => ({
+          title: mod.title || "",
+          desc: mod.desc || "",
+          cost: mod.cost || "",
+          createdDate: mod.createdDate || new Date().toISOString().split("T")[0],
+          blocks: mod.blocks?.map((block) => ({
+            type: block.type || "text",
+            content: block.content || "",
+            file: null, // can't prefill File objects
+            fileType: block.fileType || "",
+            layout: block.layout || "row",
+          })) || [],
+        })) || []
+      );
+    }
+  }, [editModeState, initialCourseData]);
 
   const updateCourseData = (field, value) => {
     setCourseData((prev) => ({ ...prev, [field]: value }));
@@ -110,66 +143,71 @@ export default function CourseManager() {
   ****************************************************/
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!courseData.startDate) {
-      alert("Start date is required");
-      return;
+  e.preventDefault();
+
+  if (!courseData.startDate) {
+    alert("Start date is required");
+    return;
+  }
+
+  try {
+    const formData = new FormData();
+
+    // 🔥 IMPORTANT: tell backend this is an edit
+    if (editModeState && initialCourseData?.id) {
+      formData.append("courseId", initialCourseData.id);
     }
 
-    try {
-      const formData = new FormData();
+    // Append basic course info
+    formData.append("number", courseData.number);
+    formData.append("name", courseData.name);
+    formData.append("description", courseData.description);
+    formData.append("startDate", courseData.startDate);
+    formData.append("about", courseData.about);
+    formData.append("hint", courseData.hint);
+    formData.append("targetAudience", courseData.targetAudience);
+    formData.append("duration", courseData.duration);
 
-      // Append basic course info
-      formData.append("number", courseData.number);
-      formData.append("name", courseData.name);
-      formData.append("description", courseData.description);
-      formData.append("startDate", courseData.startDate);
-      formData.append("about", courseData.about);
-      formData.append("hint", courseData.hint);
-      formData.append("targetAudience", courseData.targetAudience);
-      formData.append("duration", courseData.duration);
+    if (courseData.picture) {
+      formData.append("picture", courseData.picture);
+    }
 
-      // Append course picture
-      if (courseData.picture) {
-        formData.append("picture", courseData.picture);
-      }
+    formData.append("modules", JSON.stringify(modules));
 
-      // Append modules as JSON
-      formData.append("modules", JSON.stringify(modules));
-
-      // Append block files separately
-      modules.forEach((mod, mIndex) => {
-        mod.blocks.forEach((block, bIndex) => {
-          if (
-            (block.type === "file" || block.type === "fileFull") &&
+    modules.forEach((mod, mIndex) => {
+      mod.blocks.forEach((block, bIndex) => {
+        if (
+          (block.type === "file" || block.type === "fileFull") &&
+          block.file
+        ) {
+          formData.append(
+            `modules_${mIndex}_blocks_${bIndex}_file`,
             block.file
-          ) {
-            formData.append(
-              `modules_${mIndex}_blocks_${bIndex}_file`,
-              block.file
-            );
-          }
-
-        });
+          );
+        }
       });
+    });
 
-      // Send to PHP backend
-      const response = await fetch("http://localhost/mwangaza-backend/upload_course.php", {
+    const response = await fetch(
+      "http://localhost/mwangaza-backend/upload_course.php",
+      {
         method: "POST",
         body: formData,
-      });
+      }
+    );
 
-      const text = await response.text();
-      console.log("RAW RESPONSE FROM PHP:", text);
-      alert(text);
-      return;
+    const result = await response.json();
+    alert(result.message);
 
+    // Optional: close form after success
+    setFormState(false);
 
-    } catch (err) {
-      console.error("Error uploading course:", err);
-      alert("Failed to upload course. Check console.");
-    }
-  };
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong");
+  }
+};
+
 
 
   /****************************************************/
@@ -180,7 +218,10 @@ export default function CourseManager() {
   }
   return (
     <div style={{ padding: "20px", display: "flex", flexDirection: "column" }}>
-      <h2>Upload New Course</h2>
+      <h2>
+  {editModeState ? "Edit Course" : "Upload New Course"}
+</h2>
+
 
       <form
         onSubmit={handleSubmit}
@@ -506,9 +547,10 @@ export default function CourseManager() {
         </div>
 
         {/* SUBMIT */}
-        <button type="submit" style={btnSubmit}>
-          Submit Course
-        </button>
+<button type="submit" style={btnSubmit}>
+  {editModeState ? "Update Course" : "Create Course"}
+</button>
+
       </form>
     </div>
   );

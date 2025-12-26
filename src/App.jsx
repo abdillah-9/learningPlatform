@@ -11,6 +11,7 @@ import ForgotPassword from './components/Auth/ForgotPassword';
 import ResetPassword from './components/Auth/ResetPassword';
 import ViewAllCourses from './components/ViewAllCourses';
 import MainApp from './pages/MainApp';
+import ShowUpcomingCourses from './pages/ShowUpcomingCourses';
 
 export default function App() {
     const userDataContext = useContext(AuthContext);
@@ -96,6 +97,11 @@ export default function App() {
                       </ProtectedRoute>
                      }
               />
+              <Route path='/upcoming_courses' element={
+                <ProtectedRoute>
+                  <ShowUpcomingCourses/>
+                </ProtectedRoute>
+              } />
               <Route path="*" element={<NotFoundPage />} />
               <Route path={"/unAuthorized"} element={<UnAuthorizedPage/>}/>
         </Routes>

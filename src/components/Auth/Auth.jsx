@@ -50,7 +50,7 @@ function SignUp(){
         
         // send data to Backend
         try{
-            const res = await fetch('http://localhost/mwangaza-backend/register.php',{
+            const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/register.php',{
                 method:'POST',
                 credentials:'include',
                 body: formdata
@@ -113,7 +113,7 @@ function SignIn(){
     const formdata = new FormData(e.target);
 
     try {
-        const res = await fetch("http://localhost/mwangaza-backend/sign_in.php", {
+        const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/sign_in.php", {
             method: "POST",
             credentials: "include",
             body: formdata

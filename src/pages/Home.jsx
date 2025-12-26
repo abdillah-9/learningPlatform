@@ -7,7 +7,7 @@ import pic4 from '../assets/pic4.jpeg';
 import pic5 from '../assets/pic5.jpeg';
 import pic6 from '../assets/pic6.jpeg';
 import pic7 from '../assets/pic7.jpg';
-import man from '../assets/man.png';
+import man from '../assets/icon.jpeg';
 import woman from '../assets/woman.png';
 import pic9 from '../assets/pic9.jpeg';
 import AI_Gen_2 from '../assets/AI Gen 2.webp';
@@ -17,7 +17,7 @@ import Sospeter from '../assets/Sospeter.webp';
 import SospeterNew from '../assets/SospeterNew.jpg';
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { PiArrowBendUpRightThin } from "react-icons/pi";
-import { HiArrowRight, HiMiniArrowLongRight } from "react-icons/hi2";
+import { HiArrowRight, HiMiniArrowLongRight, HiUser } from "react-icons/hi2";
 import { BookAIcon, BookOpenCheckIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,10 +26,12 @@ export default function Home(){
 
   useEffect(()=>{
       async function FetchCourses(){
+        const fData = new FormData();
+        fData.append('course','Math');
     try{
-      const res = await fetch("http://localhost/mwangaza-backend/get_all_courses.php",{
+      const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/get_all_courses.php",{
         method:'POST',
-        body:''
+        body:fData,
       });
 
       if(res.ok){
@@ -49,6 +51,7 @@ export default function Home(){
   if(!coursesList){
     return
   }
+
   return(
     <div>
       {/** SLIDESHOW */}
@@ -216,13 +219,13 @@ function MiniSlideShow({ items }) {
   const navigateTo = useNavigate();
 
   return (
-    <div style={{display:'flex', justifyContent:'space-between', gap:'25px', flexWrap:'wrap',padding:'0px 20px'}}>
+    <div style={{display:'flex', justifyContent:'center', gap:'25px', flexWrap:'wrap',padding:'0px 20px'}}>
       {items.map((item, i) => (
         <div key={i} className="slideShowHeight" style={{ minWidth:'150px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
           
           <div style={{ position: 'relative', width: '100%',height:'auto', aspectRatio:16/9, backgroundColor:'#0C2B4E' }}>
           <img
-            src={ item.picture != null ? `http://localhost/mwangaza-backend/${item.picture}` : pic1}
+            src={ item.picture != null ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${item.picture}` : pic1}
             alt={item.name}
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
@@ -264,8 +267,12 @@ function UltraMiniSlideShow() {
     `ASIA L. KASUBI`,
   ]
   const positions=[
-    'Founder & Managing Director Brain Media Tech',
-    `Founder Asmarah Radiance`,
+    'Founder & Managing Director',
+    `Founder`,
+  ]
+  const companies=[
+    'Brain Media Tech',
+    `Asmarah Radiance`,
   ]
   // Preload all images
 useEffect(() => {
@@ -335,23 +342,31 @@ useEffect(() => {
       </div> */}
 
       {/* Text */}
-      <div className={`${animate ? 'slideTop' : ''}`} style={{display:'flex', justifyContent:'space-between', flexDirection:'column', gap:'40px'}}>
-        <div>TESTIMONIALS FROM OUR LEARNERS</div>
+      <div className={`${animate ? 'slideTop' : ''}`} style={{display:'flex', justifyContent:'space-between', flexDirection:'column', gap:'10px'}}>
+        <div style={{fontSize:'25px', fontWeight:700}}>
+          TESTIMONIALS FROM OUR LEARNERS
+        </div>
         <div>Discover what it looks like when organizations approach their work with new skill sets &  support ready for challenges and confident to lead.
         </div>
         <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', flexDirection:'column'}}>
-          <div style={{width:'85%', display:'flex', gap:'10px', flexDirection:'column'}}>
+          <div style={{width:'85%', display:'flex', gap:'10px', flexDirection:'column',alignItems:'center', paddingTop:'20px'}}>
             <span style={{fontSize:'20px', fontWeight:700}}>
               {names[index]}
             </span>
-            <span style={{fontSize:'17px', fontWeight:400}}>
+            <span style={{padding:'17px 20px', backgroundColor:'rgba(200,200,200,0.8)', borderRadius:'50%' }}>
+              <HiUser style={{color:'rgba(10, 5, 52, 1)', fontSize:'70px'}}/>
+            </span>
+            {/* <img src={images[index]} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid #0C2B4E'}}/> */}
+            <span style={{fontSize:'17px', fontWeight:600}}>
               {positions[index]}
+            </span> 
+            <span style={{fontSize:'17px', fontWeight:400, color:'rgba(227, 227, 241, 1)'}}>
+              {companies[index]}
             </span> 
             <span  style={{fontSize:'15px', fontWeight:200}}>
               {texts[index]}
             </span>
           </div>
-          <img src={images[index]} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid #0C2B4E'}}/>
         </div>
       </div>
 
@@ -419,11 +434,14 @@ if(!coursesList){
 
 
 function StartJourney(){
+  const navigateTo = useNavigate();
   return(
     <div style={{width:'100%', height:'fit-content', display:'flex', justifyContent:'center', alignItems:'center', padding:'50px 20px', backgroundColor:'#0C2B4E', gap:'20px', flexDirection:'column', color:'white'}}>
       <div style={{fontSize:'22px', fontWeight:700}}>Upcoming Courses</div>
       <div>Stay With Us</div>
-      <div style={{backgroundColor:'white', color:'#0C2B4E', padding:'15px', width:'150px', borderRadius:'15px', textAlign:'center',fontWeight:600}}>View</div>
+      <div style={{backgroundColor:'white', color:'#0C2B4E', padding:'15px', width:'150px', borderRadius:'15px', textAlign:'center',fontWeight:600, cursor:'pointer'}} onClick={()=>navigateTo('/upcoming_courses')}>
+        View
+      </div>
     </div>
   )
 }
@@ -433,13 +451,15 @@ function Testimonials(){
     <div style={{display:'flex', flexWrap:'wrap', gap:'50px', margin:'50px 0px'}}>
       <div style={{display:'flex', flexDirection:'column', gap:'10px', width:'45%', flexGrow:1, minWidth:'250px', padding:'20px'}}>
         {/* <div style={{style:'20px ', fontWeight:500}}>Mr SosPeter Owur</div> */}
-        <div style={{fontSize:'25px ', fontWeight:600}}>ABOUT FOUNDER</div>
+        <div style={{fontSize:'25px ', fontWeight:700, display:'flex', flexDirection:'column', gap:'10px',alignItems:"center"}}>
+          <span>ABOUT FOUNDER</span>
+          <img src={SospeterNew} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1,flex:'1 1 100px', objectFit:'cover'}}/>
+        </div>
         <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', textAlign:'justify', gap:'15px'}}>
           <div style={{width:'100%', flex:'1 1 250px',gap:'30px', display:'flex', flexDirection:'column'}}> 
             <p>
               Sospeter Owuor is a visionary businessman, investor, and corporate leader whose focuses is modernizing Tanzania's agricultural sector to meet global standards. He has extensive experience in agricultural value chains, export operations, agro-processing and international trade. As the acting Managing Director and Co-Founder of TANZCOFFEE TRADING COMPANY LTD, he provides strategic leadership in operations, commercial development, and organizational expansion.
             </p>
-            <img src={SospeterNew} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1,flex:'1 1 100px', objectFit:'cover',alignSelf:'flex-end'}}/>
             <p>
               He previously co-founded Brice Agribusiness Ltd and Brice Agribusiness UK, a London-based company branch where he served as Operations Director, following his resignation from Room to Read Tanzania. He effectively managed and coordinated exports to international markets, including South Africa, China, and Turkey.
             </p>

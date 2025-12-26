@@ -2,17 +2,19 @@ import React, { useContext, useEffect, useState } from "react";
 import MwangazaLogo from "../assets/MwangazaLogo.jpg";
 import userPic from "../assets/Sospeter.webp";
 import { HiHome, HiUser } from "react-icons/hi2";
-import { FaBars, FaBookOpenReader, FaCircleXmark, FaComment, FaXmark } from "react-icons/fa6";
+import { FaBars, FaBookBookmark, FaBookOpenReader, FaCircleXmark, FaComment, FaXmark } from "react-icons/fa6";
 import UserManager from "../features/admin/UserManagment.jsx";
-import CourseManager from "../features/admin/CourseManager.jsx";
+import CourseManager from "../features/admin/AvailableCourses.jsx";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider.jsx";
 import Userpage from "../features/Users/UserPage.jsx";
 import DashboardPage from "../features/Dashboards/DashboardPage.jsx";
+import UpcomingCourse from "../features/admin/UpcomingCourses.jsx";
+import AvailableCourses from "../features/admin/AvailableCourses.jsx";
 
 export default function MainApp() {
   const {userData} = useContext(AuthContext);
-  let defaultMenu = userData.user_role == "admin" ? 'Courses Management' : 'Course Module'
+  let defaultMenu = userData.user_role == "admin" ? 'Available Courses' : 'Course Module'
   const [active, setActive] = useState(defaultMenu);
   const [sideBarOpened, setSideBar] = useState(true);
 
@@ -25,13 +27,13 @@ export default function MainApp() {
         return <Userpage />
       case "Course Module":
         return <UserManager/>
-      case "Discussions":
-        return <UserManager/>
-      case "Courses Management":
+      case "Upcoming Courses":
+        return <UpcomingCourse/>
+      case "Available Courses":
       default:
         return (
       <div>
-        {userData.user_role == 'admin' ? <CourseManager /> : ''}
+        {userData.user_role == 'admin' ? <AvailableCourses /> : ''}
       </div>
         )
     }
@@ -58,13 +60,21 @@ function SideBar({ active, setActive, sideBarOpened }) {
   const {userData} = useContext(AuthContext);
   const links = [
     { name: "Dashboard", key: "Dashboard", icon: <HiHome /> },
-    { name: "Course module", key: "Course Module", icon: <FaBookOpenReader /> },
+    { studentOnly: true,name: "Course module", key: "Course Module", icon: <FaBookOpenReader /> },
     { name: "User Account", key: "User Account", icon: <HiUser /> },
-    { name: "Discussions", key: "Discussions", icon: <FaComment /> },
-    { adminOnly: true,name: "Courses Management", key: "Courses Management", icon: <FaBookOpenReader /> },
+    { adminOnly: true,name: "Upcoming Courses", key: "Upcoming Courses", icon: <FaBookBookmark /> },
+    { adminOnly: true,name: "Available Courses", key: "Available Courses", icon: <FaBookOpenReader /> },
   ];
 // Filter links based on user role
-  const filteredLinks = links.filter(link => !link.adminOnly || userData.user_role === 'admin');
+  const filteredLinks = links.filter(link => {
+    if (link.adminOnly && userData.user_role !== 'admin') {
+      return false;
+    }
+    if (link.studentOnly && userData.user_role == 'admin'){
+      return false
+    }
+    return true;
+  });
 
   return (
     <div
@@ -128,7 +138,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
 
   async function LogoutHandler() {
     try {
-      const res = await fetch("http://localhost/mwangaza-backend/logout.php", {
+      const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/logout.php", {
         method: "POST",
         credentials: "include", // VERY IMPORTANT for cookies
       });
@@ -194,7 +204,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
               Logout  
             </div>            
             <img
-              src={`http://localhost/mwangaza-backend/uploads/users/${userData.user_pic}`}
+              src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData.user_pic}`}
               style={{ borderRadius: "50%", width:'50px' }}
             />
             <div style={{ fontSize: "14px", display:'flex', flexWrap:'wrap', gap:'7px', alignItems:'center' }}>

@@ -1,4 +1,4 @@
-import course_image from '../assets/AI Gen 2.webp';
+import course_image from '../assets/logo.webp';
 import { BsCalendar2Date, BsFillInfoCircleFill, BsTwitterX } from "react-icons/bs";
 import { FaPaperPlane, FaPencil } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
@@ -20,7 +20,7 @@ export default function Course(){
             const formData = new FormData();
             formData.append('courseId',courseId);
             try{
-                const res = await fetch('http://localhost/mwangaza-backend/get_selected_course.php',{
+                const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/get_selected_course.php',{
                     method:"POST",
                     body:formData
                 });
@@ -81,7 +81,13 @@ export default function Course(){
                         </p>
                         <span style={{background:'linear-gradient(180deg,rgba(23, 161, 241, 1) 40%, rgba(0, 116, 184, 1) 60%', padding:'10px', color:'white', fontSize:'20px', textAlign:'center', marginTop:'20px', width:'90%',maxWidth:'400px', border:'1px solid black', borderRadius:'5px', cursor:'pointer'}}>Enroll Now</span>
                     </div>
-                    <img src={`http://localhost/mwangaza-backend/${courseData.course.picture}`} alt="pic" width={'40%'} style={{aspectRatio:1/0.6, maxWidth:"300px"}}/>
+                    <img src={
+                        courseData.course.picture
+                        ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseData.course.picture}`
+                        : course_image
+                    }
+
+                    alt="pic" width={'40%'} style={{aspectRatio:1/0.6, maxWidth:"300px"}}/>
                 </div>
 
                 {/** Body */}

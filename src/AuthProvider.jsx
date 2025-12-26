@@ -9,7 +9,7 @@ useEffect(() => {
   async function fetchCookie() {
     try {
       const res = await fetch(
-        'http://localhost/mwangaza-backend/get_user_from_cookie.php',
+        'https://www.tanzcoffee.co.tz/mwangaza-backend/get_user_from_cookie.php',
         {
           method: "POST",
           credentials: 'include',

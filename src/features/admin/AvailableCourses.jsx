@@ -100,6 +100,7 @@ function ShowCourses({ setFormState, setEditModeState, setCourseData, editModeSt
       );
       const data = await res.json();
       setCourses(data.data || []);
+      alert(JSON.stringify(data.data))
     } catch (err) {
       console.error("Failed to fetch courses", err);
     } finally {

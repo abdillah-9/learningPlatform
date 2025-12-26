@@ -189,7 +189,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
     });
 
     const response = await fetch(
-      "http://localhost/mwangaza-backend/upload_course.php",
+      "https://www.tanzcoffee.co.tz/mwangaza-backend/upload_course.php",
       {
         method: "POST",
         body: formData,

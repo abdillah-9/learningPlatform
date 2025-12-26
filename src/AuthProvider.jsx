@@ -7,12 +7,15 @@ const [loading, setLoading] = useState(true);
 
 useEffect(() => {
   async function fetchCookie() {
+    const fData = new FormData();
+
     try {
       const res = await fetch(
         'https://www.tanzcoffee.co.tz/mwangaza-backend/get_user_from_cookie.php',
         {
           method: "POST",
           credentials: 'include',
+          body:fData
         }
       );
 

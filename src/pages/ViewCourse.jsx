@@ -77,7 +77,7 @@ function renderFile(block) {
   if (block.type === "file" || block.type === "fileFull") {
     if (!block.videoToken) return null;
 
-    const url = `http://localhost/mwangaza-backend/stream_video.php?token=${block.videoToken}`;
+    const url = `https://www.tanzcoffee.co.tz/mwangaza-backend/stream_video.php?token=${block.videoToken}`;
 
     // Determine file type from token? We can pass ext too if needed, else assume video
     return (

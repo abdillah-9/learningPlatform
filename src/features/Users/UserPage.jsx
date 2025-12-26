@@ -21,7 +21,7 @@ export default function UserPage() {
     formData.append("username_email", profile.username_email);
     if (profile.user_pic) formData.append("user_pic", profile.user_pic);
 
-    const res = await fetch("http://localhost/mwangaza-backend/update_profile.php", {
+    const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/update_profile.php", {
       method: "POST",
       credentials: "include",
       body: formData,
@@ -39,7 +39,7 @@ export default function UserPage() {
       return;
     }
 
-    const res = await fetch("http://localhost/mwangaza-backend/update_password.php", {
+    const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/update_password.php", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },

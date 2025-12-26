@@ -29,7 +29,7 @@ export default function AAviewLastCourse() {
   useEffect(() => {
     if (!moduleId) return;
 
-    fetch(`http://localhost/mwangaza-backend/get_module_by_id.php?module_id=${moduleId}`) // <-- fetch by moduleId
+    fetch(`https://www.tanzcoffee.co.tz/mwangaza-backend/get_module_by_id.php?module_id=${moduleId}`) // <-- fetch by moduleId
       .then(res => res.json())
       .then(data => {
         console.log("FULL COURSE DATA:", data);

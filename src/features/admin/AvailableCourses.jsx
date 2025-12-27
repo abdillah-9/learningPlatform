@@ -224,7 +224,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
                       }}
                     >
                       <strong>{`Block ${blockIndex + 1} (${block.type})`}</strong>
-                      <BlockRenderer block={block} />
+                      <BlockRenderer block={block} decodeHTML={decodeHTML}/>
                     </div>
                   ))
                 ) : (
@@ -250,7 +250,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
   );
 }
 
-function BlockRenderer({ block }) {
+function BlockRenderer({ block , decodeHTML}) {
   if (!block) return null;
 
   const baseStyle = {

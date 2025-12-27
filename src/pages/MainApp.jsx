@@ -138,21 +138,10 @@ function TopNavBar({sideBarOpened, setSideBar}) {
 
   async function LogoutHandler() {
     try {
-      const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/logout.php", {
-        method: "POST",
-        credentials: "include", // VERY IMPORTANT for cookies
-      });
-
-      if (!res.ok) {
-        throw new Error("Logout failed");
-      }
-
-      // Optional: clear any local storage
-      localStorage.clear();
-      sessionStorage.clear();
-
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      setUserData(null);
       // Redirect to login
-      setUserData(null)
       navigate("/auth/sign_in", { replace: true });
       alert("You have successfully logget out ");
     } catch (err) {

@@ -123,10 +123,12 @@ function SignIn(){
 
         if (res.ok) {
             localStorage.setItem("token", data.token);
-            setUserData(data.user);
+            localStorage.setItem("user", JSON.stringify(data.user)); // store user info
+            setUserData(data.user); // update context state
             navigate(from, { replace: true });
             alert(data.message);
-        } else {
+        }
+        else {
             alert(data.error || "Login failed");
         }
         } catch (err) {

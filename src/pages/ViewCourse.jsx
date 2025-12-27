@@ -129,7 +129,7 @@ function renderFile(block) {
           justifyContent: "space-between",
         }}
       >
-        {currentSlideBlocks?.map((block, j) => (
+        {currentSlideBlocks.map((block, j) => (
           <div
             key={j}
             style={{

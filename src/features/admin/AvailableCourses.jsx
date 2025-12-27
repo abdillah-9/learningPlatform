@@ -6,6 +6,37 @@ export default function AvailableCourses() {
   const [formState, setFormState] = useState(false);
   const [editModeState, setEditModeState] = useState(false);
   const [courseData, setCourseData] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const [page, setPage] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return Math.max(1, Number(params.get("page")) || 1);
+  });
+
+      // --- SAFE HTML DECODING ---
+    const decodeHTML = (encoded) => {
+      try {
+        return decodeURIComponent(escape(atob(encoded)));
+      } catch {
+        return encoded; // fallback for old DB rows
+      }
+    };
+
+    const fetchCourses = async (page) => {
+    setLoading(true);
+    try {
+      const res = await fetch(
+        `https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_courses_per_page.php?page=${page}`,{ cache: "no-store" }
+      );
+      const data = await res.json();
+      setCourses(data.data || []);
+    } catch (err) {
+      console.error("Failed to fetch courses", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div style={{ padding: "15px" }}>
@@ -21,12 +52,23 @@ export default function AvailableCourses() {
           setFormState={setFormState}
           editModeState={editModeState}
           courseData={courseData}
+          fetchCourses={fetchCourses}
+          page={page}
+          setPage={setPage}
         />
       )}
       <ShowCourses
         setFormState={setFormState}
         setEditModeState={setEditModeState}
         setCourseData={setCourseData}
+        setCourses={setCourses}
+        courses={courses}
+        loading={loading}
+        setLoading={setLoading}
+        fetchCourses={fetchCourses}
+        page={page}
+        setPage={setPage}
+        decodeHTML={decodeHTML}
       />
     </div>
   );
@@ -73,13 +115,7 @@ function QuickActions({ formState, setFormState, setEditModeState, setCourseData
   );
 }
 
-function ShowCourses({ setFormState, setEditModeState, setCourseData, editModeState }) {
-  const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(() => {
-    const params = new URLSearchParams(window.location.search);
-    return Math.max(1, Number(params.get("page")) || 1);
-  });
+function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,setFormState, setEditModeState, setCourseData, editModeState, page, setPage , decodeHTML}) {
 
   useEffect(() => {
     fetchCourses(page);
@@ -90,21 +126,6 @@ function ShowCourses({ setFormState, setEditModeState, setCourseData, editModeSt
     const params = new URLSearchParams(window.location.search);
     params.set("page", page);
     window.history.pushState({}, "", `?${params.toString()}`);
-  };
-
-  const fetchCourses = async (page) => {
-    setLoading(true);
-    try {
-      const res = await fetch(
-        `https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_courses_per_page.php?page=${page}`,{ cache: "no-store" }
-      );
-      const data = await res.json();
-      setCourses(data.data || []);
-    } catch (err) {
-      console.error("Failed to fetch courses", err);
-    } finally {
-      setLoading(false);
-    }
   };
 
   const handleDeleteCourse = async (courseId) => {
@@ -248,7 +269,7 @@ function BlockRenderer({ block }) {
       <div
         className="tiptap-content"
         style={{ ...baseStyle, width: "100%" }}
-        dangerouslySetInnerHTML={{ __html: block.content }}
+        dangerouslySetInnerHTML={{ __html: decodeHTML(block.content) }}
       />
     );
   }
@@ -317,7 +338,7 @@ if (block.type === "button") {
         fontWeight: "600",
       }}
       dangerouslySetInnerHTML={{
-        __html: block.content || "<span>Click</span>",
+        __html: decodeHTML(block.content) || "<span>Click</span>",
       }}
     />
   );

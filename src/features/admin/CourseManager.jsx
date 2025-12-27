@@ -19,7 +19,7 @@ const decodeHTML = (encoded) => {
   }
 };
 
-export default function CourseManager({ formState, setFormState, editModeState, courseData: initialCourseData }) {
+export default function CourseManager({ formState, setFormState, editModeState, courseData: initialCourseData , fetchCourses, page, setPage}) {
 
   /* COURSE MAIN DATA */
   const [courseData, setCourseData] = useState({
@@ -232,6 +232,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
     // Optional: close form after success
     setFormState(false);
+    fetchCourses(page);
 
   } catch (err) {
     console.error(err);

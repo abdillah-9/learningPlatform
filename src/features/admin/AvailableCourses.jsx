@@ -98,9 +98,9 @@ function ShowCourses({ setFormState, setEditModeState, setCourseData, editModeSt
       const res = await fetch(
         `https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_courses_per_page.php?page=${page}`
       );
-const text = await res.text();
-console.log("RAW RESPONSE:", text);
-alert(text);
+      const data = await res.json();
+      setCourses(data.data || []);
+      alert(JSON.stringify(data.data))
     } catch (err) {
       console.error("Failed to fetch courses", err);
     } finally {

@@ -41,7 +41,7 @@ export default function AAviewLastCourse() {
 
   /* ---------------- FLATTEN & CHUNK BLOCKS ---------------- */
 
-  const allBlocks = course.modules.flatMap(mod => mod.blocks);
+  const allBlocks = course?.modules?.flatMap(mod => mod.blocks);
 
   const slides = [];
   for (let i = 0; i < allBlocks.length; i += BLOCKS_PER_SLIDE) {
@@ -129,7 +129,7 @@ function renderFile(block) {
           justifyContent: "space-between",
         }}
       >
-        {currentSlideBlocks.map((block, j) => (
+        {currentSlideBlocks?.map((block, j) => (
           <div
             key={j}
             style={{

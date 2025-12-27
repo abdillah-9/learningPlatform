@@ -2,6 +2,23 @@ import { useContext, useEffect, useState } from "react";
 import TipTapEditor from "../../components/editor/TipTapEditor";
 import { AuthContext } from "../../AuthProvider";
 
+// --- SAFE HTML ENCODING (bypass hosting WAF) ---
+const encodeHTML = (html) => {
+  try {
+    return btoa(unescape(encodeURIComponent(html)));
+  } catch {
+    return html;
+  }
+};
+
+const decodeHTML = (encoded) => {
+  try {
+    return decodeURIComponent(escape(atob(encoded)));
+  } catch {
+    return encoded; // fallback for old DB rows
+  }
+};
+
 export default function CourseManager({ formState, setFormState, editModeState, courseData: initialCourseData }) {
 
   /* COURSE MAIN DATA */
@@ -40,7 +57,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
           createdDate: mod.createdDate || new Date().toISOString().split("T")[0],
           blocks: mod.blocks?.map((block) => ({
             type: block.type || "text",
-            content: block.content || "",
+            content: block.content ? decodeHTML(block.content) : "",
             file: null, // can't prefill File objects
             fileType: block.fileType || "",
             layout: block.layout || "row",
@@ -172,10 +189,24 @@ export default function CourseManager({ formState, setFormState, editModeState, 
       formData.append("picture", courseData.picture);
     }
 
-    formData.append("modules", JSON.stringify(modules));
+    const encodedModules = modules?.map((mod) => ({
+      ...mod,
+      blocks: mod?.blocks?.map((block) => ({
+        ...block,
+        content:
+          block.type === "text" ||
+          block.type === "textFull" ||
+          block.type === "button"
+            ? encodeHTML(block.content)
+            : block.content,
+      })),
+    }));
 
-    modules.forEach((mod, mIndex) => {
-      mod.blocks.forEach((block, bIndex) => {
+    formData.append("modules", JSON.stringify(encodedModules));
+
+
+    modules?.forEach((mod, mIndex) => {
+      mod.blocks?.forEach((block, bIndex) => {
         if (
           (block.type === "file" || block.type === "fileFull") &&
           block.file

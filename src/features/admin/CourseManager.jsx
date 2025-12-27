@@ -71,7 +71,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
   const updateModule = (moduleIndex, field, value) =>
     setModules((prev) =>
-      prev.map((m, i) =>
+      prev?.map((m, i) =>
         i === moduleIndex ? { ...m, [field]: value } : m
       )
     );
@@ -85,7 +85,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
   const addBlock = (moduleIndex, type) =>
     setModules((prev) =>
-      prev.map((mod, idx) => {
+      prev?.map((mod, idx) => {
         if (idx !== moduleIndex) return mod;
 
         return {
@@ -100,11 +100,11 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
   const updateTextBlock = (moduleIndex, blockIndex, content) =>
     setModules((prev) =>
-      prev.map((mod, mIndex) => {
+      prev?.map((mod, mIndex) => {
         if (mIndex !== moduleIndex) return mod;
         return {
           ...mod,
-          blocks: mod.blocks.map((b, bIndex) =>
+          blocks: mod.blocks?.map((b, bIndex) =>
             bIndex === blockIndex ? { ...b, content } : b
           ),
         };
@@ -113,12 +113,12 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
   const updateFileBlock = (moduleIndex, blockIndex, file) =>
     setModules((prev) =>
-      prev.map((mod, mIndex) => {
+      prev?.map((mod, mIndex) => {
         if (mIndex !== moduleIndex) return mod;
 
         return {
           ...mod,
-          blocks: mod.blocks.map((b, bIndex) =>
+          blocks: mod.blocks?.map((b, bIndex) =>
             bIndex === blockIndex
               ? { ...b, file, fileType: file.type }
               : b
@@ -129,7 +129,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
   const removeBlock = (moduleIndex, blockIndex) =>
     setModules((prev) =>
-      prev.map((mod, idx) => {
+      prev?.map((mod, idx) => {
         if (idx !== moduleIndex) return mod;
         return {
           ...mod,
@@ -331,7 +331,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
         <div style={{ marginTop: "20px" }}>
           <h3>Course Modules</h3>
 
-          {modules.map((module, index) => (
+          {modules?.map((module, index) => (
             <div
               key={index}
               style={{
@@ -396,7 +396,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
               />
 
               {/* BLOCKS */}
-              {module.blocks.map((block, bIndex) => (
+              {module.blocks?.map((block, bIndex) => (
                 <div
                   key={bIndex}
                   style={{
@@ -412,11 +412,11 @@ export default function CourseManager({ formState, setFormState, editModeState, 
                     onChange={(e) => {
                       const newLayout = e.target.value;
                       setModules((prev) =>
-                        prev.map((mod, mIndex) => {
+                        prev?.map((mod, mIndex) => {
                           if (mIndex !== index) return mod; // leave other modules untouched
                           return {
                             ...mod,
-                            blocks: mod.blocks.map((b, i) =>
+                            blocks: mod.blocks?.map((b, i) =>
                               i === bIndex ? { ...b, layout: newLayout } : b // update just this block
                             ),
                           };
@@ -448,11 +448,11 @@ export default function CourseManager({ formState, setFormState, editModeState, 
                       const newType = e.target.value;
 
                       setModules((prev) =>
-                        prev.map((mod, mIndex) => {
+                        prev?.map((mod, mIndex) => {
                           if (mIndex !== index) return mod;
                           return {
                             ...mod,
-                            blocks: mod.blocks.map((b, i) =>
+                            blocks: mod.blocks?.map((b, i) =>
                               i === bIndex
                                 ? {
                                     type: newType,

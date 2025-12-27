@@ -117,7 +117,7 @@ function CoursesDetails({formState, setFormState, setEditModeState, courseData, 
 
         {/** Main Courses here */}
         <div style={{width:'100%', display:'flex', gap:"15px", flexDirection:'column' }}>
-          {fetchedCourses && fetchedCourses.map((course, index)=>(
+          {fetchedCourses && fetchedCourses?.map((course, index)=>(
             <div key={index} style={{flexWrap:'wrap',display:'flex', gap:'7px',boxShadow:'1px 2px 20px rgba(44, 43, 43, 0.6)', borderRadius:'5px',
             maxWidth:'900px',
             }}>

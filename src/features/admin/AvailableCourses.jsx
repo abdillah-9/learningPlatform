@@ -141,7 +141,7 @@ function ShowCourses({ setFormState, setEditModeState, setCourseData, editModeSt
       <h4>Available Courses (Page {page})</h4>
       {loading && <p>Loading...</p>}
 
-      {courses.map((course, courseIndex) => (
+      {courses?.map((course, courseIndex) => (
         <div key={course.id} style={{ marginBottom: "25px" }}>
           <h5 style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <span>{`Course ${courseIndex + 1}: ${course.name}`}</span>
@@ -180,7 +180,7 @@ function ShowCourses({ setFormState, setEditModeState, setCourseData, editModeSt
           </h5>
           <p>{course.description}</p>
 
-          {course.modules.map((module, moduleIndex) => (
+          {course?.modules?.map((module, moduleIndex) => (
             <div
               key={module.id}
               style={{
@@ -193,7 +193,7 @@ function ShowCourses({ setFormState, setEditModeState, setCourseData, editModeSt
               <strong>{`Module ${moduleIndex + 1}: ${module.title}`}</strong>
               <div style={{ marginLeft: "20px", marginTop: "5px" }}>
                 {module.blocks.length > 0 ? (
-                  module.blocks.map((block, blockIndex) => (
+                  module?.blocks?.map((block, blockIndex) => (
                     <div
                       key={block.id}
                       style={{

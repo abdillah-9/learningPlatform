@@ -40,7 +40,7 @@ export default function ShowUpcomingCourses(){
                     <span style={{fontSize:'16px', borderRadius:"5px", backgroundColor:"rgba(138, 146, 205, 1)", padding:"8px 14px"}}><IoMdHome/></span>
                     <span>Return back to home page</span>
                 </div>
-            {upcomingCourses? upcomingCourses.map((course, index)=>(
+            {upcomingCourses? upcomingCourses?.map((course, index)=>(
                 <div key={index} style={{display:'flex',flexWrap:'wrap', gap:'20px', maxWidth:'800px', boxShadow:'1px 2px 10px rgba(60, 58, 58, 0.7)'}}>
                     <span style={{aspectRatio:16/9,width:'100%',maxWidth:'350px'}}>
                         <img src={course.pic} alt="pic" width={"100%"} height={"100%"} style={{objectFit:'cover', }}/>

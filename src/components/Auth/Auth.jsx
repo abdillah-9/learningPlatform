@@ -122,6 +122,7 @@ function SignIn(){
         const data = await res.json();
 
         if (res.ok) {
+            localStorage.setItem("token", data.token);
             setUserData(data.user);
             navigate(from, { replace: true });
             alert(data.message);

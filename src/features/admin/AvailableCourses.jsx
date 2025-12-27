@@ -98,7 +98,7 @@ function ShowCourses({ setFormState, setEditModeState, setCourseData, editModeSt
       const res = await fetch(
         `https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_courses_per_page.php?page=${page}`
       );
-      const data = await res.json();
+      const data = await res.text();
       setCourses(data.data || []);
       alert(JSON.stringify(data.data))
     } catch (err) {

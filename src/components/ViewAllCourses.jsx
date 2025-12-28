@@ -62,7 +62,7 @@ export default function ViewAllCourses(){
                           
                     <div style={{ position: 'relative', width: '100%',height:'100%' }}>
                     <img
-                        src={`https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}`}
+                        src={`https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}` || pic}
                         alt="slide"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />

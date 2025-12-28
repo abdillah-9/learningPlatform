@@ -40,33 +40,31 @@ function QuickActions({setActive,active, userData, setUserData}){
 
 async function DeleteAccount() {
   try {
-    const token = localStorage.getItem("token");
+    const formData = new FormData();
+    formData.append("user_id", userData.user_id);
+    formData.append("token", localStorage.getItem("token"));
 
     const res = await fetch(
       "https://www.tanzcoffee.co.tz/mwangaza-backend/delete_account.php",
       {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        body: formData,
       }
     );
 
     const data = await res.json();
 
     if (!res.ok) {
-      alert(data.error || "Failed to delete account");
+      alert(data.error);
       return;
     }
 
     alert(data.message);
-
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUserData(null);
   } catch (e) {
     console.error(e);
-    alert("Something went wrong");
   }
 }
 

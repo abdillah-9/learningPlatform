@@ -135,27 +135,31 @@ export function ProtectedRoute({ children }) {
   return children;
 }
 
-export function PublicRoute({children}){
-  const {userData} = useContext(AuthContext);
-  const location = useLocation();
-  let path = location.pathname;
+// export function PublicRoute({children}){
+//   const {userData} = useContext(AuthContext);
+//   const location = useLocation();
+//   let path = location.pathname;
 
-  if(userData && location.state?.from?.pathname) {
-    return (
-      <Navigate
-        to={location.state.from.pathname}
-        replace
-      />
-    );
-  }
+//   if(userData && location.state?.from?.pathname) {
+//     return (
+//       <Navigate
+//         to={location.state.from.pathname}
+//         replace
+//       />
+//     );
+//   }
 
-  else if(userData && !location.state?.from?.pathname && (location.pathname == '/auth/sign_in' || location.pathname == '/auth/register')) {
-    return (
-      <Navigate
-        to={'/'}
-        replace
-      />
-    );
-  }
+//   else if(userData && !location.state?.from?.pathname && (location.pathname == '/auth/sign_in' || location.pathname == '/auth/register')) {
+//     return (
+//       <Navigate
+//         to={'/'}
+//         replace
+//       />
+//     );
+//   }
+//   return children;
+// }
+
+export function PublicRoute({ children }) {
   return children;
 }

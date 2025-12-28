@@ -64,7 +64,7 @@ console.log("Decoded token payload:", decodedPayload);
       }
     );
 
-    const data = await res.text();
+    const data = await res.json();
 
     if (!res.ok) {
       alert(data.error);

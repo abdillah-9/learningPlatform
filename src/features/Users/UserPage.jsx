@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../AuthProvider";
 
 export default function UserPage() {
+  const {setUserData} = useContext(AuthContext);
   const [profile, setProfile] = useState({
     full_name: "",
     username_email: "",
@@ -28,6 +30,11 @@ export default function UserPage() {
     });
 
     const data = await res.json();
+    // 1️⃣ Update context (UI updates immediately)
+    setUserData(data.user);
+
+    // 2️⃣ Persist it (refresh-safe)
+    localStorage.setItem("user", JSON.stringify(data.user));
     alert(data.message || data.error);
   }
 

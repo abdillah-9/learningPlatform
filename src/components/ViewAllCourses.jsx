@@ -4,7 +4,7 @@ import pic3 from '../assets/pic3.jpeg';
 import { MdArrowDropDown } from 'react-icons/md';
 import { HiMiniArrowLongRight } from 'react-icons/hi2';
 import pic1 from '../assets/pic1.jpeg';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider';
 
 export default function ViewAllCourses(){

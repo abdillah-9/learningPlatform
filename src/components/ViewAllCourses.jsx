@@ -68,7 +68,7 @@ export default function ViewAllCourses(){
                     />
                     </div>
         
-                    <a style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#0C2B4E', width:'100%', display:'flex', flexDirection:'column', gap:'15px', padding:'20px 0px'}} className="heightHover" href="/enroll_course">
+                    <a style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#0C2B4E', width:'100%', display:'flex', flexDirection:'column', gap:'5px', padding:'10px 0px'}} className="heightHover">
                     <div>
                         {course.name}
                     </div>

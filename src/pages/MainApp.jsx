@@ -22,7 +22,7 @@ export default function MainApp() {
     
     switch (active) {
       case "Dashboard":
-        return <DashboardPage/>
+        return <DashboardPage active={active} setActive={setActive} />
       case "User Account":
         return <Userpage />
       case "Course Module":

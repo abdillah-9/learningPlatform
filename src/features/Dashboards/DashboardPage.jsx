@@ -44,6 +44,18 @@ async function DeleteAccount() {
     formData.append("user_id", userData.user_id);
     formData.append("token", localStorage.getItem("token"));
 
+// Get token from localStorage
+const token = localStorage.getItem("token");
+
+// Split the JWT into its 3 parts
+const payloadBase64 = token.split('.')[1]; // middle part is payload
+
+// Decode base64
+const decodedPayload = JSON.parse(atob(payloadBase64));
+
+console.log("Decoded token payload:", decodedPayload);
+
+
     const res = await fetch(
       "https://www.tanzcoffee.co.tz/mwangaza-backend/delete_account.php",
       {

@@ -45,7 +45,7 @@ export default function ViewAllCourses(){
                     <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>Upcoming Courses</span>
                     <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
                         <img src={userData?.user_pic ? `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/${userData?.user_pic}` : pic } 
-                        alt='pic' width={'50px'} height={'45px'} style={{borderRadius:'50%'}}/>
+                        alt='pic' width={'70px'} height={'60px'} style={{borderRadius:'50%'}}/>
                         <span>{userData?.full_name}</span>  
                         <span style={{fontSize:'20px'}}><MdArrowDropDown/></span>   
                     </div> 
@@ -62,7 +62,7 @@ export default function ViewAllCourses(){
                           
                     <div style={{ position: 'relative', width: '100%',height:'100%' }}>
                     <img
-                        src={course.picture}
+                        src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/`+course.picture}
                         alt="slide"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
@@ -75,7 +75,7 @@ export default function ViewAllCourses(){
                     <div style={{fontSize:'15px', color:'rgba(250, 250, 250, 0.66)',display:'flex', gap:'5px', flexDirection:'column'}} className="opacityHover">
                         <span>{course.description}</span>
                         <div style={{display:'flex',alignItems:'center', gap:'10px'}}
-                        onClick={()=>navigateTo('/enroll_course/'+course.id)}>
+                        onClick={()=>navigateTo(`/enroll_course/${course.id}`)}>
                             <span>View Course </span>
                             <HiMiniArrowLongRight style={{fontSize:'25px'}}/>
                         </div>

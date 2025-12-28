@@ -51,6 +51,9 @@ function QuickActions({setActive,active, userData, setUserData}){
       if(res.ok){
         const data = await res.json();
         alert(data.message);
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setUserData(null);
       }
       else{
         alert("failed to delete account");

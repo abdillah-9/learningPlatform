@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsBook, BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import pic1 from '../assets/pic1.jpeg';
 import pic2 from '../assets/pic2.jpeg';
@@ -20,6 +20,7 @@ import { PiArrowBendUpRightThin } from "react-icons/pi";
 import { HiArrowRight, HiMiniArrowLongRight, HiUser } from "react-icons/hi2";
 import { BookAIcon, BookOpenCheckIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthProvider";
 
 export default function Home(){
   const [coursesList, setCoursesList] = useState([]);
@@ -478,6 +479,7 @@ function Testimonials(){
 
 function Footer(){
     const navigateTo = useNavigate();
+    const {userData} = useContext(AuthContext);
   return(
     <div style={{backgroundColor:'#0C2B4E', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
       <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'30%', minWidth:'300px', gap:'20px'}}>

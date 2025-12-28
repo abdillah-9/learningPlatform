@@ -516,7 +516,7 @@ function Footer(){
           <span>Courses</span>
           {
             userData.user_role == 'admin' ?
-            <span>Admin</span>:""
+            <span onClick={()=>{navigateTo("/enroll_course/admin/main_App/moduleId/admin")}}>Admin</span>:""
           }
         </div>
       </div>

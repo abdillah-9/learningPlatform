@@ -71,7 +71,7 @@ console.log("Decoded token payload:", decodedPayload);
       return;
     }
 
-    alert(data);
+    alert(data.message);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUserData(null);

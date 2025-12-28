@@ -41,6 +41,9 @@ export default function UserPage() {
   async function handlePasswordUpdate(e) {
     e.preventDefault();
 
+    const formData = new FormData(e.target);
+    formData.append('token',localStorage.getItem("token")); 
+
     if (passwords.new_password !== passwords.confirm_password) {
       alert("Passwords do not match");
       return;
@@ -48,9 +51,7 @@ export default function UserPage() {
 
     const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/update_password.php", {
       method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(passwords),
+      body: formData
     });
 
     const data = await res.json();

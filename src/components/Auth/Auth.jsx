@@ -59,6 +59,8 @@ function SignUp(){
             if(res.ok){
                 const data = await res.json();
                 console.log(data);
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("user", JSON.stringify(data.user)); // store user
                 setUserData(data.user)
                 alert(data.message);
             }

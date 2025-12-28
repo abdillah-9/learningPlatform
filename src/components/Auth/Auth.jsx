@@ -41,6 +41,7 @@ export default function Auth(){
 }
 
 function SignUp(){
+    const navigateTo = useNavigate();
     const {setUserData} = useContext(AuthContext);
     async function formSubmit(e){
         e.preventDefault();
@@ -61,6 +62,7 @@ function SignUp(){
                 console.log(data);
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("user", JSON.stringify(data.user)); // store user
+                navigateTo(from, { replace: true });
                 setUserData(data.user)
                 alert(data.message);
             }

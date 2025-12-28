@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";  // <-- added to get moduleId
 
+const decodeHTML = (encoded) => {
+  try {
+    return decodeURIComponent(escape(atob(encoded)));
+  } catch {
+    return encoded; // fallback for old DB rows
+  }
+};
+
 export default function AAviewLastCourse() {
   //Main App prevents copying anyshit
   useEffect(() => {
@@ -150,7 +158,7 @@ function renderFile(block) {
               <div
                 className="tiptap-content"
                 dangerouslySetInnerHTML={{
-                  __html: block.content,
+                  __html: decodeHTML(block.content),
                 }}
               />
             )}
@@ -173,7 +181,7 @@ function renderFile(block) {
               <div
                 className="tiptap-content"
                 dangerouslySetInnerHTML={{
-                  __html: block.content,
+                  __html: decodeHTML(block.content),
                 }}
               />
             )}
@@ -205,7 +213,7 @@ function renderFile(block) {
                   cursor: "pointer",
                 }}
                 dangerouslySetInnerHTML={{
-                  __html: block.content || "Click Me",
+                  __html: decodeHTML(block.content) || "Click Here",
                 }}
               />
             )}

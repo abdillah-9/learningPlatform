@@ -98,6 +98,7 @@ export default function UserPage() {
         <input
           type="password"
           placeholder="Old Password"
+          name="old_password" 
           style={inputStyle}
           onChange={(e) =>
             setPasswords({ ...passwords, old_password: e.target.value })
@@ -107,6 +108,7 @@ export default function UserPage() {
         <input
           type="password"
           placeholder="New Password"
+          name="new_password" 
           style={inputStyle}
           onChange={(e) =>
             setPasswords({ ...passwords, new_password: e.target.value })

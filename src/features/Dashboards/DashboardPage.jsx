@@ -15,7 +15,7 @@ export default function DashboardPage({setActive,active}) {
 
   return (
     <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column'}}>
-      <QuickActions active={active} setActive={setActive} userData={userData}/>
+      <QuickActions active={active} setActive={setActive} userData={userData} setUserData={setUserData}/>
       <CoursesDetails />
     </div>
   )

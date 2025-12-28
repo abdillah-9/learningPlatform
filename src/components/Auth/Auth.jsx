@@ -42,6 +42,8 @@ export default function Auth(){
 
 function SignUp(){
     const navigateTo = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const {setUserData} = useContext(AuthContext);
     async function formSubmit(e){
         e.preventDefault();
@@ -62,9 +64,9 @@ function SignUp(){
                 console.log(data);
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("user", JSON.stringify(data.user)); // store user
-                navigateTo(from, { replace: true });
                 setUserData(data.user)
                 alert(data.message);
+                navigateTo(from, { replace: true });
             }
             else{
                 const data = await res.json();

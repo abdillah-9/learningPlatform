@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import MwangazaLogo from '../assets/AI Gen 2.webp';
-import pic3 from '../assets/pic3.jpeg';
+import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { MdArrowDropDown } from 'react-icons/md';
 import { HiMiniArrowLongRight } from 'react-icons/hi2';
-import pic1 from '../assets/pic1.jpeg';
+import pic from '../assets/logo.jpg';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider';
 
@@ -39,13 +38,14 @@ export default function ViewAllCourses(){
             {/* Top nav bar */}
             <div style={{position:'absolute', top:0, left:0, width:'100%', height:'80px', backgroundColor:'#0C2B4E',zIndex:1, display:'flex', color:'white',justifyContent:'space-between',padding:'0px 15px', alignItems:'center'}}>
                 <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
-                    <img src={userData?.user_pic || MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
+                    <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
                 <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
                 </div>
                 <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500, alignItems:'center'}}> 
                     <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>Upcoming Courses</span>
                     <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
-                        <img src={pic3} alt='pic' width={'50px'} height={'45px'} style={{borderRadius:'50%'}}/>
+                        <img src={userData?.user_pic ? `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/${userData?.user_pic}` : pic } 
+                        alt='pic' width={'50px'} height={'45px'} style={{borderRadius:'50%'}}/>
                         <span>{userData?.full_name}</span>  
                         <span style={{fontSize:'20px'}}><MdArrowDropDown/></span>   
                     </div> 

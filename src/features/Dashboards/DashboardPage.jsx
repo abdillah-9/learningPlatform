@@ -38,31 +38,37 @@ function QuickActions({setActive,active, userData, setUserData}){
     }
   }
 
-  async function DeleteAccount(){
-     try{
-      const formData = new FormData();
-      formData.append('user_id', userData.user_id);
-      const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/delete_account.php',
-        {
-          method:"POST",body:formData,
-        }
-      );
+async function DeleteAccount() {
+  try {
+    const token = localStorage.getItem("token");
 
-      if(res.ok){
-        const data = await res.json();
-        alert(data.message);
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        setUserData(null);
+    const res = await fetch(
+      "https://www.tanzcoffee.co.tz/mwangaza-backend/delete_account.php",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
-      else{
-        alert("failed to delete account");
-      }
-     }
-     catch(e){
-      console.log(e);
-     }
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.error || "Failed to delete account");
+      return;
+    }
+
+    alert(data.message);
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUserData(null);
+  } catch (e) {
+    console.error(e);
+    alert("Something went wrong");
   }
+}
 
   return(
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px'}}>

@@ -52,14 +52,14 @@ async function DeleteAccount() {
       }
     );
 
-    const data = await res.json();
+    const data = await res.text();
 
     if (!res.ok) {
       alert(data.error);
       return;
     }
 
-    alert(data.message);
+    alert(data);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUserData(null);

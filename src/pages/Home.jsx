@@ -514,6 +514,10 @@ function Footer(){
         </div>
         <div style={{display:'flex', gap:'15px', flexDirection:'column'}}>
           <span>Courses</span>
+          {
+            userData.user_role == 'admin' ?
+            <span>Admin</span>:""
+          }
         </div>
       </div>
 

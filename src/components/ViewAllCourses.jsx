@@ -54,11 +54,11 @@ export default function ViewAllCourses(){
 
             {/** Main Courses  */}
             
-            <div style={{display:'flex', width:'100%', gap:'20px', paddingTop:'100px', flexWrap:'wrap'}}>
+            <div style={{display:'flex', width:'100%', gap:'20px', paddingTop:'100px', flexWrap:'wrap', justifyContent:'center'}}>
             {
             coursesList ?  coursesList?.map((course, index)=>(
                 <div className="slideShowHeight" key={course.id}
-                style={{flex:'1 1 250px', position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
+                style={{flex:'1 1 250px', position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px', maxWidth:'250px'}}>
                           
                     <div style={{ position: 'relative', width: '100%',height:'100%' }}>
                     <img

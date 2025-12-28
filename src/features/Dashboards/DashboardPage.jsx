@@ -71,10 +71,10 @@ console.log("Decoded token payload:", decodedPayload);
       return;
     }
 
-    alert(data.message);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUserData(null);
+    alert(data.message);s
   } catch (e) {
     console.error(e);
   }

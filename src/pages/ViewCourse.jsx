@@ -35,6 +35,18 @@ export default function AAviewLastCourse() {
 
   const BLOCKS_PER_SLIDE = 3;
 
+  /* ---------------- FLATTEN & CHUNK BLOCKS ---------------- */
+
+  const allBlocks = course?.modules?.flatMap(mod => mod.blocks);
+
+  const slides = [];
+  for (let i = 0; i < allBlocks.length; i += BLOCKS_PER_SLIDE) {
+    slides.push(allBlocks.slice(i, i + BLOCKS_PER_SLIDE));
+  }
+
+  const totalSlides = slides.length;
+  const currentSlideBlocks = slides[slideIndex];
+  
     /* ------------------ INSERT PROGRESS API --------------------*/
   useEffect(()=>{
 
@@ -87,17 +99,6 @@ export default function AAviewLastCourse() {
 
   if (!course) return <p>Loading...</p>;
 
-  /* ---------------- FLATTEN & CHUNK BLOCKS ---------------- */
-
-  const allBlocks = course?.modules?.flatMap(mod => mod.blocks);
-
-  const slides = [];
-  for (let i = 0; i < allBlocks.length; i += BLOCKS_PER_SLIDE) {
-    slides.push(allBlocks.slice(i, i + BLOCKS_PER_SLIDE));
-  }
-
-  const totalSlides = slides.length;
-  const currentSlideBlocks = slides[slideIndex];
 
   /* ---------------- NAVIGATION ---------------- */
 

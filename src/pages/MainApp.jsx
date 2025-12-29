@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import MwangazaLogo from "../assets/MwangazaLogo.jpg";
-import userPic from "../assets/Sospeter.webp";
 import { HiHome, HiUser } from "react-icons/hi2";
 import { FaBars, FaBookBookmark, FaBookOpenReader, FaCircleXmark, FaComment, FaXmark } from "react-icons/fa6";
 import UserManager from "../features/admin/UserManagment.jsx";
-import CourseManager from "../features/admin/AvailableCourses.jsx";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider.jsx";
 import Userpage from "../features/Users/UserPage.jsx";
 import DashboardPage from "../features/Dashboards/DashboardPage.jsx";
 import UpcomingCourse from "../features/admin/UpcomingCourses.jsx";
 import AvailableCourses from "../features/admin/AvailableCourses.jsx";
+import AdminDashboard from "../features/admin/AdminDashboard.jsx";
 
 export default function MainApp() {
   const {userData} = useContext(AuthContext);
@@ -22,7 +21,14 @@ export default function MainApp() {
     
     switch (active) {
       case "Dashboard":
-        return <DashboardPage active={active} setActive={setActive} />
+        return(
+          <div>
+            {
+              userData?.user_role == 'admin' ? <AdminDashboard/> :
+              <DashboardPage active={active} setActive={setActive} />
+            }
+          </div>
+      )
       case "User Account":
         return <Userpage />
       case "Course Module":

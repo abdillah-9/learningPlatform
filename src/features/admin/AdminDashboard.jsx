@@ -110,6 +110,20 @@ console.log("user id "+userData.user_id);
         <span style={{fontSize:'16px',backgroundColor:'rgba(248, 133, 133, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(80, 1, 1, 1)'}}><RiDeleteBin5Fill/></span>
         <span>Delete Account</span>
       </div>
+
+      {/** MANAGE COURSES */}
+      <div style={{display:'flex', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'160px'}}
+      onClick={()=>{setActive('User Account')}}>
+        <span style={{fontSize:'16px',backgroundColor:'rgba(153, 153, 241, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(9, 18, 87, 1)'}}><FaUserEdit/></span>
+        <span>Manage Available Courses</span>
+      </div>
+
+      <div style={{display:'flex', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'160px'}}
+      onClick={()=>{setActive('User Account')}}>
+        <span style={{fontSize:'16px',backgroundColor:'rgba(153, 153, 241, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(9, 18, 87, 1)'}}><FaUserEdit/></span>
+        <span>Manage Upcoming Courses</span>
+      </div>
+
     </div>
   )
 }
@@ -118,12 +132,12 @@ function UsersActions(){
   return(
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px'}}>
        <div>
-        <span style={{padding:"7px 10px", display:'flex', alignItems:'center', justifyContent:'center'}}>
+        <span style={{padding:"7px 10px", display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%', backgroundColor:"#F4B342", color:"#905b00ff"}}>
           <HiMiniUsers/>
         </span>
-        <div style={{display:'flex', gap:'10px'}}>
+        <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
           <span style={{fontWeight:700, fontSize:'17px'}}>Total Students</span>
-          <span style={{fontSize:'15px', fontWeight:500, color:'rgba(45, 44, 44, 1)'}}>{"76"}</span>
+          <span style={{fontSize:'15px', fontWeight:700, color:'rgba(67, 66, 66, 0.84)'}}>{"76"}</span>
         </div>
        </div>
     </div>

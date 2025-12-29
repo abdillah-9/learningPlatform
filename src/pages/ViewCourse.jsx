@@ -10,37 +10,6 @@ const decodeHTML = (encoded) => {
 };
 
 export default function AAviewLastCourse() {
-
-  const trackBlockAccess = async (blockId) => {
-  const {userData} = useContext(AuthContext);
-  const userId = userData.user_id;
-  if (!userId || !blockId) return;
-
-  const formData = new FormData();
-  formData.append('userId',userId);
-  formData.append('blockId', blockId);
-
-    try {
-      const res = await fetch(
-        "https://www.tanzcoffee.co.tz/mwangaza-backend/track_block_access.php",
-        {
-          method: "POST",
-          body: formData
-        }
-      );
-
-      if(res.ok){
-        const data = await res.text();
-        alert(data);
-      }
-      else{
-        alert("Network error...");
-      }
-    } catch (err) {
-      console.error("Tracking failed", err);
-    }
-  };
-
   //Main App prevents copying anyshit
   useEffect(() => {
       const handleCopy = (e) => e.preventDefault();
@@ -63,7 +32,7 @@ export default function AAviewLastCourse() {
   const [course, setCourse] = useState(null);
   const [slideIndex, setSlideIndex] = useState(0);
 
-  const BLOCKS_PER_SLIDE = 3;
+  const BLOCKS_PER_SLIDE = 5;
 
   useEffect(() => {
     if (!moduleId) return;
@@ -89,19 +58,6 @@ export default function AAviewLastCourse() {
 
   const totalSlides = slides.length;
   const currentSlideBlocks = slides[slideIndex];
-
-  useEffect(() => {
-  if (!currentSlideBlocks) return;
-
-  currentSlideBlocks.forEach((block) => {
-    const key = `block_seen_${block.id}`;
-    if (sessionStorage.getItem(key)) return;
-
-    sessionStorage.setItem(key, "1");
-    trackBlockAccess(block.id);
-  });
-}, [slideIndex]);
-
 
   /* ---------------- NAVIGATION ---------------- */
 

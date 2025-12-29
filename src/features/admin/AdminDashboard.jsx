@@ -152,7 +152,7 @@ function UsersActions(){
   FetchAllUsers();
   },[]);
 
-  async function DeleteStudent({student}) {
+  async function DeleteStudent(student) {
     const student_id = student.id;
     const formData = new FormData();
     formData.append('student_id', student_id);
@@ -162,12 +162,17 @@ function UsersActions(){
       body:formData,
      });
 
-     if(res.ok){
+    if (res.ok) {
       const data = await res.json();
-      setStudents(students);
+
+      setStudents(prev =>
+        prev.filter(s => s.id !== student_id)
+      );
+
       alert(data.message);
-     }
-     else{
+    }
+
+    else{
       alert('Failed to delete student');
      } 
   }
@@ -198,7 +203,9 @@ function UsersActions(){
             <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center', fontSize:'15px', fontWeight:600,
               borderBottom:"1px solid rgba(100,100,100,0.6)",
               paddingBottom:'8px',
-            }}>
+            }}
+              key={std.id}
+            >
               <img 
               src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${std.user_pic}`}
                    alt='user_pic'
@@ -211,7 +218,7 @@ function UsersActions(){
                 {std.user_role}
               </span>
               <div style={{display:'flex', alignItems:'center', padding:'7px 10px', gap:'6px',boxShadow:'0.5px 2px 5px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
-              onClick={(std)=>{DeleteStudent(std)}}
+              onClick={()=>{DeleteStudent(std)}}
               >
                 <span style={{fontSize:'14px',backgroundColor:'rgba(248, 133, 133, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'8px', color:'rgba(80, 1, 1, 1)'}}>
                   <RiDeleteBin5Fill/>

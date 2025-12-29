@@ -80,12 +80,16 @@ export default function AAviewLastCourse() {
 
   /* ---------------- FLATTEN & CHUNK BLOCKS ---------------- */
 
-  const allBlocks = course?.courseModules?.flatMap(mod => mod.blocks || []);
+  const allBlocks = (course?.courseModules || []).flatMap(mod => mod.blocks || []);
 
-  const slides = [];
+
+const slides = [];
+if (allBlocks && allBlocks.length > 0) {
   for (let i = 0; i < allBlocks.length; i += BLOCKS_PER_SLIDE) {
     slides.push(allBlocks.slice(i, i + BLOCKS_PER_SLIDE));
   }
+}
+
 
   const totalSlides = slides.length;
   const currentSlideBlocks = slides[slideIndex] || [];

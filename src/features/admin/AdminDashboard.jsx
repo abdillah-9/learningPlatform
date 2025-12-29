@@ -140,9 +140,9 @@ function UsersActions(){
      });
 
      if(res.ok){
-      const data = await res.text();
+      const data = await res.json();
       setStudents(data.users);
-      alert(data);
+      alert(data.users);
      }
      else{
       alert('Failed to fetch users');

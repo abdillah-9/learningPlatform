@@ -151,9 +151,9 @@ function UsersActions(){
   FetchAllUsers();
   },[]);
   return(
-    <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px'}}>
+    <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px',}}>
       {/** USER TITLES */}
-       <div>
+       <div style={{width:'100%'}}>
         <span style={{padding:"7px 10px", display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%', backgroundColor:"#F4B342", color:"#905b00ff", width:'fit-content'}}>
           <HiMiniUsers/>
         </span>

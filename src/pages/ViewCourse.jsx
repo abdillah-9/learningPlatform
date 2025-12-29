@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";  // <-- added to get moduleId
+import { AuthContext } from "../AuthProvider";
 
 const decodeHTML = (encoded) => {
   try {
@@ -26,13 +27,13 @@ export default function AAviewLastCourse() {
         document.removeEventListener("selectstart", handleSelect);
       };
     }, []);
-
-  let { moduleId } = useParams(); // <-- grab moduleId from URL
-  //let moduleId = '56' 
+ 
   const [course, setCourse] = useState(null);
   const [slideIndex, setSlideIndex] = useState(0);
+  const {userData} = useContext(AuthContext);
+  const {courseId, moduleId} = useParams()
 
-  const BLOCKS_PER_SLIDE = 5;
+  const BLOCKS_PER_SLIDE = 3;
 
   useEffect(() => {
     if (!moduleId) return;
@@ -73,7 +74,33 @@ export default function AAviewLastCourse() {
     }
   };
 
-  /* ---------------- FILE RENDER ---------------- */
+  /* ------------------ INSERT PROGRESS API --------------------*/
+  useEffect(()=>{
+    async function ProgressTracker(){
+      const formData = new FormData();
+      //Get user_id, module_id, course_id, block_id
+      const user_id = userData.user_id;
+      formData.append('user_id', user_id);
+      formData.append('course_id', courseId);
+      formData.append('module_id',moduleId);
+      formData.append('blocks_id', slideIndex);
+
+      const res= await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/progress_tracker.php',{
+        body:formData,
+        method:'post',
+      });
+
+      if(res.ok){
+        const data = res.text();
+        const data2 = res.json();
+        alert(data);
+        alert(data2);
+      }
+      else{
+        alert("conn problem");
+      }
+    }
+  }, []); 
 
 /* ---------------- FILE RENDER ---------------- */
 

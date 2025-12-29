@@ -37,6 +37,15 @@ export default function AAviewLastCourse() {
 
     /* ------------------ INSERT PROGRESS API --------------------*/
   useEffect(()=>{
+
+    const currentSlideBlocks = slides[slideIndex]; // 3 blocks per slide
+    if (!currentSlideBlocks || currentSlideBlocks.length === 0) return;
+
+    // Pick the last block (3rd one)
+    const lastBlock = currentSlideBlocks[currentSlideBlocks.length - 1];
+
+    if (!lastBlock?.id) return; // skip if no id
+
     alert("inside Progress");
     async function ProgressTracker(){
       console.log('slideIndex '+slideIndex)
@@ -46,7 +55,7 @@ export default function AAviewLastCourse() {
       formData.append('user_id', user_id);
       formData.append('course_id', courseId);
       formData.append('module_id',moduleId);
-      formData.append('blocks_id', slideIndex);
+      formData.append('blocks_id', lastBlock.id);
 
       const res= await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/progress_tracker.php',{
         body:formData,

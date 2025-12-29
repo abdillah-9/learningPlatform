@@ -24,7 +24,7 @@ export default function MainApp() {
         return(
           <div>
             {
-              userData?.user_role == 'admin' ? <AdminDashboard/> :
+              userData?.user_role == 'admin' ? <AdminDashboard  active={active} setActive={setActive}/> :
               <DashboardPage active={active} setActive={setActive} />
             }
           </div>

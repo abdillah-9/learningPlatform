@@ -93,8 +93,8 @@ export default function AAviewLastCourse() {
       });
 
       if(res.ok){
-        const data = res.text();
-        const data2 = res.json();
+        const data = await res.text();
+        const data2 = await res.json();
         alert(data);
         alert(data2);
       }

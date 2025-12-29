@@ -54,7 +54,7 @@ export default function ViewAllCourses(){
 
             {/** Main Courses  */}
             
-            <div style={{display:'flex', width:'100%', gap:'20px', paddingTop:'100px', flexWrap:'wrap', justifyContent:'center'}}>
+            <div style={{display:'flex', width:'100%', gap:'20px', paddingTop:'100px', flexWrap:'wrap',}}>
             {
             coursesList ?  coursesList?.map((course, index)=>(
                 <div className="slideShowHeight" key={course.id}
@@ -64,7 +64,7 @@ export default function ViewAllCourses(){
                     <img
                         src={ course?.picture != null ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}` : pic}
                         alt="slide"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', aspectRatio:16/9 }}
                     />
                     </div>
         

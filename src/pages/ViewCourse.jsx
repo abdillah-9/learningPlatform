@@ -38,10 +38,8 @@ export default function AAviewLastCourse() {
     /* ------------------ INSERT PROGRESS API --------------------*/
   useEffect(()=>{
     alert("inside Progress");
-     if (!course || userData?.user_id === undefined) return;
-     if (!slideIndex || !currentSlideBlocks) return;
-    alert("Progress ran");
     async function ProgressTracker(){
+      console.log("Shiit")
       const formData = new FormData();
       //Get user_id, module_id, course_id, block_id
       const user_id = userData.user_id;

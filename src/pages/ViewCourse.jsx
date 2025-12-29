@@ -77,7 +77,7 @@ export default function AAviewLastCourse() {
   /* ------------------ INSERT PROGRESS API --------------------*/
   useEffect(()=>{
      if (!course || userData?.user_id === undefined) return;
-     if (!slideIndex) return;
+     if (!slideIndex || !currentSlideBlocks) return;
     async function ProgressTracker(){
       const formData = new FormData();
       //Get user_id, module_id, course_id, block_id
@@ -102,7 +102,7 @@ export default function AAviewLastCourse() {
         alert("conn problem");
       }
     }
-    // ProgressTracker();
+    ProgressTracker();
   }, []); 
 
 /* ---------------- FILE RENDER ---------------- */

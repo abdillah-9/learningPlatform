@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BiLogOut, BiSearchAlt2, BiSolidSearchAlt2 } from 'react-icons/bi'
 import { BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs'
 import { FaUserEdit, FaUserMd } from 'react-icons/fa'
@@ -129,16 +129,59 @@ console.log("user id "+userData.user_id);
 }
 
 function UsersActions(){
+  const [students, setStudents] = useState([]);
+  useEffect(()=>{
+    async function FetchAllUsers(){
+     const formData = new FormData();
+
+     const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_all_students.php',{
+      method:'POST',
+      body:formData,
+     });
+
+     if(res.ok){
+      const data = await res.json();
+      setStudents(data.users);
+      alert(data.users);
+     }
+     else{
+      alert('Failed to fetch users');
+     }
+  }
+  FetchAllUsers();
+  },[]);
   return(
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px'}}>
+      {/** USER TITLES */}
        <div>
-        <span style={{padding:"7px 10px", display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%', backgroundColor:"#F4B342", color:"#905b00ff"}}>
+        <span style={{padding:"7px 10px", display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%', backgroundColor:"#F4B342", color:"#905b00ff", width:'fit-content'}}>
           <HiMiniUsers/>
         </span>
         <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
           <span style={{fontWeight:700, fontSize:'17px'}}>Total Students</span>
-          <span style={{fontSize:'15px', fontWeight:700, color:'rgba(67, 66, 66, 0.84)'}}>{"76"}</span>
+          <span style={{fontSize:'17px', fontWeight:700, color:'rgba(67, 66, 66, 0.84)'}}>{"76"}</span>
         </div>
+       </div>
+
+       {/** USER MANAGE-USERS **/}
+       <div>
+        {
+          students? students.map((std,index)=>(
+            <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center'}}>
+              <img 
+              src={`https://www.tanzcoffee.co.tz/mwangaza-backend/users/${std.user_pic}`}
+                   alt='user_pic'
+                   style={{width:'80px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
+              />
+              <span>
+                {std.full_name}
+              </span>
+              <span>
+                {std.user_role}
+              </span>
+            </div>
+          )) : ""
+        }
        </div>
     </div>
   )

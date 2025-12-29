@@ -143,7 +143,7 @@ function UsersActions(){
      if(res.ok){
       const data = await res.json();
       setStudents(data.users);
-      alert(data.message);
+      //alert(data.message);
      }
      else{
       alert('Failed to fetch users');
@@ -152,7 +152,8 @@ function UsersActions(){
   FetchAllUsers();
   },[]);
 
-  async function DeleteStudent({student_id}) {
+  async function DeleteStudent({student}) {
+    const student_id = student.id;
     const formData = new FormData();
     formData.append('student_id', student_id);
 
@@ -207,10 +208,10 @@ function UsersActions(){
                 {std.full_name}
               </span>
               <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
-                {std.id}
+                {std.user_role}
               </span>
               <div style={{display:'flex', alignItems:'center', padding:'7px 10px', gap:'6px',boxShadow:'0.5px 2px 5px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
-              onClick={()=>{DeleteStudent(std.id)}}
+              onClick={(std)=>{DeleteStudent(std)}}
               >
                 <span style={{fontSize:'14px',backgroundColor:'rgba(248, 133, 133, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'8px', color:'rgba(80, 1, 1, 1)'}}>
                   <RiDeleteBin5Fill/>

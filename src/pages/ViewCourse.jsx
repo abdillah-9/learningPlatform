@@ -102,7 +102,7 @@ export default function AAviewLastCourse() {
         alert("conn problem");
       }
     }
-    ProgressTracker()
+    // ProgressTracker();
   }, []); 
 
 /* ---------------- FILE RENDER ---------------- */

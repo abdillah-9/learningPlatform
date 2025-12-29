@@ -17,6 +17,7 @@ export default function AdminDashboard({setActive,active}) {
     <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column'}}>
       <QuickActions active={active} setActive={setActive} userData={userData} setUserData={setUserData}/>
       <UsersActions/>
+      <CoursesActions/>
     </div>
   )
 }
@@ -150,6 +151,26 @@ function UsersActions(){
   }
   FetchAllUsers();
   },[]);
+
+  async function DeleteStudent({student_id}) {
+    const formData = new FormData();
+    formData.append('student_id', student_id);
+
+     const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/delete_students.php',{
+      method:'POST',
+      body:formData,
+     });
+
+     if(res.ok){
+      const data = await res.json();
+      setStudents(students);
+      alert(data.message);
+     }
+     else{
+      alert('Failed to delete student');
+     } 
+  }
+
   return(
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px',}}>
       {/** USER TITLES */}
@@ -173,7 +194,10 @@ function UsersActions(){
        <div style={{display:'flex', flexDirection:'column', gap:"10px"}}>
         {
           students? students.map((std,index)=>(
-            <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center', fontSize:'15px', fontWeight:600}}>
+            <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center', fontSize:'15px', fontWeight:600,
+              borderBottom:"1px solid rgba(100,100,100,0.6)",
+              paddingBottom:'8px',
+            }}>
               <img 
               src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${std.user_pic}`}
                    alt='user_pic'
@@ -182,12 +206,13 @@ function UsersActions(){
               <span style={{fontSize:"17px", minWidth:'200px'}}>
                 {std.full_name}
               </span>
-              <span style={{color:'rgba(100,100,100,0.6)', fontWeight:200, minWidth:'100px'}}>
+              <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
                 {std.user_role}
               </span>
-              <div style={{display:'flex', alignItems:'center', padding:'8px 10px', gap:'6px',boxShadow:'0.5px 2px 5px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
+              <div style={{display:'flex', alignItems:'center', padding:'7px 10px', gap:'6px',boxShadow:'0.5px 2px 5px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
+              onClick={()=>{DeleteStudent(std.id)}}
               >
-                <span style={{fontSize:'16px',backgroundColor:'rgba(248, 133, 133, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(80, 1, 1, 1)'}}>
+                <span style={{fontSize:'14px',backgroundColor:'rgba(248, 133, 133, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'8px', color:'rgba(80, 1, 1, 1)'}}>
                   <RiDeleteBin5Fill/>
                 </span>
                 <span>Delete Account</span>
@@ -197,5 +222,11 @@ function UsersActions(){
         }
        </div>
     </div>
+  )
+}
+
+function CoursesActions(){
+  return(
+    <div>Courses</div>
   )
 }

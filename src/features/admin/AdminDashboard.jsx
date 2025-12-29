@@ -142,7 +142,7 @@ function UsersActions(){
      if(res.ok){
       const data = await res.json();
       setStudents(data.users);
-      alert(data.users);
+      alert(data.message);
      }
      else{
       alert('Failed to fetch users');
@@ -164,14 +164,14 @@ function UsersActions(){
        </div>
 
        {/** USER MANAGE-USERS **/}
-       <div>
+       <div style={{display:'flex', flexDirection:'column', gap:"10px"}}>
         {
           students? students.map((std,index)=>(
-            <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center'}}>
+            <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center', fontSize:'15px', fontWeight:700}}>
               <img 
               src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${std.user_pic}`}
                    alt='user_pic'
-                   style={{width:'80px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
+                   style={{width:'65px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
               />
               <span>
                 {std.full_name}
@@ -179,6 +179,13 @@ function UsersActions(){
               <span>
                 {std.user_role}
               </span>
+              <div style={{display:'flex', alignItems:'center', padding:'8px 10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
+              >
+                <span style={{fontSize:'16px',backgroundColor:'rgba(248, 133, 133, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(80, 1, 1, 1)'}}>
+                  <RiDeleteBin5Fill/>
+                </span>
+                <span>Delete Account</span>
+              </div>
             </div>
           )) : ""
         }

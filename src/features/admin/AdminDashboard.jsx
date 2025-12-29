@@ -142,7 +142,7 @@ function UsersActions(){
      if(res.ok){
       const data = await res.text();
       setStudents(data.users);
-      alert(data.users);
+      alert(data);
      }
      else{
       alert('Failed to fetch users');

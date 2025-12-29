@@ -39,7 +39,7 @@ export default function AAviewLastCourse() {
   useEffect(()=>{
     alert("inside Progress");
     async function ProgressTracker(){
-      console.log("Shiit")
+      console.log('slideIndex '+slideIndex)
       const formData = new FormData();
       //Get user_id, module_id, course_id, block_id
       const user_id = userData.user_id;

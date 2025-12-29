@@ -48,7 +48,7 @@ export default function AAviewLastCourse() {
       formData.append('module_id',moduleId);
       formData.append('blocks_id', slideIndex);
 
-      const res= await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/progress_trackerqq.php',{
+      const res= await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/progress_tracker.php',{
         body:formData,
         method:'post',
       });

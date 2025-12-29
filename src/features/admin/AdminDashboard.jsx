@@ -8,6 +8,7 @@ import { RiDeleteBin5Fill, RiFileCheckFill } from 'react-icons/ri'
 import { TbLogout } from 'react-icons/tb'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../AuthProvider'
+import { HiMiniUsers } from 'react-icons/hi2'
 
 export default function AdminDashboard({setActive,active}) {
   const {userData, setUserData} = useContext(AuthContext);
@@ -116,7 +117,15 @@ console.log("user id "+userData.user_id);
 function UsersActions(){
   return(
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px'}}>
-
+       <div>
+        <span style={{padding:"7px 10px", display:'flex', alignItems:'center', justifyContent:'center'}}>
+          <HiMiniUsers/>
+        </span>
+        <div style={{display:'flex', gap:'10px'}}>
+          <span style={{fontWeight:700, fontSize:'17px'}}>Total Students</span>
+          <span style={{fontSize:'15px', fontWeight:500, color:'rgba(45, 44, 44, 1)'}}>{"76"}</span>
+        </div>
+       </div>
     </div>
   )
 }

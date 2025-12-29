@@ -80,7 +80,7 @@ export default function AAviewLastCourse() {
 
   /* ---------------- FLATTEN & CHUNK BLOCKS ---------------- */
 
-  const allBlocks = course?.modules?.flatMap(mod => mod.blocks);
+  const allBlocks = course?.courseModules?.flatMap(mod => mod.blocks || []);
 
   const slides = [];
   for (let i = 0; i < allBlocks.length; i += BLOCKS_PER_SLIDE) {
@@ -88,7 +88,8 @@ export default function AAviewLastCourse() {
   }
 
   const totalSlides = slides.length;
-  const currentSlideBlocks = slides[slideIndex];
+  const currentSlideBlocks = slides[slideIndex] || [];
+
 
   useEffect(() => {
   if (!currentSlideBlocks) return;

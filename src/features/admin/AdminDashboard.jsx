@@ -207,7 +207,7 @@ function UsersActions(){
                 {std.full_name}
               </span>
               <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
-                {std.user_role}
+                {std.id}
               </span>
               <div style={{display:'flex', alignItems:'center', padding:'7px 10px', gap:'6px',boxShadow:'0.5px 2px 5px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
               onClick={()=>{DeleteStudent(std.id)}}

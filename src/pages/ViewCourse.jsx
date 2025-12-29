@@ -35,6 +35,36 @@ export default function AAviewLastCourse() {
 
   const BLOCKS_PER_SLIDE = 3;
 
+    /* ------------------ INSERT PROGRESS API --------------------*/
+  useEffect(()=>{
+     if (!course || userData?.user_id === undefined) return;
+     if (!slideIndex || !currentSlideBlocks) return;
+    async function ProgressTracker(){
+      const formData = new FormData();
+      //Get user_id, module_id, course_id, block_id
+      const user_id = userData.user_id;
+      formData.append('user_id', user_id);
+      formData.append('course_id', courseId);
+      formData.append('module_id',moduleId);
+      formData.append('blocks_id', slideIndex);
+
+      const res= await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/progress_trackerqq.php',{
+        body:formData,
+        method:'post',
+      });
+
+      if(res.ok){
+        const data = await res.text();
+        const data2 = await res.json();
+        alert(data);
+        alert(data2);
+      }
+      else{
+        alert("conn problem");
+      }
+    }
+    ProgressTracker();
+  }, []); 
   useEffect(() => {
     if (!moduleId) return;
 
@@ -73,35 +103,6 @@ export default function AAviewLastCourse() {
       setSlideIndex(slideIndex - 1);
     }
   };
-
-  /* ------------------ INSERT PROGRESS API --------------------*/
-useEffect(() => {
-  if (!course || !userData?.user_id || !currentSlideBlocks) return;
-
-  async function ProgressTracker() {
-    const formData = new FormData();
-    formData.append('user_id', userData.user_id);
-    formData.append('course_id', courseId);
-    formData.append('module_id', moduleId);
-    formData.append('blocks_id', slideIndex);
-
-    const res = await fetch(
-      'https://www.tanzcoffee.co.tz/mwangaza-backend/progress_trackerqq.php',
-      { body: formData, method: 'POST' }
-    );
-
-    if (res.ok) {
-      const data = await res.text();
-      // Optional: remove alert in production
-      console.log('Progress response:', data);
-    } else {
-      console.error('Progress tracker failed');
-    }
-  }
-
-  ProgressTracker();
-}, [course, userData, currentSlideBlocks, courseId, moduleId, slideIndex]);
-
 
 /* ---------------- FILE RENDER ---------------- */
 

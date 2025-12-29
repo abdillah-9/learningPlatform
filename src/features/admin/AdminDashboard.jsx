@@ -169,7 +169,7 @@ function UsersActions(){
           students? students.map((std,index)=>(
             <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center'}}>
               <img 
-              src={`https://www.tanzcoffee.co.tz/mwangaza-backend/users/${std.user_pic}`}
+              src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${std.user_pic}`}
                    alt='user_pic'
                    style={{width:'80px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
               />

@@ -154,32 +154,38 @@ function UsersActions(){
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px',}}>
       {/** USER TITLES */}
        <div style={{width:'100%'}}>
-        <span style={{padding:"7px 10px", display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%', backgroundColor:"#F4B342", color:"#905b00ff", width:'fit-content'}}>
-          <HiMiniUsers/>
-        </span>
-        <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
-          <span style={{fontWeight:700, fontSize:'17px'}}>Total Students</span>
-          <span style={{fontSize:'17px', fontWeight:700, color:'rgba(67, 66, 66, 0.84)'}}>{"76"}</span>
+
+        {/** Total students */}
+        <div style={{width:'fit-content', display:'flex', alignItems:'center', justifyContent:'center'}}>
+          <span style={{padding:"7px 10px", display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%', backgroundColor:"#F4B342", color:"#905b00ff", width:'fit-content'}}>
+            <HiMiniUsers/>
+          </span>
+          <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
+            <span style={{fontWeight:700, fontSize:'17px'}}>Total Students</span>
+            <span style={{fontSize:'17px', fontWeight:700, color:'rgba(67, 66, 66, 0.84)'}}>{"76"}</span>
+          </div>
         </div>
+
+        {/** Active students (students who have read atlest one course) */}
        </div>
 
        {/** USER MANAGE-USERS **/}
        <div style={{display:'flex', flexDirection:'column', gap:"10px"}}>
         {
           students? students.map((std,index)=>(
-            <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center', fontSize:'15px', fontWeight:700}}>
+            <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center', fontSize:'15px', fontWeight:600}}>
               <img 
               src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${std.user_pic}`}
                    alt='user_pic'
                    style={{width:'65px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
               />
-              <span>
+              <span style={{fontSize:"17px", minWidth:'200px'}}>
                 {std.full_name}
               </span>
-              <span>
+              <span style={{color:'rgba(100,100,100,0.6)', fontWeight:200, minWidth:'100px'}}>
                 {std.user_role}
               </span>
-              <div style={{display:'flex', alignItems:'center', padding:'8px 10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
+              <div style={{display:'flex', alignItems:'center', padding:'8px 10px', gap:'6px',boxShadow:'0.5px 2px 5px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
               >
                 <span style={{fontSize:'16px',backgroundColor:'rgba(248, 133, 133, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(80, 1, 1, 1)'}}>
                   <RiDeleteBin5Fill/>

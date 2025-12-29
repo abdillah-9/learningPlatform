@@ -15,6 +15,7 @@ export default function AdminDashboard({setActive,active}) {
   return (
     <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column'}}>
       <QuickActions active={active} setActive={setActive} userData={userData} setUserData={setUserData}/>
+      <UsersActions/>
     </div>
   )
 }
@@ -103,11 +104,19 @@ console.log("user id "+userData.user_id);
         <span>Logout</span>
       </div>
 
-      <div style={{display:'flex', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'160px'}}
+      <div style={{display:'none', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'160px'}}
       onClick={DeleteAccount}>
         <span style={{fontSize:'16px',backgroundColor:'rgba(248, 133, 133, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(80, 1, 1, 1)'}}><RiDeleteBin5Fill/></span>
         <span>Delete Account</span>
       </div>
+    </div>
+  )
+}
+
+function UsersActions(){
+  return(
+    <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px'}}>
+
     </div>
   )
 }

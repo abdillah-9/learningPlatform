@@ -117,6 +117,7 @@ console.log("user id "+userData.user_id);
 function CoursesDetails(){
   const {userData} = useContext(AuthContext); 
   const [completedCourses, setCompletedCourses] = useState([]);
+  const navigateTo = useNavigate(); 
 
   useEffect(()=>{
     async function FetchCourses() {
@@ -183,8 +184,11 @@ function CoursesDetails(){
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>
-                  <span>Mwangaza-Started at 21-3-2026</span>
-                  <span style={{fontWeight:700, fontSize:'15px'}}>Un-Enrolled Course</span>
+                  <span>{course.description} at {course.start_date}</span>
+                  <span style={{fontWeight:700, fontSize:'15px'}}
+                  onClick={()=>{navigateTo(`https://entreprensplatform.netlify.app/enroll_course/${course.course_id}`)}}>
+                    Re-read this course
+                  </span>
                   <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}>Resume Course</span>
                 </span>
               </div>

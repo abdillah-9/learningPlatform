@@ -165,7 +165,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
             maxWidth:'900px',
             }}>
               <img src={course?.picture ? 
-              `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/${course.picture}`: AI_Gen_2} 
+              `https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}`: AI_Gen_2} 
                 alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
@@ -208,7 +208,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
             maxWidth:'900px',
             }}>
               <img src={course?.picture ? 
-              `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/${course.picture}`: AI_Gen_2} 
+              `https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}`: AI_Gen_2} 
               alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
@@ -220,7 +220,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
                     </span>
                   </span>
                   <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
-                  onClick={()=>{setActive('Course Module');navigateTo(`/enroll_course/${course.course_id}/main_App/moduleId/${course.resume_module_id}`, {replace:true})}}>
+                  onClick={()=>{setActive('Course Module');navigateTo(`/enroll_course/${course.course_id}/main_App/moduleId/${course.resume_module_id}/blockId/${course.resume_block_id}`, {replace:true})}}>
                     Resume Course
                   </span>
                 </span>

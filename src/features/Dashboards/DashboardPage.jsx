@@ -115,7 +115,6 @@ console.log("user id "+userData.user_id);
 }
 
 function CoursesDetails({setActive,active, userData, setUserData}){
-  const {userData} = useContext(AuthContext); 
   const [completedCourses, setCompletedCourses] = useState([]);
   const [inProgressCourses, setInProgressCourses] = useState([]);
   const navigateTo = useNavigate(); 

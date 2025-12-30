@@ -136,6 +136,7 @@ export default function AAviewLastCourse() {
     return <a href={url} target="_blank" rel="noreferrer">Download File</a>;
   };
 
+  alert("Current module"+currentModule);
   return (
     <div style={{ padding: "20px" }}>
     <h2>{currentModule ? currentModule.name : "Loading Module..."}</h2>

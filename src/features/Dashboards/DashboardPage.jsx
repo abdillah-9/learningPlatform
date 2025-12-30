@@ -133,7 +133,6 @@ function CoursesDetails(){
         const data = await res.json();
         setCompletedCourses(data.completed_courses);
         console.log(data.completed_courses);
-        alert(data.message);
       }
       else{
         alert("Failed to fetch courses details");
@@ -184,12 +183,16 @@ function CoursesDetails(){
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>
-                  <span>{course.description} at {course.start_date}</span>
-                  <span style={{fontWeight:700, fontSize:'15px'}}
-                  onClick={()=>{navigateTo(`https://entreprensplatform.netlify.app/enroll_course/${course.course_id}`)}}>
-                    Re-read this course
+                  <span>
+                    <span>{course.description}</span> 
+                    <span style={{fontWeight:700, fontSize:'15px'}}>
+                      started at {course.start_date}
+                    </span>
                   </span>
-                  <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}>Resume Course</span>
+                  <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
+                  onClick={()=>{navigateTo(`https://entreprensplatform.netlify.app/enroll_course/${course.course_id}`)}}>
+                    Re-read this Course
+                  </span>
                 </span>
               </div>
             </div>

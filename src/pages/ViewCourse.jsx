@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
+import { RiFileList3Line } from "react-icons/ri";
 
 const decodeHTML = (encoded) => {
   try {
@@ -175,11 +176,19 @@ export default function AAviewLastCourse() {
   return (
     <div style={{ padding: "20px" }}>
       <div style={{display:'flex', flexWrap:'wrap', gap:'15px', justifyContent:'space-between', width:'100%', padding:'7px'}}>
-        <h2>{currentModule ? currentModule.title : "Loading Module..."}</h2>
-        <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
-        onClick={()=>{navigateTo(`/enroll_course/${courseId}`, {replace:true})}}>
-          View other modules which are on the same course as {currentModule ? currentModule.title : "Loading Module..."}
-        </span>
+
+        <h2>MODULE NAME :{currentModule ? currentModule.title : "Loading Module..."}</h2>
+        <div style={{display:'flex', gap:'15px'}}>
+          <div style={{display:'flex', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'160px'}}
+          onClick={()=>{navigateTo('/view_all_courses', {replace:true})}}>
+            <span style={{fontSize:'16px',backgroundColor:"#F4B342", borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:"#684200ff"}}><RiFileList3Line/></span>
+            <span>View All Courses</span>
+          </div>
+          <span style={{padding:'3px', borderRadius:'5px', fontWeight:700, textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
+          onClick={()=>{navigateTo(`/enroll_course/${courseId}`, {replace:true})}}>
+            View other modules which are on the same course as
+          </span>
+        </div>
       </div>
       <div
         style={{

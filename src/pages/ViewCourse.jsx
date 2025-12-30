@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState, useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
 
 const decodeHTML = (encoded) => {
@@ -13,6 +13,7 @@ const decodeHTML = (encoded) => {
 export default function AAviewLastCourse() {
   const { userData } = useContext(AuthContext);
   const { courseId, moduleId, blockId } = useParams();
+  const navigateTo = useNavigate();
 
   const [course, setCourse] = useState(null);
   const [slideIndex, setSlideIndex] = useState(0);

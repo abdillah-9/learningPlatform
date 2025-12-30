@@ -196,6 +196,7 @@ export default function AAviewLastCourse() {
           flexWrap: "wrap",
           gap: "15px",
           justifyContent: "space-between",
+          minHeight:'90vh',
         }}
       >
         {currentSlideBlocks?.map((block, j) => (

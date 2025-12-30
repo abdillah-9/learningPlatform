@@ -117,6 +117,7 @@ console.log("user id "+userData.user_id);
 function CoursesDetails(){
   const {userData} = useContext(AuthContext); 
   const [completedCourses, setCompletedCourses] = useState([]);
+  const [inProgressCourses, setInProgressCourses] = useState([]);
   const navigateTo = useNavigate(); 
 
   useEffect(()=>{
@@ -132,7 +133,7 @@ function CoursesDetails(){
       if(res.ok){
         const data = await res.json();
         setCompletedCourses(data.completed_courses);
-        console.log(data.completed_courses);
+        console.log(data);
       }
       else{
         alert("Failed to fetch courses details");
@@ -190,7 +191,7 @@ function CoursesDetails(){
                     </span>
                   </span>
                   <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
-                  onClick={()=>{navigateTo(`/enroll_course/${course.course_id}`, {replace:true})}}>
+                  onClick={()=>{navigateTo(`/enroll_course/${course.id}`, {replace:true})}}>
                     Re-read this Course
                   </span>
                 </span>
@@ -206,7 +207,7 @@ function CoursesDetails(){
         <span style={{fontSize:'18px',fontWeight:500, display:'flex', gap:'6px', alignItems:'center', paddingBottom:'20px'}}>
           In-Progress Courses 
           <span style={{fontSize:'20px',fontWeight:500,padding:'3px 13px', boxShadow:'1px 0.5px 3px rgba(56, 55, 55, 1)', borderRadius:'50%',display:'block', height:'fit-content',}}>
-            {userCourses.length}
+            {inProgressCourses?.length}
           </span>
         </span>
         <span style={{display:'flex', height:'30px', position:'absolute', top:'70px', right:'10px'}}>
@@ -214,7 +215,9 @@ function CoursesDetails(){
           <span style={{display:'flex',backgroundColor:'rgba(13, 136, 138, 1)', color:'white', fontSize:'19px', justifyContent:'center', alignItems:'center', padding:'6px 7px', cursor:'pointer'}}><BiSearchAlt2/></span>
         </span>
         <div style={{width:'100%', display:'flex', gap:"15px", flexDirection:'column' }}>
-          {userCourses && userCourses.map((course, index)=>(
+
+        {/** INPROGRESS COURSES LOOP */}
+          {inProgressCourses && inProgressCourses?.map((course, index)=>(
             <div key={index} style={{flexWrap:'wrap',display:'flex', gap:'7px',boxShadow:'1px 2px 20px rgba(44, 43, 43, 0.6)', borderRadius:'5px',
             maxWidth:'900px',
             }}>
@@ -222,9 +225,17 @@ function CoursesDetails(){
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>
-                  <span>Mwangaza-Started at 21-3-2026</span>
+                  <span style={{display:'flex', flexDirection:'column',gap:'10px'}}>
+                    <span>{course.description}</span> 
+                    <span style={{fontWeight:700, fontSize:'15px'}}>
+                      started at {course.start_date}
+                    </span>
+                  </span>
                   <span style={{fontWeight:700, fontSize:'15px'}}>Un-Enrolled Course</span>
-                  <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}>Resume Course</span>
+                  <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
+                  onClick={()=>{navigateTo(`/enroll_course/${course.id}`, {replace:true})}}>
+                    Resume Course
+                  </span>
                 </span>
               </div>
             </div>

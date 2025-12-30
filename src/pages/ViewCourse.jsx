@@ -59,6 +59,13 @@ export default function AAviewLastCourse() {
     return result;
   }, [course]);
 
+  // Get the current module
+  const currentModule = useMemo(() => {
+    if (!course || !moduleId) return null;
+    return course.modules.find((mod) => mod.id === moduleId);
+  }, [course, moduleId]);
+
+
   const totalSlides = slides.length;
   const currentSlideBlocks = slides[slideIndex];
 
@@ -131,7 +138,8 @@ export default function AAviewLastCourse() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Module Name</h2>
+    <h2>{currentModule ? currentModule.name : "Loading Module..."}</h2>
+
 
       <div
         style={{

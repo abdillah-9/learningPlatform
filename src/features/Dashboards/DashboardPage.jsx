@@ -133,6 +133,7 @@ function CoursesDetails(){
       if(res.ok){
         const data = await res.json();
         setCompletedCourses(data.completed_courses);
+        setInProgressCourses(data.in_progress_courses);
         console.log(data);
       }
       else{

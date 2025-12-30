@@ -16,7 +16,7 @@ export default function DashboardPage({setActive,active}) {
   return (
     <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column'}}>
       <QuickActions active={active} setActive={setActive} userData={userData} setUserData={setUserData}/>
-      <CoursesDetails />
+      <CoursesDetails active={active} setActive={setActive} userData={userData} setUserData={setUserData}/>
     </div>
   )
 }
@@ -114,7 +114,7 @@ console.log("user id "+userData.user_id);
   )
 }
 
-function CoursesDetails(){
+function CoursesDetails({setActive,active, userData, setUserData}){
   const {userData} = useContext(AuthContext); 
   const [completedCourses, setCompletedCourses] = useState([]);
   const [inProgressCourses, setInProgressCourses] = useState([]);
@@ -142,23 +142,7 @@ function CoursesDetails(){
     }
     FetchCourses();
   },[]);
-  const userCourses=[
-    {
-      name:'Chemical bonding'
-    },
-    {
-      name:'Biechemical processing'
-    },
-    {
-      name:'Trading skills'
-    },
-    {
-      name:'How to become successful founder'
-    },
-    {
-      name:'Lets glow the torch'
-    },
-  ]
+
   return(
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px'}}>  
     {/**COMPLETED */} 
@@ -233,7 +217,7 @@ function CoursesDetails(){
                     </span>
                   </span>
                   <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
-                  onClick={()=>{navigateTo(`/enroll_course/${course.course_id}/main_App/moduleId/${course.resume_module_id}`, {replace:true})}}>
+                  onClick={()=>{setActive('Dashboard');navigateTo(`/enroll_course/${course.course_id}/main_App/moduleId/${course.resume_module_id}`, {replace:true})}}>
                     Resume Course
                   </span>
                 </span>

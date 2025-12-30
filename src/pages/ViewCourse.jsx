@@ -168,7 +168,7 @@ export default function AAviewLastCourse() {
                   ? "1 1 100%"
                   : block.type === "file"
                   ? "1 1 45%"
-                  : "1 1 250px",
+                  : "1 1 45%",
             }}
           >
             {block.type === "text" && (

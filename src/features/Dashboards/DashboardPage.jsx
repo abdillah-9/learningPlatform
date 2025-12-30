@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BiLogOut, BiSearchAlt2, BiSolidSearchAlt2 } from 'react-icons/bi'
 import { BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs'
 import { FaUserEdit, FaUserMd } from 'react-icons/fa'
@@ -115,7 +115,30 @@ console.log("user id "+userData.user_id);
 }
 
 function CoursesDetails(){
+  const {userData} = useContext(AuthContext); 
+  const [completedCourses, setCompletedCourses] = useState([]);
 
+  useEffect(()=>{
+    async function FetchCourses() {
+      const formData = new FormData();
+      formData.append('user_id', userData.user_id);
+      
+      const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/courses_details.php',{
+        method:"POST",
+        body:formData
+      });
+
+      if(res.ok){
+        const data = await res.json();
+        setCompletedCourses(data.completed_courses);
+        alert(data.message);
+      }
+      else{
+        alert("Failed to fetch courses details");
+      }
+    }
+    FetchCourses();
+  },[]);
   const userCourses=[
     {
       name:'Chemical bonding'

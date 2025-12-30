@@ -190,7 +190,7 @@ function CoursesDetails(){
                     </span>
                   </span>
                   <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
-                  onClick={()=>{navigateTo(`/enroll_course/${course.course.id}`, {replace:true})}}>
+                  onClick={()=>{navigateTo(`/enroll_course/${course.course_id}`, {replace:true})}}>
                     Re-read this Course
                   </span>
                 </span>

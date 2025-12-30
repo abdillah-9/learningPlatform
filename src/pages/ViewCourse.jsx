@@ -127,31 +127,48 @@ export default function AAviewLastCourse() {
   const renderFile = (block) => {
     if (!block) return null;
 
-    if (block.type === "file" || block.type === "fileFull") {
-      if (!block.videoToken) return null;
+    // 🔹 SECURE STREAM FILES
+    if ((block.type === "file" || block.type === "fileFull") && block.videoToken) {
+      const tokenData = JSON.parse(atob(block.videoToken));
+      const filePath = tokenData.file || "";
+      const ext = filePath.split(".").pop().toLowerCase();
+
       const url = `https://www.tanzcoffee.co.tz/mwangaza-backend/stream_video.php?token=${block.videoToken}`;
-      return (
-        <video
-          src={url}
-          controls
-          controlsList="nodownload"
-          disablePictureInPicture
-          onContextMenu={(e) => e.preventDefault()}
-          style={{ width: "100%", height: "100%" }}
-        />
-      );
+
+      // 🖼️ Images
+      if (["jpg", "jpeg", "png", "gif", "webp"].includes(ext)) {
+        return <img src={url} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />;
+      }
+
+      // 🎥 Videos
+      if (["mp4", "webm", "ogg"].includes(ext)) {
+        return (
+          <video
+            src={url}
+            controls
+            controlsList="nodownload"
+            disablePictureInPicture
+            style={{ width: "100%", height: "100%" }}
+          />
+        );
+      }
+
+      // 🎧 Audio
+      if (["mp3", "wav", "ogg"].includes(ext)) {
+        return <audio src={url} controls />;
+      }
+
+      // 📄 PDF
+      if (ext === "pdf") {
+        return <iframe src={url} width="100%" height="100%" title="PDF" />;
+      }
+
+      return <a href={url} target="_blank" rel="noreferrer">Download File</a>;
     }
 
-    const url = block.file || "";
-    if (!url) return null;
-    const ext = url.split(".").pop().toLowerCase();
-
-    if (["jpg", "jpeg", "png", "gif", "webp"].includes(ext))
-      return <img src={url} alt="block file" style={{ width: "100%", height: "100%" }} />;
-    if (["mp3", "wav", "ogg"].includes(ext)) return <audio src={url} controls />;
-    if (ext === "pdf") return <iframe src={url} width="100%" height="100%" title="PDF file"></iframe>;
-    return <a href={url} target="_blank" rel="noreferrer">Download File</a>;
+    return null;
   };
+
 
   //alert("Current module"+JSON.stringify(currentModule));
   return (

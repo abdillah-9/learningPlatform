@@ -129,9 +129,9 @@ function CoursesDetails(){
       });
 
       if(res.ok){
-        const data = await res.json();
+        const data = await res.text();
         setCompletedCourses(data.completed_courses);
-        alert(data.message);
+        alert(data);
       }
       else{
         alert("Failed to fetch courses details");

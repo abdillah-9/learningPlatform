@@ -129,9 +129,10 @@ function CoursesDetails(){
       });
 
       if(res.ok){
-        const data = await res.text();
+        const data = await res.json();
         setCompletedCourses(data.completed_courses);
-        alert(data);
+        console.log(data.completed_courses);
+        alert(data.message);
       }
       else{
         alert("Failed to fetch courses details");
@@ -164,7 +165,7 @@ function CoursesDetails(){
         <span style={{fontSize:'18px',fontWeight:500, display:'flex', gap:'6px', alignItems:'center', paddingBottom:'20px'}}>
           Completed Courses 
           <span style={{fontSize:'20px',fontWeight:500,padding:'3px 13px', boxShadow:'1px 0.5px 3px rgba(56, 55, 55, 1)', borderRadius:'50%',display:'block', height:'fit-content',}}>
-            {userCourses.length}
+            {completedCourses?.length}
           </span>
         </span>
         <span style={{display:'flex', height:'30px', position:'absolute',top:'70px', right:'10px'}}>
@@ -172,7 +173,9 @@ function CoursesDetails(){
           <span style={{display:'flex',backgroundColor:'rgba(13, 136, 138, 1)', color:'white', fontSize:'19px', justifyContent:'center', alignItems:'center', padding:'6px 7px', cursor:'pointer'}}><BiSearchAlt2/></span>
         </span>
         <div style={{width:'100%', display:'flex', gap:"15px", flexDirection:'column' }}>
-          {userCourses && userCourses.map((course, index)=>(
+
+      {/** ---------- PRINT COMPLETED COURSES HERE ------------------ */}
+          {completedCourses && completedCourses?.map((course, index)=>(
             <div key={index} style={{flexWrap:'wrap',display:'flex', gap:'7px',boxShadow:'1px 2px 20px rgba(44, 43, 43, 0.6)', borderRadius:'5px',
             maxWidth:'900px',
             }}>
@@ -190,7 +193,7 @@ function CoursesDetails(){
         </div>
       </div>
 
-    {/**IN-PROGRESS */}
+    {/** ---------------- IN_PROGRESS ------------------------ */}
       <div style={{display:'flex', flexDirection:'column',alignItems:'center', padding:'15px', gap:'10px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', flex:'1 1 900px',position:'relative',}}>
         <span style={{fontSize:'21px',backgroundColor:"#F4B342",borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(81, 48, 1, 1)'}}><MdPendingActions/></span>
         <span style={{fontSize:'18px',fontWeight:500, display:'flex', gap:'6px', alignItems:'center', paddingBottom:'20px'}}>

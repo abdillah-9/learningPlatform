@@ -164,7 +164,9 @@ function CoursesDetails({setActive,active, userData, setUserData}){
             <div key={index} style={{flexWrap:'wrap',display:'flex', gap:'7px',boxShadow:'1px 2px 20px rgba(44, 43, 43, 0.6)', borderRadius:'5px',
             maxWidth:'900px',
             }}>
-              <img src={AI_Gen_2} alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
+              <img src={course?.picture ? 
+              `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/${course.picture}`: AI_Gen_2} 
+                alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>
@@ -205,7 +207,9 @@ function CoursesDetails({setActive,active, userData, setUserData}){
             <div key={index} style={{flexWrap:'wrap',display:'flex', gap:'7px',boxShadow:'1px 2px 20px rgba(44, 43, 43, 0.6)', borderRadius:'5px',
             maxWidth:'900px',
             }}>
-              <img src={AI_Gen_2} alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
+              <img src={course?.picture ? 
+              `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/${course.picture}`: AI_Gen_2} 
+              alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>

@@ -12,7 +12,7 @@ const decodeHTML = (encoded) => {
 
 export default function AAviewLastCourse() {
   const { userData } = useContext(AuthContext);
-  const { courseId, moduleId } = useParams();
+  const { courseId, moduleId, blockId } = useParams();
 
   const [course, setCourse] = useState(null);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -58,6 +58,22 @@ export default function AAviewLastCourse() {
 
     return result;
   }, [course]);
+
+  useEffect(() => {
+  if (!blockId || !course) return;
+
+  const allBlocks = course.modules.flatMap((mod) => mod.blocks);
+
+  const blockIndex = allBlocks.findIndex(
+    (b) => String(b.id) === String(blockId)
+  );
+
+  if (blockIndex === -1) return;
+
+  const targetSlide = Math.floor(blockIndex / BLOCKS_PER_SLIDE);
+
+  setSlideIndex(targetSlide);
+}, [blockId, course]);
 
   // Get the current module
   const currentModule = useMemo(() => {

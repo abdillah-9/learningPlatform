@@ -97,6 +97,15 @@ export default function App() {
                       </ProtectedRoute>
                      }
               />
+              <Route
+                path="/enroll_course/:courseId/main_App/moduleId/:moduleId/blockId/:blockId"
+                element={
+                  <ProtectedRoute>
+                    <MainApp />
+                  </ProtectedRoute>
+                }
+              />
+
               <Route path='/upcoming_courses' element={
                 <ProtectedRoute>
                   <ShowUpcomingCourses/>

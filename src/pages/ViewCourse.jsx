@@ -175,6 +175,14 @@ export default function AAviewLastCourse() {
   return (
     <div style={{ padding: "20px" }}>
     <h2>{currentModule ? currentModule.title : "Loading Module..."}</h2>
+    {
+      <div>
+        <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
+        onClick={()=>{navigateTo(`/enroll_course/${courseId}`, {replace:true})}}>
+          View other modules which are on the same course as {currentModule ? currentModule.title : "Loading Module..."}
+        </span>
+      </div>
+    }
 
 
       <div
@@ -271,15 +279,6 @@ export default function AAviewLastCourse() {
           Next ▶
         </button>
       </div>
-        {
-          slideIndex == totalSlides &&
-        <div>
-          <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
-          onClick={()=>{navigateTo(`/enroll_course/${courseId}`, {replace:true})}}>
-            View other modules which are on the same course as {currentModule ? currentModule.title : "Loading Module..."}
-          </span>
-        </div>
-        }
     </div>
   );
 }

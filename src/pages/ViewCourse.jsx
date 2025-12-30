@@ -62,8 +62,9 @@ export default function AAviewLastCourse() {
   // Get the current module
   const currentModule = useMemo(() => {
     if (!course || !moduleId) return null;
-    return course.modules.find((mod) => mod.id === moduleId);
+    return course.modules.find((mod) => String(mod.id) === moduleId);
   }, [course, moduleId]);
+
 
 
   const totalSlides = slides.length;

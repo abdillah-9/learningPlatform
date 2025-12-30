@@ -7,7 +7,7 @@ import { PiArrowLineRight, PiBookOpenUser } from 'react-icons/pi'
 import { RiDeleteBin5Fill, RiFileCheckFill } from 'react-icons/ri'
 import { TbLogout } from 'react-icons/tb'
 import AI_Gen_2 from "../../assets/AI Gen 2.webp";
-import { useNavigate } from 'react-router-dom'
+import { replace, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../AuthProvider'
 
 export default function DashboardPage({setActive,active}) {
@@ -183,14 +183,14 @@ function CoursesDetails(){
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>
-                  <span>
+                  <span style={{display:'flex', flexDirection:'column',gap:'10px'}}>
                     <span>{course.description}</span> 
                     <span style={{fontWeight:700, fontSize:'15px'}}>
                       started at {course.start_date}
                     </span>
                   </span>
                   <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
-                  onClick={()=>{navigateTo(`https://entreprensplatform.netlify.app/enroll_course/${course.course_id}`)}}>
+                  onClick={()=>{navigateTo(`https://entreprensplatform.netlify.app/enroll_course/${course.course_id}`, replace)}}>
                     Re-read this Course
                   </span>
                 </span>

@@ -232,7 +232,6 @@ function CoursesDetails(){
                       started at {course.start_date}
                     </span>
                   </span>
-                  <span style={{fontWeight:700, fontSize:'15px'}}>Un-Enrolled Course</span>
                   <span style={{border:'1px solid rgba(13, 136, 138, 1)',padding:'3px', borderRadius:'5px', fontWeight:700, width:'140px', textAlign:'center', color:'rgba(13, 136, 138, 1)'}}
                   onClick={()=>{navigateTo(`/enroll_course/${course.course_id}/main_App/moduleId/${course.resume_module_id}`, {replace:true})}}>
                     Resume Course

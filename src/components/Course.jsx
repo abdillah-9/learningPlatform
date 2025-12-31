@@ -84,8 +84,8 @@ export default function Course(){
                             </p>
                             <span style={{backgroundColor:'rgba(70, 169, 194, 1)',padding:'5px 20px', color:'white', borderRadius:"10px", height:'fit-content'}}>{courseData.course.number}</span>
                         </div>
-                        <p style={{paddingBottom:'20px', borderBottom:'2px solid rgba(200,200,200,0.8)',fontSize:'16px', color:'rgba(54, 53, 53, 0.8)',width:'90%'}}>
-                            {decodeHTML(courseData.course.description)}
+                        <p style={{paddingBottom:'20px', borderBottom:'2px solid rgba(200,200,200,0.8)',fontSize:'16px', color:'rgba(54, 53, 53, 0.8)',width:'90%'}}
+                        dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.description)}}>
                         </p>
                         <span style={{background:'linear-gradient(180deg,rgba(23, 161, 241, 1) 40%, rgba(0, 116, 184, 1) 60%', padding:'10px', color:'white', fontSize:'20px', textAlign:'center', marginTop:'20px', width:'90%',maxWidth:'400px', border:'1px solid black', borderRadius:'5px', cursor:'pointer'}}>Enroll Now</span>
                     </div>
@@ -106,8 +106,7 @@ export default function Course(){
                             {/* About Left */}
                             <div style={{maxWidth:'700px', width:'100%'}}>
                                 <h2 style={{textAlign:'left'}}>About This Course</h2>
-                                <p>
-                                    {decodeHTML(courseData.course.about)}
+                                <p dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.about)}}>
                                 </p>
                             </div>
 
@@ -188,8 +187,7 @@ export default function Course(){
                             <h2 style={{textAlign:'left', color:'black'}}>
                                 Who Should Take This Course
                             </h2>
-                            <div>
-                                {decodeHTML(courseData.course.target_audience)}
+                            <div dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.target_audience)}}>
                             </div>
                             <h2 style={{textAlign:'left', color:'black', fontSize:'16px'}}>
                                 Click Enroll Now to get started
@@ -200,8 +198,8 @@ export default function Course(){
                             <h2 style={{textAlign:'left'}}>
                                 Hint
                             </h2>
-                            <p style={{boxShadow:'1px 0.5px 5px #0c2b4e96', padding:'20px', borderRadius:'40px', cursor:'pointer'}}>
-                                {decodeHTML(courseData.course.hint)}
+                            <p style={{boxShadow:'1px 0.5px 5px #0c2b4e96', padding:'20px', borderRadius:'40px', cursor:'pointer'}}
+                            dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.hint)}}>
                             </p>
                         </div>
                     </div>

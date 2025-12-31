@@ -118,6 +118,13 @@ function CoursesDetails({setActive,active, userData, setUserData}){
   const [completedCourses, setCompletedCourses] = useState([]);
   const [inProgressCourses, setInProgressCourses] = useState([]);
   const navigateTo = useNavigate(); 
+  const decodeHTML = (encoded) => {
+    try {
+      return decodeURIComponent(escape(atob(encoded)));
+    } catch {
+      return encoded; // fallback for old DB rows
+    }
+  };
 
   useEffect(()=>{
     async function FetchCourses() {
@@ -171,7 +178,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>
                   <span style={{display:'flex', flexDirection:'column',gap:'10px'}}>
-                    <span>{course.description}</span> 
+                    <span dangerouslySetInnerHTML={{__html: decodeHTML(course.description)}}>{}</span> 
                     <span style={{fontWeight:700, fontSize:'15px'}}>
                       started at {course.start_date}
                     </span>
@@ -214,7 +221,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>
                   <span style={{display:'flex', flexDirection:'column',gap:'10px'}}>
-                    <span>{course.description}</span> 
+                    <span dangerouslySetInnerHTML={{__html:decodeHTML(course.description)}}>{}</span> 
                     <span style={{fontWeight:700, fontSize:'15px'}}>
                       started at {course.start_date}
                     </span>

@@ -114,8 +114,8 @@ import { TableHeader } from "@tiptap/extension-table-header";
 import { TableCell } from "@tiptap/extension-table-cell";
 
 import ListItem from "@tiptap/extension-list-item";
-import { StyledBulletList } from "./extensions/StyledBulletList";
-import { StyledOrderedList } from "./extensions/StyledOrderedList";
+import { StyledBulletList } from "./extensions/styledBulletList";
+import { StyledOrderedList } from "./extensions/styledOrderedList";
 
 import { TipTapToolbar } from "./TipTapToolbar";
 

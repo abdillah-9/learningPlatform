@@ -245,7 +245,7 @@ function MiniSlideShow({ items, decodeHTML }) {
               {item.name}
             </div>
             <div style={{fontSize:'15px', color:'rgba(250, 250, 250, 0.66)',display:'flex', gap:'5px', flexDirection:'column'}} className="opacityHover">
-              <span>{decodeHTML(item.description)}</span>
+              <span dangerouslySetInnerHTML={{__html:decodeHTML(item.description)}}></span>
               <span style={{display:'flex',alignItems:'center', gap:'10px', justifyContent:'center'}}><span>View Course </span><HiMiniArrowLongRight style={{fontSize:'25px'}}/></span>
             </div>
           </div>

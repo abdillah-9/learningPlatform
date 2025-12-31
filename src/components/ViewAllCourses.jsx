@@ -81,7 +81,7 @@ export default function ViewAllCourses(){
                         {course.name}
                     </div>
                     <div style={{fontSize:'15px', color:'rgba(250, 250, 250, 0.66)',display:'flex', gap:'5px', flexDirection:'column'}} className="opacityHover">
-                        <span>{decodeHTML(course.description)}</span>
+                        <span dangerouslySetInnerHTML={{__html:decodeHTML(course.description)}}></span>
                         <div style={{display:'flex',alignItems:'center', gap:'10px'}}
                         onClick={()=>navigateTo(`/enroll_course/${course.id}`)}>
                             <span>View Course </span>

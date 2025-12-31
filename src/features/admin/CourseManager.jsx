@@ -227,8 +227,8 @@ export default function CourseManager({ formState, setFormState, editModeState, 
       }
     );
 
-    const result = await response.json();
-    alert(result.message);
+    const result = await response.text();
+    alert(result);
 
     // Optional: close form after success
     setFormState(false);

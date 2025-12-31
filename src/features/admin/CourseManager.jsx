@@ -178,11 +178,12 @@ export default function CourseManager({ formState, setFormState, editModeState, 
     // Append basic course info
     formData.append("number", courseData.number);
     formData.append("name", courseData.name);
-    formData.append("description", courseData.description);
     formData.append("startDate", courseData.startDate);
-    formData.append("about", courseData.about);
-    formData.append("hint", courseData.hint);
-    formData.append("targetAudience", courseData.targetAudience);
+    formData.append("description", encodeHTML(courseData.description));
+    formData.append("about", encodeHTML(courseData.about));
+    formData.append("hint", encodeHTML(courseData.hint));
+    formData.append("targetAudience", encodeHTML(courseData.targetAudience));
+
     formData.append("duration", courseData.duration);
 
     if (courseData.picture) {
@@ -295,46 +296,36 @@ export default function CourseManager({ formState, setFormState, editModeState, 
         {/* DESCRIPTION */}
         <div>
           <label>Course Description</label>
-          <textarea
-            rows={2}
+          <TipTapEditor
             value={courseData.description}
-            onChange={(e) => updateCourseData("description", e.target.value)}
-            style={textarea}
+            onChange={(html) => updateCourseData("description", html)}
           />
         </div>
 
         {/* ABOUT THIS COURSE */}
         <div>
           <label>About This Course</label>
-          <textarea
-            rows={2}
+          <TipTapEditor
             value={courseData.about}
-            onChange={(e) => updateCourseData("about", e.target.value)}
-            style={textarea}
+            onChange={(html) => updateCourseData("about", html)}
           />
         </div>
 
         {/* HINT */}
         <div>
           <label>Course Hint</label>
-          <textarea
-            rows={2}
+          <TipTapEditor
             value={courseData.hint}
-            onChange={(e) => updateCourseData("hint", e.target.value)}
-            style={textarea}
+            onChange={(html) => updateCourseData("hint", html)}
           />
         </div>
 
         {/* TARGET AUDIENCE */}
         <div>
           <label>Who Should Take This Course?</label>
-          <textarea
-            rows={2}
+          <TipTapEditor
             value={courseData.targetAudience}
-            onChange={(e) =>
-              updateCourseData("targetAudience", e.target.value)
-            }
-            style={textarea}
+            onChange={(html) => updateCourseData("targetAudience", html)}
           />
         </div>
 

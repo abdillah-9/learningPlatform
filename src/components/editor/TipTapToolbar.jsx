@@ -15,15 +15,15 @@
 //     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
 
 //       {/* TEXT FORMAT */}
-//       <button type='button' onClick={() => editor.chain().focus().toggleBold().run()}>B</button>
-//       <button type='button' onClick={() => editor.chain().focus().toggleItalic().run()}>I</button>
-//       <button type='button' onClick={() => editor.chain().focus().toggleUnderline().run()}>U</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().toggleBold().run()}>B</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().toggleItalic().run()}>I</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().toggleUnderline().run()}>U</button>
 
 //       {/* ALIGNMENT */}
-//       <button type='button' onClick={() => editor.chain().focus().setTextAlign("left").run()}>L</button>
-//       <button type='button' onClick={() => editor.chain().focus().setTextAlign("center").run()}>C</button>
-//       <button type='button' onClick={() => editor.chain().focus().setTextAlign("right").run()}>R</button>
-//       <button type='button' onClick={() => editor.chain().focus().setTextAlign("justify").run()}>J</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().setTextAlign("left").run()}>L</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().setTextAlign("center").run()}>C</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().setTextAlign("right").run()}>R</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().setTextAlign("justify").run()}>J</button>
 
 //       {/* COLOR */}
 //       <input
@@ -47,12 +47,12 @@
 //         }}
 //       />
 
-//       <button type='button' onClick={() => editor.chain().focus().unsetFontSize().run()}>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().unsetFontSize().run()}>
 //         Clear Size
 //       </button>
 
 //       {/* IMAGE */}
-//       <button type='button'
+//       <button type="button" type='button'
 //         onClick={() => {
 //           const url = prompt("Image URL");
 //           if (url) editor.chain().focus().setImage({ src: url }).run();
@@ -67,15 +67,15 @@
 //         value={linkUrl}
 //         onChange={e => setLinkUrl(e.target.value)}
 //       />
-//       <button type='button' onClick={() => editor.chain().focus().setLink({ href: linkUrl }).run()}>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().setLink({ href: linkUrl }).run()}>
 //         Set Link
 //       </button>
-//       <button type='button' onClick={() => editor.chain().focus().unsetLink().run()}>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().unsetLink().run()}>
 //         Remove Link
 //       </button>
 
 //       {/* LISTS */}
-//       <button
+//       <button type="button"
 //         type="button"
 //         onClick={() => editor.chain().focus().toggleBulletList().run()}
 //         style={{
@@ -86,7 +86,7 @@
 //         • List
 //       </button>
 
-//       <button
+//       <button type="button"
 //         type="button"
 //         onClick={() => editor.chain().focus().toggleOrderedList().run()}
 //         style={{
@@ -134,19 +134,19 @@
 //       {/* TABLES */}
 //       <input type="number" value={rows} onChange={e => setRows(+e.target.value)} />
 //       <input type="number" value={cols} onChange={e => setCols(+e.target.value)} />
-//       <button type='button' onClick={() => editor.chain().focus().insertTable({ rows, cols, withHeaderRow: true }).run()}>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().insertTable({ rows, cols, withHeaderRow: true }).run()}>
 //         Insert Table
 //       </button>
 
-//       <button type='button' onClick={() => editor.chain().focus().addRowAfter().run()}>+ Row</button>
-//       <button type='button' onClick={() => editor.chain().focus().addColumnAfter().run()}>+ Col</button>
-//       <button type='button' onClick={() => editor.chain().focus().deleteRow().run()}>- Row</button>
-//       <button type='button' onClick={() => editor.chain().focus().deleteColumn().run()}>- Col</button>
-//       <button type='button' onClick={() => editor.chain().focus().deleteTable().run()}>Delete Table</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().addRowAfter().run()}>+ Row</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().addColumnAfter().run()}>+ Col</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().deleteRow().run()}>- Row</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().deleteColumn().run()}>- Col</button>
+//       <button type="button" type='button' onClick={() => editor.chain().focus().deleteTable().run()}>Delete Table</button>
 
 //       {/* CELL BACKGROUND */}
 //       {/* <HexColorPicker color={cellColor} onChange={setCellColor} />
-//       <button type='button'
+//       <button type="button" type='button'
 //         onClick={() =>
 //           editor.chain().focus().updateAttributes("tableCell", {
 //             background: cellColor,
@@ -181,15 +181,15 @@ export function TipTapToolbar({ editor }) {
     <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
 
       {/* TEXT FORMAT */}
-      <button onClick={() => editor.chain().focus().toggleBold().run()}>B</button>
-      <button onClick={() => editor.chain().focus().toggleItalic().run()}>I</button>
-      <button onClick={() => editor.chain().focus().toggleUnderline().run()}>U</button>
+      <button type="button" onClick={() => editor.chain().focus().toggleBold().run()}>B</button>
+      <button type="button" onClick={() => editor.chain().focus().toggleItalic().run()}>I</button>
+      <button type="button" onClick={() => editor.chain().focus().toggleUnderline().run()}>U</button>
 
       {/* ALIGNMENT */}
-      <button onClick={() => editor.chain().focus().setTextAlign("left").run()}>L</button>
-      <button onClick={() => editor.chain().focus().setTextAlign("center").run()}>C</button>
-      <button onClick={() => editor.chain().focus().setTextAlign("right").run()}>R</button>
-      <button onClick={() => editor.chain().focus().setTextAlign("justify").run()}>J</button>
+      <button type="button" onClick={() => editor.chain().focus().setTextAlign("left").run()}>L</button>
+      <button type="button" onClick={() => editor.chain().focus().setTextAlign("center").run()}>C</button>
+      <button type="button" onClick={() => editor.chain().focus().setTextAlign("right").run()}>R</button>
+      <button type="button" onClick={() => editor.chain().focus().setTextAlign("justify").run()}>J</button>
 
       {/* COLOR */}
       <input
@@ -212,10 +212,10 @@ export function TipTapToolbar({ editor }) {
           editor.chain().focus().setFontSize(size + "px").run();
         }}
       />
-      <button onClick={() => editor.chain().focus().unsetFontSize().run()}>Clear Size</button>
+      <button type="button" onClick={() => editor.chain().focus().unsetFontSize().run()}>Clear Size</button>
 
       {/* IMAGE */}
-      <button onClick={() => {
+      <button type="button" onClick={() => {
         const url = prompt("Image URL");
         if (url) editor.chain().focus().setImage({ src: url }).run();
       }}>Image</button>
@@ -226,11 +226,11 @@ export function TipTapToolbar({ editor }) {
         value={linkUrl}
         onChange={e => setLinkUrl(e.target.value)}
       />
-      <button onClick={() => editor.chain().focus().setLink({ href: linkUrl }).run()}>Set Link</button>
-      <button onClick={() => editor.chain().focus().unsetLink().run()}>Remove Link</button>
+      <button type="button" onClick={() => editor.chain().focus().setLink({ href: linkUrl }).run()}>Set Link</button>
+      <button type="button" onClick={() => editor.chain().focus().unsetLink().run()}>Remove Link</button>
 
       {/* LISTS */}
-      <button
+      <button type="button"
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         style={{
           fontWeight: editor.isActive("bulletList") ? "bold" : "normal",
@@ -239,7 +239,7 @@ export function TipTapToolbar({ editor }) {
       >
         • List
       </button>
-      <button
+      <button type="button"
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         style={{
           fontWeight: editor.isActive("orderedList") ? "bold" : "normal",
@@ -276,18 +276,18 @@ export function TipTapToolbar({ editor }) {
       {/* TABLES */}
       <input type="number" value={rows} onChange={e => setRows(+e.target.value)} />
       <input type="number" value={cols} onChange={e => setCols(+e.target.value)} />
-      <button onClick={() => editor.chain().focus().insertTable({ rows, cols, withHeaderRow: true }).run()}>
+      <button type="button" onClick={() => editor.chain().focus().insertTable({ rows, cols, withHeaderRow: true }).run()}>
         Insert Table
       </button>
-      <button onClick={() => editor.chain().focus().addRowAfter().run()}>+ Row</button>
-      <button onClick={() => editor.chain().focus().addColumnAfter().run()}>+ Col</button>
-      <button onClick={() => editor.chain().focus().deleteRow().run()}>- Row</button>
-      <button onClick={() => editor.chain().focus().deleteColumn().run()}>- Col</button>
-      <button onClick={() => editor.chain().focus().deleteTable().run()}>Delete Table</button>
+      <button type="button" onClick={() => editor.chain().focus().addRowAfter().run()}>+ Row</button>
+      <button type="button" onClick={() => editor.chain().focus().addColumnAfter().run()}>+ Col</button>
+      <button type="button" onClick={() => editor.chain().focus().deleteRow().run()}>- Row</button>
+      <button type="button" onClick={() => editor.chain().focus().deleteColumn().run()}>- Col</button>
+      <button type="button" onClick={() => editor.chain().focus().deleteTable().run()}>Delete Table</button>
 
       {/* CELL BACKGROUND (optional) */}
       {/* <HexColorPicker color={cellColor} onChange={setCellColor} />
-      <button onClick={() => editor.chain().focus().updateAttributes("tableCell", { background: cellColor }).run()}>
+      <button type="button" onClick={() => editor.chain().focus().updateAttributes("tableCell", { background: cellColor }).run()}>
         Cell Color
       </button> */}
     </div>

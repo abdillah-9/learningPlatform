@@ -7,7 +7,6 @@ import { TextAlign } from "@tiptap/extension-text-align";
 import { Link } from "@tiptap/extension-link";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { FontSize } from "@tiptap/extension-text-style/font-size";
-
 import Image from "@tiptap/extension-image";
 
 import { Table } from "@tiptap/extension-table";
@@ -15,9 +14,9 @@ import { TableRow } from "@tiptap/extension-table-row";
 import { TableHeader } from "@tiptap/extension-table-header";
 import { TableCell } from "@tiptap/extension-table-cell";
 
-import BulletList from "@tiptap/extension-bullet-list";
-import OrderedList from "@tiptap/extension-ordered-list";
 import ListItem from "@tiptap/extension-list-item";
+import { StyledBulletList } from "./extensions/styledBulletList";
+import { StyledOrderedList } from "./extensions/StyledOrderedList";
 
 import { TipTapToolbar } from "./TipTapToolbar";
 
@@ -27,10 +26,10 @@ const CustomTableCell = TableCell.extend({
       ...this.parent?.(),
       background: {
         default: null,
-        parseHTML: element => element.style.backgroundColor || null,
-        renderHTML: attributes =>
-          attributes.background
-            ? { style: `background-color: ${attributes.background}` }
+        parseHTML: el => el.style.backgroundColor || null,
+        renderHTML: attrs =>
+          attrs.background
+            ? { style: `background-color: ${attrs.background}` }
             : {},
       },
     };
@@ -43,6 +42,7 @@ export default function TipTapEditor({ value, onChange }) {
     extensions: [
       TextStyle,
       FontSize,
+
       StarterKit.configure({
         bulletList: false,
         orderedList: false,
@@ -50,8 +50,9 @@ export default function TipTapEditor({ value, onChange }) {
         link: false,
         underline: false,
       }),
-      BulletList.configure({ keepAttributes: true }),
-      OrderedList.configure({ keepAttributes: true }),
+
+      StyledBulletList.configure({ keepAttributes: true }),
+      StyledOrderedList.configure({ keepAttributes: true }),
       ListItem.configure({ nested: true }),
 
       Underline,
@@ -59,30 +60,32 @@ export default function TipTapEditor({ value, onChange }) {
       Link.configure({ openOnClick: false }),
       TextAlign.configure({ types: ["heading", "paragraph"] }),
       Image.configure({ allowBase64: true }),
+
       Table.configure({ resizable: true }),
       TableRow,
       TableHeader,
       CustomTableCell,
     ],
+
     onUpdate({ editor }) {
       onChange(editor.getHTML());
     },
+
     editorProps: {
       handleKeyDown(view, event) {
         if (event.key === "Tab") {
-          if (event.shiftKey) {
-            editor.chain().focus().liftListItem("listItem").run();
-          } else {
-            editor.chain().focus().sinkListItem("listItem").run();
-          }
           event.preventDefault();
+          editor
+            .chain()
+            .focus()
+            [event.shiftKey ? "liftListItem" : "sinkListItem"]("listItem")
+            .run();
           return true;
         }
         return false;
       },
     },
   });
-
 
   if (!editor) return null;
 

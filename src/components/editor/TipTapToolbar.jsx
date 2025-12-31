@@ -96,6 +96,40 @@ export function TipTapToolbar({ editor }) {
       >
         1. List
       </button>
+      <select
+        onChange={(e) =>
+          editor
+            .chain()
+            .focus()
+            .updateAttributes("orderedList", {
+              style: `list-style-type: ${e.target.value}`,
+            })
+            .run()
+        }
+      >
+        <option value="decimal">1, 2, 3</option>
+        <option value="upper-alpha">A, B, C</option>
+        <option value="lower-alpha">a, b, c</option>
+        <option value="upper-roman">I, II, III</option>
+        <option value="lower-roman">i, ii, iii</option>
+      </select>
+      <select
+        onChange={(e) =>
+          editor
+            .chain()
+            .focus()
+            .updateAttributes("bulletList", {
+              style: `list-style-type: ${e.target.value}`,
+            })
+            .run()
+        }
+      >
+        <option value="disc">● Disc</option>
+        <option value="circle">○ Circle</option>
+        <option value="square">■ Square</option>
+      </select>
+
+
 
       {/* TABLES */}
       <input type="number" value={rows} onChange={e => setRows(+e.target.value)} />

@@ -47,9 +47,10 @@ export default function TipTapEditor({ value, onChange }) {
         bulletList: false,
         orderedList: false,
       }),
-      BulletList,
-      OrderedList,
-      ListItem.configure({ nested: true }), // ✅ enable nesting
+      BulletList.configure({ keepAttributes: true }),
+      OrderedList.configure({ keepAttributes: true }),
+      ListItem.configure({ nested: true }),
+
       Underline,
       Color,
       Link.configure({ openOnClick: false }),

@@ -37,6 +37,14 @@ export default function Course(){
         }
         fetchCourse();
     },[]);
+
+    const decodeHTML = (encoded) => {
+    try {
+        return decodeURIComponent(escape(atob(encoded)));
+    } catch {
+        return encoded; // fallback for old DB rows
+    }
+    };
     
     if(!courseData){
         return
@@ -77,7 +85,7 @@ export default function Course(){
                             <span style={{backgroundColor:'rgba(70, 169, 194, 1)',padding:'5px 20px', color:'white', borderRadius:"10px", height:'fit-content'}}>{courseData.course.number}</span>
                         </div>
                         <p style={{paddingBottom:'20px', borderBottom:'2px solid rgba(200,200,200,0.8)',fontSize:'16px', color:'rgba(54, 53, 53, 0.8)',width:'90%'}}>
-                            {courseData.course.description}
+                            {decodeHTML(courseData.course.description)}
                         </p>
                         <span style={{background:'linear-gradient(180deg,rgba(23, 161, 241, 1) 40%, rgba(0, 116, 184, 1) 60%', padding:'10px', color:'white', fontSize:'20px', textAlign:'center', marginTop:'20px', width:'90%',maxWidth:'400px', border:'1px solid black', borderRadius:'5px', cursor:'pointer'}}>Enroll Now</span>
                     </div>
@@ -99,7 +107,7 @@ export default function Course(){
                             <div style={{maxWidth:'700px', width:'100%'}}>
                                 <h2 style={{textAlign:'left'}}>About This Course</h2>
                                 <p>
-                                    {courseData.course.about}
+                                    {decodeHTML(courseData.course.about)}
                                 </p>
                             </div>
 
@@ -181,7 +189,7 @@ export default function Course(){
                                 Who Should Take This Course
                             </h2>
                             <div>
-                                {courseData.course.target_audience}
+                                {decodeHTML(courseData.course.target_audience)}
                             </div>
                             <h2 style={{textAlign:'left', color:'black', fontSize:'16px'}}>
                                 Click Enroll Now to get started
@@ -193,7 +201,7 @@ export default function Course(){
                                 Hint
                             </h2>
                             <p style={{boxShadow:'1px 0.5px 5px #0c2b4e96', padding:'20px', borderRadius:'40px', cursor:'pointer'}}>
-                                {courseData.course.hint}
+                                {decodeHTML(courseData.course.hint)}
                             </p>
                         </div>
                     </div>

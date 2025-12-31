@@ -24,6 +24,13 @@ import { AuthContext } from "../AuthProvider";
 
 export default function Home(){
   const [coursesList, setCoursesList] = useState([]);
+  const decodeHTML = (encoded) => {
+  try {
+    return decodeURIComponent(escape(atob(encoded)));
+  } catch {
+    return encoded; // fallback for old DB rows
+  }
+};
 
   useEffect(()=>{
       async function FetchCourses(){
@@ -58,7 +65,7 @@ export default function Home(){
       {/** SLIDESHOW */}
       <SlideShow />
       {/** POPULAR Courses */}
-      <PopularCourses coursesList={coursesList}/>
+      <PopularCourses coursesList={coursesList} decodeHTML={decodeHTML}/>
     
       {/** StartJourney */}
       <StartJourney />
@@ -216,7 +223,7 @@ useEffect(() => {
   );
 }
 
-function MiniSlideShow({ items }) {
+function MiniSlideShow({ items, decodeHTML }) {
   const navigateTo = useNavigate();
 
   return (
@@ -238,7 +245,7 @@ function MiniSlideShow({ items }) {
               {item.name}
             </div>
             <div style={{fontSize:'15px', color:'rgba(250, 250, 250, 0.66)',display:'flex', gap:'5px', flexDirection:'column'}} className="opacityHover">
-              <span>{item.description}</span>
+              <span>{decodeHTML(item.description)}</span>
               <span style={{display:'flex',alignItems:'center', gap:'10px', justifyContent:'center'}}><span>View Course </span><HiMiniArrowLongRight style={{fontSize:'25px'}}/></span>
             </div>
           </div>
@@ -383,19 +390,8 @@ useEffect(() => {
   );
 }
 
-function PopularCourses({coursesList}){
-    // 9 items – 3 will show at a time
-// const popularData = [
-//   { img: pic7, text: "Brela and Business Registration", desc:'Own your company and be your own C.E.O' },
-//   { img: pic8, text: "shaping an Opportunity", desc:'Its’ 21st century, pursue your business idea through an organization'  },
-//   { img: pic9, text: "Financial Literacy", desc:'An asset puts money in my pocket. A liability takes money out of my pocket'  },
-//   { img: pic4, text: "Intelligent Spending", desc:'It’s not how much money you make. It’s how much money you keep'  },
-//   { img: pic5, text: "Financial Literacy", desc:'Money without financial intelligence is money soon gone'  },
-//   { img: pic1, text: "Problem solving through organization", desc:'A recognized business idea should be pursued through creation of business organization'  },
-//   { img: pic2, text: "Course 7", desc:'desc 7'  },
-//   { img: pic3, text: "Course 8", desc:'desc 8'  },
-//   { img: pic4, text: "Course 9", desc:'desc 9'  },
-// ];
+function PopularCourses({coursesList, decodeHTML}){
+
 if(!coursesList){
   return;
 }
@@ -422,7 +418,7 @@ if(!coursesList){
           <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
         </div>
 
-        <MiniSlideShow items={itemsToShow} />
+        <MiniSlideShow items={itemsToShow} decodeHTML={decodeHTML}/>
 
         <div style={{zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#0C2B4E', cursor: 'pointer', height:'fit-content' }} onClick={next}>
           <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />

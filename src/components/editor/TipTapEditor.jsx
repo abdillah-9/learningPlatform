@@ -46,6 +46,9 @@ export default function TipTapEditor({ value, onChange }) {
       StarterKit.configure({
         bulletList: false,
         orderedList: false,
+        listItem: false,
+        link: false,
+        underline: false,
       }),
       BulletList.configure({ keepAttributes: true }),
       OrderedList.configure({ keepAttributes: true }),

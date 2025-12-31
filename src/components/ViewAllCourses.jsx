@@ -32,6 +32,14 @@ export default function ViewAllCourses(){
       }
       FetchCourses();
       },[]);
+
+    const decodeHTML = (encoded) => {
+        try {
+            return decodeURIComponent(escape(atob(encoded)));
+        } catch {
+            return encoded; // fallback for old DB rows
+        }
+    };
     
     return(
         <div>
@@ -73,7 +81,7 @@ export default function ViewAllCourses(){
                         {course.name}
                     </div>
                     <div style={{fontSize:'15px', color:'rgba(250, 250, 250, 0.66)',display:'flex', gap:'5px', flexDirection:'column'}} className="opacityHover">
-                        <span>{course.description}</span>
+                        <span>{decodeHTML(course.description)}</span>
                         <div style={{display:'flex',alignItems:'center', gap:'10px'}}
                         onClick={()=>navigateTo(`/enroll_course/${course.id}`)}>
                             <span>View Course </span>

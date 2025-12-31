@@ -198,7 +198,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
 
             </span>
           </h5>
-          <p>{course.description}</p>
+          <p decodeURIComponent={{__html:decodeHTML(course.description)}}>{}</p>
 
           {course?.modules?.map((module, moduleIndex) => (
             <div

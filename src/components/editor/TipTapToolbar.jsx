@@ -74,6 +74,29 @@ export function TipTapToolbar({ editor }) {
         Remove Link
       </button>
 
+      {/* LISTS */}
+      <button
+        type="button"
+        onClick={() => editor.chain().focus().toggleBulletList().run()}
+        style={{
+          fontWeight: editor.isActive("bulletList") ? "bold" : "normal",
+          color: editor.isActive("bulletList") ? "#0d6efd" : "#000",
+        }}
+      >
+        • List
+      </button>
+
+      <button
+        type="button"
+        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+        style={{
+          fontWeight: editor.isActive("orderedList") ? "bold" : "normal",
+          color: editor.isActive("orderedList") ? "#0d6efd" : "#000",
+        }}
+      >
+        1. List
+      </button>
+
       {/* TABLES */}
       <input type="number" value={rows} onChange={e => setRows(+e.target.value)} />
       <input type="number" value={cols} onChange={e => setCols(+e.target.value)} />
@@ -88,7 +111,7 @@ export function TipTapToolbar({ editor }) {
       <button type='button' onClick={() => editor.chain().focus().deleteTable().run()}>Delete Table</button>
 
       {/* CELL BACKGROUND */}
-      <HexColorPicker color={cellColor} onChange={setCellColor} />
+      {/* <HexColorPicker color={cellColor} onChange={setCellColor} />
       <button type='button'
         onClick={() =>
           editor.chain().focus().updateAttributes("tableCell", {
@@ -97,7 +120,7 @@ export function TipTapToolbar({ editor }) {
         }
       >
         Cell Color
-      </button>
+      </button> */}
     </div>
   );
 }

@@ -15,6 +15,10 @@ import { TableRow } from "@tiptap/extension-table-row";
 import { TableHeader } from "@tiptap/extension-table-header";
 import { TableCell } from "@tiptap/extension-table-cell";
 
+import BulletList from "@tiptap/extension-bullet-list";
+import OrderedList from "@tiptap/extension-ordered-list";
+import ListItem from "@tiptap/extension-list-item";
+
 import { TipTapToolbar } from "./TipTapToolbar";
 
 const CustomTableCell = TableCell.extend({
@@ -37,9 +41,15 @@ export default function TipTapEditor({ value, onChange }) {
   const editor = useEditor({
     content: value,
     extensions: [
-      TextStyle,   // REQUIRED
-      FontSize,    // ✅ OFFICIAL FONT SIZE SUPPORT
-      StarterKit,
+      TextStyle,
+      FontSize,
+      StarterKit.configure({
+        bulletList: false,
+        orderedList: false,
+      }),
+      BulletList,
+      OrderedList,
+      ListItem.configure({ nested: true }), // ✅ enable nesting
       Underline,
       Color,
       Link.configure({ openOnClick: false }),
@@ -53,7 +63,22 @@ export default function TipTapEditor({ value, onChange }) {
     onUpdate({ editor }) {
       onChange(editor.getHTML());
     },
+    editorProps: {
+      handleKeyDown(view, event) {
+        if (event.key === "Tab") {
+          if (event.shiftKey) {
+            editor.chain().focus().liftListItem("listItem").run();
+          } else {
+            editor.chain().focus().sinkListItem("listItem").run();
+          }
+          event.preventDefault();
+          return true;
+        }
+        return false;
+      },
+    },
   });
+
 
   if (!editor) return null;
 

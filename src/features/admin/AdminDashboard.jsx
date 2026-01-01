@@ -273,7 +273,7 @@ function CoursesActions(){
           {/** STudents number accessed it */}
           <div style={{display:'flex',flexDirection:'column'}}>
             <span>{courseStat.students_accessed}</span>
-            <span onClick={()=>{navigateTo('/url'), replace=true}}>Open course</span>
+            <span onClick={()=>{navigateTo('/url')}}>Open course</span>
           </div>
         </div>
       )) :""

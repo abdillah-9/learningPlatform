@@ -276,7 +276,7 @@ function CoursesActions({decodeHTML}){
             {/** Name/Title */}
             <span>{courseStat.title}</span>
             {/** Desc */}
-            <span dangerouslySetInnerHTML={{__html: courseStat.description}}>{}</span>
+            <span dangerouslySetInnerHTML={{__html: decodeHTML(courseStat.description)}}>{}</span>
           </div>
           {/** STudents number accessed it */}
           <div style={{display:'flex',flexDirection:'column'}}>

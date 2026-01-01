@@ -6,7 +6,7 @@ import { MdPendingActions } from 'react-icons/md'
 import { PiArrowLineRight, PiBookOpenUser } from 'react-icons/pi'
 import { RiDeleteBin5Fill, RiFileCheckFill } from 'react-icons/ri'
 import { TbLogout } from 'react-icons/tb'
-import { useNavigate } from 'react-router-dom'
+import { replace, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../AuthProvider'
 import { HiMiniUsers } from 'react-icons/hi2'
 
@@ -234,7 +234,50 @@ function UsersActions(){
 }
 
 function CoursesActions(){
+
+  const [coursesStats, setcoursesStats] = useState([]);
+  useEffect(()=>{
+    async function FetchCoursesStats(){
+     const formData = new FormData();
+
+     const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_all_coursesStats.php',{
+      method:'POST',
+      body:formData,
+     });
+
+     if(res.ok){
+      const data = await res.json();
+      setcoursesStats(data.courses);
+      //alert(data.message);
+     }
+     else{
+      alert('Failed to fetch users');
+     }
+  }
+  FetchCoursesStats();
+  },[]);
+
   return(
-    <div>Courses</div>
+    <div>
+      {
+        coursesStats? coursesStats?.map((courseStat, index)=>(
+        <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center'}}>
+          {/** Pic */}
+          <img src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/${courseStat.picture}`} alt='course_picture' style={{flex:'1 1 250px'}} />
+          <div style={{display:'flex',flexDirection:'column'}}>
+            {/** Name/Title */}
+            <span>{courseStat.title}</span>
+            {/** Desc */}
+            <span>{courseStat.description}</span>
+          </div>
+          {/** STudents number accessed it */}
+          <div style={{display:'flex',flexDirection:'column'}}>
+            <span>{courseStat.students_accessed}</span>
+            <span onClick={()=>{navigateTo('/url'), replace=true}}>Open course</span>
+          </div>
+        </div>
+      )) :""
+      }
+    </div>
   )
 }

@@ -9,15 +9,23 @@ import { TbLogout } from 'react-icons/tb'
 import { replace, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../AuthProvider'
 import { HiMiniUsers } from 'react-icons/hi2'
+import logo from '../../assets/logo.jpg';
 
 export default function AdminDashboard({setActive,active}) {
   const {userData, setUserData} = useContext(AuthContext);
+  const decodeHTML = (encoded) => {
+    try {
+      return decodeURIComponent(escape(atob(encoded)));
+    } catch {
+      return encoded; // fallback for old DB rows
+    }
+  };
 
   return (
     <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column'}}>
       <QuickActions active={active} setActive={setActive} userData={userData} setUserData={setUserData}/>
       <UsersActions/>
-      <CoursesActions/>
+      <CoursesActions decodeHTML={decodeHTML}/>
     </div>
   )
 }
@@ -233,7 +241,7 @@ function UsersActions(){
   )
 }
 
-function CoursesActions(){
+function CoursesActions({decodeHTML}){
   const navigateTo = useNavigate();
   const [coursesStats, setcoursesStats] = useState([]);
   useEffect(()=>{
@@ -261,14 +269,14 @@ function CoursesActions(){
     <div>
       {
         coursesStats? coursesStats?.map((courseStat, index)=>(
-        <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center'}}>
+        <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center', border:'1px solid red'}}>
           {/** Pic */}
-          <img src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/${courseStat.picture}`} alt='course_picture' style={{flex:'1 1 250px'}} />
+          <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseStat.picture}`: logo} alt='course_picture' style={{flex:'1 1 250px'}} />
           <div style={{display:'flex',flexDirection:'column'}}>
             {/** Name/Title */}
             <span>{courseStat.title}</span>
             {/** Desc */}
-            <span>{courseStat.description}</span>
+            <span dangerouslySetInnerHTML={{__html: decodeHTML(courseStat.description)}}>{}</span>
           </div>
           {/** STudents number accessed it */}
           <div style={{display:'flex',flexDirection:'column'}}>

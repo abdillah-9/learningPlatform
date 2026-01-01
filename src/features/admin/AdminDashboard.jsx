@@ -271,15 +271,15 @@ function CoursesActions({decodeHTML}){
         coursesStats? coursesStats?.map((courseStat, index)=>(
         <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center', border:'1px solid red'}}>
           {/** Pic */}
-          <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseStat.picture}`: logo} alt='course_picture' style={{flex:'1 1 250px'}} width={"100"} />
-          <div style={{display:'flex',flexDirection:'column'}}>
+          <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseStat.picture}`: logo} alt='course_picture' width={"200px"} style={{aspectRatio:16/9, objectFit:'cover'}} />
+          <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px'}}>
             {/** Name/Title */}
             <span>{courseStat.title}</span>
             {/** Desc */}
             <span dangerouslySetInnerHTML={{__html: decodeHTML(courseStat.description)}}>{}</span>
           </div>
           {/** STudents number accessed it */}
-          <div style={{display:'flex',flexDirection:'column'}}>
+          <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px'}}>
             <span>{courseStat.students_accessed}</span>
             <span onClick={()=>{navigateTo('/url')}}>Open course</span>
           </div>

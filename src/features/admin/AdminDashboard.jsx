@@ -266,22 +266,27 @@ function CoursesActions({decodeHTML}){
   },[]);
 
   return(
-    <div>
+    <div style={{display:'flex', flexDirection:'column', gap:'15px'}}>
       {
         coursesStats? coursesStats?.map((courseStat, index)=>(
-        <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center', border:'1px solid red'}}>
+        <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center', borderBottom:'1px solid rgba(68, 68, 68, 0.86)'}}>
           {/** Pic */}
           <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseStat.picture}`: logo} alt='course_picture' width={"200px"} style={{aspectRatio:16/9, objectFit:'cover'}} />
           <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px'}}>
             {/** Name/Title */}
-            <span>{courseStat.title}</span>
+            <span style={{fontSize:'16px', fontWeight:700}}>{courseStat.title}</span>
             {/** Desc */}
-            <span dangerouslySetInnerHTML={{__html: decodeHTML(courseStat.description)}}>{}</span>
+            <span  style={{fontSize:'13px', fontWeight:700, color:'rgba(61, 60, 60, 0.75)'}} dangerouslySetInnerHTML={{__html: decodeHTML(courseStat.description)}}>{}</span>
           </div>
           {/** STudents number accessed it */}
-          <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px'}}>
-            <span>{courseStat.students_accessed}</span>
-            <span onClick={()=>{navigateTo('/url')}}>Open course</span>
+          <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px', gap:'15px'}}>
+            <div style={{display:'flex', gap:'7px'}}> 
+              <span style={{fontSize:'15px'}}>{courseStat.students_accessed}</span> 
+              <span style={{fontSize:'13px'}}>students opened</span>
+            </div>
+            <span onClick={()=>{navigateTo('/url')}} style={{boxShadow:"1px 0.4px 10px rgba(46, 46, 46, 0.84)", padding:'12px', borderRadius:'5px'}}>
+              Open course
+            </span>
           </div>
         </div>
       )) :""

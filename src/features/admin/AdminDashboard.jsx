@@ -271,7 +271,7 @@ function CoursesActions({decodeHTML}){
         coursesStats? coursesStats?.map((courseStat, index)=>(
         <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center', border:'1px solid red'}}>
           {/** Pic */}
-          <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseStat.picture}`: logo} alt='course_picture' style={{flex:'1 1 250px'}} />
+          <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseStat.picture}`: logo} alt='course_picture' style={{flex:'1 1 250px'}} width={"100"} />
           <div style={{display:'flex',flexDirection:'column'}}>
             {/** Name/Title */}
             <span>{courseStat.title}</span>

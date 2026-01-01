@@ -234,7 +234,7 @@ function UsersActions(){
 }
 
 function CoursesActions(){
-
+  const navigateTo = useNavigate();
   const [coursesStats, setcoursesStats] = useState([]);
   useEffect(()=>{
     async function FetchCoursesStats(){

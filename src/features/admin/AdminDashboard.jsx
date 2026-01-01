@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { BiLogOut, BiSearchAlt2, BiSolidSearchAlt2 } from 'react-icons/bi'
 import { BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs'
 import { FaUserEdit, FaUserMd } from 'react-icons/fa'
-import { MdPendingActions } from 'react-icons/md'
+import { MdOutlineDocumentScanner, MdPendingActions } from 'react-icons/md'
 import { PiArrowLineRight, PiBookOpenUser } from 'react-icons/pi'
 import { RiDeleteBin5Fill, RiFileCheckFill } from 'react-icons/ri'
 import { TbLogout } from 'react-icons/tb'
@@ -266,10 +266,10 @@ function CoursesActions({decodeHTML}){
   },[]);
 
   return(
-    <div style={{display:'flex', flexDirection:'column', gap:'15px'}}>
+    <div style={{display:'flex', flexDirection:'column', gap:'15px', marginTop:'30px'}}>
       {
         coursesStats? coursesStats?.map((courseStat, index)=>(
-        <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center', borderBottom:'1px solid rgba(68, 68, 68, 0.86)'}}>
+        <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center', borderBottom:'1px solid rgba(98, 98, 98, 0.69)', paddingBottom:'15px'}}>
           {/** Pic */}
           <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseStat.picture}`: logo} alt='course_picture' width={"200px"} style={{aspectRatio:16/9, objectFit:'cover'}} />
           <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px'}}>
@@ -280,13 +280,14 @@ function CoursesActions({decodeHTML}){
           </div>
           {/** STudents number accessed it */}
           <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px', gap:'15px'}}>
-            <div style={{display:'flex', gap:'7px'}}> 
-              <span style={{fontSize:'15px'}}>{courseStat.students_accessed}</span> 
-              <span style={{fontSize:'13px'}}>students opened</span>
+            <div style={{display:'flex', gap:'7px', alignItems:'center'}}> 
+              <span style={{fontSize:'16px', fontWeight:700}}>{courseStat.students_accessed}</span> 
+              <span style={{fontSize:'13px', fontWeight:600}}>students opened</span>
             </div>
-            <span onClick={()=>{navigateTo('/url')}} style={{boxShadow:"1px 0.4px 10px rgba(46, 46, 46, 0.84)", padding:'12px', borderRadius:'5px'}}>
-              Open course
-            </span>
+            <div onClick={()=>{navigateTo('/url')}} style={{boxShadow:"1px 0.4px 10px rgba(46, 46, 46, 0.84)", padding:'12px', borderRadius:'5px', width:'fit-content', cursor:'pointer'}}>
+              <span style={{fontSize:'14px', padding:'12px 9px'}}><MdOutlineDocumentScanner/></span>
+              <span>Open course</span>
+            </div>
           </div>
         </div>
       )) :""

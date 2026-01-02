@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import pic from "../assets/aboutImageOld.jpeg"
+import logo from "../assets/logo.jpg"
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { IoMdHome } from "react-icons/io";
@@ -32,7 +32,9 @@ export default function ShowUpcomingCourses(){
             {/* Top nav bar */}
             <div style={{position:'relative', top:0, left:0, width:'100%', height:'fit-content',minHeight:'80px', backgroundColor:'#0C2B4E',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'15px'}}>
                 <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
-                    <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
+                    <img src={MwangazaLogo} alt="logo"                      
+                    width={'60px'} height={'60px'} 
+                    style={{borderRadius:'50%'}} />
                 <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
                 </div>
                 <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500}}> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us </span> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>View All Courses</span> 
@@ -47,7 +49,7 @@ export default function ShowUpcomingCourses(){
             {upcomingCourses? upcomingCourses?.map((course, index)=>(
                 <div key={index} style={{display:'flex',flexWrap:'wrap', gap:'20px', maxWidth:'800px', boxShadow:'1px 2px 10px rgba(60, 58, 58, 0.7)'}}>
                     <span style={{aspectRatio:16/9,width:'100%',maxWidth:'350px'}}>
-                        <img src={course.pic} alt="pic" width={"100%"} height={"100%"} style={{objectFit:'cover', }}/>
+                        <img src={course?.pic ? course?.pic : logo} alt="pic" width={"100%"} height={"100%"} style={{objectFit:'cover', }}/>
                     </span>
                     <div style={{fontSize:"18px", fontWeight:700, width:'100%', maxWidth:"400px", display:"flex", justifyContent:'space-around', flexDirection:'column'}}>
                         <span>

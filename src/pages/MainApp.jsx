@@ -49,7 +49,7 @@ export default function MainApp() {
       <TopNavBar sideBarOpened={sideBarOpened} setSideBar={setSideBar}/>
       <div style={{ display: "flex"}}>
         <SideBar active={active} setActive={setActive} sideBarOpened={sideBarOpened}/>
-        <div style={{maxHeight:'120vh', minHeight:'100vh', overflow:'auto', 
+        <div style={{height:'100vh', overflow:'auto', 
           flexGrow: 1, width: "calc(100% - 200px)", 
         }}>
           {renderContent()}

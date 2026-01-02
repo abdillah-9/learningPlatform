@@ -8,9 +8,10 @@ import aboutImage from '../assets/aboutImage.jpeg';
 import miniAboutImage from '../assets/miniAboutImage.jpeg';
 import { RiTwitterXFill } from 'react-icons/ri';
 import { IoIosMail, IoMdCall } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 
 export default function About(){
-
+  const navigateTo = useNavigate();
   return(
 <div style={{ display: "flex",flexDirection:'column'}}>
     {/* Top nav bar */}
@@ -19,7 +20,11 @@ export default function About(){
           <img src={MwangazaLogo} alt="logo" width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
         <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
       </div>
-      <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500}}> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us </span> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>View All Courses</span> </div>
+      <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500}}>
+        <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>
+          View All Courses
+        </span> 
+        </div>
     </div>
 
     {/** Huge Image */}

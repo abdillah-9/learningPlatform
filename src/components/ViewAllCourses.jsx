@@ -63,36 +63,71 @@ export default function ViewAllCourses(){
             {/** Main Courses  */}
             
             <div style={{display:'flex', width:'100%', gap:'20px', padding:'20px', flexWrap:'wrap',border:'1px solid red',height:'100vh', overflow:'auto',}}>
-            {
-            coursesList ?  coursesList?.map((course, index)=>(
-                <div className="slideShowHeight" key={course.id}
-                style={{flex:'1 1 250px', position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px', maxWidth:'280px'}}>
-                          
-                    <div style={{ position: 'relative', width: '100%',height:'100%' }}>
-                    <img
-                        src={ course?.picture != null ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}` : pic}
-                        alt="slide"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', aspectRatio:16/9 }}
-                    />
-                    </div>
-        
-                    <a style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#0C2B4E', width:'100%', display:'flex', flexDirection:'column', gap:'5px', padding:'10px 0px'}} className="heightHover">
-                    <div>
-                        {course.name}
-                    </div>
-                    <div style={{fontSize:'15px', color:'rgba(250, 250, 250, 0.66)',display:'flex', gap:'5px', flexDirection:'column'}} className="opacityHover">
-                        <span dangerouslySetInnerHTML={{__html:decodeHTML(course.description)}}></span>
-                        <div style={{display:'flex',alignItems:'center', gap:'10px'}}
-                        onClick={()=>navigateTo(`/enroll_course/${course.id}`)}>
-                            <span>View Course </span>
-                            <HiMiniArrowLongRight style={{fontSize:'25px'}}/>
-                        </div>
-                    </div>
-                    </a>
+            {coursesList ? coursesList.map((course) => (
+            <div
+                className="slideShowHeight"
+                key={course.id}
+                style={{
+                flex: '1 1 250px',
+                position: "relative",
+                overflow: "hidden",
+                aspectRatio: 1 / 0.85,
+                borderRadius: '5px',
+                maxWidth: '280px'
+                }}
+            >
+                <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <img
+                    src={course?.picture
+                    ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}`
+                    : pic}
+                    alt="slide"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', aspectRatio: 16 / 9 }}
+                />
                 </div>
-            ))
-                : "Courses Not found ..."
-                }
+
+                {/* 🔥 FIXED PART */}
+                <div
+                className="heightHover"
+                style={{
+                    ...miniSlideshowTexts,
+                    color: 'white',
+                    backgroundColor: '#0C2B4E',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '5px',
+                    padding: '10px 0px',
+                    cursor: 'pointer'
+                }}
+                onClick={() => navigateTo(`/enroll_course/${course.id}`)}
+                >
+                <div>{course.name}</div>
+
+                <div
+                    className="opacityHover"
+                    style={{
+                    fontSize: '15px',
+                    color: 'rgba(250, 250, 250, 0.66)',
+                    display: 'flex',
+                    gap: '5px',
+                    flexDirection: 'column'
+                    }}
+                >
+                    <span
+                    dangerouslySetInnerHTML={{
+                        __html: decodeHTML(course.description)
+                    }}
+                    />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', justifyContent:'center' }}>
+                    <span>View Course</span>
+                    <HiMiniArrowLongRight style={{ fontSize: '25px' }} />
+                    </div>
+                </div>
+                </div>
+            </div>
+            )) : "Courses Not found ..."}
+
             </div>
             
         </div>

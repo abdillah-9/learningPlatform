@@ -22,7 +22,7 @@ export default function MainApp() {
     switch (active) {
       case "Dashboard":
         return(
-          <div>
+          <div style={{maxHeight:'120vh', minHeight:'100vh', overflow:'auto'}}>
             {
               userData?.user_role == 'admin' ? <AdminDashboard  active={active} setActive={setActive}/> :
               <DashboardPage active={active} setActive={setActive} />

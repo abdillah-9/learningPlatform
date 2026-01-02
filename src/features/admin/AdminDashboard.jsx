@@ -22,7 +22,7 @@ export default function AdminDashboard({setActive,active}) {
   };
 
   return (
-    <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column', maxHeight:'120vh', minHeight:'100vh', overflow:'auto'}}>
+    <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column'}}>
       <QuickActions active={active} setActive={setActive} userData={userData} setUserData={setUserData}/>
       <UsersActions/>
       <CoursesActions decodeHTML={decodeHTML}/>

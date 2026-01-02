@@ -289,6 +289,31 @@ function CoursesActions({decodeHTML}){
               <span>Open course</span>
             </div>
           </div>
+
+          {/* COURSE MODULES */}
+          <div style={{display:'flex', flexDirection:'column', gap:'6px'}}>
+            {courseStat.modules?.map((module, i) => (
+              <div
+                key={module.id}
+                style={{
+                  display:'flex',
+                  justifyContent:'space-between',
+                  padding:'8px 10px',
+                  background:'rgba(0,0,0,0.04)',
+                  borderRadius:'4px',
+                  fontSize:'13px'
+                }}
+              >
+                <span>
+                  {i + 1}. {module.title}
+                </span>
+                <span style={{fontWeight:600}}>
+                  {module.students_accessed} students
+                </span>
+              </div>
+            ))}
+          </div>
+
         </div>
       )) :""
       }

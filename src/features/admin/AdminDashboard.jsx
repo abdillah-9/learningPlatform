@@ -219,7 +219,7 @@ function UsersActions(){
                    alt='user_pic'
                    style={{width:'65px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
               />
-              <span style={{fontSize:"17px", minWidth:'200px'}}>
+              <span style={{fontSize:"17px", width:'120px'}}>
                 {std.full_name}
               </span>
               <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>

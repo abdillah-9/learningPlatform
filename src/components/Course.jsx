@@ -199,9 +199,8 @@ export default function Course(){
                             <h2 style={{textAlign:'left'}}>
                                 Hint
                             </h2>
-                            <p style={{boxShadow:'1px 0.5px 5px #0c2b4e96', padding:'20px', borderRadius:'40px', cursor:'pointer', whiteSpace:'pre-wrap'}}
-                            dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.hint)}}>
-                            </p>
+<div style={{ whiteSpace: 'pre-wrap' }} dangerouslySetInnerHTML={{__html: decodeHTML(courseData.course.hint).replace(/<\/?p>/g, '') }}></div>
+
                         </div>
                     </div>
                 </div>

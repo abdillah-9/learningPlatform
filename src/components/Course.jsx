@@ -106,7 +106,7 @@ export default function Course(){
                             {/* About Left */}
                             <div style={{maxWidth:'700px', width:'100%'}}>
                                 <h2 style={{textAlign:'left'}}>About This Course</h2>
-                                <p dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.about)}}>
+                                <p dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.about)}} style={{whiteSpace:'pre-wrap'}}>
                                 </p>
                             </div>
 

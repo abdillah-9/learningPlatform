@@ -3,7 +3,7 @@ import pic from "../assets/aboutImageOld.jpeg"
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { IoMdHome } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ShowUpcomingCourses(){
     const navigateTo = useNavigate();

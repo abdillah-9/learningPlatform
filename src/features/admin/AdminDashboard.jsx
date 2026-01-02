@@ -127,7 +127,7 @@ console.log("user id "+userData.user_id);
         <span>Manage Available Courses</span>
       </div>
 
-      <div style={{display:'flex', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'160px'}}
+      <div style={{display:'flex', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'200px'}}
       onClick={()=>{setActive('Available Courses')}}>
         <span style={{fontSize:'16px',backgroundColor:'rgba(153, 153, 241, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(9, 18, 87, 1)'}}><FaUserEdit/></span>
         <span>Manage Upcoming Courses</span>
@@ -205,7 +205,7 @@ function UsersActions(){
        </div>
 
        {/** USER MANAGE-USERS **/}
-       <div style={{display:'flex', flexWrap:'wrap', gap:"10px"}}>
+       <div style={{display:'flex', flexWrap:'wrap', gap:"10px", justifyContent:'space-between'}}>
         {
           students? students.map((std,index)=>(
             <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center', fontSize:'15px', fontWeight:600,
@@ -266,7 +266,7 @@ function CoursesActions({decodeHTML}){
   },[]);
 
   return(
-    <div style={{display:'flex', flexDirection:'column', gap:'15px', marginTop:'30px', maxHeight:'500px', overflow:'auto'}}>
+    <div style={{display:'flex', flexDirection:'column', gap:'15px', marginTop:'30px', maxHeight:'500px', overflow:'auto', boxShadow:'1px 0.5px 7px rgba(68, 67, 67, 0.81)', borderRadius:'5px', padding:'14px'}}>
       <h2>Courses Statistics</h2>
       {
         coursesStats? coursesStats?.map((courseStat, index)=>(
@@ -285,9 +285,9 @@ function CoursesActions({decodeHTML}){
               <span style={{fontSize:'16px', fontWeight:700}}>{courseStat.students_accessed}</span> 
               <span style={{fontSize:'13px', fontWeight:600}}>students opened</span>
             </div>
-            <div onClick={()=>{navigateTo(`/enroll_course/${courseStat.id}`)}} style={{boxShadow:"1px 0.4px 10px rgba(46, 46, 46, 0.84)", padding:'12px', borderRadius:'5px', width:'fit-content', cursor:'pointer'}}>
-              <span style={{fontSize:'14px', padding:'12px 9px'}}><MdOutlineDocumentScanner/></span>
-              <span>Open course</span>
+            <div onClick={()=>{navigateTo(`/enroll_course/${courseStat.id}`)}} style={{boxShadow:"1px 0.4px 10px rgba(46, 46, 46, 0.84)", padding:'12px', borderRadius:'5px', width:'fit-content', cursor:'pointer', display:'flex', gap:"7px", alignItems:'center'}}>
+              <span style={{fontSize:'15px', padding:'12px 9px'}}><MdOutlineDocumentScanner/></span>
+              <span style={{fontSize:'14px', fontWeight:700}}>Open course</span>
             </div>
           </div>
 

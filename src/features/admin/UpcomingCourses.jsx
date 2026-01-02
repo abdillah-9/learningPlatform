@@ -10,28 +10,36 @@ import AI_Gen_2 from "../../assets/AI Gen 2.webp";
 import { IoMdArrowDropleftCircle, IoMdArrowDroprightCircle } from 'react-icons/io'
 
 export default function UpcomingCourses() {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const LIMIT = 5;
     const [formState, setFormState] = useState(false);
     const [editModeState, setEditModeState] = useState(false);
     const [courseData, setCourseData] = useState([]);
     const [fetchedCourses, setFetchedCurses] = useState([]); // ✅ move state here
 
-    async function FetchAllUpcomingCourses(){
-        const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_upcoming_courses.php',{
-          method:"POST",
-        })
-        if(res.ok){
-          const data = await res.json();
-          console.log("all upcoming courses are "+JSON.stringify(data.data));
-          setFetchedCurses(data.data); // ✅ update parent state
-        }
-        else{
-          alert("Something happened in backend!!!");
-        }
+    async function FetchAllUpcomingCourses(page = 1) {
+      const formData = new FormData();
+      formData.append("page", page);
+      formData.append("limit", LIMIT);
+
+      const res = await fetch(
+        "https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_upcoming_courses.php",
+        { method: "POST", body: formData }
+      );
+
+      if (res.ok) {
+        const data = await res.json();
+        setFetchedCurses(data.data);
+        setCurrentPage(data.current_page);
+        setTotalPages(data.total_pages);
+      }
     }
 
     useEffect(() => {
-        FetchAllUpcomingCourses(); // ✅ call fetch once on mount
-    }, []);
+      FetchAllUpcomingCourses(currentPage);
+    }, [currentPage]);
+
 
     return (
         <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column'}}>
@@ -92,28 +100,57 @@ function CoursesDetails({formState, setFormState, setEditModeState, courseData, 
     <div style={{boxShado:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'0px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px'}}>  
       <div style={{display:'flex', flexDirection:'column',padding:'15px', gap:'30px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', flex:'1 1 900px',position:'relative',}}>
 
-        {/** PREV AND NEXT  */}
-        <div style={{display:'flex', justifyContent:"space-between", gap:'20px',flexWrap:'wrap'}}>
-            <span style={{borderRadius:'20px', minWidth:'120px', padding:'6px 10px', textAlign:'center', backgroundColor:"#F4B342", gap:'4px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'25px', boxShadow:'1px 1px 1px rgba(41, 37, 37, 0.75)', cursor:'pointer'}}>
-                <IoMdArrowDropleftCircle />
-                <span style={{fontWeight:600, fontSize:'13px'}}>
-                    PREV
-                </span>
-            </span>
+      {/* PREV AND NEXT */}
+      <div style={{display:'flex', justifyContent:"space-between", gap:'20px'}}>
 
-            <span style={{borderRadius:'5px', minWidth:'120px', padding:'6px 10px', textAlign:'center', backgroundColor:"#F4B342", gap:'4px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'25px', boxShadow:'1px 1px 1px rgba(41, 37, 37, 0.75)'}}>
-                <span style={{fontWeight:600, fontSize:'13px'}}>
-                    1/12
-                </span>
-            </span>
+        {/* PREV */}
+        <span
+          onClick={() => currentPage > 1 && setCurrentPage(p => p - 1)}
+          style={{
+            cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+            opacity: currentPage === 1 ? 0.5 : 1,
+            borderRadius:'20px',
+            padding:'6px 10px',
+            backgroundColor:"#F4B342",
+            display:'flex',
+            alignItems:'center',
+            gap:'5px'
+          }}
+        >
+          <IoMdArrowDropleftCircle />
+          <span style={{fontSize:'13px', fontWeight:600}}>PREV</span>
+        </span>
 
-            <span style={{borderRadius:'20px', minWidth:'120px', padding:'6px 10px', textAlign:'center', backgroundColor:"#F4B342", gap:'4px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'25px', boxShadow:'1px 1px 1px rgba(41, 37, 37, 0.75)', cursor:'pointer'}}>
-                <span style={{fontWeight:600, fontSize:'13px'}}>
-                    NEXT
-                </span>
-                <IoMdArrowDroprightCircle />
-            </span>
-        </div>
+        {/* PAGE INFO */}
+        <span style={{
+          padding:'6px 10px',
+          backgroundColor:"#F4B342",
+          fontSize:'13px',
+          fontWeight:700
+        }}>
+          {currentPage} / {totalPages}
+        </span>
+
+        {/* NEXT */}
+        <span
+          onClick={() => currentPage < totalPages && setCurrentPage(p => p + 1)}
+          style={{
+            cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+            opacity: currentPage === totalPages ? 0.5 : 1,
+            borderRadius:'20px',
+            padding:'6px 10px',
+            backgroundColor:"#F4B342",
+            display:'flex',
+            alignItems:'center',
+            gap:'5px'
+          }}
+        >
+          <span style={{fontSize:'13px', fontWeight:600}}>NEXT</span>
+          <IoMdArrowDroprightCircle />
+        </span>
+
+      </div>
+
 
         {/** Main Courses here */}
         <div style={{width:'100%', display:'flex', gap:"15px", flexDirection:'column' }}>

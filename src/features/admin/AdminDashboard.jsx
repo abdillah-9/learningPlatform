@@ -266,7 +266,8 @@ function CoursesActions({decodeHTML}){
   },[]);
 
   return(
-    <div style={{display:'flex', flexDirection:'column', gap:'15px', marginTop:'30px'}}>
+    <div style={{display:'flex', flexDirection:'column', gap:'15px', marginTop:'30px', maxHeight:'500px', overflow:'auto'}}>
+      <h2>Courses Statistics</h2>
       {
         coursesStats? coursesStats?.map((courseStat, index)=>(
         <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center', borderBottom:'1px solid rgba(98, 98, 98, 0.69)', paddingBottom:'15px'}}>

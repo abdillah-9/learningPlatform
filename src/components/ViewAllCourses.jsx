@@ -44,7 +44,7 @@ export default function ViewAllCourses(){
     return(
         <div>
             {/* Top nav bar */}
-            <div style={{position:'absolute', top:0, left:0, width:'100%', height:'80px', backgroundColor:'#0C2B4E',zIndex:1, display:'flex', color:'white',justifyContent:'space-between',padding:'0px 15px', alignItems:'center'}}>
+            <div style={{position:'relative', top:0, left:0, width:'100%', height:'80px', backgroundColor:'#0C2B4E',zIndex:1, display:'flex', color:'white',justifyContent:'space-between',padding:'0px 15px', alignItems:'center'}}>
                 <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
                     <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
                 <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
@@ -62,7 +62,7 @@ export default function ViewAllCourses(){
 
             {/** Main Courses  */}
             
-            <div style={{display:'flex', width:'100%', gap:'20px', padding:'20px', flexWrap:'wrap',border:'1px solid red',height:'100vh', overflow:'auto'}}>
+            <div style={{display:'flex', width:'100%', gap:'20px', padding:'20px', flexWrap:'wrap',border:'1px solid red',height:'100vh', overflow:'auto',}}>
             {
             coursesList ?  coursesList?.map((course, index)=>(
                 <div className="slideShowHeight" key={course.id}

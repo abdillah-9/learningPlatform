@@ -305,7 +305,7 @@ export function TipTapToolbar({ editor }) {
     const lines = rows || 1;
     // Insert paragraphs with margin-bottom
     const content = Array.from({ length: lines }, () =>
-      `<p style="margin-bottom: 10px; text-align: left; margin-left: 0;">&nbsp;</p>`
+      `<div style="margin-bottom: 10px; text-align: left; margin-left: 0;">&nbsp;</div>`
     ).join('');
     editor.chain().focus().insertContent(content).run();
 

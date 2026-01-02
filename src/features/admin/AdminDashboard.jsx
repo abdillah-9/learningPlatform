@@ -186,7 +186,7 @@ function UsersActions(){
   }
 
   return(
-    <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px',, maxHeight:"500px", overflow:'auto'}}>
+    <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px',maxHeight:"500px", overflow:'auto'}}>
       {/** USER TITLES */}
        <div style={{width:'100%'}}>
 

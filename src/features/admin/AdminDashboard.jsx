@@ -22,7 +22,7 @@ export default function AdminDashboard({setActive,active}) {
   };
 
   return (
-    <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column'}}>
+    <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column', maxHeight:'120vh', minHeight:'100vh', overflow:'auto'}}>
       <QuickActions active={active} setActive={setActive} userData={userData} setUserData={setUserData}/>
       <UsersActions/>
       <CoursesActions decodeHTML={decodeHTML}/>
@@ -197,7 +197,7 @@ function UsersActions(){
           </span>
           <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
             <span style={{fontWeight:700, fontSize:'17px'}}>Total Students</span>
-            <span style={{fontSize:'17px', fontWeight:700, color:'rgba(67, 66, 66, 0.84)'}}>{"76"}</span>
+            <span style={{fontSize:'17px', fontWeight:700, color:'rgba(67, 66, 66, 0.84)'}}>{students?.length}</span> 
           </div>
         </div>
 
@@ -301,7 +301,8 @@ function CoursesActions({decodeHTML}){
                   padding:'8px 10px',
                   background:'rgba(0,0,0,0.04)',
                   borderRadius:'4px',
-                  fontSize:'13px'
+                  fontSize:'13px',
+                  gap:'12px',
                 }}
               >
                 <span>

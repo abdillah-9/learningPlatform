@@ -3,26 +3,30 @@ import pic from "../assets/aboutImageOld.jpeg"
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { IoMdHome } from "react-icons/io";
+import { useState } from "react";
 
 export default function ShowUpcomingCourses(){
-    const navigateTo = useNavigate()
-    const upcomingCourses = [
-        {
-            name:"Complex strategies",
-            pic,
-            desc:"This new course is very awsome it will make U .. ... ... ... ... .... ..."
-        },
-        {
-            name:"Complex strategies",
-            pic,
-            desc:"This new course is very awsome it will make U .. ... ... ... ... .... ..."
-        },
-        {
-            name:"Complex strategies",
-            pic,
-            desc:"This new course is very awsome it will make U .. ... ... ... ... .... ..."
-        }
-    ]
+    const navigateTo = useNavigate();
+    const [upcomingCourses, setUpcomingCourses] = useState([]);
+    
+    async function FetchAllUpcomingCourses() {
+      const formData = new FormData();
+
+      const res = await fetch(
+        "https://www.tanzcoffee.co.tz/mwangaza-backend/show_upcoming_courses.php",
+        { method: "POST", body: formData }
+      );
+
+      if (res.ok) {
+        const data = await res.json();
+        setUpcomingCourses(data.courses);
+      }
+    }
+
+    useEffect(() => {
+      FetchAllUpcomingCourses();
+    }, []);
+    
     return(
         <div style={{minHeight:'100vh'}}>
             {/* Top nav bar */}

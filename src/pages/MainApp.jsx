@@ -18,11 +18,10 @@ export default function MainApp() {
   const [sideBarOpened, setSideBar] = useState(true);
 
   const renderContent = () => {
-    
     switch (active) {
       case "Dashboard":
         return(
-          <div style={{maxHeight:'120vh', minHeight:'100vh', overflow:'auto'}}>
+          <div>
             {
               userData?.user_role == 'admin' ? <AdminDashboard  active={active} setActive={setActive}/> :
               <DashboardPage active={active} setActive={setActive} />
@@ -50,7 +49,9 @@ export default function MainApp() {
       <TopNavBar sideBarOpened={sideBarOpened} setSideBar={setSideBar}/>
       <div style={{ display: "flex"}}>
         <SideBar active={active} setActive={setActive} sideBarOpened={sideBarOpened}/>
-        <div style={{ flexGrow: 1, width: "calc(100% - 200px)" }}>
+        <div style={{maxHeight:'120vh', minHeight:'100vh', overflow:'auto', 
+          flexGrow: 1, width: "calc(100% - 200px)", 
+        }}>
           {renderContent()}
         </div>
       </div>

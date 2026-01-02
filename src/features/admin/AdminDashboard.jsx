@@ -284,7 +284,7 @@ function CoursesActions({decodeHTML}){
               <span style={{fontSize:'16px', fontWeight:700}}>{courseStat.students_accessed}</span> 
               <span style={{fontSize:'13px', fontWeight:600}}>students opened</span>
             </div>
-            <div onClick={()=>{navigateTo('/url')}} style={{boxShadow:"1px 0.4px 10px rgba(46, 46, 46, 0.84)", padding:'12px', borderRadius:'5px', width:'fit-content', cursor:'pointer'}}>
+            <div onClick={()=>{navigateTo(`/enroll_course/${courseStat.id}`)}} style={{boxShadow:"1px 0.4px 10px rgba(46, 46, 46, 0.84)", padding:'12px', borderRadius:'5px', width:'fit-content', cursor:'pointer'}}>
               <span style={{fontSize:'14px', padding:'12px 9px'}}><MdOutlineDocumentScanner/></span>
               <span>Open course</span>
             </div>

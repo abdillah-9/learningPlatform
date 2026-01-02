@@ -161,9 +161,10 @@ export default function Course(){
                                     courseData.courseModules.map((item, index)=>
                                 <div key={index}  style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}} > 
                                     <div style={{paddingLeft:'30px', cursor:'pointer'}} onClick={()=>{navigateTo(`main_App/moduleId/${item.id}`)}}>
-                                        <h2 style={{fontSize:'16px', fontWeight:500,}}>
-                                            Module {++index}: {item.title}
-                                        </h2>
+                                        <div style={{fontSize:'16px', fontWeight:500, display:'flex', width:'100%', justifyContent:'space-between', flexWrap:'wrap', gap:'12px'}}>
+                                            <div>Module {++index}: {item.title}</div>
+                                            <div>Click Enroll Now to get started</div>
+                                        </div>
                                         <p style={{color:'rgba(80,80,80,0.8)', maxWidth:'700px'}}>
                                             {item.description}
                                         </p>
@@ -189,9 +190,9 @@ export default function Course(){
                             </h2>
                             <div dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.target_audience)}}>
                             </div>
-                            <h2 style={{textAlign:'left', color:'black', fontSize:'16px'}}>
+                            {/* <h2 style={{textAlign:'left', color:'black', fontSize:'16px'}}>
                                 Click Enroll Now to get started
-                            </h2>
+                            </h2> */}
                         </div>
                         {/** Hint */}
                         <div style={{display:'flex', flexDirection:'column',gap:'10px',maxWidth:'900px'}}>

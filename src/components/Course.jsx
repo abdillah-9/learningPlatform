@@ -163,7 +163,7 @@ export default function Course(){
                                     <div style={{paddingLeft:'30px', cursor:'pointer'}} onClick={()=>{navigateTo(`main_App/moduleId/${item.id}`)}}>
                                         <div style={{fontSize:'16px', fontWeight:500, display:'flex', width:'100%', justifyContent:'space-between', flexWrap:'wrap', gap:'12px'}}>
                                             <div>Module {++index}: {item.title}</div>
-                                            <div style={{fontSize:'13px', boxShadow:'1px 0.5px 6px rgba(52, 51, 51, 0.72)', color:'rgba(52, 51, 51, 0.72)', padding:'7px 12px', borderRadius:'10px'}}>Click Enroll Now to get started</div>
+                                            <div style={{fontSize:'13px', boxShadow:'1px 0.5px 6px rgba(52, 51, 51, 0.72)', color:'rgba(29, 29, 29, 0.72)', padding:'7px 12px', borderRadius:'10px'}}>Click Enroll Now to get started</div>
                                         </div>
                                         <p style={{color:'rgba(80,80,80,0.8)', maxWidth:'700px'}}>
                                             {item.description}

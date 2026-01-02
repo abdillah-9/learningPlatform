@@ -53,8 +53,12 @@ export default function UpcomingCourses() {
             editModeState={editModeState} setEditModeState={setEditModeState}
             courseData={courseData} setCourseData={setCourseData}
             FetchAllUpcomingCourses={FetchAllUpcomingCourses}
-            fetchedCourses={fetchedCourses} // ✅ pass down state
+            fetchedCourses={fetchedCourses}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            totalPages={totalPages}
           />
+
           <Form 
             formState={formState} setFormState={setFormState}
             editModeState={editModeState} setEditModeState={setEditModeState}
@@ -77,7 +81,8 @@ function QuickActions({formState, setFormState, setEditModeState, setCourseData}
   )
 }
 
-function CoursesDetails({formState, setFormState, setEditModeState, courseData, setCourseData, FetchAllUpcomingCourses, fetchedCourses}){
+function CoursesDetails({formState, setFormState, setEditModeState, courseData, setCourseData, FetchAllUpcomingCourses, fetchedCourses, currentPage,
+  setCurrentPage,totalPages}){
   async function HandleDeleteCourse(upcoming_course_id){
     const formData = new FormData();
     formData.append('upcoming_course_id',upcoming_course_id);

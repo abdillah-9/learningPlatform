@@ -324,7 +324,7 @@ function CoursesActions({decodeHTML}){
           <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px'}}>
             {/** Name/Title */}
             <span style={{fontSize:'16px', fontWeight:700}}>
-              {courseStat.title+" ID_"+courseStat.id}
+              {courseStat.title+"    ID_"+courseStat.id}
             </span>
             {/** Desc */}
             <span  style={{fontSize:'13px', fontWeight:700, color:'rgba(61, 60, 60, 0.75)'}} dangerouslySetInnerHTML={{__html: decodeHTML(courseStat.description)}}>{}</span>

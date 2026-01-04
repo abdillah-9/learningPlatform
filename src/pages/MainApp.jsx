@@ -10,6 +10,8 @@ import DashboardPage from "../features/Dashboards/DashboardPage.jsx";
 import UpcomingCourse from "../features/admin/UpcomingCourses.jsx";
 import AvailableCourses from "../features/admin/AvailableCourses.jsx";
 import AdminDashboard from "../features/admin/AdminDashboard.jsx";
+import SetAccess from "../features/admin/SetAccess.jsx";
+import { FaUniversalAccess } from "react-icons/fa";
 
 export default function MainApp() {
   const {userData} = useContext(AuthContext);
@@ -34,6 +36,8 @@ export default function MainApp() {
         return <UserManager/>
       case "Upcoming Courses":
         return <UpcomingCourse/>
+      case "Set Access":
+        return <SetAccess/>
       case "Available Courses":
       default:
         return (
@@ -70,6 +74,7 @@ function SideBar({ active, setActive, sideBarOpened }) {
     { studentOnly: true,name: "Course module", key: "Course Module", icon: <FaBookOpenReader /> },
     { name: "User Account", key: "User Account", icon: <HiUser /> },
     { adminOnly: true,name: "Upcoming Courses", key: "Upcoming Courses", icon: <FaBookBookmark /> },
+    { adminOnly: true,name: "Set Access", key: "Set Access", icon: <FaUniversalAccess /> },
     { adminOnly: true,name: "Available Courses", key: "Available Courses", icon: <FaBookOpenReader /> },
   ];
 // Filter links based on user role

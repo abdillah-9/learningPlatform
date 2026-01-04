@@ -185,14 +185,38 @@ function UsersActions(){
      } 
   }
 
+  async function BlockStudent(student){
+    const fData = new FormData();
+    fData.append('student_id', student.id);
+
+    const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/block_students.php',{
+      method:'POST',
+      body:fData,
+     });
+
+    if (res.ok) {
+      const data = await res.json();
+
+      // setStudents(prev =>
+      //   prev.filter(s => s.id !== student.id)
+      // );
+
+      alert(data.message);
+    }
+
+    else{
+      alert('Failed to delete student');
+     } 
+  }
+
   return(
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px',maxHeight:"500px", overflow:'auto'}}>
       {/** USER TITLES */}
        <div style={{width:'100%'}}>
 
         {/** Total students */}
-        <div style={{width:'fit-content', display:'flex', alignItems:'center', justifyContent:'center'}}>
-          <span style={{padding:"7px 10px", display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%', backgroundColor:"#F4B342", color:"#905b00ff", width:'fit-content'}}>
+        <div style={{width:'fit-content', display:'flex', alignItems:'center', justifyContent:'center', gap:'7px'}}>
+          <span style={{padding:"10px 10px", display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%', backgroundColor:"#F4B342", color:"#905b00ff", width:'fit-content'}}>
             <HiMiniUsers/>
           </span>
           <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
@@ -205,12 +229,12 @@ function UsersActions(){
        </div>
 
        {/** USER MANAGE-USERS **/}
-       <div style={{display:'flex', flexWrap:'wrap', gap:"10px", justifyContent:'space-between'}}>
+       <div style={{display:'flex', flexWrap:'wrap', gap:"15px", justifyContent:'space-between', flexDirection:'column'}}>
         {
           students? students.map((std,index)=>(
             <div style={{display:'flex', flexWrap:'wrap', gap:'10px', alignItems:'center', fontSize:'15px', fontWeight:600,
               borderBottom:"1px solid rgba(100,100,100,0.6)",
-              paddingBottom:'8px',
+              paddingBottom:'8px',width:'100%'
             }}
               key={std.id}
             >
@@ -225,6 +249,7 @@ function UsersActions(){
               <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
                 {std.user_role}
               </span>
+              {/** Delete std */}
               <div style={{display:'flex', alignItems:'center', padding:'7px 10px', gap:'6px',boxShadow:'0.5px 2px 5px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
               onClick={()=>{DeleteStudent(std)}}
               >
@@ -232,6 +257,20 @@ function UsersActions(){
                   <RiDeleteBin5Fill/>
                 </span>
                 <span>Delete Account</span>
+              </div>
+
+              {/** Block std */}
+              <div style={{display:'flex', alignItems:'center', padding:'7px 10px', gap:'6px',boxShadow:'0.5px 2px 5px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
+              onClick={()=>{BlockStudent(std)}}
+              >
+                <span style={{fontSize:'14px',backgroundColor:'rgba(139, 245, 255, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'8px', color:'rgba(1, 80, 70, 1)'}}>
+                  <RiDeleteBin5Fill/>
+                </span>
+                <span>
+                  {
+                    std?.status == 'active' ? 'Deactivate' : 'Activate'
+                  }
+                </span>
               </div>
             </div>
           )) : ""

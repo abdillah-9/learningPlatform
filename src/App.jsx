@@ -144,7 +144,7 @@ export function ProtectedRoute({ children }) {
   //check status here
   if(userData?.status != 'active'){
     return(
-      <div style={{width:'100vw', height:'100vh', position:'relative',display:'flex', alignItems:'center', justifyContent:'center'}}>
+      <div style={{width:'100vw', height:'100vh', position:'relative',display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', gap:'15px'}}>
         <div style={{fontSize:'24px', fontWeight:700, color:'rgba(109, 3, 3, 1)'}}>
           Sorry you are not allowed to view these contents...!
         </div>

@@ -197,9 +197,13 @@ function UsersActions(){
     if (res.ok) {
       const data = await res.json();
 
-      // setStudents(prev =>
-      //   prev.filter(s => s.id !== student.id)
-      // );
+    setStudents(prev =>
+      prev.map(s =>
+        s.id === student.id
+          ? { ...s, status: data.new_status }
+          : s
+      )
+    );
 
       alert(data.message);
     }

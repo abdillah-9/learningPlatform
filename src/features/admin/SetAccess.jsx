@@ -49,7 +49,7 @@ export default function SetAccess() {
   }, []);
 
   return (
-    <div style={{ padding: "15px" }}>
+    <div style={{ padding: "15px", height:'100vh' }}>
       <form onSubmit={handlePurchaseSubmit} style={boxStyle}>
         <h3>Insert Purchase Record</h3>
         <input

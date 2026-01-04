@@ -123,7 +123,7 @@ console.log("user id "+userData.user_id);
       {/** MANAGE COURSES */}
       <div style={{display:'flex', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'200px'}}
       onClick={()=>{setActive('Upcoming Courses')}}>
-        <span style={{fontSize:'16px',backgroundColor:'rgba(153, 241, 179, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(9, 87, 35, 1)'}}><HiOutlineClipboardDocumentCheck/></span>
+        <span style={{fontSize:'16px',backgroundColor:'rgba(213, 153, 241, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(87, 9, 87, 1)'}}><HiOutlineClipboardDocumentCheck/></span>
         <span>Manage Available Courses</span>
       </div>
 
@@ -253,6 +253,9 @@ function UsersActions(){
               <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
                 {std.user_role}
               </span>
+              <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
+                ID_{std.id}
+              </span>
               {/** Delete std */}
               <div style={{display:'flex', alignItems:'center', padding:'7px 10px', gap:'6px',boxShadow:'0.5px 2px 5px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer'}}
               onClick={()=>{DeleteStudent(std)}}
@@ -320,7 +323,9 @@ function CoursesActions({decodeHTML}){
           <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseStat.picture}`: logo} alt='course_picture' width={"200px"} style={{aspectRatio:16/9, objectFit:'cover'}} />
           <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px'}}>
             {/** Name/Title */}
-            <span style={{fontSize:'16px', fontWeight:700}}>{courseStat.title}</span>
+            <span style={{fontSize:'16px', fontWeight:700}}>
+              {courseStat.title+" ID_"+courseStat.id}
+            </span>
             {/** Desc */}
             <span  style={{fontSize:'13px', fontWeight:700, color:'rgba(61, 60, 60, 0.75)'}} dangerouslySetInnerHTML={{__html: decodeHTML(courseStat.description)}}>{}</span>
           </div>

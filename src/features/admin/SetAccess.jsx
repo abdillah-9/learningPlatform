@@ -78,16 +78,33 @@ export default function SetAccess() {
         <button style={btnStyle}>Add Purchase</button>
       </form>
 
-      <div style={{ marginTop: "30px" }}>
-        <h3>Recent Purchases</h3>
-        <ul>
-          {recentPurchases.map((p) => (
-            <li key={p.id}>
-              Student ID: {p.student_id}, Course ID: {p.course_id}, Module ID: {p.module_id || "N/A"}, Purchased At: {p.purchased_at}
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div style={{ marginTop: "30px" }}>
+        <h3 style={{ marginBottom: "15px" }}>Recent Purchases</h3>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
+            {recentPurchases.map((p) => (
+            <div
+                key={p.id}
+                style={{
+                border: "1px solid #ccc",
+                borderRadius: "10px",
+                padding: "15px",
+                minWidth: "200px",
+                flex: "1 1 200px",
+                background: "#f9f9f9",
+                boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+                }}
+            >
+                <p><strong>Student ID:</strong> {p.student_id}</p>
+                <p><strong>Course ID:</strong> {p.course_id}</p>
+                <p><strong>Module ID:</strong> {p.module_id || "N/A"}</p>
+                <p style={{ fontSize: "12px", color: "#555" }}>
+                <strong>Purchased At:</strong> {new Date(p.purchased_at).toLocaleString()}
+                </p>
+            </div>
+            ))}
+        </div>
+        </div>
+
     </div>
   );
 }

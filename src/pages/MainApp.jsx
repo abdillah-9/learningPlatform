@@ -37,7 +37,11 @@ export default function MainApp() {
       case "Upcoming Courses":
         return <UpcomingCourse/>
       case "Set Access":
-        return <SetAccess/>
+        return(
+          <div>
+            {userData.user_role == 'admin' ? <SetAccess/> : ''}
+          </div>
+        )
       case "Available Courses":
       default:
         return (

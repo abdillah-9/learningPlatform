@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { BiLogOut, BiSearchAlt2, BiSolidSearchAlt2 } from 'react-icons/bi'
 import { BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs'
-import { FaUserEdit, FaUserMd } from 'react-icons/fa'
+import { FaUser, FaUserEdit, FaUserMd, FaUserSlash } from 'react-icons/fa'
 import { MdOutlineDocumentScanner, MdPendingActions } from 'react-icons/md'
 import { PiArrowLineRight, PiBookOpenUser } from 'react-icons/pi'
 import { RiDeleteBin5Fill, RiFileCheckFill } from 'react-icons/ri'
@@ -268,7 +268,9 @@ function UsersActions(){
               onClick={()=>{BlockStudent(std)}}
               >
                 <span style={{fontSize:'14px',backgroundColor:'rgba(139, 245, 255, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'8px', color:'rgba(1, 80, 70, 1)'}}>
-                  <RiDeleteBin5Fill/>
+                  {
+                    std?.status == 'active' ? <FaUser/> : <FaUserSlash/>
+                  }
                 </span>
                 <span>
                   {

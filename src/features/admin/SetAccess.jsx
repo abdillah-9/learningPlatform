@@ -39,6 +39,7 @@ export default function SetAccess() {
   }
 
   return (
+    <div style={{padding:'15px'}}>
     <form onSubmit={handlePurchaseSubmit} style={boxStyle}>
       <h3>Insert Purchase Record</h3>
 
@@ -76,6 +77,8 @@ export default function SetAccess() {
 
       <button style={btnStyle}>Add Purchase</button>
     </form>
+
+    </div>
   );
 }
 

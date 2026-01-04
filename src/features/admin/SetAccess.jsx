@@ -25,7 +25,7 @@ export default function SetAccess() {
         }
       );
 
-      const data = await res.text();
+      const data = await res.json();
       if (res.ok) {
         alert(data.message || "Purchase inserted successfully");
         setPurchase({ student_id: "", course_id: "", module_id: "" });

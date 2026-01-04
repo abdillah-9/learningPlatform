@@ -141,6 +141,20 @@ export function ProtectedRoute({ children }) {
     return <Navigate to="/auth/sign_in" replace state={{ from: location }} />;
   }
 
+  //check status here
+  if(userData?.status != 'active'){
+    return(
+      <div style={{width:'100vw', height:'100vh', position:'relative',display:'flex', alignItems:'center', justifyContent:'center'}}>
+        <div style={{fontSize:'24px', fontWeight:700, color:'rgba(109, 3, 3, 1)'}}>
+          Sorry you are not allowed to view these contents...!
+        </div>
+        <div style={{fontSize:'20px', fontWeight:600, color:'rgba(109, 3, 3, 1)'}}>
+          Makesure that you have purchased the module
+        </div>
+      </div>
+    )
+  }
+
   return children;
 }
 

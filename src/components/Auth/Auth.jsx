@@ -83,7 +83,7 @@ function SignUp(){
         <form style={{}} onSubmit={formSubmit}>
             <div style={{display:'flex', flexDirection:'column', gap:'25px', maxWidth:'500px', padding:'25px 0px'}}>
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="text" name="full_name" placeholder="Full Name" />
-                <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="number" name="phone_number" placeholder="078877665544" required/>
+                <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="number" name="phone_number" placeholder="0788776655" required/>
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="text" name="username_email" placeholder="Username or Email" />
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="password" name="p_word" placeholder="Password" />
                 <input

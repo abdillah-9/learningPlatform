@@ -5,16 +5,20 @@ import { HiMiniArrowLongRight } from 'react-icons/hi2';
 import pic from '../assets/logo.jpg';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider';
+import MiniLoadingSpinner from './MiniLoadingSpinner';
 
 export default function ViewAllCourses(){
     const navigateTo = useNavigate();
     const {userData} = useContext(AuthContext);
     const [coursesList, setCoursesList] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(()=>{
           async function FetchCourses(){
             const fData = new FormData();
             fData.append('course','Math');
         try{
+            setLoading(true);
           const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/get_all_courses.php",{
             method:'POST',
             body:fData,
@@ -29,6 +33,9 @@ export default function ViewAllCourses(){
         catch(e){
           alert('Err is '+e);
         }
+        finally{
+            setLoading(false);
+        }
       }
       FetchCourses();
       },[]);
@@ -41,6 +48,9 @@ export default function ViewAllCourses(){
         }
     };
     
+    if(loading){
+        return <MiniLoadingSpinner/>
+    }
     return(
         <div>
             {/* Top nav bar */}

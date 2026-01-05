@@ -160,10 +160,16 @@ function CoursesDetails({setActive,active, userData, setUserData}){
             {completedCourses?.length}
           </span>
         </span>
+        {
+
+        /*
         <span style={{display:'flex', height:'30px', position:'absolute',top:'70px', right:'10px'}}>
           <input type='search'name='search'/>
           <span style={{display:'flex',backgroundColor:'rgba(13, 136, 138, 1)', color:'white', fontSize:'19px', justifyContent:'center', alignItems:'center', padding:'6px 7px', cursor:'pointer'}}><BiSearchAlt2/></span>
         </span>
+
+        */
+        }
         <div style={{width:'100%', display:'flex', gap:"15px", flexDirection:'column' }}>
 
       {/** ---------- PRINT COMPLETED COURSES HERE ------------------ */}
@@ -203,10 +209,10 @@ function CoursesDetails({setActive,active, userData, setUserData}){
             {inProgressCourses?.length}
           </span>
         </span>
-        <span style={{display:'flex', height:'30px', position:'absolute', top:'70px', right:'10px'}}>
+        {/* <span style={{display:'flex', height:'30px', position:'absolute', top:'70px', right:'10px'}}>
           <input type='search'name='search'/>
           <span style={{display:'flex',backgroundColor:'rgba(13, 136, 138, 1)', color:'white', fontSize:'19px', justifyContent:'center', alignItems:'center', padding:'6px 7px', cursor:'pointer'}}><BiSearchAlt2/></span>
-        </span>
+        </span> */}
         <div style={{width:'100%', display:'flex', gap:"15px", flexDirection:'column' }}>
 
         {/** INPROGRESS COURSES LOOP */}

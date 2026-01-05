@@ -117,6 +117,7 @@ console.log("user id "+userData.user_id);
 function CoursesDetails({setActive,active, userData, setUserData}){
   const [completedCourses, setCompletedCourses] = useState([]);
   const [inProgressCourses, setInProgressCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigateTo = useNavigate(); 
   const decodeHTML = (encoded) => {
     try {
@@ -131,19 +132,28 @@ function CoursesDetails({setActive,active, userData, setUserData}){
       const formData = new FormData();
       formData.append('user_id', userData.user_id);
       
-      const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/courses_details.php',{
-        method:"POST",
-        body:formData
-      });
+      try{
+        setLoading(true);
+        const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/courses_details.php',{
+          method:"POST",
+          body:formData
+        });
 
-      if(res.ok){
-        const data = await res.json();
-        setCompletedCourses(data.completed_courses);
-        setInProgressCourses(data.in_progress_courses);
-        console.log(data);
+        if(res.ok){
+          const data = await res.json();
+          setCompletedCourses(data.completed_courses);
+          setInProgressCourses(data.in_progress_courses);
+          console.log(data);
+        }
+        else{
+          alert("Failed to fetch courses details");
+        }
       }
-      else{
-        alert("Failed to fetch courses details");
+      catch(e){
+        console.log(e);
+      }
+      finally{
+        setLoading(false);
       }
     }
     FetchCourses();

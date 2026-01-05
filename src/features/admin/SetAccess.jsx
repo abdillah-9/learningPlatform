@@ -85,7 +85,7 @@ export default function SetAccess() {
       </form>
 
 
-    { loading ? <MiniLoadingSpinner/> :    
+    { loading ? <div style={{width:'100%', height:"200px"}}><MiniLoadingSpinner/></div> :    
       <div style={{ marginTop: "30px" }}>
         <h3 style={{ marginBottom: "15px" }}>Recent Purchases</h3>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>

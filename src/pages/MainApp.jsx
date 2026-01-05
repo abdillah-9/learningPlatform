@@ -12,6 +12,7 @@ import AvailableCourses from "../features/admin/AvailableCourses.jsx";
 import AdminDashboard from "../features/admin/AdminDashboard.jsx";
 import SetAccess from "../features/admin/SetAccess.jsx";
 import { FaUniversalAccess } from "react-icons/fa";
+import { RiHome9Fill } from "react-icons/ri";
 
 export default function MainApp() {
   const {userData} = useContext(AuthContext);
@@ -207,6 +208,9 @@ function TopNavBar({sideBarOpened, setSideBar}) {
             }
             <div style={{marginRight:'20px',padding:'10px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer'}} onClick={LogoutHandler}>
               Logout  
+            </div>
+            <div style={{marginRight:'20px',padding:'10px',borderRadius:'50px', border:'1px solid white', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer', gap:'8px'}} onClick={()=>navigate('/')}>
+              <RiHome9Fill /> <span>Home</span>  
             </div>            
             <img
               src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData.user_pic}`}

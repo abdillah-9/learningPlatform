@@ -42,7 +42,7 @@ export default function ShowUpcomingCourses(){
             </div>
             
             <div style={{minHeight:'50vh',padding:'30px 10px', display:'flex', flexDirection:'column', gap:'40px'}}>
-                <div onClick={()=>(navigateTo(-1))} style={{display:'flex', alignItems:'center', gap:'6px', cursor:'pointer'}}>
+                <div onClick={()=>(navigateTo('/'))} style={{display:'flex', alignItems:'center', gap:'6px', cursor:'pointer'}}>
                     <span style={{fontSize:'16px', borderRadius:"5px", backgroundColor:"rgba(138, 146, 205, 1)", padding:"8px 14px"}}><IoMdHome/></span>
                     <span>Return back to home page</span>
                 </div>

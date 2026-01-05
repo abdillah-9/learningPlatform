@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import MiniLoadingSpinner from "../../components/MiniLoadingSpinner";
 
 export default function SetAccess() {
   const [purchase, setPurchase] = useState({ student_id: "", course_id: "", module_id: "" });
   const [recentPurchases, setRecentPurchases] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   async function handlePurchaseSubmit(e) {
     e.preventDefault();
@@ -33,6 +35,7 @@ export default function SetAccess() {
 
   async function fetchRecentPurchases() {
     try {
+      setLoading(true);
       const res = await fetch(
         "https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_recent_purchases.php",
         { credentials: "include" }
@@ -41,6 +44,9 @@ export default function SetAccess() {
       setRecentPurchases(data.purchases || []);
     } catch (err) {
       console.error(err);
+    }
+    finally{
+      setLoading(false);
     }
   }
 
@@ -78,7 +84,9 @@ export default function SetAccess() {
         <button style={btnStyle}>Add Purchase</button>
       </form>
 
-        <div style={{ marginTop: "30px" }}>
+
+    { loading ? <MiniLoadingSpinner/> :    
+      <div style={{ marginTop: "30px" }}>
         <h3 style={{ marginBottom: "15px" }}>Recent Purchases</h3>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
             {recentPurchases.map((p) => (
@@ -103,8 +111,8 @@ export default function SetAccess() {
             </div>
             ))}
         </div>
-        </div>
-
+      </div>
+      }
     </div>
   );
 }

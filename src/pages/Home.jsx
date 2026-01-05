@@ -501,8 +501,8 @@ function Footer(){
         </div>
         <div style={{display:'flex', gap:'15px', flexDirection:'column'}}>
           <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us</span>
-          <span>Terms Of Use</span>
-          <span>Privacy</span>
+          {/* <span>Terms Of Use</span>
+          <span>Privacy</span> */}
         </div>
       </div>
 
@@ -511,7 +511,7 @@ function Footer(){
           <span style={{fontSize:'22px', fontWeight:500}}>Company</span>
         </div>
         <div style={{display:'flex', gap:'15px', flexDirection:'column'}}>
-          <span onClick={()=>navigateTo('/view_all_courses')}>Courses</span>
+          <span onClick={()=>navigateTo('/view_all_courses')} style={{cursor:'pointer'}}>Courses</span>
           {
             userData?.user_role == 'admin' ?
             <span onClick={()=>{navigateTo("/enroll_course/admin/main_App/moduleId/admin")}} style={{cursor:'pointer'}}>Admin</span>:""

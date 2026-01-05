@@ -4,22 +4,31 @@ import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { IoMdHome } from "react-icons/io";
 import { useEffect, useState } from "react";
+import MiniLoadingSpinner from "../components/MiniLoadingSpinner";
 
 export default function ShowUpcomingCourses(){
     const navigateTo = useNavigate();
     const [upcomingCourses, setUpcomingCourses] = useState([]);
+    const [loading, setLoading]= useState(true);
     
     async function FetchAllUpcomingCourses() {
       const formData = new FormData();
+      try{
+        setLoading(true);
+        const res = await fetch(
+          "https://www.tanzcoffee.co.tz/mwangaza-backend/show_upcoming_courses.php",
+          { method: "POST", body: formData }
+        );
 
-      const res = await fetch(
-        "https://www.tanzcoffee.co.tz/mwangaza-backend/show_upcoming_courses.php",
-        { method: "POST", body: formData }
-      );
-
-      if (res.ok) {
-        const data = await res.json();
-        setUpcomingCourses(data.courses);
+        if (res.ok) {
+          const data = await res.json();
+          setUpcomingCourses(data.courses);
+        } 
+      }
+      catch(e){
+        console.log(e);
+      }finally{
+        setLoading(false);
       }
     }
 
@@ -27,6 +36,9 @@ export default function ShowUpcomingCourses(){
       FetchAllUpcomingCourses();
     }, []);
     
+    if(loading){
+      return <MiniLoadingSpinner/>
+    }
     return(
         <div style={{minHeight:'100vh'}}>
             {/* Top nav bar */}

@@ -34,11 +34,12 @@ export default function SetAccess() {
   }
 
   async function fetchRecentPurchases() {
+    const fData = new FormData();
     try {
       setLoading(true);
       const res = await fetch(
         "https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_recent_purchases.php",
-        { credentials: "include" }
+        { credentials: "include", method:"POST", body:fData  }
       );
       const data = await res.json();
       console.log(data);

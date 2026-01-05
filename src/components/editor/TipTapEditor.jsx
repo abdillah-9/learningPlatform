@@ -116,6 +116,7 @@ import { TableCell } from "@tiptap/extension-table-cell";
 import ListItem from "@tiptap/extension-list-item";
 import { StyledBulletList } from "./extensions/styledBulletList";
 import { StyledOrderedList } from "./extensions/styledOrderedList";
+import { Indent } from "./extensions/Indent";
 
 import { TipTapToolbar } from "./TipTapToolbar";
 
@@ -148,6 +149,8 @@ export default function TipTapEditor({ value, onChange }) {
         link: false,
         underline: false,
       }),
+
+      Indent,
 
       // Use your styled lists here
       StyledBulletList.configure({ keepAttributes: true }),

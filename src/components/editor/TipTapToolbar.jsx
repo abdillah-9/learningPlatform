@@ -314,6 +314,22 @@ export function TipTapToolbar({ editor }) {
   Add Spacer
 </button>
 
+{/* INDENT */}
+<button
+  type="button"
+  onClick={() => editor.chain().focus().indent().run()}
+>
+  Indent
+</button>
+
+<button
+  type="button"
+  onClick={() => editor.chain().focus().outdent().run()}
+>
+  Outdent
+</button>
+
+
     </div>
   );
 }

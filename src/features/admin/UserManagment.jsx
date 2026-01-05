@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import AAviewLastCourse from "../../pages/ViewCourse";
 import { AuthContext } from "../../AuthProvider";
 import { useParams } from "react-router-dom";
+import MiniLoadingSpinner from "../../components/MiniLoadingSpinner";
 
 export default function UserManager() {
   const { userData } = useContext(AuthContext);
   const { courseId, moduleId } = useParams();
   const [hasAccess, setHasAccess] = useState(false);
+  const [loading, setLoading] = useState(true)
 
   // ✅ Function to check access
   async function checkUserAccess() {
@@ -18,6 +20,7 @@ export default function UserManager() {
     if (moduleId) formData.append("module_id", moduleId);
 
     try {
+      setLoading(true);
       const res = await fetch(
         "https://www.tanzcoffee.co.tz/mwangaza-backend/check_access.php",
         {
@@ -44,6 +47,9 @@ export default function UserManager() {
       console.error(err);
       alert("Network error while checking access");
     }
+    finally{
+      setLoading(false);
+    }
   }
 
   // ✅ Run on component mount or when params change
@@ -51,6 +57,11 @@ export default function UserManager() {
     checkUserAccess();
   }, [userData, courseId, moduleId]);
 
+  if(loading){
+    return (
+      <MiniLoadingSpinner/>
+    )
+  }
   return (
     <>
       {hasAccess ? <AAviewLastCourse /> : <p style={{ padding: "20px", color: "red" }}>Access denied or account blocked.</p>}

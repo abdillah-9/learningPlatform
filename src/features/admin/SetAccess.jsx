@@ -41,6 +41,7 @@ export default function SetAccess() {
         { credentials: "include" }
       );
       const data = await res.json();
+      console.log(data);
       setRecentPurchases(data.purchases || []);
     } catch (err) {
       console.error(err);

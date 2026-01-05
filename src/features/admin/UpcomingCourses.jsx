@@ -8,6 +8,7 @@ import { RiDeleteBin5Fill, RiFileCheckFill } from 'react-icons/ri'
 import { TbLogout } from 'react-icons/tb'
 import AI_Gen_2 from "../../assets/AI Gen 2.webp";
 import { IoMdArrowDropleftCircle, IoMdArrowDroprightCircle } from 'react-icons/io'
+import MiniLoadingSpinner from '../../components/MiniLoadingSpinner'
 
 export default function UpcomingCourses() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -16,23 +17,32 @@ export default function UpcomingCourses() {
     const [formState, setFormState] = useState(false);
     const [editModeState, setEditModeState] = useState(false);
     const [courseData, setCourseData] = useState([]);
-    const [fetchedCourses, setFetchedCurses] = useState([]); // ✅ move state here
+    const [fetchedCourses, setFetchedCurses] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     async function FetchAllUpcomingCourses(page = 1) {
+      setLoading(true);
       const formData = new FormData();
       formData.append("page", page);
       formData.append("limit", LIMIT);
+      try{
+        const res = await fetch(
+          "https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_upcoming_courses.php",
+          { method: "POST", body: formData }
+        );
 
-      const res = await fetch(
-        "https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_upcoming_courses.php",
-        { method: "POST", body: formData }
-      );
-
-      if (res.ok) {
-        const data = await res.json();
-        setFetchedCurses(data.data);
-        setCurrentPage(data.current_page);
-        setTotalPages(data.total_pages);
+        if (res.ok) {
+          const data = await res.json();
+          setFetchedCurses(data.data);
+          setCurrentPage(data.current_page);
+          setTotalPages(data.total_pages);
+        }
+      }
+      catch(e){
+        console.log(e);
+      }
+      finally{
+        setLoading(false);
       }
     }
 
@@ -41,6 +51,9 @@ export default function UpcomingCourses() {
     }, [currentPage]);
 
 
+    if(loading){
+      return <MiniLoadingSpinner/>
+    }
     return (
         <div style={{padding:'15px',display:'flex', gap:'20px', flexDirection:'column'}}>
           <QuickActions 

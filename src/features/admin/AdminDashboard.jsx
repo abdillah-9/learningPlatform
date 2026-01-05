@@ -10,6 +10,7 @@ import { replace, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../AuthProvider'
 import { HiMiniUsers, HiOutlineClipboardDocumentCheck, HiOutlineClipboardDocumentList } from 'react-icons/hi2'
 import logo from '../../assets/logo.jpg';
+import MiniLoadingSpinner from '../../components/MiniLoadingSpinner'
 
 export default function AdminDashboard({setActive,active}) {
   const {userData, setUserData} = useContext(AuthContext);
@@ -132,7 +133,6 @@ console.log("user id "+userData.user_id);
         <span style={{fontSize:'16px',backgroundColor:'rgba(225, 153, 241, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(86, 9, 87, 1)'}}><HiOutlineClipboardDocumentList/></span>
         <span>Manage Upcoming Courses</span>
       </div>
-
     </div>
   )
 }
@@ -224,6 +224,9 @@ function UsersActions(){
      } 
   }
 
+  if(loading){
+    return <MiniLoadingSpinner/>
+  }
   return(
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px',maxHeight:"500px", overflow:'auto'}}>
       {/** USER TITLES */}

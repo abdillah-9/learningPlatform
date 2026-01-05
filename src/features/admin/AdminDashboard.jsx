@@ -139,10 +139,14 @@ console.log("user id "+userData.user_id);
 
 function UsersActions(){
   const [students, setStudents] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   useEffect(()=>{
     async function FetchAllUsers(){
      const formData = new FormData();
-
+     
+    try{
+      setLoading(true)
      const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_all_students.php',{
       method:'POST',
       body:formData,
@@ -156,6 +160,13 @@ function UsersActions(){
      else{
       alert('Failed to fetch users');
      }
+    }
+    catch(e){
+      console.log(e);
+    }
+    finally{
+      setLoading(false);
+    }
   }
   FetchAllUsers();
   },[]);

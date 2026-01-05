@@ -122,13 +122,13 @@ console.log("user id "+userData.user_id);
 
       {/** MANAGE COURSES */}
       <div style={{display:'flex', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'200px'}}
-      onClick={()=>{setActive('Upcoming Courses')}}>
+      onClick={()=>{setActive('Available Courses')}}>
         <span style={{fontSize:'16px',backgroundColor:'rgba(250, 244, 128, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(82, 87, 9, 1)'}}><HiOutlineClipboardDocumentCheck/></span>
         <span>Manage Available Courses</span>
       </div>
 
       <div style={{display:'flex', alignItems:'center', padding:'10px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'200px'}}
-      onClick={()=>{setActive('Available Courses')}}>
+      onClick={()=>{setActive('Upcoming Courses')}}>
         <span style={{fontSize:'16px',backgroundColor:'rgba(225, 153, 241, 1)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(86, 9, 87, 1)'}}><HiOutlineClipboardDocumentList/></span>
         <span>Manage Upcoming Courses</span>
       </div>

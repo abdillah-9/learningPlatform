@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CourseManager from "./CourseManager";
 import { MdLibraryAdd } from "react-icons/md";
+import MiniLoadingSpinner from "../../components/MiniLoadingSpinner";
 
 export default function AvailableCourses() {
   const [formState, setFormState] = useState(false);
@@ -159,7 +160,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
   return (
     <div style={{ marginTop: "20px" }}>
       <h4 style={{fontSize:'18px', paddingBottom:'15px'}}>Available Courses (Page {page})</h4>
-      {loading && <p>Loading...</p>}
+      {loading && <MiniLoadingSpinner/>}
 
       {courses?.map((course, courseIndex) => (
         <div key={course.id} style={{ marginBottom: "25px" }}>

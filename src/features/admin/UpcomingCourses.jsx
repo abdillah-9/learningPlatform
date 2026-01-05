@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { MdLibraryAdd} from 'react-icons/md'
 import { PiNotePencilLight, PiTrashLight } from 'react-icons/pi'
-import logo from "../../assets/logo.jpg";
 import { IoMdArrowDropleftCircle, IoMdArrowDroprightCircle } from 'react-icons/io'
 import MiniLoadingSpinner from '../../components/MiniLoadingSpinner'
 
@@ -171,7 +170,7 @@ function CoursesDetails({formState, setFormState, setEditModeState, courseData, 
             <div key={index} style={{flexWrap:'wrap',display:'flex', gap:'7px',boxShadow:'1px 2px 20px rgba(44, 43, 43, 0.6)', borderRadius:'5px',
             maxWidth:'900px',
             }}>
-              <img src={'https://www.tanzcoffee.co.tz/mwangaza-backend/'+(course.course_photo ? course.course_photo : logo)} alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
+              <img src={'https://www.tanzcoffee.co.tz/mwangaza-backend/'+(course.course_photo ? course.course_photo : "uploads/noPhoto.jpeg")} alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.course_name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>

@@ -50,7 +50,7 @@ export default function ViewAllCourses(){
                 <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
                 </div>
                 <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500, alignItems:'center'}}> 
-                    <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>Upcoming Courses</span>
+                    <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/upcoming_courses')}}>Upcoming Courses</span>
                     <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
                         <img src={userData?.user_pic ? `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData?.user_pic}` : pic } 
                         alt='user pic' width={'70px'} height={'60px'} style={{borderRadius:'50%'}}/>

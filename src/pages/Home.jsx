@@ -351,7 +351,7 @@ useEffect(() => {
 
       {/* Text */}
       <div className={`${animate ? 'slideTop' : ''}`} style={{display:'flex', justifyContent:'space-between', flexDirection:'column', gap:'10px'}}>
-        <div style={{fontSize:'25px', fontWeight:700}}>
+        <div style={{fontSize:'25px', fontWeight:700, textAlign:'center'}}>
           TESTIMONIALS FROM OUR LEARNERS
         </div>
         {/* <div>Discover what it looks like when organizations approach their work with new skill sets &  support ready for challenges and confident to lead.

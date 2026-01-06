@@ -6,7 +6,7 @@ import { FaTractor } from 'react-icons/fa';
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import aboutImage from '../assets/aboutImage.jpeg';
 import miniAboutImage from '../assets/miniAboutImage.jpeg';
-import { RiTwitterXFill } from 'react-icons/ri';
+import { RiHome9Fill, RiTwitterXFill } from 'react-icons/ri';
 import { IoIosMail, IoMdCall } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,11 +20,14 @@ export default function About(){
           <img src={MwangazaLogo} alt="logo" width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
         <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
       </div>
-      <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500}}>
+      <div style={{display:'flex', gap:'20px', fontSize:'18px',fontWeight:500}}>
         <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>
           View All Courses
         </span> 
-        </div>
+        <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
+          <RiHome9Fill style={{fontSize:'13px'}}/> <span>Home</span>  
+        </div> 
+      </div>
     </div>
 
     {/** Huge Image */}

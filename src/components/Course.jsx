@@ -8,6 +8,7 @@ import { SiFacebook } from "react-icons/si";
 import { TbBrandLinkedin, TbBrandLinkedinFilled } from "react-icons/tb";
 import { TiSocialInstagram } from "react-icons/ti";
 import { useEffect, useState } from 'react';
+import { PiWhatsappLogoLight } from 'react-icons/pi';
 
 export default function Course(){
     const navigateTo = useNavigate();
@@ -204,6 +205,10 @@ export default function Course(){
                             <p style={{boxShadow:'1px 0.5px 5px #0c2b4e96', padding:'20px', borderRadius:'40px', cursor:'pointer', whiteSpace:'pre-wrap'}}
                             dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.hint)}}>
                             </p>
+                        </div>
+                        <div style={{display:'flex', gap:'3px', flexWrap:'wrap', fontSize:'13px', alignItems:'center', fontWeight:'600'}}>
+                            <span>You may reach us through </span>
+                            <PiWhatsappLogoLight style={{fontSize:'15px'}}/>
                         </div>
                     </div>
                 </div>

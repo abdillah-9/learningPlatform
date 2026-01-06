@@ -22,6 +22,7 @@ export default function ShowUpcomingCourses(){
 
         if (res.ok) {
           const data = await res.json();
+          console.log(data);
           setUpcomingCourses(data.courses);
         } 
       }

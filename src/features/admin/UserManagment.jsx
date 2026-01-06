@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import AAviewLastCourse from "../../pages/ViewCourse";
 import { AuthContext } from "../../AuthProvider";
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import MiniLoadingSpinner from "../../components/MiniLoadingSpinner";
 
 export default function UserManager() {
@@ -41,6 +41,7 @@ export default function UserManager() {
         } else {
           setHasAccess(false);
           alert("You do not have access to this course/module or your account is blocked");
+          //navigateTo(`/enroll_course/${courseId}`);
         }
       } else {
         alert(data.error || "Failed to check access");
@@ -48,7 +49,6 @@ export default function UserManager() {
     } catch (err) {
       console.error(err);
       alert("Network error while checking access");
-      navigateTo(`/enroll_course/${courseId}`);
     }
     finally{
       setLoading(false);
@@ -65,6 +65,13 @@ export default function UserManager() {
       <MiniLoadingSpinner/>
     )
   }
+
+  if(!hasAccess){
+     return(
+      <Navigate to={'/enroll_course/${courseId}'} replace></Navigate>
+     )
+  }
+
   return (
     <>
       {hasAccess ? <AAviewLastCourse /> : <p style={{ padding: "20px", color: "red" }}>Access denied or account blocked.</p>}

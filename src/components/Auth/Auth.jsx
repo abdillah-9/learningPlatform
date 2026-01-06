@@ -153,9 +153,9 @@ function SignIn(){
                     <p style={{color:'rgba(146,146,146,1)', fontSize:'18px', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/forgot_password')}}>
                         Forgot Password?
                     </p>
-                    <p style={{color:'rgba(146,146,146,1)', fontSize:'18px', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/admin_home')}}>
+                    {/* <p style={{color:'rgba(146,146,146,1)', fontSize:'18px', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/admin_home')}}>
                         Administartor ?
-                    </p>
+                    </p> */}
                 </div>
             </div>
         </form>

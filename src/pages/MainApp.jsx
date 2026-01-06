@@ -216,7 +216,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
               src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData.user_pic}`}
               style={{ borderRadius: "50%", width:'50px' }}
             />
-            <div style={{ fontSize: "14px", display:'flex', flexWrap:'wrap', gap:'7px', alignItems:'center' }}>
+            {/* <div style={{ fontSize: "14px", display:'flex', flexWrap:'wrap', gap:'7px', alignItems:'center' }}>
               <span style={{ color: "rgba(200,200,200,0.8)", fontSize: "16px" }}>
                 Hello,
               </span>
@@ -225,7 +225,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
                    userData.full_name
                 }
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
 

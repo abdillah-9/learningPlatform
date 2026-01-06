@@ -24,8 +24,8 @@ export default function About(){
         <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>
           View All Courses
         </span> 
-        <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
-          <RiHome9Fill style={{fontSize:'13px'}}/> <span>Home</span>  
+        <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"18px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
+          <RiHome9Fill style={{fontSize:'18px'}}/> <span>Home</span>  
         </div> 
       </div>
     </div>

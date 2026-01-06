@@ -6,6 +6,7 @@ import pic from '../assets/logo.jpg';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider';
 import MiniLoadingSpinner from './MiniLoadingSpinner';
+import { RiHome9Fill } from 'react-icons/ri';
 
 export default function ViewAllCourses(){
     const navigateTo = useNavigate();

@@ -68,7 +68,7 @@ export default function UserManager() {
 
   if(!hasAccess){
      return(
-      <Navigate to={'/enroll_course/${courseId}'} replace></Navigate>
+      <Navigate to={`/enroll_course/${courseId}`} replace></Navigate>
      )
   }
 

@@ -7,13 +7,15 @@ import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { SiFacebook } from "react-icons/si";
 import { TbBrandLinkedin, TbBrandLinkedinFilled } from "react-icons/tb";
 import { TiSocialInstagram } from "react-icons/ti";
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { PiWhatsappLogoLight } from 'react-icons/pi';
+import { AuthContext } from '../AuthProvider';
 
 export default function Course(){
     const navigateTo = useNavigate();
     const {courseId} = useParams();
     const [courseData, setCourseData] = useState(null);
+    const {userData} = useContext(AuthContext); 
 
     //fetch respective course
     useEffect(()=>{
@@ -166,7 +168,12 @@ export default function Course(){
                                     <div style={{paddingLeft:'30px', cursor:'pointer', maxWidth:'700px', width:'100%'}} onClick={()=>{navigateTo(`main_App/moduleId/${item.id}`)}}>
                                         <div style={{fontSize:'16px', fontWeight:500, display:'flex', width:'100%',maxWidth:'700px', justifyContent:'space-between', flexWrap:'wrap', gap:'12px', alignItems:'center',}}>
                                             <div>Module {++index}: {item.title}</div>
-                                            <div style={{fontSize:'13px', boxShadow:'1px 0.5px 6px rgba(52, 51, 51, 0.72)', color:'rgba(29, 29, 29, 0.72)', padding:'7px 12px', borderRadius:'10px'}}>Start learning</div>
+                                            <div style={{fontSize:'13px', boxShadow:'1px 0.5px 6px rgba(52, 51, 51, 0.72)', color:'rgba(29, 29, 29, 0.72)', padding:'7px 12px', borderRadius:'10px'}}>
+                                                {
+                                                    userData ? 'Start learning':
+                                                    'Enroll Now'
+                                                }
+                                            </div>
                                         </div>
                                         <p style={{color:'rgba(80,80,80,0.8)', maxWidth:'700px'}}>
                                             {item.description}

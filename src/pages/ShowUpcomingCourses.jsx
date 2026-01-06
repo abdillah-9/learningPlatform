@@ -72,7 +72,7 @@ export default function ShowUpcomingCourses(){
                           <span style={{fontSize:"15px", fontWeight:300}}>
                               {course.desc}
                           </span>
-                          <span style={{fontSize:"13px", fontWeight:500}}>
+                          <span style={{fontSize:"13px", fontWeight:600}}>
                               {course.date}
                           </span>
                         </div>

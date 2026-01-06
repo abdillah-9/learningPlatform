@@ -82,8 +82,8 @@ function SignUp(){
     return(
         <form style={{}} onSubmit={formSubmit}>
             <div style={{display:'flex', flexDirection:'column', gap:'25px', maxWidth:'500px', padding:'25px 0px'}}>
-                <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="text" name="full_name" placeholder="Full Name" />
-                <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="number" name="phone_number" placeholder="0788776655" required/>
+                <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px', display:'none'}} type="text" name="full_name" placeholder="Full Name" defaultValue={''}/>
+                <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="number" name="phone_number" placeholder="0788776655" title="phone number" required/>
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="text" name="username_email" placeholder="Username or Email" />
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="password" name="p_word" placeholder="Password" />
                 <input
@@ -97,9 +97,9 @@ function SignUp(){
                         borderRadius:'5px'
                     }}
                     />
-                <p style={{color:'rgba(146,146,146,1)', fontSize:'14px'}}>
+                {/* <p style={{color:'rgba(146,146,146,1)', fontSize:'14px'}}>
                     By continuing, you confirm that you are at least 16 years of age and agree to Africa Investment School Terms of Use.
-                </p>
+                </p> */}
                 <input type="submit" name="submit" value={'Create an account for free'} style={{backgroundColor:'rgba(145, 152, 255, 1)', color:'white', padding:'10px 15px', width:'fit-content', fontSize:'20px', border:'1px solid rgba(0,0,0,0)', display:'block', cursor:'pointer'}} />
             </div>
         </form>

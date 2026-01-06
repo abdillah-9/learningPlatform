@@ -198,19 +198,19 @@ function TopNavBar({sideBarOpened, setSideBar}) {
           <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
             {
               sideBarOpened ? 
-              <div style={{padding:'10px 20px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center'}}>
+              <div style={{padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center'}}>
                 <FaBars style={{fontSize:'16px', cursor:'pointer'}} onClick={()=>{setSideBar(false)}}/> 
               </div>
               :
-              <div style={{padding:'10px 20px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center'}}> 
+              <div style={{padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center'}}> 
                 <FaBars style={{fontSize:'16px', cursor:'pointer'}} onClick={()=>{setSideBar(true)}}/>
               </div>             
             }
-            <div style={{marginRight:'20px',padding:'10px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer'}} onClick={LogoutHandler}>
+            <div style={{padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer'}} onClick={LogoutHandler}>
               Logout  
             </div>
-            <div style={{marginRight:'20px',padding:'10px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer', gap:'8px'}} onClick={()=>navigate('/')}>
-              <RiHome9Fill /> <span>Home</span>  
+            <div style={{padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigate('/')}>
+              <RiHome9Fill style={{fontSize:'13px'}}/> <span>Home</span>  
             </div>            
             <img
               src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData.user_pic}`}

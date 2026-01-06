@@ -35,7 +35,7 @@ export default function About(){
       <img src={aboutImage} alt='pic' width={'100%'} height={'100%'} style={{aspectRatio:1/0.55}}/>
       <div style={{position:'absolute', top:0, left:0, width:'100%', height:'100%',backgroundColor:'rgba(1, 1, 54, 0.5)', color:'white', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', gap:'50px'}}>
         <h1 style={{fontSize:'40px'}}>About Us</h1>
-        <p>Description here ...</p>
+        <p>Building a Generation of Founders and C.E.Os</p>
       </div>
     </div>
 
@@ -44,15 +44,19 @@ export default function About(){
       <div  style={{flex:'1 1 250px', padding:'15px', color:'rgba(5, 5, 49, 0.9)', gap:'15px', fontWeight:200, display:'flex', flexDirection:'column'}}>
         <h2>ABOUT US</h2>
         <p>
-          Building A Generation of Business Founders and C.E.O
-          We are a business and investment educational hub, offering real-ground business expertise from real entrepreneurs and businessmen. These are skills that you won't learn in business school.
+          We are a knowledge hub for business and investment, offering real-ground business experience and practical skills from real entrepreneurs and businessmen. The platform will impact a self-productive habit and a strong business mindset, both of which are necessary in the real world.
         </p>
         <p>
-          We are a non-certificate eLearning Platform, our aim is to build the next generation of business founders and C.E.O not particularly employees. 
-          As a team with a variety of expertise, we charge between TZS 3,500 and TZS 5,000 to cover platform operating expenses.
+          Our goal as a non-certificate eLearning platform is to give people the knowledge and insightful information they need to become C.E.Os and business FOUNDERS, not particularly employees.
         </p>
         <p>
-          One might ask, why should I bother improving my financial IQ? "Just to have more options," I reply. Significant global changes will occur in coming years, and if you don't adapt, it will be a frightening period. In the real world, something more than just school grades are required.
+          As a team with a variety of expertise, we charge between TZS 5,000 and TZS 10,000 per module and TZS 25,000 to TZS 35,000 per course to cover platform operating expenses.
+        </p>
+        <p style={{fontStyle:'italic'}}>
+          One might ask, why should I bother improving my knowledge? "Just to have more options," I reply. Significant global changes will occur in coming years, for example, AI might cause unemployment crisis and if you don't adapt, it will be a frightening period.
+        </p>
+        <p>
+          In the real world, something more than just school grades are required.
         </p>
       </div>
       <img src={miniAboutImage} alt='pic' style={{flex:'1 1 250px', aspectRatio:1/0.9}} />
@@ -64,17 +68,35 @@ export default function About(){
       <div  style={{flex:'1 1 250px', padding:'15px', color:'rgba(235, 235, 240, 0.9)', gap:'15px', fontWeight:200, display:'flex', flexDirection:'column', maxWidth:'700px'}}>
         <h2>What’s Ahead</h2>
         
-        <div>• You’ll learn how to identify and evaluate potential business opportunities, particularly focusing on existing social problems. The pursuit of opportunity without regard to resources you currently control.</div>
-        <div>• You’ll learn about the various legal forms of business organization, their pros and cons, and decide which organization is best for your venture. How to comply with authority legal compliance.</div>
-        <div>• You’ll learn how key components of the enterprise work together to make money and how to begin to test your business model with real customers. Step-by-step process for formulating strategy and aligning business activities with it.</div>
-        <div>• You’ll learn how to write a Business Plan or Investors Pitch Deck that incorporates all elements of your business idea, explaining the opportunity, target market, and all details about how your business expects to pursue the opportunity.</div>
-        <div>• You’ll learn the financing requirements that businesses typically encounter in the first phase of their life cycles and how to get the funding to finance these various stages of your enterprise.
-        </div> 
         <div>
-        • It also focuses on rapidly growing firms and their need for external capital specifically the role of investment banks.
+          •	You’ll learn that your mindset directs your habits, and your habits contributes greatly on your results.
         </div>
         <div>
-          • You’ll learn the effects of business growth and the and strategic aspects of dealing with growth.
+          •	You’ll learn that goals are good for setting direction, but systems are best for making progress. It unwise to spend too much time thinking about your goals and not enough time designing your systems. 
+        </div>
+        <div>
+          •	You’ll learn how identify and evaluate potential business opportunities particularly focusing on the existing social problem. The pursuit of opportunity without regard to resources you currently control. 
+        </div>
+        <div>
+          • You’ll learn how to write a Business Plan or Investors Pitch Deck that incorporates all elements of your business idea, explaining the opportunity, target market, and all details about how your business expects to pursue the opportunity.
+        </div>
+        <div>
+          •	You’ll learn about the various legal forms of business organization, their pros and cons and decide which organization is best for your venture. How to register your enterprise and comply with authority legal requirements. 
+        </div> 
+        <div>
+          •	You’ll learn the financing requirements that businesses typically encounter in the first phase of their life cycles and how to get the funding to finance these various stages of your enterprise. 
+        </div>
+        <div>
+          •	It also focuses on rapidly growing firms and their need for external capital specifically the role of investment banks.
+        </div>
+        <div>
+          •	You’ll learn how key components of the enterprise work together to make money and how to begin to test your business model with real customers. You’ll learn about processes for formulating strategy and aligning business activities with it. 
+        </div>
+        <div>
+          •	You’ll learn how to write a Business Plan or Investors Pitch Deck that incorporates all elements of your business idea, explaining the opportunity, target market and all details about how your business expects to pursue the opportunity.
+        </div>
+        <div>
+          •	You’ll learn the effects of business growth and the strategic aspects of dealing with growth.
         </div>
       </div>
       <div style={{border:'0px solid red', flex:'1 1 250px', alignItems:'center', justifyContent:'center', display:'flex'}}>

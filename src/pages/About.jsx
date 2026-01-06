@@ -1,6 +1,6 @@
 import React from 'react'
 import aboutPic1 from '../assets/countryside-workers-out-field.webp';
-import { FaPeopleGroup } from 'react-icons/fa6';
+import { FaBookOpenReader, FaPeopleGroup } from 'react-icons/fa6';
 import { PiPlantFill } from 'react-icons/pi';
 import { FaTractor } from 'react-icons/fa';
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
@@ -20,12 +20,12 @@ export default function About(){
           <img src={MwangazaLogo} alt="logo" width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
         <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
       </div>
-      <div style={{display:'flex', gap:'20px', fontSize:'18px',fontWeight:500}}>
+      <div style={{display:'flex', gap:'15px', fontSize:'18px',fontWeight:500}}>
         <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:600, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
           <RiHome9Fill style={{fontSize:'18px'}}/> <span>Home</span>  
         </div> 
         <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:600, cursor:'pointer', gap:'4px'}} onClick={()=>{navigateTo('/view_all_courses')}}>
-          <RiHome9Fill style={{fontSize:'18px'}}/> <span>All Courses</span>  
+          <FaBookOpenReader style={{fontSize:'18px'}}/> <span>All Courses</span>  
         </div> 
       </div>
     </div>

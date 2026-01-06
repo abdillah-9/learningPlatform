@@ -206,9 +206,20 @@ export default function Course(){
                             dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.hint)}}>
                             </p>
                         </div>
-                        <div style={{display:'flex', gap:'5px', flexWrap:'wrap', fontSize:'14px', alignItems:'center', fontWeight:'700'}}>
-                            <span>You may reach us through </span>
-                            <PiWhatsappLogoLight style={{fontSize:'24px'}}/>
+                        <div
+                        style={{
+                            display: 'flex',
+                            gap: '5px',
+                            flexWrap: 'wrap',
+                            fontSize: '14px',
+                            alignItems: 'center',
+                            fontWeight: '700',
+                            cursor: 'pointer'
+                        }}
+                        onClick={() => window.open('https://wa.me/255788491086', '_blank')}
+                        >
+                        <span>You may reach us through</span>
+                        <PiWhatsappLogoLight style={{ fontSize: '24px' }} />
                         </div>
                     </div>
                 </div>

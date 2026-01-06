@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import AAviewLastCourse from "../../pages/ViewCourse";
 import { AuthContext } from "../../AuthProvider";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MiniLoadingSpinner from "../../components/MiniLoadingSpinner";
 
 export default function UserManager() {
@@ -10,6 +10,8 @@ export default function UserManager() {
   const [hasAccess, setHasAccess] = useState(false);
   const [loading, setLoading] = useState(true)
 
+  const navigateTo = useNavigate();
+  
   // ✅ Function to check access
   async function checkUserAccess() {
     if (!userData?.user_id) return;
@@ -46,6 +48,7 @@ export default function UserManager() {
     } catch (err) {
       console.error(err);
       alert("Network error while checking access");
+      navigateTo(`/enroll_course/${courseId}`);
     }
     finally{
       setLoading(false);

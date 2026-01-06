@@ -61,11 +61,11 @@ export default function ViewAllCourses(){
                 <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
                 </div>
                 <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500, alignItems:'center'}}> 
-                    <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/upcoming_courses')}}>
-                        Upcoming Courses
-                    </span>
-                    <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
-                        <RiHome9Fill style={{fontSize:'13px'}}/> <span>Home</span>  
+                    <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
+                        <RiHome9Fill style={{fontSize:'18px'}}/> <span>Home</span>  
+                    </div> 
+                    <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>{navigateTo('/upcoming_courses')}}>
+                        <RiHome9Fill style={{fontSize:'18px'}}/> <span>Upcoming Courses</span>  
                     </div> 
                     <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
                         <img src={userData?.user_pic ? `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData?.user_pic}` : pic } 

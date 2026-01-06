@@ -1,6 +1,6 @@
 import React from 'react'
 import aboutPic1 from '../assets/countryside-workers-out-field.webp';
-import { FaBookOpenReader, FaPeopleGroup } from 'react-icons/fa6';
+import { FaBook, FaBookOpenReader, FaPeopleGroup } from 'react-icons/fa6';
 import { PiPlantFill } from 'react-icons/pi';
 import { FaTractor } from 'react-icons/fa';
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
@@ -25,7 +25,7 @@ export default function About(){
           <RiHome9Fill style={{fontSize:'18px'}}/> <span>Home</span>  
         </div> 
         <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:600, cursor:'pointer', gap:'4px'}} onClick={()=>{navigateTo('/view_all_courses')}}>
-          <FaBookOpenReader style={{fontSize:'18px'}}/> <span>All Courses</span>  
+          <FaBook style={{fontSize:'18px'}}/> <span>All Courses</span>  
         </div> 
       </div>
     </div>

@@ -21,11 +21,11 @@ export default function About(){
         <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
       </div>
       <div style={{display:'flex', gap:'20px', fontSize:'18px',fontWeight:500}}>
-        <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>
-          View All Courses
-        </span> 
-        <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"18px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
+        <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:600, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
           <RiHome9Fill style={{fontSize:'18px'}}/> <span>Home</span>  
+        </div> 
+        <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:600, cursor:'pointer', gap:'4px'}} onClick={()=>{navigateTo('/view_all_courses')}}>
+          <RiHome9Fill style={{fontSize:'18px'}}/> <span>All Courses</span>  
         </div> 
       </div>
     </div>

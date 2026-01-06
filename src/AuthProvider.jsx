@@ -19,7 +19,7 @@ export default function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={{ userData, setUserData, loading }}>
       {children}
-      <div style={{position:'fixed', right:'10px', bottom:'10px', borderRadius:'50px', backgroundColor:'rgba(0, 133, 117, 0.8)', color:'white', padding:'10px 12px', fontSize:'14px', cursor:'pointer'}}>Help</div>
+      <div style={{position:'fixed', right:'10px', bottom:'10px', borderRadius:'50px', backgroundColor:'rgba(0, 133, 117, 0.8)', color:'white', padding:'10px 12px', fontSize:'14px', cursor:'pointer',zIndex:10}}>Help</div>
     </AuthContext.Provider>
   );
 }

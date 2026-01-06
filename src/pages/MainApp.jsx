@@ -209,7 +209,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
             <div style={{padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer'}} onClick={LogoutHandler}>
               Logout  
             </div>
-            <div style={{padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigate('/')}>
+            <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigate('/')}>
               <RiHome9Fill style={{fontSize:'13px'}}/> <span>Home</span>  
             </div>            
             <img

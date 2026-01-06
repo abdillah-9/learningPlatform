@@ -68,9 +68,14 @@ export default function ShowUpcomingCourses(){
                         <span>
                             {course.name}
                         </span>
-                        <span style={{fontSize:"16px", fontWeight:300}}>
-                            {course.desc}
-                        </span>
+                        <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap:'20px', flexWrap:'wrap'}}>
+                          <span style={{fontSize:"15px", fontWeight:300}}>
+                              {course.desc}
+                          </span>
+                          <span style={{fontSize:"13px", fontWeight:500}}>
+                              {course.date}
+                          </span>
+                        </div>
                     </div>
                 </div>
             )) : ""

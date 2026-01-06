@@ -354,8 +354,8 @@ useEffect(() => {
         <div style={{fontSize:'25px', fontWeight:700}}>
           TESTIMONIALS FROM OUR LEARNERS
         </div>
-        <div>Discover what it looks like when organizations approach their work with new skill sets &  support ready for challenges and confident to lead.
-        </div>
+        {/* <div>Discover what it looks like when organizations approach their work with new skill sets &  support ready for challenges and confident to lead.
+        </div> */}
         <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', flexDirection:'column'}}>
           <div style={{width:'85%', display:'flex', gap:'10px', flexDirection:'column',alignItems:'center', paddingTop:'20px'}}>
             <span style={{fontSize:'20px', fontWeight:700}}>

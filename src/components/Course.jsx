@@ -206,9 +206,9 @@ export default function Course(){
                             dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.hint)}}>
                             </p>
                         </div>
-                        <div style={{display:'flex', gap:'3px', flexWrap:'wrap', fontSize:'13px', alignItems:'center', fontWeight:'600'}}>
+                        <div style={{display:'flex', gap:'3px', flexWrap:'wrap', fontSize:'14px', alignItems:'center', fontWeight:'700'}}>
                             <span>You may reach us through </span>
-                            <PiWhatsappLogoLight style={{fontSize:'15px'}}/>
+                            <PiWhatsappLogoLight style={{fontSize:'18px'}}/>
                         </div>
                     </div>
                 </div>

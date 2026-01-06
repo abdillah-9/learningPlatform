@@ -199,7 +199,7 @@ export default function Course(){
                         {/** Hint */}
                         <div style={{display:'flex', flexDirection:'column',gap:'10px',maxWidth:'900px'}}>
                             <h2 style={{textAlign:'left'}}>
-                                Hint
+                                How to Access a Course or Module
                             </h2>
                             <p style={{boxShadow:'1px 0.5px 5px #0c2b4e96', padding:'20px', borderRadius:'40px', cursor:'pointer', whiteSpace:'pre-wrap'}}
                             dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.hint)}}>

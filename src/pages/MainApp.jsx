@@ -194,6 +194,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
           padding: "10px 15px",
           alignItems: "center",
           flexWrap: "wrap",
+          gap:'15px'
         }}
       >
         <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>

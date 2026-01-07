@@ -67,12 +67,12 @@ export default function ViewAllCourses(){
                     <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"14px", fontWeight:700, cursor:'pointer', gap:'4px'}} onClick={()=>{navigateTo('/upcoming_courses')}}>
                         <span>Upcoming Courses</span>  
                     </div> 
-                    <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
+                    {/* <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
                         <img src={userData?.user_pic ? `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData?.user_pic}` : pic } 
                         alt='user pic' width={'70px'} height={'60px'} style={{borderRadius:'50%'}}/>
                         <span>{userData?.full_name}</span>  
                         <span style={{fontSize:'20px'}}><MdArrowDropDown/></span>   
-                    </div> 
+                    </div>  */}
                 </div>
             </div>
 

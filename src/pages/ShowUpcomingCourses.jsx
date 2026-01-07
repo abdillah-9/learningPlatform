@@ -50,16 +50,21 @@ export default function ShowUpcomingCourses(){
                     style={{borderRadius:'50%'}} />
                 <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
                 </div>
-                <div style={{display:'flex', gap:'50px', fontSize:'18px',fontWeight:500}}> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us </span> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>View All Courses</span> 
+                <div style={{display:'flex', gap:'15px', fontSize:'14px',fontWeight:700, flexWrap:'wrap'}}> 
+                  <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>
+                    Home 
+                  </span>
+                  <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>
+                    About Us 
+                  </span> 
+                  <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>
+                    View All Courses
+                  </span> 
                 </div>
             </div>
             
             <div style={{minHeight:'50vh',padding:'30px 10px', display:'flex', flexDirection:'column', gap:'40px'}}>
-                <div onClick={()=>(navigateTo('/'))} style={{display:'flex', alignItems:'center', gap:'6px', cursor:'pointer'}}>
-                    <span style={{fontSize:'16px', borderRadius:"5px", backgroundColor:"rgba(138, 146, 205, 1)", padding:"8px 14px"}}><IoMdHome/></span>
-                    <span>Return back to home page</span>
-                </div>
-            {upcomingCourses? upcomingCourses?.map((course, index)=>(
+              {upcomingCourses? upcomingCourses?.map((course, index)=>(
                 <div key={index} style={{display:'flex',flexWrap:'wrap', gap:'20px', maxWidth:'800px', boxShadow:'1px 2px 10px rgba(60, 58, 58, 0.7)'}}>
                     <span style={{aspectRatio:16/9,width:'100%',maxWidth:'350px'}}>
                         <img src={course?.pic ? course?.pic : logo} alt="pic" width={"100%"} height={"100%"} style={{objectFit:'cover', }}/>

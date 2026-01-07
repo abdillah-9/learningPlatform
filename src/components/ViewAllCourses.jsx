@@ -55,7 +55,7 @@ export default function ViewAllCourses(){
     return(
         <div>
             {/* Top nav bar */}
-            <div style={{position:'relative', top:0, left:0, width:'100%', height:'auto', backgroundColor:'#0C2B4E',zIndex:1, display:'flex', color:'white',justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'10px'}}>
+            <div style={{position:'relative', top:0, left:0, width:'100%', height:'auto', backgroundColor:'#0C2B4E',zIndex:1, display:'flex', color:'white',justifyContent:'space-between',padding:'10px 10px', alignItems:'center', flexWrap:'wrap', gap:'10px'}}>
                 <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
                     <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
                 <span style={{fontSize:'18px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>

@@ -28,16 +28,16 @@ export default function About(){
     </div>
 
     {/** Huge Image */}
-    <div style={{height:'calc(100vh)',width:'100vw', position:'relative', overflow:'hidden'}}>
+    <div style={{height:'calc(100vh)',width:'100vw', position:'relative', overflow:'hidden',}}>
       <img src={aboutImage} alt='pic' width={'100%'} height={'100%'} style={{aspectRatio:16/9, objectFit:'cover'}}/>
-      <div style={{position:'absolute', top:0, left:0, width:'100%', height:'100%',backgroundColor:'rgba(1, 1, 54, 0.5)', color:'white', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', gap:'50px'}}>
+      <div style={{position:'absolute', top:0, left:0, width:'100%', height:'100%',backgroundColor:'rgba(1, 1, 54, 0.5)', color:'white', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', gap:'50px', textAlign:'center', padding:'10px'}}>
         <h1 style={{fontSize:'40px'}}>About Us</h1>
         <p>Building a Generation of Founders and C.E.Os</p>
       </div>
     </div>
 
     {/** Main About Part*/}
-    <div style={{display:'flex', flexWrap:'wrap', alignItems:'flex-end'}}>
+    <div style={{display:'flex', flexWrap:'wrap', alignItems:'center'}}>
       <div  style={{flex:'1 1 250px', padding:'15px', color:'rgba(5, 5, 49, 0.9)', gap:'15px', fontWeight:200, display:'flex', flexDirection:'column'}}>
         <h2>ABOUT US</h2>
         <p>

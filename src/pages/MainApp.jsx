@@ -70,7 +70,7 @@ export default function MainApp() {
     <div>
       <TopNavBar sideBarOpened={sideBarOpened} setSideBar={setSideBar}/>
       <div style={{ display: "flex"}}>
-        <SideBar active={active} setActive={setActive} sideBarOpened={sideBarOpened}/>
+        <SideBar active={active} setActive={setActive} sideBarOpened={sideBarOpened} width={width}/>
         <div style={{height:'100vh', overflow:'auto', 
           flexGrow: 1, width: "calc(100% - 200px)", 
         }}>
@@ -85,7 +85,7 @@ export default function MainApp() {
  SIDEBAR
 ****************************************************/
 
-function SideBar({ active, setActive, sideBarOpened }) {
+function SideBar({ active, setActive, sideBarOpened, width }) {
   const {userData} = useContext(AuthContext);
   const links = [
     { name: "Dashboard", key: "Dashboard", icon: <HiHome /> },

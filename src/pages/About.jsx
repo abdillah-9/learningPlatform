@@ -1,12 +1,9 @@
 import React from 'react'
-import aboutPic1 from '../assets/countryside-workers-out-field.webp';
-import { FaBook, FaBookOpenReader, FaPeopleGroup } from 'react-icons/fa6';
-import { PiPlantFill } from 'react-icons/pi';
-import { FaTractor } from 'react-icons/fa';
+import { FaBook } from 'react-icons/fa6';
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
-import aboutImage from '../assets/aboutImage.jpeg';
-import miniAboutImage from '../assets/miniAboutImage.jpeg';
-import { RiHome9Fill, RiTwitterXFill } from 'react-icons/ri';
+import aboutImage from '../assets/About1.jpeg';
+import miniAboutImage from '../assets/About2.jpg';
+import { RiTwitterXFill } from 'react-icons/ri';
 import { IoIosMail, IoMdCall } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,7 +19,7 @@ export default function About(){
       </div>
       <div style={{display:'flex', gap:'15px', fontSize:'18px',fontWeight:500}}>
         <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:600, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
-          <RiHome9Fill style={{fontSize:'18px'}}/> <span>Home</span>  
+          <span>Home</span>  
         </div> 
         <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:600, cursor:'pointer', gap:'4px'}} onClick={()=>{navigateTo('/view_all_courses')}}>
           <FaBook style={{fontSize:'18px'}}/> <span>All Courses</span>  
@@ -32,7 +29,7 @@ export default function About(){
 
     {/** Huge Image */}
     <div style={{height:'calc(100vh)',width:'100vw', position:'relative', overflow:'hidden'}}>
-      <img src={aboutImage} alt='pic' width={'100%'} height={'100%'} style={{aspectRatio:1/0.55}}/>
+      <img src={aboutImage} alt='pic' width={'100%'} height={'100%'} style={{aspectRatio:16/9, objectFit:'cover'}}/>
       <div style={{position:'absolute', top:0, left:0, width:'100%', height:'100%',backgroundColor:'rgba(1, 1, 54, 0.5)', color:'white', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', gap:'50px'}}>
         <h1 style={{fontSize:'40px'}}>About Us</h1>
         <p>Building a Generation of Founders and C.E.Os</p>
@@ -59,7 +56,7 @@ export default function About(){
           In the real world, something more than just school grades are required.
         </p>
       </div>
-      <img src={miniAboutImage} alt='pic' style={{flex:'1 1 250px', aspectRatio:16/9}} />
+      <img src={miniAboutImage} alt='pic' style={{width:'50%',maxWidth:'400px', aspectRatio:16/9}} />
 
     </div>
 

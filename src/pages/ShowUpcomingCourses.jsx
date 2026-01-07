@@ -50,7 +50,7 @@ export default function ShowUpcomingCourses(){
                     style={{borderRadius:'50%'}} />
                 <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
                 </div>
-                <div style={{display:'flex', gap:'15px', fontSize:'14px',fontWeight:500, flexWrap:'wrap'}}> 
+                <div style={{display:'flex', gap:'15px', fontSize:'14px',fontWeight:500, flexWrap:'wrap', justifyContent:'space-between'}}> 
                   <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>
                     Home 
                   </span>

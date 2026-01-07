@@ -56,7 +56,7 @@ export default function About(){
           In the real world, something more than just school grades are required.
         </p>
       </div>
-      <div style={{width:'50%',maxWidth:'400px', aspectRatio:16/9}}>
+      <div style={{flex:'1 1 250px', aspectRatio:16/9}}>
         <img src={miniAboutImage} alt='pic' style={{width:'100%', height:'100%', objectFit:'cover'}} />
       </div>
     </div>

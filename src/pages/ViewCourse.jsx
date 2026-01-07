@@ -179,13 +179,13 @@ export default function AAviewLastCourse() {
       <div style={{display:'flex', flexWrap:'wrap', gap:'15px', justifyContent:'space-between', width:'100%', padding:'7px'}}>
 
         <h2>MODULE NAME :{currentModule ? currentModule.title : "Loading Module..."}</h2>
-        <div style={{display:'flex', gap:'15px'}}>
-          <div style={{display:'flex', alignItems:'center', padding:'6px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'150px,',}}
+        <div style={{display:'flex', gap:'12px', flexWrap:'wrap' }}>
+          <div style={{display:'flex', alignItems:'center', padding:'6px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%',flex:'1 1 150px'}}
           onClick={()=>{navigateTo('/view_all_courses', {replace:true})}}>
             <span style={{fontSize:'14px',backgroundColor:"#F4B342", borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:"#684200ff"}}><RiFileList3Line/></span>
             <span style={{fontSize:'13px'}}>View All Courses</span>
           </div>
-          <span style={{display:'flex', alignItems:'center', padding:'6px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%', maxWidth:'200px', fontSize:'14px'}}
+          <span style={{display:'flex', alignItems:'center', padding:'6px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%',flex:'1 1 250px', fontSize:'14px'}}
           onClick={()=>{navigateTo(`/enroll_course/${courseId}`, {replace:true})}}>
             <span style={{fontSize:'14px',backgroundColor:"#F4B342", borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:"#684200ff"}}><LucideClipboardList/></span>
             <span style={{fontSize:'13px'}}>

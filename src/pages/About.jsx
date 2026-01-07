@@ -31,8 +31,8 @@ export default function About(){
     <div style={{height:'calc(100vh)',width:'100vw', position:'relative', overflow:'hidden',}}>
       <img src={aboutImage} alt='pic' width={'100%'} height={'auto'} style={{aspectRatio:16/9}}/>
       <div style={{position:'absolute', top:0, left:0, width:'100%', height:'100%',backgroundColor:'rgba(1, 1, 54, 0.2)', color:'white', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', gap:'50px', textAlign:'center', padding:'10px'}}>
-        <h1 style={{fontSize:'40px'}}>About Us</h1>
-        <p>Building a Generation of Founders and C.E.Os</p>
+        <h1 style={{fontSize:'40px', fontWeight:800}}>About Us</h1>
+        <p style={{fontSize:'20px', fontWeight:600}}>Building a Generation of Founders and C.E.Os</p>
       </div>
     </div>
 

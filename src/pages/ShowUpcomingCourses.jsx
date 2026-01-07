@@ -103,7 +103,7 @@ function Footer(){
           <span style={{fontSize:'22px', fontWeight:500}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
         </div>
         <div>
-          Philanthropy University is an online learning platform  for social impact organizations.
+          Building a Generation of Founders and C.E.Os
         </div>
         <div style={{display:"flex", gap:'15px'}}>
           <span><BsFacebook/></span>

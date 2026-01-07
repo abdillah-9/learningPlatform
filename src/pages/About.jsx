@@ -57,7 +57,6 @@ export default function About(){
         </p>
       </div>
       <img src={miniAboutImage} alt='pic' style={{width:'50%',maxWidth:'400px', aspectRatio:16/9}} />
-
     </div>
 
     {/** Last Div */}

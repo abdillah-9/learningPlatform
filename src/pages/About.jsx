@@ -56,7 +56,9 @@ export default function About(){
           In the real world, something more than just school grades are required.
         </p>
       </div>
-      <img src={miniAboutImage} alt='pic' style={{width:'50%',maxWidth:'400px', aspectRatio:16/9, height:'auto'}} />
+      <div style={{width:'50%',maxWidth:'400px', aspectRatio:16/9}}>
+        <img src={miniAboutImage} alt='pic' style={{width:'100%', height:'100%', objectFit:'cover'}} />
+      </div>
     </div>
 
     {/** Last Div */}

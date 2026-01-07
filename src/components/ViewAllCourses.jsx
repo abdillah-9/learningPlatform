@@ -55,17 +55,17 @@ export default function ViewAllCourses(){
     return(
         <div>
             {/* Top nav bar */}
-            <div style={{position:'relative', top:0, left:0, width:'100%', height:'80px', backgroundColor:'#0C2B4E',zIndex:1, display:'flex', color:'white',justifyContent:'space-between',padding:'0px 15px', alignItems:'center'}}>
+            <div style={{position:'relative', top:0, left:0, width:'100%', height:'auto', backgroundColor:'#0C2B4E',zIndex:1, display:'flex', color:'white',justifyContent:'space-between',padding:'0px 15px', alignItems:'center'}}>
                 <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
                     <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
                 <span style={{fontSize:'21px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
                 </div>
                 <div style={{display:'flex', gap:'20px', fontSize:'18px',fontWeight:500, alignItems:'center'}}> 
                     <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:700, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
-                        <RiHome9Fill style={{fontSize:'18px'}}/> <span>Home</span>  
+                        <span>Home</span>  
                     </div> 
                     <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:700, cursor:'pointer', gap:'4px'}} onClick={()=>{navigateTo('/upcoming_courses')}}>
-                        <RiHome9Fill style={{fontSize:'18px'}}/> <span>Upcoming Courses</span>  
+                        <span>Upcoming Courses</span>  
                     </div> 
                     <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
                         <img src={userData?.user_pic ? `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData?.user_pic}` : pic } 

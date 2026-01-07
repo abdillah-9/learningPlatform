@@ -71,7 +71,12 @@ export default function Course(){
                 </div>
                 {/** Buotton links */}
                 <div style={{display:'flex', gap:'20px', height:'fit-content', }}>
-                    <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, border:'1px solid rgba(70, 169, 194, 1)', color:'rgba(70, 169, 194, 1)', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/register')}}>REGISTER</div>
+                    <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, border:'1px solid rgba(70, 169, 194, 1)', color:'rgba(70, 169, 194, 1)', cursor:'pointer'}} onClick={()=>{navigateTo('/')}}>
+                        HOME
+                    </div>
+                    <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, border:'1px solid rgba(70, 169, 194, 1)', color:'rgba(70, 169, 194, 1)', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/register')}}>
+                        REGISTER
+                    </div>
                     <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, color:'white', backgroundColor:'rgba(70, 169, 194, 1)', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/sign_in')}}>SIGN IN</div>
                 </div>
             </nav>

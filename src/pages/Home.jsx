@@ -204,17 +204,17 @@ useEffect(() => {
 
 
       {/* Heading */}
-      <div className={`${animate ? 'slideTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white', top:'40vh', fontSize:'17px',fontWeight:500 }}>
-        <div style={{fontSize:'25px', fontWeight:700}}>{headings[index]}</div>
-        <div>{texts[index]}</div>
+      <div className={`${animate ? 'slideTop PicTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white',fontSize:'17px',fontWeight:500 }}>
+        <div className="PicFont" style={{fontSize:'25px', fontWeight:700}}>{headings[index]}</div>
+        <div  className="PicFontMini">{texts[index]}</div>
       </div>
 
       {/* NEXT/PREV BUTTONS */}
-      <div style={{ position: "absolute", top: "40vh", left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={prev}>
+      <div className="PicTop" style={{ position: "absolute", top: "50vh", left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={prev}>
         <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
       </div>
 
-      <div style={{ position: "absolute", top: "40vh", right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={next}>
+      <div className="PicTop" style={{ position: "absolute", top: "50vh", right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={next}>
         <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
       </div>
     </div>
@@ -523,7 +523,6 @@ function Footer(){
 
 const topSlideshowTexts = {
   position: "absolute",
-  top: "40%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   fontSize: "25px",

@@ -557,3 +557,25 @@ html, body{
     width: 50%;
   }  
 }
+
+/* special style classes with media query */
+.PicFont{
+  font-size: 27;
+}
+.PicFontMini{
+  font-size: 22;
+}
+.PicTop{
+  top: 50vh;
+}
+@media screen and (max-width:720px){
+.PicFont{
+  font-size: 18;
+}
+.PicFontMini{
+  font-size: 15;
+}
+.PicTop{
+  top: 40vh;
+}
+}

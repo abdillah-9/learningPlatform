@@ -40,7 +40,7 @@ export default function UserManager() {
           setHasAccess(true);
         } else {
           setHasAccess(false);
-          alert("You do not have access to this course/module or your account is blocked");
+          alert("You don't have access to this module/course, please pay the stated amount to 0788491086/0716565725");
           //navigateTo(`/enroll_course/${courseId}`);
         }
       } else {

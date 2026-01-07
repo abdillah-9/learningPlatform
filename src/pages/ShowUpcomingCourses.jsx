@@ -112,7 +112,7 @@ function Footer(){
         </div>
       </div>
 
-      <div style={{display:'flex', flexDirection:'column',width:'30%', minWidth:'300px', gap:'20px'}}>
+      <div style={{display:'flex', flexDirection:'column',width:'30%', minWidth:'200px', gap:'20px'}}>
         <div style={{display:'flex',gap:'5px', flexDirection:'column',}}>
           <span style={{fontSize:'22px', fontWeight:500}}>Quick links</span>
         </div>

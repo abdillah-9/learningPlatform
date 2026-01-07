@@ -560,20 +560,20 @@ html, body{
 
 /* special style classes with media query */
 .PicFont{
-  font-size: 27;
+  font-size: 27px;
 }
 .PicFontMini{
-  font-size: 22;
+  font-size: 22px;
 }
 .PicTop{
   top: 50vh;
 }
 @media screen and (max-width:720px){
 .PicFont{
-  font-size: 22;
+  font-size: 22px;
 }
 .PicFontMini{
-  font-size: 15;
+  font-size: 15px;
 }
 .PicTop{
   top: 40vh;

@@ -119,6 +119,7 @@ function SideBar({ active, setActive, sideBarOpened, width }) {
         padding: sideBarOpened ? "25px 0px 0px 15px": '0px',
         fontSize:'13px',
         position: width < '479px' ? 'fixed' : 'relative',
+        top:'0px'
       }}
     >
       {filteredLinks.map((link) => (

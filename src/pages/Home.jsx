@@ -204,17 +204,17 @@ useEffect(() => {
 
 
       {/* Heading */}
-      <div className={`${animate ? 'slideTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white', top:'50%', fontSize:'15px',fontWeight:600 }}>
+      <div className={`${animate ? 'slideTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white', top:'60%', fontSize:'17px',fontWeight:500 }}>
         <div style={{fontSize:'25px', fontWeight:700}}>{headings[index]}</div>
         <div>{texts[index]}</div>
       </div>
 
       {/* NEXT/PREV BUTTONS */}
-      <div style={{ position: "absolute", top: "50%", left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={prev}>
+      <div style={{ position: "absolute", top: "50%", left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '60%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={prev}>
         <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
       </div>
 
-      <div style={{ position: "absolute", top: "50%", right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={next}>
+      <div style={{ position: "absolute", top: "50%", right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '60%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={next}>
         <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
       </div>
     </div>

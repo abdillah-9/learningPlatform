@@ -37,7 +37,7 @@ export default function About(){
     </div>
 
     {/** Main About Part*/}
-    <div style={{display:'flex', flexWrap:'wrap', alignItems:'flex-start'}}>
+    <div style={{display:'flex', flexWrap:'wrap', alignItems:'center'}}>
       <div  style={{flex:'1 1 250px', padding:'15px', color:'rgba(5, 5, 49, 0.9)', gap:'15px', fontWeight:200, display:'flex', flexDirection:'column'}}>
         <h2>ABOUT US</h2>
         <p>

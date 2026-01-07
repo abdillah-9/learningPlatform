@@ -50,7 +50,7 @@ export default function ShowUpcomingCourses(){
                     style={{borderRadius:'50%'}} />
                 <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
                 </div>
-                <div style={{display:'flex', gap:'15px', fontSize:'14px',fontWeight:700, flexWrap:'wrap'}}> 
+                <div style={{display:'flex', gap:'15px', fontSize:'14px',fontWeight:500, flexWrap:'wrap'}}> 
                   <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>
                     Home 
                   </span>
@@ -100,7 +100,7 @@ function Footer(){
           <span style={{display:'block',left:'95px', position:'relative'}}>
             <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
           </span>
-          <span style={{fontSize:'22px', fontWeight:500}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
+          <span style={{fontSize:'21px', fontWeight:500}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
         </div>
         <div>
           Building a Generation of Founders and C.E.Os

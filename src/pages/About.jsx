@@ -22,7 +22,7 @@ export default function About(){
           <span>Home</span>  
         </div> 
         <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"16px", fontWeight:600, cursor:'pointer', gap:'4px'}} onClick={()=>{navigateTo('/view_all_courses')}}>
-          <FaBook style={{fontSize:'18px'}}/> <span>All Courses</span>  
+          <span>All Courses</span>  
         </div> 
       </div>
     </div>
@@ -56,7 +56,7 @@ export default function About(){
           In the real world, something more than just school grades are required.
         </p>
       </div>
-      <img src={miniAboutImage} alt='pic' style={{width:'50%',maxWidth:'400px', aspectRatio:16/9}} />
+      <img src={miniAboutImage} alt='pic' style={{width:'50%',maxWidth:'400px', aspectRatio:16/9, height:'auto'}} />
     </div>
 
     {/** Last Div */}

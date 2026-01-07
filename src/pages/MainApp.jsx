@@ -18,9 +18,22 @@ export default function MainApp() {
   const {userData} = useContext(AuthContext);
   let defaultMenu = userData.user_role == "admin" ? 'Available Courses' : 'Course Module'
   const [active, setActive] = useState(defaultMenu);
-  const [sideBarOpened, setSideBar] = useState(true);
+  const [width, setWidth] = useState(window.innerWidth);
+  const [sideBarOpened, setSideBar] = useState(width > "479px" ? true : false);
+
+  useEffect(() => {
+    // Handler to call on window resize
+    const handleResize = () => setWidth(window.innerWidth);
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty dependency = run once on mount
 
   const renderContent = () => {
+
     switch (active) {
       case "Dashboard":
         return(

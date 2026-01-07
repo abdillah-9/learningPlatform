@@ -12,7 +12,7 @@ export default function About(){
   return(
 <div style={{ display: "flex",flexDirection:'column'}}>
     {/* Top nav bar */}
-    <div style={{position:'absolute', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#0C2B4E',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
+    <div style={{position:'relative', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#0C2B4E',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
       <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center', flexGrow:1}}>
           <img src={MwangazaLogo} alt="logo" width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
         <span style={{fontSize:'18px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
@@ -29,7 +29,7 @@ export default function About(){
 
     {/** Huge Image */}
     <div style={{height:'calc(100vh)',width:'100vw', position:'relative', overflow:'hidden',}}>
-      <img src={aboutImage} alt='pic' width={'100%'} height={'auto'} style={{aspectRatio:16/9, bottom:"-50px", position:'relative'}}/>
+      <img src={aboutImage} alt='pic' width={'100%'} height={'auto'} style={{aspectRatio:16/9}}/>
       <div style={{position:'absolute', top:0, left:0, width:'100%', height:'100%',backgroundColor:'rgba(1, 1, 54, 0.5)', color:'white', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', gap:'50px', textAlign:'center', padding:'10px'}}>
         <h1 style={{fontSize:'40px'}}>About Us</h1>
         <p>Building a Generation of Founders and C.E.Os</p>

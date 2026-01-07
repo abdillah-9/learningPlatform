@@ -87,22 +87,20 @@ function SlideShow() {
   const [loadedImages, setLoadedImages] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);
 
-  const images = [pic1, pic2, pic3, pic4, pic5,{/*pic6*/}];
+  const images = [pic1, pic2, pic3, pic4, pic5];
   const texts = [
     "Own your company and be your own C.E.O",
     "It's 21st Century, Pursue a Business Opportunity Through Creation of a Company",
     "Money Without Financial Intelligence Is Money Gone Soon",
     "An Asset Puts Money in Your Pocket, Liability Takes Money Out of Your Pock",
-    "Embrace a Mindset of Lifelong, Voluntary Pursuit of New Knowledge",
-    // "A recognized business idea should be pursued through creation of business organization"
+    "Embrace a Mindset of Lifelong, Voluntary Pursuit of New Knowledge"
   ];
   const headings = [
     "Brela and Business Registration",
     "Shaping a Business Opportunity ",
     "Financial Literacy ",
     "Intelligent Spending ",
-    "Upgrade Your Mindset and Productivity ",
-    // "Problem solving through organization"
+    "Upgrade Your Mindset and Productivity "
   ];
 
   // Preload all images

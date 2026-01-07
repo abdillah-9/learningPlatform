@@ -227,7 +227,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
             </div>            
             <img
               src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData.user_pic}`}
-              style={{ borderRadius: "50%", width:'50px' }}
+              style={{ borderRadius: "50%", width:'50px', height:'auto', aspectRatio:16/9, objectFit:'cover' }}
             />
             {/* <div style={{ fontSize: "14px", display:'flex', flexWrap:'wrap', gap:'7px', alignItems:'center' }}>
               <span style={{ color: "rgba(200,200,200,0.8)", fontSize: "16px" }}>

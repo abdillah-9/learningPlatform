@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { BsBook, BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
-import pic1 from '../assets/pic1.jpeg';
-import pic2 from '../assets/pic2.jpeg';
-import pic3 from '../assets/pic3.jpeg';
-import pic4 from '../assets/pic4.jpeg';
-import pic5 from '../assets/pic5.jpeg';
+import pic1 from '../assets/pic1.webp';
+import pic2 from '../assets/pic2.webp';
+import pic3 from '../assets/pic3.webp';
+import pic4 from '../assets/pic4.webp';
+import pic5 from '../assets/pic5.webp';
 import pic6 from '../assets/pic6.jpeg';
 import pic7 from '../assets/pic7.jpg';
 import man from '../assets/icon.jpeg';
@@ -87,22 +87,22 @@ function SlideShow() {
   const [loadedImages, setLoadedImages] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);
 
-  const images = [pic1, pic2, pic3, pic4, pic5,pic6];
+  const images = [pic1, pic2, pic3, pic4, pic5,{/*pic6*/}];
   const texts = [
     "Own your company and be your own C.E.O",
-    "Its’ 21st century, pursue your business idea through an organization",
-    "An asset puts money in my pocket. A liability takes money out of my pocket",
-    "Just as there are no born employees, we believe there are not only entrepreneur born, you can learn to be one",
-    "Money without financial intelligence is money soon gone",
-    "A recognized business idea should be pursued through creation of business organization"
+    "It's 21st Century, Pursue a Business Opportunity Through Creation of a Company",
+    "Money Without Financial Intelligence Is Money Gone Soon",
+    "An Asset Puts Money in Your Pocket, Liability Takes Money Out of Your Pock",
+    "Embrace a Mindset of Lifelong, Voluntary Pursuit of New Knowledge",
+    // "A recognized business idea should be pursued through creation of business organization"
   ];
   const headings = [
     "Brela and Business Registration",
-    "Shaping an Opportunity",
-    "Upgrade your mindset and productivity",
-    "Intelligent Spending",
-    "Financial Literacy",
-    "Problem solving through organization"
+    "Shaping a Business Opportunity ",
+    "Financial Literacy ",
+    "Intelligent Spending ",
+    "Upgrade Your Mindset and Productivity ",
+    // "Problem solving through organization"
   ];
 
   // Preload all images
@@ -173,11 +173,11 @@ useEffect(() => {
         </div>
       </div>
       {/* Image */}
-      <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%', minHeight:'400px' }}>
+      <div style={{ position: 'relative', width: '100%', height:'auto', aspectRatio:16/9}}>
         <img
           src={loadedImages[index].src}
           alt="slide"
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
         />
       </div>
 
@@ -206,18 +206,18 @@ useEffect(() => {
 
 
       {/* Heading */}
-      <div className={`${animate ? 'slideTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white', top:'50%', fontSize:'17px',fontWeight:200 }}>
-        <div style={{fontSize:'30px', fontWeight:600}}>{headings[index]}</div>
-        {texts[index]}
+      <div className={`${animate ? 'slideTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white', top:'50%', fontSize:'15px',fontWeight:600 }}>
+        <div style={{fontSize:'25px', fontWeight:700}}>{headings[index]}</div>
+        <div>{texts[index]}</div>
       </div>
 
       {/* NEXT/PREV BUTTONS */}
       <div style={{ position: "absolute", top: "50%", left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={prev}>
-        <CgChevronDoubleLeft style={{ fontSize: '35px', color: 'white' }} />
+        <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
       </div>
 
       <div style={{ position: "absolute", top: "50%", right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={next}>
-        <CgChevronDoubleRight style={{ fontSize: '35px', color: 'white' }} />
+        <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
       </div>
     </div>
   );

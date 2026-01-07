@@ -204,8 +204,8 @@ useEffect(() => {
 
 
       {/* Heading */}
-      <div className={`${animate ? 'slideTop PicTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white',fontSize:'17px',fontWeight:500 }}>
-        <div className="PicFont" style={{fontSize:'25px', fontWeight:700}}>{headings[index]}</div>
+      <div className={`${animate ? 'slideTop PicTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white',fontWeight:500 }}>
+        <div className="PicFont" style={{fontWeight:700}}>{headings[index]}</div>
         <div  className="PicFontMini">{texts[index]}</div>
       </div>
 
@@ -525,7 +525,6 @@ const topSlideshowTexts = {
   position: "absolute",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  fontSize: "25px",
   fontWeight: "500",
   textAlign: "center",
   width: "90%",

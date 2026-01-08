@@ -408,12 +408,14 @@ if(!coursesList){
 
   return(
     <div style={{display:'flex',gap:'60px', flexDirection:'column', padding:'50px 20px'}}>
-      <div style={{fontWeight:700, fontSize:'20px', padding:'10px 13px'}}>
-        COURSES
-      </div>
-      <span style={{padding:'15px', fontStyle:'italic', fontWeight:300, borderRadius:'20px', border:'1px solid #0b023222'}}>
+      <div style={{fontWeight:700, fontSize:'20px', padding:'10px 13px', display:'flex', flexDirection:'column', gap:'10px'}}>
+        <span>
+          COURSES
+        </span>
+      <span style={{padding:'15px', fontStyle:'italic', fontWeight:400, borderRadius:'20px', border:'1px solid #0b023222', width:'fit-content'}}>
         Click on your favorite course to get started
       </span>
+      </div>
       
       <div style={{display:'flex', width:'100%',  alignItems:'center'}}>
         

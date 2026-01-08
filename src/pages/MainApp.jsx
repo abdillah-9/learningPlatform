@@ -188,7 +188,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
         style={{
           width: "100vw",
           minHeight: "80px",
-          backgroundColor: "#0C2B4E",
+          backgroundColor: "#253957",
           color: "white",
           display: "flex",
           justifyContent: "space-between",

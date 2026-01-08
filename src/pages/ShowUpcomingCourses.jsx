@@ -43,7 +43,7 @@ export default function ShowUpcomingCourses(){
     return(
         <div style={{minHeight:'100vh'}}>
             {/* Top nav bar */}
-            <div style={{position:'relative', top:0, left:0, width:'100%', height:'fit-content',minHeight:'80px', backgroundColor:'#0c2247ff',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'15px'}}>
+            <div style={{position:'relative', top:0, left:0, width:'100%', height:'fit-content',minHeight:'80px', backgroundColor:'#253957',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'15px'}}>
                 <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
                     <img src={MwangazaLogo} alt="logo"                      
                     width={'60px'} height={'60px'} 
@@ -65,7 +65,7 @@ export default function ShowUpcomingCourses(){
             
             <div style={{minHeight:'50vh',padding:'30px 10px', display:'flex', flexDirection:'column', gap:'40px'}}>
               {upcomingCourses? upcomingCourses?.map((course, index)=>(
-                <div key={index} style={{display:'flex',flexWrap:'wrap', gap:'20px', maxWidth:'800px', boxShadow:'1px 2px 10px #0c2247ff'}}>
+                <div key={index} style={{display:'flex',flexWrap:'wrap', gap:'20px', maxWidth:'800px', boxShadow:'1px 2px 10px #253957'}}>
                     <span style={{aspectRatio:16/9,width:'100%',maxWidth:'350px'}}>
                         <img src={course?.pic ? course?.pic : logo} alt="pic" width={"100%"} height={"100%"} style={{objectFit:'cover', }}/>
                     </span>
@@ -94,13 +94,13 @@ export default function ShowUpcomingCourses(){
 function Footer(){
     const navigateTo = useNavigate();
   return(
-    <div style={{backgroundColor:'#0c2247ff', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
+    <div style={{backgroundColor:'#253957', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
       <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'30%', minWidth:'300px', gap:'20px'}}>
         <div style={{display:'flex',gap:'5px', flexDirection:'column', justifyContent:'center'}}>
           <span style={{display:'block',left:'95px', position:'relative'}}>
             <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
           </span>
-          <span style={{fontSize:'21px', fontWeight:500}}> MMwangaza Knowledge Hub</span>
+          <span style={{fontSize:'21px', fontWeight:500}}> Mwangaza Knowledge Hub</span>
         </div>
         <div>
           Building a Generation of Founders and C.E.Os

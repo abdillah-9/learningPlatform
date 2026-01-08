@@ -12,10 +12,10 @@ export default function About(){
   return(
 <div style={{ display: "flex",flexDirection:'column'}}>
     {/* Top nav bar */}
-    <div style={{position:'relative', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#0c2247ff',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
+    <div style={{position:'relative', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#253957',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
       <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center', flexGrow:1}}>
           <img src={MwangazaLogo} alt="logo" width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
-        <span style={{fontSize:'18px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
+        <span style={{fontSize:'18px', fontWeight:600}}> Mwangaza Knowledge Hub</span>
       </div>
       <div style={{display:'flex', gap:'15px', fontSize:'18px',fontWeight:500}}>
         <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"14px", fontWeight:600, cursor:'pointer', gap:'4px'}} onClick={()=>navigateTo('/')}>
@@ -62,7 +62,7 @@ export default function About(){
     </div>
 
     {/** Last Div */}
-    <div style={{display:'flex', flexWrap:'wrap', backgroundColor:'#0c2247ff', alignItems:'center', padding:'15px', justifyContent:'space-between'}}>
+    <div style={{display:'flex', flexWrap:'wrap', backgroundColor:'#253957', alignItems:'center', padding:'15px', justifyContent:'space-between'}}>
       <div  style={{flex:'1 1 250px', padding:'15px', color:'rgba(235, 235, 240, 0.9)', gap:'15px', fontWeight:200, display:'flex', flexDirection:'column', maxWidth:'700px'}}>
         <h2>What’s Ahead</h2>
         
@@ -103,13 +103,13 @@ export default function About(){
     </div>
 
     {/** Footer */}
-    <footer style={{backgroundColor:'#0c2247ff', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+    <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
         {/** Logo and company name */}
         <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>
             <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
             <span>
-                MWANGAZA BUSINESS & INVESTMENT SCHOOL
+                Mwangaza Knowledge Hub
             </span>
         </div>
         {/** Course number & Course name */}

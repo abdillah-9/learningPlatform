@@ -408,7 +408,12 @@ if(!coursesList){
 
   return(
     <div style={{display:'flex',gap:'60px', flexDirection:'column', padding:'50px 20px'}}>
-      <div style={{fontWeight:700, fontSize:'20px', padding:'10px 13px'}}>COURSES</div>
+      <div style={{fontWeight:700, fontSize:'20px', padding:'10px 13px'}}>
+        COURSES
+      </div>
+      <span style={{padding:'15px', fontStyle:'italic', fontWeight:300, borderRadius:'20px', border:'1px solid #0b023222'}}>
+        Click on your favorite course to get started
+      </span>
       
       <div style={{display:'flex', width:'100%',  alignItems:'center'}}>
         
@@ -511,9 +516,6 @@ function Footer(){
         <div style={{display:'flex', gap:'15px', flexDirection:'column'}}>
           <span onClick={()=>navigateTo('/view_all_courses')} style={{cursor:'pointer'}}>
             Courses
-          </span>
-          <span style={{padding:'15px', fontStyle:'italic', fontWeight:300, borderRadius:'20px', border:'1px solid #0b023222'}}>
-            Click on your favorite course to get started
           </span>
           {
             userData?.user_role == 'admin' ?

@@ -189,7 +189,7 @@ export default function AAviewLastCourse() {
           </div>
           <span style={{display:'flex', alignItems:'center', padding:'6px', gap:'6px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', cursor:'pointer', width:'100%',flex:'1 1 250px', fontSize:'14px'}}
           onClick={()=>{navigateTo(`/enroll_course/${courseId}`, {replace:true})}}>
-            <span style={{fontSize:'14px',backgroundColor:"#F4B342", borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:"#684200ff"}}>
+            <span style={{fontSize:'14px',backgroundColor:"#FAA533", borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:"#684200ff"}}>
               <LucideClipboardList  size={16}/>
             </span>
             <span style={{fontSize:'13px'}}>

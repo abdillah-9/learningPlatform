@@ -100,7 +100,7 @@ function SignUp(){
                 {/* <p style={{color:'rgba(146,146,146,1)', fontSize:'14px'}}>
                     By continuing, you confirm that you are at least 16 years of age and agree to Africa Investment School Terms of Use.
                 </p> */}
-                <input type="submit" name="submit" value={'Create an account for free'} style={{backgroundColor:'rgba(145, 152, 255, 1)', color:'white', padding:'10px 15px', width:'fit-content', fontSize:'20px', border:'1px solid rgba(0,0,0,0)', display:'block', cursor:'pointer'}} />
+                <input type="submit" name="submit" value={'Create an account for free'} style={{backgroundColor:'#0C2B4E', color:'white', padding:'10px 15px', width:'fit-content', fontSize:'20px', border:'1px solid rgba(0,0,0,0)', display:'block', cursor:'pointer'}} />
             </div>
         </form>
     )
@@ -149,7 +149,7 @@ function SignIn(){
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="text" name="username_email" placeholder="Username or Email" />
                 <input style={{fontSize:'16px',padding:'10px 15px', border:'1px solid rgba(146,146,146,1)',borderRadius:'5px'}} type="password" name="p_word" placeholder="Password" />
                 <div style={{display:'flex', flexWrap:'wrap', gap:'20px', alignItems:'center'}}>
-                    <input type="submit" name="submit" value='Sign In' style={{backgroundColor:'rgba(145, 152, 255, 1)', color:'white', padding:'8px 13px', width:'fit-content', fontSize:'20px', border:'1px solid rgba(0,0,0,0)', display:'block', cursor:'pointer', borderRadius:'5px', height:'fit-content'}} />
+                    <input type="submit" name="submit" value='Sign In' style={{backgroundColor:'#0C2B4E', color:'white', padding:'8px 13px', width:'fit-content', fontSize:'20px', border:'1px solid rgba(0,0,0,0)', display:'block', cursor:'pointer', borderRadius:'5px', height:'fit-content'}} />
                     <p style={{color:'rgba(146,146,146,1)', fontSize:'18px', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/forgot_password')}}>
                         Forgot Password?
                     </p>

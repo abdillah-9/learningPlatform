@@ -5,7 +5,7 @@ import { VscLoading } from 'react-icons/vsc'
 
 export default function LoadingSpinner() {
   return (
-    <div className='centered flex-Column' style={{height:"100vh", width:"100vw", color:"#FAA533"}}>
+    <div className='centered flex-Column' style={{height:"100vh", width:"100vw", color:"#0C2B4E"}}>
       <div className='loadingSpinner'>
         <TbLoader3 style={{fontSize:'100px'}}/>
       </div>

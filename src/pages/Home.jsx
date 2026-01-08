@@ -407,7 +407,7 @@ if(!coursesList){
   const itemsToShow = coursesList.slice(index, index + 3);
 
   return(
-    <div style={{display:'flex',gap:'60px', flexDirection:'column', padding:'50px 20px'}}>
+    <div style={{display:'flex',gap:'45px', flexDirection:'column', padding:'50px 20px'}}>
       <div style={{fontWeight:700, fontSize:'20px', padding:'10px 13px 0px 13px', display:'flex', flexDirection:'column', gap:'10px'}}>
         <span>
           COURSES

@@ -70,7 +70,7 @@ export default function Course(){
                     <span>{courseData.course.name}</span>
                 </div>
                 {/** Buotton links */}
-                <div style={{display:'flex', gap:'20px', height:'fit-content', }}>
+                <div style={{display:'flex', gap:'20px', height:'fit-content',flexWrap:'wrap' }}>
                     <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, border:'1px solid rgba(70, 169, 194, 1)', color:'rgba(70, 169, 194, 1)', cursor:'pointer', height:'fit-content'}} onClick={()=>{navigateTo('/')}}>
                         HOME
                     </div>
@@ -95,7 +95,7 @@ export default function Course(){
                         <p style={{paddingBottom:'20px', borderBottom:'2px solid rgba(200,200,200,0.8)',fontSize:'16px', color:'rgba(54, 53, 53, 0.8)',width:'90%'}}
                         dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.description)}}>
                         </p>
-                        <span style={{background:'#eebd3e', padding:'10px', color:'#ffffffff', fontSize:'18px', textAlign:'center', marginTop:'20px', width:'fit-content', borderRadius:'5px', cursor:'pointer', fontWeight:400, maxWidth:'250px'}}>
+                        <span style={{background:'#eebd3e', padding:'10px', color:'#ffffffff', fontSize:'18px', textAlign:'center', marginTop:'20px', width:'fit-content', borderRadius:'5px', cursor:'pointer', fontWeight:400, maxWidth:'80vw'}}>
                             Building a Generation of Founders and C.E.Os
                         </span>
                     </div>

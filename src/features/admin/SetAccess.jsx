@@ -122,4 +122,4 @@ export default function SetAccess() {
 /* styles */
 const boxStyle = { border: "1px solid #ccc", padding: "20px", borderRadius: "10px", maxWidth: "400px", marginBottom: "30px" };
 const inputStyle = { width: "100%", padding: "10px", marginBottom: "10px" };
-const btnStyle = { padding: "10px 20px", background: "#0C2B4E", color: "white", border: "none", cursor: "pointer" };
+const btnStyle = { padding: "10px 20px", background: "#253957", color: "white", border: "none", cursor: "pointer" };

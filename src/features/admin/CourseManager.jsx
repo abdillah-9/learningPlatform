@@ -613,7 +613,7 @@ const btnAddLarge = {
   cursor: "pointer",
 };
 const btnSubmit = {
-  background: "#0c2b4eef",
+  background: "#253957",
   color: "white",
   padding: "12px 20px",
   border: "none",

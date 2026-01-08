@@ -54,7 +54,7 @@ export default function Course(){
     }
 
     return(
-        <div style={{width:'100vw', display:'flex', flexDirection:'column', gap:'40px', backgroundColor:'rgba(225, 227, 253, 1)',}}>
+        <div style={{width:'100vw', display:'flex', flexDirection:'column', gap:'10px', backgroundColor:'rgba(225, 227, 253, 1)',}}>
             <nav style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 40px 20px 40px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
                 {/** Logo and company name */}
@@ -65,7 +65,7 @@ export default function Course(){
                     </span>
                 </div>
                 {/** Course number & Course name */}
-                <div style={{display:'flex', gap:'3px', fontSize:'17px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'10px'}}>
+                <div style={{display:'flex', gap:'3px', fontSize:'17px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'40px'}}>
                     <span>{courseData.course.number}:</span>
                     <span>{courseData.course.name}</span>
                 </div>

@@ -12,7 +12,7 @@ export default function About(){
   return(
 <div style={{ display: "flex",flexDirection:'column'}}>
     {/* Top nav bar */}
-    <div style={{position:'relative', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#0C2B4E',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
+    <div style={{position:'relative', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#0F2854',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
       <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center', flexGrow:1}}>
           <img src={MwangazaLogo} alt="logo" width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
         <span style={{fontSize:'18px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
@@ -30,7 +30,7 @@ export default function About(){
     {/** Huge Image */}
     <div style={{height:'auto',width:'100vw', position:'relative', overflow:'hidden',aspectRatio:16/9}}>
       <img src={aboutImage} alt='pic' width={'100%'} height={'auto'} style={{aspectRatio:16/9}}/>
-      <div style={{position:'absolute', top:0, left:0, width:'100%', height:'100%',backgroundColor:'#0F2854', color:'white', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', gap:'10px', textAlign:'center', padding:'10px'}}>
+      <div style={{position:'absolute', top:0, left:0, width:'100%', height:'100%',backgroundColor:'#0f28547c', color:'white', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', gap:'10px', textAlign:'center', padding:'10px'}}>
         <h1 style={{fontSize:'40px', fontWeight:800}}>About Us</h1>
         <p style={{fontSize:'18px', fontWeight:600}}>Building a Generation of Founders and C.E.Os</p>
       </div>
@@ -62,7 +62,7 @@ export default function About(){
     </div>
 
     {/** Last Div */}
-    <div style={{display:'flex', flexWrap:'wrap', backgroundColor:'#0C2B4E', alignItems:'center', padding:'15px', justifyContent:'space-between'}}>
+    <div style={{display:'flex', flexWrap:'wrap', backgroundColor:'#0F2854', alignItems:'center', padding:'15px', justifyContent:'space-between'}}>
       <div  style={{flex:'1 1 250px', padding:'15px', color:'rgba(235, 235, 240, 0.9)', gap:'15px', fontWeight:200, display:'flex', flexDirection:'column', maxWidth:'700px'}}>
         <h2>What’s Ahead</h2>
         
@@ -103,7 +103,7 @@ export default function About(){
     </div>
 
     {/** Footer */}
-    <footer style={{backgroundColor:'#061424ff', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+    <footer style={{backgroundColor:'#0F2854', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
         {/** Logo and company name */}
         <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>

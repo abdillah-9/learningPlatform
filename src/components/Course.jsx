@@ -230,7 +230,7 @@ export default function Course(){
                         }}
                         onClick={() => window.open('https://wa.me/255788491086', '_blank')}
                         >
-                        <span style={{fontSize:'20px'}}>You may reach us through</span>
+                        <span style={{fontSize:'22px'}}>You may reach us through</span>
                         <PiWhatsappLogoLight style={{ fontSize: '34px' }} />
                         </div>
                     </div>

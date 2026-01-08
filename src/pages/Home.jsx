@@ -455,7 +455,7 @@ function Testimonials(){
         {/* <div style={{style:'20px ', fontWeight:500}}>Mr SosPeter Owur</div> */}
         <div style={{fontSize:'25px ', fontWeight:700, display:'flex', flexDirection:'column', gap:'10px',alignItems:"center"}}>
           <span>ABOUT FOUNDER</span>
-          <img src={SospeterNew} alt="Sospeter" style={{borderRadius:'50%', aspectRatio:3/4, width:'30%',minWidth:'200px' ,objectFit:'cover'}}/>
+          <img src={SospeterNew} alt="Sospeter" style={{borderRadius:'50%', aspectRatio:3/3, width:'30%',minWidth:'200px' ,objectFit:'cover'}}/>
         </div>
         <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', textAlign:'justify', gap:'15px'}}>
           <div style={{width:'100%', flex:'1 1 250px',gap:'30px', display:'flex', flexDirection:'column'}}> 

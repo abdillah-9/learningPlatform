@@ -163,7 +163,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
     <div style={{boxShadow:'1px 2px 20px rgba(100,100,100,0.6)', borderRadius:'5px', padding:'15px', display:'flex', flexWrap:'wrap', gap:'20px', fontSize:'13px'}}>  
     {/**COMPLETED */} 
       <div style={{display:'flex', flexDirection:'column',alignItems:'center', padding:'15px', gap:'10px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', flex:'1 1 900px',position:'relative',}}>
-        <span style={{fontSize:'21px',backgroundColor:"#FAA533",borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(81, 48, 1, 1)'}}><RiFileCheckFill/></span>
+        <span style={{fontSize:'21px',backgroundColor:"#eebd3e",borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(81, 48, 1, 1)'}}><RiFileCheckFill/></span>
         <span style={{fontSize:'18px',fontWeight:500, display:'flex', gap:'6px', alignItems:'center', paddingBottom:'20px'}}>
           Completed Courses 
           <span style={{fontSize:'20px',fontWeight:500,padding:'3px 13px', boxShadow:'1px 0.5px 3px rgba(56, 55, 55, 1)', borderRadius:'50%',display:'block', height:'fit-content',}}>
@@ -212,7 +212,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
 
     {/** ---------------- IN_PROGRESS ------------------------ */}
       <div style={{display:'flex', flexDirection:'column',alignItems:'center', padding:'15px', gap:'10px',boxShadow:'1px 1px 20px rgba(100,100,100,0.6)', borderRadius:'5px', flex:'1 1 900px',position:'relative',}}>
-        <span style={{fontSize:'21px',backgroundColor:"#FAA533",borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(81, 48, 1, 1)'}}><MdPendingActions/></span>
+        <span style={{fontSize:'21px',backgroundColor:"#eebd3e",borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', padding:'10px', color:'rgba(81, 48, 1, 1)'}}><MdPendingActions/></span>
         <span style={{fontSize:'18px',fontWeight:500, display:'flex', gap:'6px', alignItems:'center', paddingBottom:'20px'}}>
           In-Progress Courses 
           <span style={{fontSize:'20px',fontWeight:500,padding:'3px 13px', boxShadow:'1px 0.5px 3px rgba(56, 55, 55, 1)', borderRadius:'50%',display:'block', height:'fit-content',}}>

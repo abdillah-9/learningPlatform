@@ -123,7 +123,7 @@ function CoursesDetails({formState, setFormState, setEditModeState, courseData, 
             opacity: currentPage === 1 ? 0.5 : 1,
             borderRadius:'20px',
             padding:'6px 10px',
-            backgroundColor:"#F4B342",
+            backgroundColor:"#eebd3e",
             display:'flex',
             alignItems:'center',
             gap:'5px'
@@ -136,7 +136,7 @@ function CoursesDetails({formState, setFormState, setEditModeState, courseData, 
         {/* PAGE INFO */}
         <span style={{
           padding:'6px 10px',
-          backgroundColor:"#F4B342",
+          backgroundColor:"#eebd3e",
           fontSize:'13px',
           fontWeight:700
         }}>
@@ -151,7 +151,7 @@ function CoursesDetails({formState, setFormState, setEditModeState, courseData, 
             opacity: currentPage === totalPages ? 0.5 : 1,
             borderRadius:'20px',
             padding:'6px 10px',
-            backgroundColor:"#F4B342",
+            backgroundColor:"#eebd3e",
             display:'flex',
             alignItems:'center',
             gap:'5px'

@@ -109,7 +109,7 @@ function SideBar({ active, setActive, sideBarOpened, width }) {
   return (
     <div
       style={{
-        backgroundColor: "#FAA533",
+        backgroundColor: "#eebd3e",
         width: sideBarOpened ? "200px" : '0px',
         minHeight:'100vh',
         overflow:'hidden',
@@ -141,8 +141,8 @@ function SideBar({ active, setActive, sideBarOpened, width }) {
             style={{
               padding: "7px 11px",
               borderRadius: "50%",
-              backgroundColor: active === link.key ? "#FAA533" : "black",
-              color: active === link.key ? "black" : "#FAA533",
+              backgroundColor: active === link.key ? "#eebd3e" : "black",
+              color: active === link.key ? "black" : "#eebd3e",
             }}
           >
             {link.icon}

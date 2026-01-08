@@ -165,7 +165,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
       {courses?.map((course, courseIndex) => (
         <div key={course.id} style={{ marginBottom: "25px" }}>
           <h5 style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <span style={{padding:'8px', borderRadius:'20px', minWidth:'200px', border:'1px solid #F0B400', fontSize:'16px', color:'#735600ff'}}>{`Course ${courseIndex + 1}: ${course.name}`}</span>
+            <span style={{padding:'8px', borderRadius:'20px', minWidth:'200px', border:'1px solid #eebd3e', fontSize:'16px', color:'#735600ff'}}>{`Course ${courseIndex + 1}: ${course.name}`}</span>
             <span style={{ display: "flex", gap: "10px" }}>
               <button
                 style={{
@@ -173,7 +173,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
                   borderRadius: "5px",
                   border: "none",
                   cursor: "pointer",
-                  backgroundColor: "#F0B400",
+                  backgroundColor: "#eebd3e",
                 }}
                 onClick={() => {
                   setEditModeState(!editModeState);

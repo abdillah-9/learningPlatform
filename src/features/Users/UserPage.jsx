@@ -146,7 +146,7 @@ const inputStyle = {
 
 const btnStyle = {
   padding: "10px 20px",
-  background: "#0C2B4E",
+  background: "#0c2247ff",
   color: "white",
   border: "none",
   cursor: "pointer",

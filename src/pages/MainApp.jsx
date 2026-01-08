@@ -206,7 +206,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
             style={{ borderRadius: "50%" }}
           />
           <span style={{ fontSize: "17px", fontWeight: 600 }}>
-            MWANGAZA BUSINESS & INVESTMENT SCHOOL
+            Mwangaza Knowledge Hub
           </span>
         </div>
 
@@ -226,11 +226,11 @@ function TopNavBar({sideBarOpened, setSideBar}) {
               Logout  
             </div>
             <div style={{marginRight:'10px',padding:'10px 5px',borderRadius:'50px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', fontSize:"11px", fontWeight:900, cursor:'pointer', gap:'4px'}} onClick={()=>navigate('/')}>
-              <RiHome9Fill style={{fontSize:'13px'}}/> <span>Home</span>  
+              <span>Home</span>  
             </div>            
             <img
               src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData.user_pic}`}
-              style={{ borderRadius: "50%", width:'50px', height:'45px', objectFit:'cover' }}
+              style={{ borderRadius: "50%", width:'50px', height:'45px', objectFit:'cover', marginRight:'15px' }}
             />
             {/* <div style={{ fontSize: "14px", display:'flex', flexWrap:'wrap', gap:'7px', alignItems:'center' }}>
               <span style={{ color: "rgba(200,200,200,0.8)", fontSize: "16px" }}>

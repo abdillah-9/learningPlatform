@@ -165,7 +165,7 @@ useEffect(() => {
       <div style={{position:'relative', top:0, left:0, width:'100%', height:'fit-content',minHeight:'80px', backgroundColor:'#0C2B4E',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'10px 15px', alignItems:'center', flexWrap:'wrap', gap:'15px'}}>
         <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
             <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
-          <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
+          <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> Mwangaza Knowledge Hub</span>
         </div>
         <div style={{display:'flex', gap:'50px', fontSize:'14px',fontWeight:500}}> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us </span> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>View All Courses</span> 
         </div>
@@ -266,7 +266,7 @@ function UltraMiniSlideShow() {
 
     In fact, I have an office at Mavuno House, Poster Dar es Salaam. I am also working on upgrading from sole proprietorship to a corporate limited liability company`,
 
-    `Following my graduation from University, I struggled to get employment as usual before being introduced to Mwangaza Business and Investment School. I began studying Shaping a Business Idea slowly, and I was excited to discover that we university students are not taught several important details about business. I currently own my own business in town, and while I hope to open a limited liability corporation in the future, I am currently working to register a sole proprietorship very soon.`,
+    `Following my graduation from University, I struggled to get employment as usual before being introduced to Mwangaza Knowledge Hub. I began studying Shaping a Business Idea slowly, and I was excited to discover that we university students are not taught several important details about business. I currently own my own business in town, and while I hope to open a limited liability corporation in the future, I am currently working to register a sole proprietorship very soon.`,
   ];
   const names=[
     'BAKARI M BAKARI',
@@ -481,7 +481,7 @@ function Footer(){
           <span style={{display:'block',left:'95px', position:'relative'}}>
             <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
           </span>
-          <span style={{fontSize:'22px', fontWeight:500}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
+          <span style={{fontSize:'22px', fontWeight:500}}> Mwangaza Knowledge Hub</span>
         </div>
         <div>
             Building a Generation of Founders and C.E.Os

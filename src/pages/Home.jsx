@@ -210,11 +210,11 @@ useEffect(() => {
       </div>
 
       {/* NEXT/PREV BUTTONS */}
-      <div className="PicTop" style={{ position: "absolute", top: "50vh", left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={prev}>
+      <div className="PicTop" style={{ position: "absolute", top: "50vh", left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: '#0F2854', cursor: 'pointer' }} onClick={prev}>
         <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
       </div>
 
-      <div className="PicTop" style={{ position: "absolute", top: "50vh", right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={next}>
+      <div className="PicTop" style={{ position: "absolute", top: "50vh", right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: '#0F2854', cursor: 'pointer' }} onClick={next}>
         <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
       </div>
     </div>
@@ -377,11 +377,11 @@ useEffect(() => {
       </div>
 
       {/* NEXT/PREV BUTTONS */}
-      <div style={{ position: "absolute", top: "50%", left: '0%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={prev}>
+      <div style={{ position: "absolute", top: "50%", left: '0%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#0F2854', cursor: 'pointer' }} onClick={prev}>
         <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
       </div>
 
-      <div style={{ position: "absolute", top: "50%", right: '0%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: 'rgba(0, 29, 82, 0.5)', cursor: 'pointer' }} onClick={next}>
+      <div style={{ position: "absolute", top: "50%", right: '0%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#0F2854', cursor: 'pointer' }} onClick={next}>
         <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
       </div>
     </div>

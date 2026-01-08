@@ -412,7 +412,7 @@ if(!coursesList){
         <span>
           COURSES
         </span>
-      <span style={{padding:'10px 12px', fontStyle:'italic', fontWeight:500, borderRadius:'20px', border:'1px solid #0b023222', width:'fit-content', fontSize:'16px'}}>
+      <span style={{padding:'10px 12px', fontStyle:'italic', fontWeight:500, borderRadius:'20px', border:'1px solid #0b0232a5', width:'fit-content', fontSize:'16px'}}>
         Click on your favorite course to get started
       </span>
       </div>

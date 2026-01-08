@@ -570,12 +570,12 @@ html, body{
 }
 @media screen and (max-width:720px){
 .PicFont{
-  font-size: 22px;
+  font-size: 25px;
 }
 .PicFontMini{
   font-size: 15px;
 }
 .PicTop{
-  top: 30vh;
+  top: 0vh;
 }
 }

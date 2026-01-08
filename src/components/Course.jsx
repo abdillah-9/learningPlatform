@@ -61,7 +61,7 @@ export default function Course(){
                 <div style={{fontSize:'20px', fontWeight:500, display:'flex', justifyContent:'center', alignItems:'center', flexWrap:'wrap', gap:'15px',height:'fit-content'}}>
                     <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
                     <span style={{maxWidth:'300px',minWidth:'250px'}}>
-                        MWANGAZA BUSINESS & INVESTMENT SCHOOL
+                        Mwangaza Knowledge Hub
                     </span>
                 </div>
                 {/** Course number & Course name */}
@@ -245,7 +245,7 @@ export default function Course(){
                 <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>
                     <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
                     <span style={{width:'250px', textAlign:'center'}}>
-                        MWANGAZA BUSINESS & INVESTMENT SCHOOL
+                        Mwangaza Knowledge Hub
                     </span>
                 </div>
                 {/** Course number & Course name */}

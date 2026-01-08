@@ -95,7 +95,7 @@ export default function Course(){
                         <p style={{paddingBottom:'20px', borderBottom:'2px solid rgba(200,200,200,0.8)',fontSize:'16px', color:'rgba(54, 53, 53, 0.8)',width:'90%'}}
                         dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.description)}}>
                         </p>
-                        <span style={{background:'#eebd3e', padding:'10px', color:'#554900ff', fontSize:'19px', textAlign:'center', marginTop:'20px', width:'fit-content', borderRadius:'5px', cursor:'pointer'}}>
+                        <span style={{background:'#eebd3e', padding:'10px', color:'#ffffffff', fontSize:'17px', textAlign:'center', marginTop:'20px', width:'fit-content', borderRadius:'5px', cursor:'pointer', fontWeight:600}}>
                             Building a Generation of Founders and C.E.Os
                         </span>
                     </div>

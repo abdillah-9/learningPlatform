@@ -55,7 +55,7 @@ export default function Course(){
 
     return(
         <div style={{width:'100vw', display:'flex', flexDirection:'column', gap:'40px', backgroundColor:'rgba(225, 227, 253, 1)',}}>
-            <nav style={{backgroundColor:'rgba(0, 29, 82, 1)', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+            <nav style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
                 {/** Logo and company name */}
                 <div style={{fontSize:'20px', fontWeight:500, display:'flex', justifyContent:'center', alignItems:'center', flexWrap:'wrap', gap:'15px',height:'fit-content'}}>
@@ -90,12 +90,12 @@ export default function Course(){
                             <p style={{fontSize:'33px'}}>
                                 {courseData.course.name}
                             </p>
-                            <span style={{backgroundColor:'rgba(70, 169, 194, 1)',padding:'5px 20px', color:'white', borderRadius:"10px", height:'fit-content'}}>{courseData.course.number}</span>
+                            <span style={{backgroundColor:'#253957',padding:'5px 20px', color:'white', borderRadius:"10px", height:'fit-content'}}>{courseData.course.number}</span>
                         </div>
                         <p style={{paddingBottom:'20px', borderBottom:'2px solid rgba(200,200,200,0.8)',fontSize:'16px', color:'rgba(54, 53, 53, 0.8)',width:'90%'}}
                         dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.description)}}>
                         </p>
-                        <span style={{background:'linear-gradient(180deg,rgba(23, 161, 241, 1) 40%, rgba(0, 116, 184, 1) 60%', padding:'10px', color:'white', fontSize:'19px', textAlign:'center', marginTop:'20px', width:'fit-content', border:'1px solid black', borderRadius:'5px', cursor:'pointer'}}>
+                        <span style={{background:'#eebd3e', padding:'10px', color:'white', fontSize:'19px', textAlign:'center', marginTop:'20px', width:'fit-content', border:'1px solid black', borderRadius:'5px', cursor:'pointer'}}>
                             Building a Generation of Founders and C.E.Os
                         </span>
                     </div>
@@ -239,7 +239,7 @@ export default function Course(){
             </section>
 
             {/** Footer */}
-            <footer style={{backgroundColor:'rgba(0, 29, 82, 1)', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+            <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
                 {/** Logo and company name */}
                 <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>

@@ -62,7 +62,7 @@ export default function About(){
     </div>
 
     {/** Last Div */}
-    <div style={{display:'flex', flexWrap:'wrap', backgroundColor:'#0F2854', alignItems:'center', padding:'15px', justifyContent:'space-between'}}>
+    <div style={{display:'flex', flexWrap:'wrap', backgroundColor:'113F67', alignItems:'center', padding:'15px', justifyContent:'space-between'}}>
       <div  style={{flex:'1 1 250px', padding:'15px', color:'rgba(235, 235, 240, 0.9)', gap:'15px', fontWeight:200, display:'flex', flexDirection:'column', maxWidth:'700px'}}>
         <h2>What’s Ahead</h2>
         

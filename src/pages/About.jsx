@@ -12,7 +12,7 @@ export default function About(){
   return(
 <div style={{ display: "flex",flexDirection:'column'}}>
     {/* Top nav bar */}
-    <div style={{position:'relative', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#0F2854',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
+    <div style={{position:'relative', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#0c2247ff',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
       <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center', flexGrow:1}}>
           <img src={MwangazaLogo} alt="logo" width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
         <span style={{fontSize:'18px', fontWeight:600}}> MWANGAZA BUSINESS & INVESTMENT SCHOOL</span>
@@ -103,7 +103,7 @@ export default function About(){
     </div>
 
     {/** Footer */}
-    <footer style={{backgroundColor:'#0F2854', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+    <footer style={{backgroundColor:'#0c2247ff', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
         {/** Logo and company name */}
         <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>

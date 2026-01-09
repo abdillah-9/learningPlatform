@@ -65,8 +65,9 @@ export default function UserPage() {
         <h3>Update Profile</h3>
 
         <input
-          placeholder="Full Name"
+          placeholder="Phone number: 0715008990"
           style={inputStyle}
+          max={10}
           onChange={(e) =>
             setProfile({ ...profile, full_name: e.target.value })
           }

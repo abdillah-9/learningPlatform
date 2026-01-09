@@ -55,7 +55,7 @@ export default function Course(){
 
     return(
         <div style={{width:'100vw', display:'flex', flexDirection:'column', gap:'40px', backgroundColor:'rgba(225, 227, 253, 1)',}}>
-            <nav style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'20px 20px 20px 20px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+            <nav style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'12px 20px 12px 20px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
                 {/** Logo and company name */}
                 <div style={{fontSize:'20px', fontWeight:500, display:'flex', justifyContent:'center', alignItems:'center', flexWrap:'wrap', gap:'15px',height:'fit-content'}}>

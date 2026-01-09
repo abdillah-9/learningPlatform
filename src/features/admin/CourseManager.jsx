@@ -275,6 +275,7 @@ targetAudience: initialCourseData.targetAudience
   if(userData.user_role !== 'admin'){
     return
   }
+  console.log(courseData.description)
   return (
     <div style={{ padding: "20px", display: "flex", flexDirection: "column" }}>
       <h2>

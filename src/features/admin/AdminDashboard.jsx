@@ -175,7 +175,6 @@ function UsersActions(){
     const student_id = student.id;
     const formData = new FormData();
     formData.append('student_id', student_id);
-
      const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/delete_students.php',{
       method:'POST',
       body:formData,
@@ -189,6 +188,7 @@ function UsersActions(){
       );
 
       alert(data.message);
+      alert(student)
     }
 
     else{
@@ -262,7 +262,7 @@ function UsersActions(){
                    style={{width:'65px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
               />
               <span style={{fontSize:"17px", width:'120px'}}>
-                {std.full_name}
+                {std.phone_number}
               </span>
               <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
                 {std.user_role}

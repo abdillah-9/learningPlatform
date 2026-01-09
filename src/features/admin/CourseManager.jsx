@@ -36,6 +36,15 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
   // Prefill the form if in edit mode
   useEffect(() => {
+
+    const normalizeHTML = (html) => {
+  if (!html) return "";
+  // wrap inline content in <p> if it doesn't start with a block
+  return html.trim().startsWith("<p") || html.trim().startsWith("<div")
+    ? html
+    : `<p>${html}</p>`;
+};
+
     if (editModeState && initialCourseData) {
       console.log(initialCourseData);
       setCourseData({
@@ -48,21 +57,22 @@ export default function CourseManager({ formState, setFormState, editModeState, 
         picture: null, // we can't prefill file inputs
         // targetAudience: initialCourseData.targetAudience || "",
         duration: initialCourseData.duration || "",
-        description: initialCourseData.description
-          ? decodeHTML(initialCourseData.description)
-          : "",
+description: initialCourseData.description
+  ? normalizeHTML(decodeHTML(initialCourseData.description))
+  : "",
 
-        about: initialCourseData.about
-          ? decodeHTML(initialCourseData.about)
-          : "",
+about: initialCourseData.about
+  ? normalizeHTML(decodeHTML(initialCourseData.about))
+  : "",
 
-        hint: initialCourseData.hint
-          ? decodeHTML(initialCourseData.hint)
-          : "",
+hint: initialCourseData.hint
+  ? normalizeHTML(decodeHTML(initialCourseData.hint))
+  : "",
 
-        targetAudience: initialCourseData.targetAudience
-          ? decodeHTML(initialCourseData.targetAudience)
-          : "",
+targetAudience: initialCourseData.targetAudience
+  ? normalizeHTML(decodeHTML(initialCourseData.targetAudience))
+  : "",
+
       });
 
       setModules(

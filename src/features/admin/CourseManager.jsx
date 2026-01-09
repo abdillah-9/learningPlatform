@@ -69,7 +69,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
       setModules(
         initialCourseData.modules?.map((mod) => ({
           title: mod.title || "",
-          desc: mod.desc ? decodeHTML(mod.desc) : "",
+          desc: mod.description || "",
           cost: mod.cost || "",
           createdDate: mod.createdDate || new Date().toISOString().split("T")[0],
           blocks: mod.blocks?.map((block) => ({

@@ -40,19 +40,34 @@ export default function CourseManager({ formState, setFormState, editModeState, 
       setCourseData({
         number: initialCourseData.number || "",
         name: initialCourseData.name || "",
-        description: initialCourseData.description || "",
+        // description: initialCourseData.description || "",
         startDate: initialCourseData.startDate || new Date().toISOString().split("T")[0],
-        about: initialCourseData.about || "",
-        hint: initialCourseData.hint || "",
+        // about: initialCourseData.about || "",
+        // hint: initialCourseData.hint || "",
         picture: null, // we can't prefill file inputs
-        targetAudience: initialCourseData.targetAudience || "",
+        // targetAudience: initialCourseData.targetAudience || "",
         duration: initialCourseData.duration || "",
+        description: initialCourseData.description
+          ? decodeHTML(initialCourseData.description)
+          : "",
+
+        about: initialCourseData.about
+          ? decodeHTML(initialCourseData.about)
+          : "",
+
+        hint: initialCourseData.hint
+          ? decodeHTML(initialCourseData.hint)
+          : "",
+
+        targetAudience: initialCourseData.targetAudience
+          ? decodeHTML(initialCourseData.targetAudience)
+          : "",
       });
 
       setModules(
         initialCourseData.modules?.map((mod) => ({
           title: mod.title || "",
-          desc: mod.desc || "",
+          desc: mod.desc ? decodeHTML(mod.desc) : "",
           cost: mod.cost || "",
           createdDate: mod.createdDate || new Date().toISOString().split("T")[0],
           blocks: mod.blocks?.map((block) => ({

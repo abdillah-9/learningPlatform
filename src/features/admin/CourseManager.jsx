@@ -64,9 +64,6 @@ export default function CourseManager({ formState, setFormState, editModeState, 
           : "",
       });
 
-      //
-      alert(JSON.stringify(courseData));
-
       setModules(
         initialCourseData.modules?.map((mod) => ({
           title: mod.title || "",

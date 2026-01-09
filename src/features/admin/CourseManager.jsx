@@ -58,19 +58,19 @@ export default function CourseManager({ formState, setFormState, editModeState, 
         // targetAudience: initialCourseData.targetAudience || "",
         duration: initialCourseData.duration || "",
 description: initialCourseData.description
-  ? normalizeHTML(decodeHTML(initialCourseData.description))
+  ? decodeHTML(initialCourseData.description)
   : "",
 
 about: initialCourseData.about
-  ? normalizeHTML(decodeHTML(initialCourseData.about))
+  ? decodeHTML(initialCourseData.about)
   : "",
 
 hint: initialCourseData.hint
-  ? normalizeHTML(decodeHTML(initialCourseData.hint))
+  ? decodeHTML(initialCourseData.hint)
   : "",
 
 targetAudience: initialCourseData.targetAudience
-  ? normalizeHTML(decodeHTML(initialCourseData.targetAudience))
+  ? decodeHTML(initialCourseData.targetAudience)
   : "",
 
       });

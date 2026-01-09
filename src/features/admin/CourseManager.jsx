@@ -36,15 +36,6 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
   // Prefill the form if in edit mode
   useEffect(() => {
-
-    const normalizeHTML = (html) => {
-  if (!html) return "";
-  // wrap inline content in <p> if it doesn't start with a block
-  return html.trim().startsWith("<p") || html.trim().startsWith("<div")
-    ? html
-    : `<p>${html}</p>`;
-};
-
     if (editModeState && initialCourseData) {
       console.log(initialCourseData);
       setCourseData({
@@ -57,21 +48,21 @@ export default function CourseManager({ formState, setFormState, editModeState, 
         picture: null, // we can't prefill file inputs
         // targetAudience: initialCourseData.targetAudience || "",
         duration: initialCourseData.duration || "",
-description: initialCourseData.description
-  ? decodeHTML(initialCourseData.description)
-  : "",
+        description: initialCourseData.description
+          ? decodeHTML(initialCourseData.description)
+          : "",
 
-about: initialCourseData.about
-  ? decodeHTML(initialCourseData.about)
-  : "",
+        about: initialCourseData.about
+          ? decodeHTML(initialCourseData.about)
+          : "",
 
-hint: initialCourseData.hint
-  ? decodeHTML(initialCourseData.hint)
-  : "",
+        hint: initialCourseData.hint
+          ? decodeHTML(initialCourseData.hint)
+          : "",
 
-targetAudience: initialCourseData.targetAudience
-  ? decodeHTML(initialCourseData.targetAudience)
-  : "",
+        targetAudience: initialCourseData.targetAudience
+          ? decodeHTML(initialCourseData.targetAudience)
+          : "",
 
       });
 
@@ -334,6 +325,7 @@ targetAudience: initialCourseData.targetAudience
         <div>
           <label>About This Course</label>
           <TipTapEditor
+            key={courseData.about}
             value={courseData.about}
             onChange={(html) => updateCourseData("about", html)}
           />
@@ -343,6 +335,7 @@ targetAudience: initialCourseData.targetAudience
         <div>
           <label>Course Hint</label>
           <TipTapEditor
+            key={courseData.hint}
             value={courseData.hint}
             onChange={(html) => updateCourseData("hint", html)}
           />
@@ -352,6 +345,7 @@ targetAudience: initialCourseData.targetAudience
         <div>
           <label>Who Should Take This Course?</label>
           <TipTapEditor
+          key={courseData.targetAudience}
             value={courseData.targetAudience}
             onChange={(html) => updateCourseData("targetAudience", html)}
           />

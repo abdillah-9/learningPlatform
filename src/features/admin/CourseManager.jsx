@@ -324,6 +324,7 @@ targetAudience: initialCourseData.targetAudience
         <div>
           <label>Course Description</label>
           <TipTapEditor
+            key={courseData.description}
             value={courseData.description}
             onChange={(html) => updateCourseData("description", html)}
           />

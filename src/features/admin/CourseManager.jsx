@@ -37,6 +37,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
   // Prefill the form if in edit mode
   useEffect(() => {
     if (editModeState && initialCourseData) {
+      console.log(initialCourseData);
       setCourseData({
         number: initialCourseData.number || "",
         name: initialCourseData.name || "",

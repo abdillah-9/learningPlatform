@@ -65,7 +65,7 @@ export default function Course(){
                     </span>
                 </div>
                 {/** Course number & Course name */}
-                <div style={{display:'flex', gap:'3px', fontSize:'17px', position:'relative', border:"1px solid blue", justifyContent:'flex-end',minHeight:"fit-content", height:'100px'}}>
+                <div style={{display:'flex', gap:'3px', fontSize:'17px', position:'relative', border:"1px solid blue", justifyContent:'flex-end',minHeight:"fit-content", height:'100px', alignItems:'flex-end'}}>
                     <span>{courseData.course.number}:</span>
                     <span>{courseData.course.name}</span>
                 </div>

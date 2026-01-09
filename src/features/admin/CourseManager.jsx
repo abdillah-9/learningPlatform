@@ -60,7 +60,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
           ? decodeHTML(initialCourseData.hint)
           : "",
 
-        targetAudience: initialCourseData.targetAudience
+        target_audience: initialCourseData.targetAudience
           ? decodeHTML(initialCourseData.targetAudience)
           : "",
 
@@ -345,7 +345,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
         <div>
           <label>Who Should Take This Course?</label>
           <TipTapEditor
-          key={courseData.targetAudience}
+            key={courseData.targetAudience}
             value={courseData.targetAudience}
             onChange={(html) => updateCourseData("targetAudience", html)}
           />

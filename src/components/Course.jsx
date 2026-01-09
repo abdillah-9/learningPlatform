@@ -58,19 +58,19 @@ export default function Course(){
             <nav style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'20px 20px 20px 20px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
                 {/** Logo and company name */}
-                <div style={{fontSize:'20px', fontWeight:500, display:'flex', justifyContent:'center', alignItems:'center', flexWrap:'wrap', gap:'15px',height:'fit-content', border:'1px solid red'}}>
+                <div style={{fontSize:'20px', fontWeight:500, display:'flex', justifyContent:'center', alignItems:'center', flexWrap:'wrap', gap:'15px',height:'fit-content'}}>
                     <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
                     <span style={{maxWidth:'300px',minWidth:'250px'}}>
                         Mwangaza Knowledge Hub
                     </span>
                 </div>
                 {/** Course number & Course name */}
-                <div style={{display:'flex', gap:'3px', fontSize:'17px', position:'relative', border:"1px solid blue",minHeight:"fit-content", alignItems:'flex-end'}}>
+                <div style={{display:'flex', gap:'3px', fontSize:'17px', position:'relative', minHeight:"fit-content", alignItems:'flex-end'}}>
                     <span>{courseData.course.number}:</span>
                     <span>{courseData.course.name}</span>
                 </div>
                 {/** Buotton links */}
-                <div style={{display:'flex', gap:'20px',flexWrap:'wrap', border:'1px solid green' }}>
+                <div style={{display:'flex', gap:'20px',flexWrap:'wrap'}}>
                     <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, border:'1px solid rgba(70, 169, 194, 1)', color:'rgba(70, 169, 194, 1)', cursor:'pointer', height:'fit-content'}} onClick={()=>{navigateTo('/')}}>
                         HOME
                     </div>

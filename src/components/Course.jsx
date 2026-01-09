@@ -65,12 +65,12 @@ export default function Course(){
                     </span>
                 </div>
                 {/** Course number & Course name */}
-                <div style={{display:'flex', gap:'3px', fontSize:'17px', position:'relative', border:"1px solid blue"}}>
+                <div style={{display:'flex', gap:'3px', fontSize:'17px', position:'relative', border:"1px solid blue", justifyContent:'flex-end',}}>
                     <span>{courseData.course.number}:</span>
                     <span>{courseData.course.name}</span>
                 </div>
                 {/** Buotton links */}
-                <div style={{display:'flex', gap:'20px',flexWrap:'wrap' }}>
+                <div style={{display:'flex', gap:'20px',flexWrap:'wrap', border:'1px solid green' }}>
                     <div style={{borderRadius:'3px', padding:'10px', fontWeight:700, border:'1px solid rgba(70, 169, 194, 1)', color:'rgba(70, 169, 194, 1)', cursor:'pointer', height:'fit-content'}} onClick={()=>{navigateTo('/')}}>
                         HOME
                     </div>

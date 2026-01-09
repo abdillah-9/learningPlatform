@@ -162,7 +162,7 @@ useEffect(() => {
   return (
     <div className={`slideShowHeight ${animate ? 'slideScale' : ''}`} style={{ width: "100vw", position: "relative", overflow: "hidden",height:'100%' }}>
       {/* Top nav bar */}
-      <div style={{position:'relative', top:0, left:0, width:'100%', height:'fit-content',minHeight:'80px', backgroundColor:'#0C2B4E',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'10px 15px', alignItems:'center', flexWrap:'wrap', gap:'15px'}}>
+      <div style={{position:'relative', top:0, left:0, width:'100%', height:'fit-content',minHeight:'80px', backgroundColor:'#253957',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'10px 15px', alignItems:'center', flexWrap:'wrap', gap:'15px'}}>
         <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
             <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
           <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> Mwangaza Knowledge Hub</span>

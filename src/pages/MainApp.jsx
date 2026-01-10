@@ -79,7 +79,13 @@ export default function MainApp() {
     <div>
       <TopNavBar sideBarOpened={sideBarOpened} setSideBar={setSideBar}/>
       <div style={{ display: "flex"}}>
-        <SideBar active={active} setActive={setActive} sideBarOpened={sideBarOpened} width={width}/>
+        <SideBar
+          active={active}
+          setActive={setActive}
+          sideBarOpened={sideBarOpened}
+          width={width}
+          setSideBar={setSideBar}
+        />
         <div style={{height:'100vh', overflow:'auto', 
           flexGrow: 1, width: "calc(100% - 200px)", 
         }}>
@@ -94,7 +100,7 @@ export default function MainApp() {
  SIDEBAR
 ****************************************************/
 
-function SideBar({ active, setActive, sideBarOpened, width }) {
+function SideBar({ active, setActive, sideBarOpened, width, setSideBar }) {
   const {userData} = useContext(AuthContext);
   const links = [
     { name: "Dashboard", key: "Dashboard", icon: <HiHome /> },
@@ -135,7 +141,14 @@ function SideBar({ active, setActive, sideBarOpened, width }) {
 
         <div
           key={link.key}
-          onClick={() => setActive(link.key)}
+          onClick={() => {
+            setActive(link.key);
+
+            // Close sidebar ONLY on small devices
+            if (width < 720) {
+              setSideBar(false);
+            }
+          }}
           style={{
             borderRadius: "30px 0px 0px 30px",
             padding: "5px",

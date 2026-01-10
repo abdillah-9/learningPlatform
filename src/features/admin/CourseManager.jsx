@@ -60,9 +60,10 @@ export default function CourseManager({ formState, setFormState, editModeState, 
           ? decodeHTML(initialCourseData.hint)
           : "",
 
-        target_audience: initialCourseData.targetAudience
-          ? decodeHTML(initialCourseData.targetAudience)
+        targetAudience: initialCourseData.target_audience
+          ? decodeHTML(initialCourseData.target_audience)
           : "",
+
 
       });
 

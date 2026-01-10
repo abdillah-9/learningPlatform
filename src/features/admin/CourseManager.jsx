@@ -177,6 +177,33 @@ export default function CourseManager({ formState, setFormState, editModeState, 
    SUBMIT HANDLER
   ****************************************************/
 
+   const handleCancel = () => {
+  if (
+    editModeState &&
+    !window.confirm("Discard changes and cancel editing?")
+  ) {
+    return;
+  }
+
+  // Close the form
+  setFormState(false);
+
+  // Reset local form state
+  setCourseData({
+    number: "",
+    name: "",
+    description: "",
+    startDate: new Date().toISOString().split("T")[0],
+    about: "",
+    hint: "",
+    picture: null,
+    targetAudience: "",
+    duration: "",
+  });
+
+  setModules([]);
+};
+
   const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -595,9 +622,27 @@ export default function CourseManager({ formState, setFormState, editModeState, 
         </div>
 
         {/* SUBMIT */}
-<button type="submit" style={btnSubmit}>
-  {editModeState ? "Update Course" : "Create Course"}
-</button>
+        <div
+          style={{
+            display: "flex",
+            gap: "15px",
+            justifyContent: "flex-end",
+            marginTop: "30px",
+          }}
+        >
+          <button
+            type="button"
+            onClick={handleCancel}
+            style={btnCancel}
+          >
+            Cancel
+          </button>
+
+          <button type="submit" style={btnSubmit}>
+            {editModeState ? "Update Course" : "Create Course"}
+          </button>
+        </div>
+
 
       </form>
     </div>
@@ -606,6 +651,15 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 /****************************************************
  STYLES
 ****************************************************/
+const btnCancel = {
+  background: "#6c757d",
+  color: "white",
+  padding: "12px 20px",
+  border: "none",
+  borderRadius: "5px",
+  fontSize: "16px",
+  cursor: "pointer",
+};
 
 const input = {
   padding: "10px",

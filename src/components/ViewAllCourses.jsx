@@ -118,12 +118,12 @@ export default function ViewAllCourses(){
                 }}
                 onClick={() => navigateTo(`/enroll_course/${course.id}`)}
                 >
-                <div>{course.name}</div>
+                <div style={{fontSize:'16px'}}>{course.name}</div>
 
                 <div
                     className="opacityHover"
                     style={{
-                    fontSize: '15px',
+                    fontSize: '14px',
                     color: 'rgba(250, 250, 250, 0.66)',
                     display: 'flex',
                     gap: '5px',

@@ -409,6 +409,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
                 style={input}
               />
 
+              {console.log(module.desc)}
               <label>Module Description</label>
               <textarea
                 rows={2}

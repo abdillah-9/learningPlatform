@@ -177,7 +177,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
 
       {courses?.map((course, courseIndex) => (
         <div key={course.id} style={{ marginBottom: "25px" }}>
-          <h5 style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <h5 style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap:"12px", flexWrap:'wrap' }}>
             <span style={{padding:'8px', borderRadius:'20px', minWidth:'200px', border:'1px solid #eebd3e', fontSize:'16px', color:'#735600ff'}}>{`Course ${courseIndex + 1}: ${course.name}`}</span>
             <span style={{ display: "flex", gap: "10px", flexWrap:'wrap' }}>
               <button
@@ -187,7 +187,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
                   border: "none",
                   cursor: "pointer",
                   backgroundColor: "#eebd3e",
-                  flex:'1 1 150px'
+                  width:'150px',
                 }}
                 onClick={() => {
                   setEditModeState(!editModeState);
@@ -205,7 +205,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
                   cursor: "pointer",
                   backgroundColor: "#dc3545",
                   color: "white",
-                  flex:'1 1 150px'
+                  width:'150px',
                 }}
                 onClick={() => handleDeleteCourse(course.id)}
               >

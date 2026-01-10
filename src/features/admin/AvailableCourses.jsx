@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CourseManager from "./CourseManager";
 import { MdLibraryAdd } from "react-icons/md";
 import MiniLoadingSpinner from "../../components/MiniLoadingSpinner";
@@ -9,11 +9,22 @@ export default function AvailableCourses() {
   const [courseData, setCourseData] = useState(null);
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
+  const formTopRef = useRef(null);
 
   const [page, setPage] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     return Math.max(1, Number(params.get("page")) || 1);
   });
+    useEffect(() => {
+      if (formState) {
+        requestAnimationFrame(() => {
+          formTopRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        });
+      }
+    }, [formState]);
 
       // --- SAFE HTML DECODING ---
     const decodeHTML = (encoded) => {
@@ -48,15 +59,17 @@ export default function AvailableCourses() {
         setCourseData={setCourseData}
       />
       {formState && (
-        <CourseManager
-          formState={formState}
-          setFormState={setFormState}
-          editModeState={editModeState}
-          courseData={courseData}
-          fetchCourses={fetchCourses}
-          page={page}
-          setPage={setPage}
-        />
+        <div ref={formTopRef}>
+          <CourseManager
+            formState={formState}
+            setFormState={setFormState}
+            editModeState={editModeState}
+            courseData={courseData}
+            fetchCourses={fetchCourses}
+            page={page}
+            setPage={setPage}
+          />
+        </div>
       )}
       <ShowCourses
         setFormState={setFormState}

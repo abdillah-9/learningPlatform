@@ -276,6 +276,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
 
       <form
+      id="formTop"
         onSubmit={handleSubmit}
         style={{ display: "flex", flexDirection: "column", gap: "20px" }}
       >

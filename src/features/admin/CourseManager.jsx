@@ -626,7 +626,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
           style={{
             display: "flex",
             gap: "15px",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
             marginTop: "30px",
           }}
         >
@@ -652,13 +652,26 @@ export default function CourseManager({ formState, setFormState, editModeState, 
  STYLES
 ****************************************************/
 const btnCancel = {
-  background: "#6c757d",
-  color: "white",
+  background: "#fc7373ff",
+  color: "#980000ff",
   padding: "12px 20px",
   border: "none",
   borderRadius: "5px",
   fontSize: "16px",
+  fontWeight:700,
   cursor: "pointer",
+  flex:'1 1 250px'
+};
+const btnSubmit = {
+  background: "#9aff91ff",
+  color: "#005f23ff",
+  padding: "12px 20px",
+  border: "none",
+  borderRadius: "5px",
+  fontSize: "16px",
+  fontSize:700,
+  cursor: "pointer",
+  flex:'1 1 250px'
 };
 
 const input = {
@@ -691,15 +704,7 @@ const btnAddLarge = {
   borderRadius: "5px",
   cursor: "pointer",
 };
-const btnSubmit = {
-  background: "#253957",
-  color: "white",
-  padding: "12px 20px",
-  border: "none",
-  borderRadius: "5px",
-  fontSize: "16px",
-  cursor: "pointer",
-};
+
 const btnDelete = {
   background: "red",
   color: "white",

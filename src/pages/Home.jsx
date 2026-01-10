@@ -229,7 +229,7 @@ function MiniSlideShow({ items, decodeHTML }) {
       {items.map((item, i) => (
         <div key={i} className="slideShowHeight" style={{ minWidth:'150px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
           
-          <div style={{ position: 'relative', width: '100%',height:'auto', aspectRatio:16/9, backgroundColor:'#0C2B4E' }}>
+          <div style={{ position: 'relative', width: '100%',height:'auto', aspectRatio:16/9, backgroundColor:'#253957' }}>
           <img
             src={ item.picture != null ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${item.picture}` : pic1}
             alt={item.name}
@@ -419,13 +419,13 @@ if(!coursesList){
       
       <div style={{display:'flex', width:'100%',  alignItems:'center'}}>
         
-        <div style={{ zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#0C2B4E', cursor: 'pointer', height:'fit-content' }} onClick={prev}>
+        <div style={{ zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#253957', cursor: 'pointer', height:'fit-content' }} onClick={prev}>
           <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
         </div>
 
         <MiniSlideShow items={itemsToShow} decodeHTML={decodeHTML}/>
 
-        <div style={{zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#0C2B4E', cursor: 'pointer', height:'fit-content' }} onClick={next}>
+        <div style={{zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#253957', cursor: 'pointer', height:'fit-content' }} onClick={next}>
           <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
         </div>
 
@@ -438,10 +438,10 @@ if(!coursesList){
 function StartJourney(){
   const navigateTo = useNavigate();
   return(
-    <div style={{width:'100%', height:'fit-content', display:'flex', justifyContent:'center', alignItems:'center', padding:'50px 20px', backgroundColor:'#0C2B4E', gap:'20px', flexDirection:'column', color:'white'}}>
+    <div style={{width:'100%', height:'fit-content', display:'flex', justifyContent:'center', alignItems:'center', padding:'50px 20px', backgroundColor:'#253957', gap:'20px', flexDirection:'column', color:'white'}}>
       <div style={{fontSize:'22px', fontWeight:700}}>Upcoming Courses</div>
       <div>Stay With Us</div>
-      <div style={{backgroundColor:'white', color:'#0C2B4E', padding:'15px', width:'150px', borderRadius:'15px', textAlign:'center',fontWeight:600, cursor:'pointer'}} onClick={()=>navigateTo('/upcoming_courses')}>
+      <div style={{backgroundColor:'white', color:'#253957', padding:'15px', width:'150px', borderRadius:'15px', textAlign:'center',fontWeight:600, cursor:'pointer'}} onClick={()=>navigateTo('/upcoming_courses')}>
         View
       </div>
     </div>
@@ -471,7 +471,7 @@ function Testimonials(){
           </div>
         </div>
       </div>
-      <div style={{ width:'45%', flexGrow:1, minWidth:'250px',display:'flex', padding:'20px', background:'#0C2B4E', color:'white'}}>
+      <div style={{ width:'45%', flexGrow:1, minWidth:'250px',display:'flex', padding:'20px', background:'#253957', color:'white'}}>
         <UltraMiniSlideShow/>
       </div>
     </div>
@@ -482,7 +482,7 @@ function Footer(){
     const navigateTo = useNavigate();
     const {userData} = useContext(AuthContext);
   return(
-    <div style={{backgroundColor:'#0C2B4E', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
+    <div style={{backgroundColor:'#253957', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
       <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'30%', minWidth:'300px', gap:'20px'}}>
         <div style={{display:'flex',gap:'5px', flexDirection:'column', justifyContent:'center'}}>
           <span style={{display:'block',left:'95px', position:'relative'}}>

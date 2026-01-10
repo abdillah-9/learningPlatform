@@ -19,7 +19,16 @@ export default function MainApp() {
   let defaultMenu = userData.user_role == "admin" ? 'Available Courses' : 'Course Module'
   const [active, setActive] = useState(defaultMenu);
   const [width, setWidth] = useState(window.innerWidth);
-  const [sideBarOpened, setSideBar] = useState(width > "479px" ? true : false);
+  const [sideBarOpened, setSideBar] = useState(window.innerWidth >= 720);
+
+
+  useEffect(() => {
+    if (width >= 720) {
+      setSideBar(true);
+    } else {
+      setSideBar(false);
+    }
+  }, [width]);
 
   useEffect(() => {
     // Handler to call on window resize
@@ -110,7 +119,7 @@ function SideBar({ active, setActive, sideBarOpened, width }) {
     <div
       style={{
         backgroundColor: "#eebd3e",
-        width: sideBarOpened ? "200px" : '0px',
+        width: sideBarOpened ? "200px" : "0px",
         minHeight:'100vh',
         overflow:'hidden',
         display: "flex",
@@ -118,7 +127,7 @@ function SideBar({ active, setActive, sideBarOpened, width }) {
         gap: "20px",
         padding: sideBarOpened ? "25px 0px 0px 15px": '0px',
         fontSize:'13px',
-        position: width < '479px' ? 'fixed' : 'relative',
+        position: width < 720 ? "fixed" : "relative",
         top:'0px'
       }}
     >

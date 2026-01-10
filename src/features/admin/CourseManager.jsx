@@ -669,7 +669,7 @@ const btnSubmit = {
   border: "none",
   borderRadius: "5px",
   fontSize: "16px",
-  fontSize:700,
+  fontWeight:700,
   cursor: "pointer",
   flex:'1 1 250px'
 };

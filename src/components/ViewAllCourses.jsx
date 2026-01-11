@@ -89,7 +89,8 @@ export default function ViewAllCourses(){
                 overflow: "hidden",
                 aspectRatio: 1 / 0.85,
                 borderRadius: '5px',
-                maxWidth: '280px'
+                maxWidth: '280px',
+                maxHeight:'200px'
                 }}
             >
                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>
@@ -102,7 +103,7 @@ export default function ViewAllCourses(){
                 />
                 </div>
 
-                {/* 🔥 FIXED PART */}
+                {/* FIXED PART */}
                 <div
                 className="heightHover"
                 style={{

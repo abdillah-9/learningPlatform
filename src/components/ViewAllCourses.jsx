@@ -118,7 +118,7 @@ export default function ViewAllCourses(){
                 }}
                 onClick={() => navigateTo(`/enroll_course/${course.id}`)}
                 >
-                <div style={{fontSize:'16px'}}>{course.name}</div>
+                <div style={{fontSize:'15px'}}>{course.name}</div>
 
                 <div
                     className="opacityHover"
@@ -130,7 +130,7 @@ export default function ViewAllCourses(){
                     flexDirection: 'column'
                     }}
                 >
-                    <span
+                    <span style={{fontSize:'13px'}}
                     dangerouslySetInnerHTML={{
                         __html: decodeHTML(course.description)
                     }}

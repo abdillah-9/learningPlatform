@@ -84,13 +84,11 @@ export default function ViewAllCourses(){
                 className="slideShowHeight"
                 key={course.id}
                 style={{
-                flex: '1 1 250px',
                 position: "relative",
                 overflow: "hidden",
-                aspectRatio: 1 / 0.85,
                 borderRadius: '5px',
-                maxWidth: '280px',
-                maxHeight:'200px'
+                width: '250px',
+                height:'200px'
                 }}
             >
                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>

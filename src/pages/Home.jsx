@@ -205,7 +205,7 @@ useEffect(() => {
 
       {/* Heading */}
       <div className={`${animate ? 'slideTop PicTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white',fontWeight:500 }}>
-        <div className="PicFont" style={{fontWeight:700}}>{headings[index]}</div>
+        <div className="PicFont" style={{fontWeight:700, marginBottom:'20px'}}>{headings[index]}</div>
         <div className="PicFontMini">{texts[index]}</div>
       </div>
 

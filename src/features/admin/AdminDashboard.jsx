@@ -261,8 +261,11 @@ function UsersActions(){
                    alt='user_pic'
                    style={{width:'65px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
               />
-              <span style={{fontSize:"17px", width:'120px'}}>
+              <span style={{fontSize:"16px", width:'120px', fontWeight:600}}>
                 {std.phone_number}
+              </span>
+              <span style={{fontSize:"16px", width:'120px', fontWeight:600}}>
+                {std.username_email}
               </span>
               <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
                 {std.user_role}

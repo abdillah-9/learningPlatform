@@ -89,7 +89,7 @@ export default function ViewAllCourses(){
                 borderRadius: '5px',
                 width: '22%',
                 minWidth:'250px',
-                aspectRatio:1/0.85
+                height:'200px'
                 }}
             >
                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>

@@ -362,7 +362,7 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
         {/* HINT */}
         <div>
-          <label>Course Hint</label>
+          <label>How to Access a Course or Module</label>
           <TipTapEditor
             key={courseData.hint}
             value={courseData.hint}

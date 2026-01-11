@@ -69,12 +69,12 @@ export default function ShowUpcomingCourses(){
                     <span style={{aspectRatio:16/9,width:'100%',maxWidth:'350px'}}>
                         <img src={course?.pic ? course?.pic : logo} alt="pic" width={"100%"} height={"100%"} style={{objectFit:'cover', }}/>
                     </span>
-                    <div style={{fontSize:"18px", fontWeight:700, width:'100%', maxWidth:"400px", display:"flex", justifyContent:'space-around', flexDirection:'column'}}>
+                    <div style={{fontSize:"15px", fontWeight:700, width:'100%', maxWidth:"400px", display:"flex", justifyContent:'space-around', flexDirection:'column'}}>
                         <span>
                             {course.name}
                         </span>
                         <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap:'20px', flexWrap:'wrap'}}>
-                          <span style={{fontSize:"15px", fontWeight:300}}>
+                          <span style={{fontSize:"13px", fontWeight:300}}>
                               {course.desc}
                           </span>
                           <span style={{fontSize:"13px", fontWeight:600}}>

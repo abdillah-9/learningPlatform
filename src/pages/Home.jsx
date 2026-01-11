@@ -238,7 +238,7 @@ function MiniSlideShow({ items, decodeHTML }) {
 
           </div>
 
-          <div style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#0C2B4E', width:'100%', display:'flex', flexDirection:'column', gap:'10px', padding:'20px 0px'}} className="heightHover" onClick={()=>{navigateTo(`enroll_course/${item.id}`)}}>
+          <div style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#253957', width:'100%', display:'flex', flexDirection:'column', gap:'10px', padding:'20px 0px'}} className="heightHover" onClick={()=>{navigateTo(`enroll_course/${item.id}`)}}>
             <div style={{fontSize:'15px'}}>
               {item.name}
             </div>
@@ -362,7 +362,7 @@ useEffect(() => {
             <span style={{padding:'17px 20px', backgroundColor:'rgba(200,200,200,0.8)', borderRadius:'50%' }}>
               <HiUser style={{color:'rgba(10, 5, 52, 1)', fontSize:'70px'}}/>
             </span>
-            {/* <img src={images[index]} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid #0C2B4E'}}/> */}
+            {/* <img src={images[index]} alt="Sospeter" width={'30%'} height={'auto'} style={{borderRadius:'50%', aspectRatio:1/1, border:'6px solid #253957'}}/> */}
             <span style={{fontSize:'17px', fontWeight:600}}>
               {positions[index]}
             </span> 

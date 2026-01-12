@@ -218,6 +218,9 @@ export default function AAviewLastCourse() {
               marginBottom: "20px",
               borderRadius: "6px",
               width: block.type === "file" ? "45%" : "auto",
+              minWidth: (block.type === "fileFull" || block.type === "textFull")
+                  ? "100%"
+                  : "250px",
               flex:
                 block.type === "fileFull" || block.type === "textFull"
                   ? "1 1 100%"

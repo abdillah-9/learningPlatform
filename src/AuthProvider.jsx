@@ -20,7 +20,7 @@ export default function AuthProvider({ children }) {
   return (
     <AuthContext.Provider value={{ userData, setUserData, loading }}>
       {children}
-      <div style={{position:'fixed', right:'15px', bottom:'40px', borderRadius:'50px', backgroundColor:'rgba(0, 133, 117, 0.8)', color:'white', padding:'10px 15px', fontSize:'13px', cursor:'pointer',zIndex:10, display:'flex', gap:'2px', fontWeight:600, alignItems:'center'}} onClick={()=> window.open('https://chat.whatsapp.com/Dhlg8qsAxQU5IO1XKHU89w')}>
+      <div style={{position:'fixed', right:'15px', bottom:'90vh', borderRadius:'50px', backgroundColor:'rgba(0, 133, 117, 0.8)', color:'white', padding:'10px 15px', fontSize:'13px', cursor:'pointer',zIndex:10, display:'flex', gap:'2px', fontWeight:600, alignItems:'center'}} onClick={()=> window.open('https://chat.whatsapp.com/Dhlg8qsAxQU5IO1XKHU89w')}>
         <IoMdHelpCircleOutline style={{fontSize:'17px'}}/>
         <span>Help</span>
       </div>

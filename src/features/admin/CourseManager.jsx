@@ -2,6 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import TipTapEditor from "../../components/editor/TipTapEditor";
 import { AuthContext } from "../../AuthProvider";
 
+const editorKey = editModeState
+  ? `course-${initialCourseData?.id}`
+  : "new-course";
+
 // --- SAFE HTML ENCODING (bypass hosting WAF) ---
 const encodeHTML = (html) => {
   try {
@@ -343,28 +347,28 @@ export default function CourseManager({ formState, setFormState, editModeState, 
         {/* DESCRIPTION */}
         <div>
           <label>Course Description</label>
-          <TipTapEditor
-            key={courseData.description}
-            value={courseData.description}
-            onChange={(html) => updateCourseData("description", html)}
-          />
+            <TipTapEditor
+              key={`${editorKey}-description`}
+              value={courseData.description}
+              onChange={(html) => updateCourseData("description", html)}
+            />
         </div>
 
         {/* ABOUT THIS COURSE */}
         <div>
           <label>About This Course</label>
-          <TipTapEditor
-            key={courseData.about}
-            value={courseData.about}
-            onChange={(html) => updateCourseData("about", html)}
-          />
+            <TipTapEditor
+              key={`${editorKey}-about`}
+              value={courseData.about}
+              onChange={(html) => updateCourseData("about", html)}
+            />
         </div>
 
         {/* HINT */}
         <div>
           <label>How to Access a Course or Module</label>
           <TipTapEditor
-            key={courseData.hint}
+            key={`${editorKey}-hint`}
             value={courseData.hint}
             onChange={(html) => updateCourseData("hint", html)}
           />
@@ -372,10 +376,10 @@ export default function CourseManager({ formState, setFormState, editModeState, 
 
         {/* TARGET AUDIENCE */}
         <div>
-                        {console.log(courseData.targetAudience)}
+          {console.log(courseData.targetAudience)}
           <label>Who Should Take This Course?</label>
           <TipTapEditor
-            key={courseData.targetAudience}
+            key={`${editorKey}-target`}
             value={courseData.targetAudience}
             onChange={(html) => updateCourseData("targetAudience", html)}
           />

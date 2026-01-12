@@ -277,9 +277,8 @@ setCourseData(
       }
     );
 
-    const result = await response.text();
-    alert(result);
-    console.log(result);
+    const result = await response.json();
+    alert(result.message);
 
     // Optional: close form after success
     setFormState(false);

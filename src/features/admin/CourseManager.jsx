@@ -24,7 +24,45 @@ export default function CourseManager({ formState, setFormState, editModeState, 
   const editorKey = editModeState
   ? `course-${initialCourseData?.id}`
   : "new-course";
-  
+
+  const buildInitialCourseData = (editModeState, initialCourseData) => {
+    if (editModeState && initialCourseData) {
+      return {
+        number: initialCourseData.number || "",
+        name: initialCourseData.name || "",
+        startDate:
+          initialCourseData.startDate ||
+          new Date().toISOString().split("T")[0],
+        picture: null,
+        duration: initialCourseData.duration || "",
+        description: initialCourseData.description
+          ? decodeHTML(initialCourseData.description)
+          : "",
+        about: initialCourseData.about
+          ? decodeHTML(initialCourseData.about)
+          : "",
+        hint: initialCourseData.hint
+          ? decodeHTML(initialCourseData.hint)
+          : "",
+        targetAudience: initialCourseData.target_audience
+          ? decodeHTML(initialCourseData.target_audience)
+          : "",
+      };
+    }
+
+    return {
+      number: "",
+      name: "",
+      description: "",
+      startDate: new Date().toISOString().split("T")[0],
+      about: "",
+      hint: "",
+      picture: null,
+      targetAudience: "",
+      duration: "",
+    };
+  };
+ 
   /* COURSE MAIN DATA */
   const [courseData, setCourseData] = useState({
     number: "",

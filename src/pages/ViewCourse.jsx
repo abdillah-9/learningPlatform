@@ -4,7 +4,7 @@ import { AuthContext } from "../AuthProvider";
 import { RiFileList3Line, RiTwitterXFill } from "react-icons/ri";
 import { LucideClipboardList } from "lucide-react";
 import { IoIosMail, IoMdCall } from "react-icons/io";
-import {MwangazaLogo} from '../assets/MwangazaLogo.jpg';
+import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 
 const decodeHTML = (encoded) => {
   try {

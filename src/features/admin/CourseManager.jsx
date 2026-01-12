@@ -75,21 +75,24 @@ useEffect(() => {
 
   setCourseData(buildInitialCourseData(editModeState, initialCourseData));
 
-  setModules(
-    initialCourseData.modules?.map((mod) => ({
-      title: mod.title || "",
-      desc: mod.description || "",
-      cost: mod.cost || "",
-      createdDate: mod.createdDate || new Date().toISOString().split("T")[0],
-      blocks: mod.blocks?.map((block) => ({
-        type: block.type || "text",
-        content: block.content ? decodeHTML(block.content) : "",
-        file: null,
-        fileType: block.fileType || "",
-        layout: block.layout || "row",
-      })) || [],
-    })) || []
-  );
+setModules(
+  initialCourseData.modules?.map((mod) => ({
+    id: mod.id, // ✅ KEEP MODULE ID
+    title: mod.title || "",
+    desc: mod.description || "",
+    cost: mod.cost || "",
+    createdDate: mod.createdDate || new Date().toISOString().split("T")[0],
+    blocks: mod.blocks?.map((block) => ({
+      id: block.id, // ✅ KEEP BLOCK ID
+      type: block.type || "text",
+      content: block.content ? decodeHTML(block.content) : "",
+      file: null,
+      fileType: block.fileType || "",
+      layout: block.layout || "row",
+    })) || [],
+  })) || []
+);
+
 }, [editModeState, initialCourseData]);
 
 
@@ -518,32 +521,34 @@ setCourseData(
                   </div>
 
                   {/* TYPE SWITCH */}
-                  <select
-                    value={block.type}
-                    onChange={(e) => {
-                      const newType = e.target.value;
+<select
+  value={block.type}
+  onChange={(e) => {
+    const newType = e.target.value;
 
-                      setModules((prev) =>
-                        prev?.map((mod, mIndex) => {
-                          if (mIndex !== index) return mod;
-                          return {
-                            ...mod,
-                            blocks: mod.blocks?.map((b, i) =>
-                              i === bIndex
-                                ? {
-                                    type: newType,
-                                    content: "",
-                                    file: null,
-                                    fileType: "",
-                                  }
-                                : b
-                            ),
-                          };
-                        })
-                      );
-                    }}
-                    style={input}
-                  >
+    setModules((prev) =>
+      prev?.map((mod, mIndex) => {
+        if (mIndex !== index) return mod;
+        return {
+          ...mod,
+          blocks: mod.blocks?.map((b, i) =>
+            i === bIndex
+              ? {
+                  ...b,          // ✅ KEEP id & layout
+                  type: newType,
+                  content: "",
+                  file: null,
+                  fileType: "",
+                }
+              : b
+          ),
+        };
+      })
+    );
+  }}
+  style={input}
+>
+
                     <option value="text">Text Block</option>
                     <option value="textFull">Full Width Text</option>
                     <option value="file">File Block</option>

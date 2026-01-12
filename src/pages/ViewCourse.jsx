@@ -296,7 +296,8 @@ export default function AAviewLastCourse() {
         >
           Next ▶
         </button>
-        {/** Footer */}
+      </div>
+              {/** Footer */}
         <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
             {/** Logo and company name */}
@@ -313,7 +314,7 @@ export default function AAviewLastCourse() {
                 <IoMdCall />                
             </div>
         </footer>
-      </div>
+
     </div>
   );
 }

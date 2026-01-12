@@ -64,68 +64,34 @@ export default function CourseManager({ formState, setFormState, editModeState, 
   };
  
   /* COURSE MAIN DATA */
-  const [courseData, setCourseData] = useState({
-    number: "",
-    name: "",
-    description: "",
-    startDate: new Date().toISOString().split("T")[0],
-    about: "",
-    hint: "",
-    picture: null,
-    targetAudience: "",
-    duration: "",
-  });
+const [courseData, setCourseData] = useState(() =>
+  buildInitialCourseData(editModeState, initialCourseData)
+);
+
 
   // Prefill the form if in edit mode
-  useEffect(() => {
-    if (editModeState && initialCourseData) {
-      console.log(initialCourseData);
-      setCourseData({
-        number: initialCourseData.number || "",
-        name: initialCourseData.name || "",
-        // description: initialCourseData.description || "",
-        startDate: initialCourseData.startDate || new Date().toISOString().split("T")[0],
-        // about: initialCourseData.about || "",
-        // hint: initialCourseData.hint || "",
-        picture: null, // we can't prefill file inputs
-        // targetAudience: initialCourseData.targetAudience || "",
-        duration: initialCourseData.duration || "",
-        description: initialCourseData.description
-          ? decodeHTML(initialCourseData.description)
-          : "",
+useEffect(() => {
+  if (!editModeState || !initialCourseData) return;
 
-        about: initialCourseData.about
-          ? decodeHTML(initialCourseData.about)
-          : "",
+  setCourseData(buildInitialCourseData(editModeState, initialCourseData));
 
-        hint: initialCourseData.hint
-          ? decodeHTML(initialCourseData.hint)
-          : "",
+  setModules(
+    initialCourseData.modules?.map((mod) => ({
+      title: mod.title || "",
+      desc: mod.description || "",
+      cost: mod.cost || "",
+      createdDate: mod.createdDate || new Date().toISOString().split("T")[0],
+      blocks: mod.blocks?.map((block) => ({
+        type: block.type || "text",
+        content: block.content ? decodeHTML(block.content) : "",
+        file: null,
+        fileType: block.fileType || "",
+        layout: block.layout || "row",
+      })) || [],
+    })) || []
+  );
+}, [editModeState, initialCourseData]);
 
-        targetAudience: initialCourseData.target_audience
-          ? decodeHTML(initialCourseData.target_audience)
-          : "",
-
-
-      });
-
-      setModules(
-        initialCourseData.modules?.map((mod) => ({
-          title: mod.title || "",
-          desc: mod.description || "",
-          cost: mod.cost || "",
-          createdDate: mod.createdDate || new Date().toISOString().split("T")[0],
-          blocks: mod.blocks?.map((block) => ({
-            type: block.type || "text",
-            content: block.content ? decodeHTML(block.content) : "",
-            file: null, // can't prefill File objects
-            fileType: block.fileType || "",
-            layout: block.layout || "row",
-          })) || [],
-        })) || []
-      );
-    }
-  }, [editModeState, initialCourseData]);
 
   const updateCourseData = (field, value) => {
     setCourseData((prev) => ({ ...prev, [field]: value }));
@@ -231,17 +197,10 @@ export default function CourseManager({ formState, setFormState, editModeState, 
   setFormState(false);
 
   // Reset local form state
-  setCourseData({
-    number: "",
-    name: "",
-    description: "",
-    startDate: new Date().toISOString().split("T")[0],
-    about: "",
-    hint: "",
-    picture: null,
-    targetAudience: "",
-    duration: "",
-  });
+setCourseData(
+  buildInitialCourseData(false, null)
+);
+
 
   setModules([]);
 };

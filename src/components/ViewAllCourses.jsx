@@ -113,7 +113,7 @@ export default function ViewAllCourses(){
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '5px',
-                    padding: '10px 0px',
+                    padding: '10px',
                     cursor: 'pointer'
                 }}
                 onClick={() => navigateTo(`/enroll_course/${course.id}`)}

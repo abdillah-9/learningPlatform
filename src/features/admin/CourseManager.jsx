@@ -290,8 +290,6 @@ setCourseData(
   }
 };
 
-
-
   /****************************************************/
 
   const {userData} = useContext(AuthContext);

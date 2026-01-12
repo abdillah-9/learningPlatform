@@ -278,7 +278,8 @@ setCourseData(
     );
 
     const result = await response.text();
-    alert(result.message);
+    alert(result);
+    console.log(result);
 
     // Optional: close form after success
     setFormState(false);

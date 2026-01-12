@@ -2,10 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import TipTapEditor from "../../components/editor/TipTapEditor";
 import { AuthContext } from "../../AuthProvider";
 
-const editorKey = editModeState
-  ? `course-${initialCourseData?.id}`
-  : "new-course";
-
 // --- SAFE HTML ENCODING (bypass hosting WAF) ---
 const encodeHTML = (html) => {
   try {
@@ -25,6 +21,10 @@ const decodeHTML = (encoded) => {
 
 export default function CourseManager({ formState, setFormState, editModeState, courseData: initialCourseData , fetchCourses, page, setPage}) {
 
+  const editorKey = editModeState
+  ? `course-${initialCourseData?.id}`
+  : "new-course";
+  
   /* COURSE MAIN DATA */
   const [courseData, setCourseData] = useState({
     number: "",

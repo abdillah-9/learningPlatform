@@ -20,7 +20,7 @@ export default function AAviewLastCourse() {
   const [course, setCourse] = useState(null);
   const [slideIndex, setSlideIndex] = useState(0);
 
-  const BLOCKS_PER_SLIDE = 3;
+  const BLOCKS_PER_SLIDE = 4;
 
   // Prevent copy/select/context
   useEffect(() => {

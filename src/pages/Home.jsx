@@ -173,7 +173,7 @@ useEffect(() => {
             View All Courses
           </span>
           {
-            userData ? 
+            !userData ? 
             <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/auth/sign_in')}}>
               Sign In
             </span> : "" 

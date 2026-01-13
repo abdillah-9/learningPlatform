@@ -95,8 +95,6 @@ export default function ShowUpcomingCourses(){
 function Footer(){
     const navigateTo = useNavigate();
   return(
-    <div style={{backgroundColor:'#253957', display:'flex', flexWrap:'wrap', color:'white', padding:'5px', justifyContent:'space-around', gap:'40px'}}>
-      {/** Footer */}
       <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
           {/** Logo and company name */}
@@ -113,6 +111,5 @@ function Footer(){
               <IoMdCall />                
           </div>
       </footer>
-    </div>
   )
 }

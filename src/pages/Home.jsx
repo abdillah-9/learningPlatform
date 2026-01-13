@@ -262,11 +262,11 @@ function UltraMiniSlideShow() {
 
   const images = [man, woman];
   const texts = [
-    `As a graphic designer, I have created posters, company profiles and stickers for TanzCoffee Trading Company Ltd, Brice Agribusiness Limited, and many other companies. However, I must admit that during my years of freelancing, Sospeter introduced me to this platform, where I learned a lot. Today, I have opened and registered my own sole proprietorship, and I can tell you that registering a business has taken me from creating simple posters to receiving large contracts to create larger roadside billboards, company t-shirts, calendar design and printing.
+    `As a graphic designer, I have created posters, company profiles and stickers for TanzCoffee Trading Company Ltd, Brice Agribusiness Limited, and many other companies. However, I must admit that during my years of freelancing, Sospeter introduced me to this platform, where I learned a lot. <br/>Today, I have opened and registered my own sole proprietorship, and I can tell you that registering a business has taken me from creating simple posters to receiving large contracts to create larger roadside billboards, company t-shirts, calendar design and printing.
 
     In fact, I have an office at Mavuno House, Poster Dar es Salaam. I am also working on upgrading from sole proprietorship to a corporate limited liability company`,
 
-    `Following my graduation from University, I struggled to get employment as usual before being introduced to Mwangaza Knowledge Hub. I began studying Shaping a Business Idea slowly, and I was excited to discover that we university students are not taught several important details about business. I currently own my own business in town, and while I hope to open a limited liability corporation in the future, I am currently working to register a sole proprietorship very soon.`,
+    `Following my graduation from University, I struggled to get employment as usual before being introduced to Mwangaza Knowledge Hub. <br/></br/>I began studying Shaping a Business Idea slowly, and I was excited to discover that we university students are not taught several important details about business. I currently own my own business in town, and while I hope to open a limited liability corporation in the future, I am currently working to register a sole proprietorship very soon.`,
   ];
   const names=[
     'BAKARI M BAKARI',
@@ -369,8 +369,7 @@ useEffect(() => {
             <span style={{fontSize:'17px', fontWeight:400, color:'rgba(227, 227, 241, 1)'}}>
               {companies[index]}
             </span> 
-            <span  style={{fontSize:'15px', fontWeight:200}}>
-              {texts[index]}
+            <span  style={{fontSize:'15px', fontWeight:200}} dangerouslySetInnerHTML={{ __html: texts[index]}}>
             </span>
           </div>
         </div>

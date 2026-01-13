@@ -172,11 +172,11 @@ export default function Course(){
                                 <div key={index}  style={{display:'flex', gap:'10px', alignItems:'', justifyContent:'space-between', fontSize:'15px', flexWrap:'wrap'}} > 
                                     <div style={{paddingLeft:'30px', cursor:'pointer', maxWidth:'700px', width:'100%'}} onClick={()=>{navigateTo(`main_App/moduleId/${item.id}`)}}>
                                         <div>Module {++index}: {item.title}</div>
-                                        <div style={{fontSize:'16px', fontWeight:500, display:'flex', width:'100%',maxWidth:'700px', justifyContent:'space-between', flexWrap:'wrap', gap:'12px', alignItems:'center', border:'1px solid red'}}>
+                                        <div style={{fontSize:'16px', fontWeight:500, display:'flex', width:'100%',maxWidth:'700px', justifyContent:'space-between', flexWrap:'wrap', gap:'12px', alignItems:'center'}}>
                                             <p style={{color:'rgba(80,80,80,0.8)', maxWidth:'700px'}}>
                                                 {item.description}
                                             </p>
-                                            <div style={{fontSize:'13px', boxShadow:'1px 0.5px 6px rgba(52, 51, 51, 0.72)', color:'rgba(29, 29, 29, 0.72)', padding:'7px 12px', borderRadius:'10px', border:'1px solid blue'}}>
+                                            <div style={{fontSize:'13px', boxShadow:'1px 0.5px 6px rgba(52, 51, 51, 0.72)', color:'rgba(29, 29, 29, 0.72)', padding:'7px 12px', borderRadius:'10px'}}>
                                                 {
                                                     userData ? 'Start learning':
                                                     'Enroll Now'

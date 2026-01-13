@@ -105,7 +105,7 @@ export default function Course(){
                         : course_image
                     }
 
-                    alt="pic" width={'40%'} style={{aspectRatio:1/0.6, maxWidth:"300px"}}/>
+                    alt="pic" width={'100%'} style={{aspectRatio:1/0.6, maxWidth:"300px"}}/>
                 </div>
 
                 {/** Body */}

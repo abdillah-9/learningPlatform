@@ -88,8 +88,7 @@ export default function ViewAllCourses(){
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: '5px',
-                width: '100%',
-                maxWidth:'250px',
+                width: '250px',
                 flexGrow:1,
                 height:'200px'
                 }}

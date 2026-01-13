@@ -44,7 +44,7 @@ export default function ShowUpcomingCourses(){
     return(
         <div style={{minHeight:'100vh'}}>
             {/* Top nav bar */}
-            <div style={{position:'relative', top:0, left:0, width:'100%', height:'fit-content',minHeight:'80px', backgroundColor:'#253957',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'15px'}}>
+            <div style={{position:'relative', top:0, left:0, width:'100%', height:'fit-content',minHeight:'80px', backgroundColor:'#253957',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'12px 15px', alignItems:'center', flexWrap:'wrap', gap:'15px'}}>
                 <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center'}}>
                     <img src={MwangazaLogo} alt="logo"                      
                     width={'60px'} height={'60px'} 

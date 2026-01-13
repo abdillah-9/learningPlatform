@@ -227,7 +227,7 @@ function MiniSlideShow({ items, decodeHTML }) {
   return (
     <div style={{display:'flex', justifyContent:'center', gap:'25px', flexWrap:'wrap',padding:'0px 20px'}}>
       {items.map((item, i) => (
-        <div key={i} className="slideShowHeight" style={{ minWidth:'200px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
+        <div key={i} className="slideShowHeight" style={{ minWidth:'220px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
           
           <div style={{ position: 'relative', width: '100%',height:'auto', aspectRatio:16/9, backgroundColor:'#253957' }}>
           <img

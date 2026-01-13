@@ -12,7 +12,7 @@ export default function About(){
   return(
 <div style={{ display: "flex",flexDirection:'column'}}>
     {/* Top nav bar */}
-    <div style={{position:'relative', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#253957',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'0px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
+    <div style={{position:'relative', top:0, left:0, width:'100%', minHeight:'80px',height:'fit-content', backgroundColor:'#253957',color:'white',zIndex:1, display:'flex', justifyContent:'space-between',padding:'12px 15px', alignItems:'center', flexWrap:'wrap', gap:'12px'}}>
       <div style={{display:'flex',gap:'10px',height:'fit-content', alignItems:'center', flexGrow:1}}>
           <img src={MwangazaLogo} alt="logo" width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
         <span style={{fontSize:'18px', fontWeight:600}}> Mwangaza Knowledge Hub</span>

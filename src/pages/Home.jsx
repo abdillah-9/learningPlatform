@@ -262,7 +262,7 @@ function UltraMiniSlideShow() {
 
   const images = [man, woman];
   const texts = [
-    `As a graphic designer, I have created posters, company profiles and stickers for TanzCoffee Trading Company Ltd, Brice Agribusiness Limited, and many other companies. However, I must admit that during my years of freelancing, Sospeter introduced me to this platform, where I learned a lot. <br/>Today, I have opened and registered my own sole proprietorship, and I can tell you that registering a business has taken me from creating simple posters to receiving large contracts to create larger roadside billboards, company t-shirts, calendar design and printing.
+    `As a graphic designer, I have created posters, company profiles and stickers for TanzCoffee Trading Company Ltd, Brice Agribusiness Limited, and many other companies. However, I must admit that during my years of freelancing, Sospeter introduced me to this platform, where I learned a lot. <br/><br/>Today, I have opened and registered my own sole proprietorship, and I can tell you that registering a business has taken me from creating simple posters to receiving large contracts to create larger roadside billboards, company t-shirts, calendar design and printing.
 
     In fact, I have an office at Mavuno House, Poster Dar es Salaam. I am also working on upgrading from sole proprietorship to a corporate limited liability company`,
 

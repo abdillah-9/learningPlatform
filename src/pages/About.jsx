@@ -38,7 +38,7 @@ export default function About(){
 
     {/** Main About Part*/}
     <div style={{display:'flex', flexWrap:'wrap', alignItems:'center'}}>
-      <div  style={{flex:'1 1 250px', padding:'15px', color:'rgba(5, 5, 49, 0.9)', gap:'15px', fontWeight:200, display:'flex', flexDirection:'column'}}>
+      <div  style={{flex:'1 1 250px', padding:'15px', color:'rgba(2, 2, 36, 0.9)', gap:'15px', fontWeight:300, display:'flex', flexDirection:'column'}}>
         <h2>ABOUT US</h2>
         <p>
           We are a knowledge hub for business and investment, offering real-ground business experience and practical skills from real entrepreneurs and businessmen. The platform will impact a self-productive habit and a strong business mindset, both of which are necessary in the real world.

@@ -2,9 +2,10 @@ import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpg"
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
-import { IoMdHome } from "react-icons/io";
+import { IoIosMail, IoMdCall, IoMdHome } from "react-icons/io";
 import { useEffect, useState } from "react";
 import MiniLoadingSpinner from "../components/MiniLoadingSpinner";
+import { RiTwitterXFill } from "react-icons/ri";
 
 export default function ShowUpcomingCourses(){
     const navigateTo = useNavigate();
@@ -95,43 +96,23 @@ function Footer(){
     const navigateTo = useNavigate();
   return(
     <div style={{backgroundColor:'#253957', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
-      <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'30%', minWidth:'300px', gap:'20px'}}>
-        <div style={{display:'flex',gap:'5px', flexDirection:'column', justifyContent:'center'}}>
-          <span style={{display:'block',left:'95px', position:'relative'}}>
-            <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
-          </span>
-          <span style={{fontSize:'21px', fontWeight:500}}> Mwangaza Knowledge Hub</span>
-        </div>
-        <div>
-          Building a Generation of Founders and C.E.Os
-        </div>
-        <div style={{display:"flex", gap:'15px'}}>
-          <span><BsFacebook/></span>
-          <span><BsWhatsapp/></span>
-          <span><BsLinkedin/></span>
-        </div>
-      </div>
+      {/** Footer */}
+      <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
-      <div style={{display:'flex', flexDirection:'column',width:'30%', minWidth:'200px', gap:'20px'}}>
-        <div style={{display:'flex',gap:'5px', flexDirection:'column',}}>
-          <span style={{fontSize:'22px', fontWeight:500}}>Quick links</span>
-        </div>
-        <div style={{display:'flex', gap:'15px', flexDirection:'column'}}>
-          <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us</span>
-          <span>Terms Of Use</span>
-          <span>Privacy</span>
-        </div>
-      </div>
-
-      <div style={{display:'flex', flexDirection:'column', width:'30%', minWidth:'300px', gap:'20px'}}>
-        <div style={{display:'flex',gap:'5px', flexDirection:'column', justifyContent:'center'}}>
-          <span style={{fontSize:'22px', fontWeight:500}}>Company</span>
-        </div>
-        <div style={{display:'flex', gap:'15px', flexDirection:'column'}}>
-          <span>Courses</span>
-        </div>
-      </div>
-
+          {/** Logo and company name */}
+          <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>
+              <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
+              <span>
+                  Mwangaza Knowledge Hub
+              </span>
+          </div>
+          {/** Course number & Course name */}
+          <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'40px'}}>
+              <RiTwitterXFill />
+              <IoIosMail />
+              <IoMdCall />                
+          </div>
+      </footer>
     </div>
   )
 }

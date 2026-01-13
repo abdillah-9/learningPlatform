@@ -6,7 +6,8 @@ import pic from '../assets/logo.jpg';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider';
 import MiniLoadingSpinner from './MiniLoadingSpinner';
-import { RiHome9Fill } from 'react-icons/ri';
+import { RiHome9Fill, RiTwitterXFill } from 'react-icons/ri';
+import { IoIosMail, IoMdCall } from 'react-icons/io';
 
 export default function ViewAllCourses(){
     const navigateTo = useNavigate();
@@ -145,6 +146,23 @@ export default function ViewAllCourses(){
             )) : "Courses Not found ..."}
 
             </div>
+            {/** Footer */}
+            <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+        
+                {/** Logo and company name */}
+                <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>
+                    <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
+                    <span>
+                        Mwangaza Knowledge Hub
+                    </span>
+                </div>
+                {/** Course number & Course name */}
+                <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'40px'}}>
+                    <RiTwitterXFill />
+                    <IoIosMail />
+                    <IoMdCall />                
+                </div>
+            </footer>
             
         </div>
     )

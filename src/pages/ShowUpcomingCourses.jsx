@@ -107,7 +107,7 @@ function Footer(){
               </span>
           </div>
           {/** Course number & Course name */}
-          <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'30px', marginBottom:'30px'}}>
+          <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'20px', marginBottom:'20px'}}>
               <RiTwitterXFill />
               <IoIosMail />
               <IoMdCall />                

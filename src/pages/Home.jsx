@@ -238,7 +238,7 @@ function MiniSlideShow({ items, decodeHTML }) {
 
           </div>
 
-          <div style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#253957', width:'100%', display:'flex', flexDirection:'column', gap:'10px', padding:'10px 0px 20px 0px'}} className="heightHover" onClick={()=>{navigateTo(`enroll_course/${item.id}`)}}>
+          <div style={{ ...miniSlideshowTexts, color: 'white', backgroundColor:'#253957', width:'100%', display:'flex', flexDirection:'column', gap:'10px', padding:'10px 10px 20px 10px'}} className="heightHover" onClick={()=>{navigateTo(`enroll_course/${item.id}`)}}>
             <div style={{fontSize:'15px'}}>
               {item.name}
             </div>

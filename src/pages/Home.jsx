@@ -81,6 +81,7 @@ export default function Home(){
 }
 
 function SlideShow() {
+  const {userData} = useContext(AuthContext);
   const navigateTo = useNavigate();
   const [animate, setAnimate] = useState(true);
   const [index, setIndex] = useState(0);
@@ -167,7 +168,16 @@ useEffect(() => {
             <img src={MwangazaLogo} alt="logo"                      width={'60px'} height={'60px'} style={{borderRadius:'50%'}} />
           <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> Mwangaza Knowledge Hub</span>
         </div>
-        <div style={{display:'flex', gap:'50px', fontSize:'14px',fontWeight:500}}> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us </span> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>View All Courses</span> 
+        <div style={{display:'flex', gap:'50px', fontSize:'14px',fontWeight:500}}> 
+          <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/about')}}>About Us </span> <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/view_all_courses')}}>
+            View All Courses
+          </span>
+          {
+            userData ? 
+            <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/auth/sign_in')}}>
+              Sign In
+            </span> : "" 
+          } 
         </div>
       </div>
       {/* Image */}

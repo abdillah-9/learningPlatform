@@ -456,7 +456,7 @@ function Testimonials(){
           <span>ABOUT FOUNDER</span>
           <img src={SospeterNew} alt="Sospeter" style={{borderRadius:'50%', aspectRatio:3/3, width:'30%',minWidth:'200px' ,objectFit:'cover'}}/>
         </div>
-        <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', textAlign:'justify', gap:'15px'}}>
+        <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', gap:'15px'}}>
           <div style={{width:'100%', flex:'1 1 250px',gap:'30px', display:'flex', flexDirection:'column'}}> 
             <p>
               Sospeter Owuor is a visionary businessman, investor, and corporate leader whose focuses is modernizing Tanzania's agricultural sector to meet global standards. He has extensive experience in agricultural value chains, export operations, agro-processing and international trade. As the acting Managing Director and Co-Founder of TANZCOFFEE TRADING COMPANY LTD, he provides strategic leadership in operations, commercial development, and organizational expansion.

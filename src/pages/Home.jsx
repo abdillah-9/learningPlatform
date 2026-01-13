@@ -225,7 +225,7 @@ function MiniSlideShow({ items, decodeHTML }) {
   const navigateTo = useNavigate();
 
   return (
-    <div style={{display:'flex', justifyContent:'center', gap:'15px', flexWrap:'wrap',padding:'0px 20px'}}>
+    <div style={{display:'flex', justifyContent:'center', gap:'15px', flexWrap:'wrap',padding:'0px 15px'}}>
       {items.map((item, i) => (
         <div key={i} className="slideShowHeight" style={{ minWidth:'220px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
           

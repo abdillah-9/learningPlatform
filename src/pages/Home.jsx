@@ -87,6 +87,14 @@ function SlideShow() {
   const [index, setIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);
+  
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setAnimate(true);
+    }, 100); // 100ms is enough for mobile
+
+    return () => clearTimeout(t);
+  }, []);
 
   const images = [pic1, pic2, pic3, pic4, pic5];
   const texts = [
@@ -265,7 +273,7 @@ function MiniSlideShow({ items, decodeHTML }) {
 }
 
 function UltraMiniSlideShow() {
-  const [animate, setAnimate] = useState(true);
+  const [animate, setAnimate] = useState(false);
   const [index, setIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);

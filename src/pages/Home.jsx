@@ -220,11 +220,11 @@ useEffect(() => {
       </div>
 
       {/* NEXT/PREV BUTTONS */}
-      <div className="PicTop" style={{ position: "absolute",left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: '#253957', cursor: 'pointer' }} onClick={prev}>
+      <div className="PicTop" style={{ position: "absolute",left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: '#25395765', cursor: 'pointer' }} onClick={prev}>
         <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
       </div>
 
-      <div className="PicTop" style={{ position: "absolute",right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: '#253957', cursor: 'pointer' }} onClick={next}>
+      <div className="PicTop" style={{ position: "absolute",right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: '#25395763', cursor: 'pointer' }} onClick={next}>
         <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
       </div>
     </div>

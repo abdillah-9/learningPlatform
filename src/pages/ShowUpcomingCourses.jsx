@@ -17,7 +17,7 @@ export default function ShowUpcomingCourses(){
       try{
         setLoading(true);
         const res = await fetch(
-          "https://www.tanzcoffee.co.tz/mwangaza-backend/show_upcoming_courses.php",
+          "https://www.tanzcoffee.co.tz/mwangaza_hub/show_upcoming_courses.php",
           { method: "POST", body: formData }
         );
 

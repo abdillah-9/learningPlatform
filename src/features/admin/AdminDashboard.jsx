@@ -67,7 +67,7 @@ console.log("Decoded token payload:", decodedPayload);
 
 
     const res = await fetch(
-      "https://www.tanzcoffee.co.tz/mwangaza-backend/delete_account.php",
+      "https://www.tanzcoffee.co.tz/mwangaza_hub/delete_account.php",
       {
         method: "POST",
         body: formData,
@@ -147,7 +147,7 @@ function UsersActions(){
      
     try{
       setLoading(true)
-     const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_all_students.php',{
+     const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza_hub/fetch_all_students.php',{
       method:'POST',
       body:formData,
      });
@@ -175,7 +175,7 @@ function UsersActions(){
     const student_id = student.id;
     const formData = new FormData();
     formData.append('student_id', student_id);
-     const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/delete_students.php',{
+     const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza_hub/delete_students.php',{
       method:'POST',
       body:formData,
      });
@@ -200,7 +200,7 @@ function UsersActions(){
     const fData = new FormData();
     fData.append('student_id', student.id);
 
-    const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/block_students.php',{
+    const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza_hub/block_students.php',{
       method:'POST',
       body:fData,
      });
@@ -257,7 +257,7 @@ function UsersActions(){
               key={std.id}
             >
               <img 
-              src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${std.user_pic}`}
+              src={`https://www.tanzcoffee.co.tz/mwangaza_hub/uploads/users/${std.user_pic}`}
                    alt='user_pic'
                    style={{width:'65px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
               />
@@ -313,7 +313,7 @@ function CoursesActions({decodeHTML}){
     async function FetchCoursesStats(){
      const formData = new FormData();
 
-     const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_all_coursesStats.php',{
+     const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza_hub/fetch_all_coursesStats.php',{
       method:'POST',
       body:formData,
      });
@@ -337,7 +337,7 @@ function CoursesActions({decodeHTML}){
         coursesStats? coursesStats?.map((courseStat, index)=>(
         <div key={courseStat.id} style={{display:'flex', gap:'15px', flexWrap:'wrap', alignItems:'center', borderBottom:'1px solid rgba(98, 98, 98, 0.69)', paddingBottom:'15px'}}>
           {/** Pic */}
-          <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseStat.picture}`: logo} alt='course_picture' width={"200px"} style={{aspectRatio:16/9, objectFit:'cover'}} />
+          <img src={ courseStat?.picture ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${courseStat.picture}`: logo} alt='course_picture' width={"200px"} style={{aspectRatio:16/9, objectFit:'cover'}} />
           <div style={{display:'flex',flexDirection:'column', flex:'1 1 400px'}}>
             {/** Name/Title */}
             <span style={{fontSize:'16px', fontWeight:700}}>

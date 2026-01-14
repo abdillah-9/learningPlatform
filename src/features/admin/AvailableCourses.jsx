@@ -39,7 +39,7 @@ export default function AvailableCourses() {
     setLoading(true);
     try {
       const res = await fetch(
-        `https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_courses_per_page.php?page=${page}`,{ cache: "no-store" }
+        `https://www.tanzcoffee.co.tz/mwangaza_hub/fetch_courses_per_page.php?page=${page}`,{ cache: "no-store" }
       );
       const data = await res.json();
       setCourses(data.data || []);
@@ -152,7 +152,7 @@ function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,se
     formData.append("courseId", courseId);
 
     const res = await fetch(
-      "https://www.tanzcoffee.co.tz/mwangaza-backend/delete_course.php",
+      "https://www.tanzcoffee.co.tz/mwangaza_hub/delete_course.php",
       {
         method: "POST",
         body: formData,
@@ -277,7 +277,7 @@ function BlockRenderer({ block , decodeHTML}) {
     boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
   };
 
-  const fileUrl = block.file ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${block.file}` : null;
+  const fileUrl = block.file ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${block.file}` : null;
 
   // TEXT BLOCKS
   if (block.type === "text" || block.type === "textFull") {

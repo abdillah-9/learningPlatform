@@ -57,7 +57,7 @@ console.log("Decoded token payload:", decodedPayload);
 
 
     const res = await fetch(
-      "https://www.tanzcoffee.co.tz/mwangaza-backend/delete_account.php",
+      "https://www.tanzcoffee.co.tz/mwangaza_hub/delete_account.php",
       {
         method: "POST",
         body: formData,
@@ -134,7 +134,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
       
       try{
         setLoading(true);
-        const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/courses_details.php',{
+        const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza_hub/courses_details.php',{
           method:"POST",
           body:formData
         });
@@ -188,7 +188,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
             maxWidth:'900px',
             }}>
               <img src={course?.picture ? 
-              `https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}`: AI_Gen_2} 
+              `https://www.tanzcoffee.co.tz/mwangaza_hub/${course.picture}`: AI_Gen_2} 
                 alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>
@@ -231,7 +231,7 @@ function CoursesDetails({setActive,active, userData, setUserData}){
             maxWidth:'900px',
             }}>
               <img src={course?.picture ? 
-              `https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}`: AI_Gen_2} 
+              `https://www.tanzcoffee.co.tz/mwangaza_hub/${course.picture}`: AI_Gen_2} 
               alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.name}</span>

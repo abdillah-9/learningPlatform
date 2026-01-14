@@ -16,7 +16,7 @@ export default function SetAccess() {
 
     try {
       const res = await fetch(
-        "https://www.tanzcoffee.co.tz/mwangaza-backend/insert_purchase.php",
+        "https://www.tanzcoffee.co.tz/mwangaza_hub/insert_purchase.php",
         { method: "POST", credentials: "include", body: formData }
       );
       const data = await res.json();
@@ -38,7 +38,7 @@ export default function SetAccess() {
     try {
       setLoading(true);
       const res = await fetch(
-        "https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_recent_purchases.php",
+        "https://www.tanzcoffee.co.tz/mwangaza_hub/fetch_recent_purchases.php",
         { credentials: "include", method:"POST", body:fData  }
       );
       const data = await res.json();

@@ -45,7 +45,7 @@ export default function AAviewLastCourse() {
   useEffect(() => {
     if (!moduleId) return;
 
-    fetch(`https://www.tanzcoffee.co.tz/mwangaza-backend/get_module_by_id.php?module_id=${moduleId}`)
+    fetch(`https://www.tanzcoffee.co.tz/mwangaza_hub/get_module_by_id.php?module_id=${moduleId}`)
       .then((res) => res.json())
       .then((data) => setCourse(data));
   }, [moduleId]);
@@ -107,7 +107,7 @@ export default function AAviewLastCourse() {
 
       try {
         const res = await fetch(
-          "https://www.tanzcoffee.co.tz/mwangaza-backend/progress_tracker.php",
+          "https://www.tanzcoffee.co.tz/mwangaza_hub/progress_tracker.php",
           { method: "POST", body: formData }
         );
         if (res.ok) {
@@ -138,7 +138,7 @@ export default function AAviewLastCourse() {
       const filePath = tokenData.file || "";
       const ext = filePath.split(".").pop().toLowerCase();
 
-      const url = `https://www.tanzcoffee.co.tz/mwangaza-backend/stream_video.php?token=${block.videoToken}`;
+      const url = `https://www.tanzcoffee.co.tz/mwangaza_hub/stream_video.php?token=${block.videoToken}`;
 
       // 🖼️ Images
       if (["jpg", "jpeg", "png", "gif", "webp"].includes(ext)) {

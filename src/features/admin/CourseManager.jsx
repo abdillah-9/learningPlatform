@@ -270,7 +270,7 @@ setCourseData(
     });
 
     const response = await fetch(
-      "https://www.tanzcoffee.co.tz/mwangaza-backend/upload_course.php",
+      "https://www.tanzcoffee.co.tz/mwangaza_hub/upload_course.php",
       {
         method: "POST",
         body: formData,

@@ -21,7 +21,7 @@ export default function UpcomingCourses() {
       formData.append("limit", LIMIT);
       try{
         const res = await fetch(
-          "https://www.tanzcoffee.co.tz/mwangaza-backend/fetch_upcoming_courses.php",
+          "https://www.tanzcoffee.co.tz/mwangaza_hub/fetch_upcoming_courses.php",
           { method: "POST", body: formData }
         );
 
@@ -94,7 +94,7 @@ function CoursesDetails({formState, setFormState, setEditModeState, courseData, 
     const formData = new FormData();
     formData.append('upcoming_course_id',upcoming_course_id);
 
-    const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/delete_upcoming_course.php',{
+    const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza_hub/delete_upcoming_course.php',{
       body:formData,
       method:"post"
     });
@@ -170,7 +170,7 @@ function CoursesDetails({formState, setFormState, setEditModeState, courseData, 
             <div key={index} style={{flexWrap:'wrap',display:'flex', gap:'7px',boxShadow:'1px 2px 20px rgba(44, 43, 43, 0.6)', borderRadius:'5px',
             maxWidth:'900px',
             }}>
-              <img src={'https://www.tanzcoffee.co.tz/mwangaza-backend/'+(course.course_photo ? course.course_photo : "uploads/noPhoto.jpeg")} alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
+              <img src={'https://www.tanzcoffee.co.tz/mwangaza_hub/'+(course.course_photo ? course.course_photo : "uploads/noPhoto.jpeg")} alt="pic" style={{width:'40%', maxWidth:'250px', aspectRatio:16/9, objectFit:'cover'}}/>
               <div style={{flex:'1 1 160px',display:'flex', flexDirection:'column', justifyContent:'space-between',padding:'20px 10px'}}>
                 <span style={{fontSize:'18px', fontWeight:700}}>{course.course_name}</span>
                 <span style={{cursor:'pointer', display:'flex', gap:'5px', alignItems:'center', justifyContent:'space-between'}}>
@@ -215,7 +215,7 @@ function Form({formState, setFormState, editModeState, courseData, FetchAllUpcom
       formData.append('editMode',editModeState);
       formData.append('upcoming_course_id', courseData?.upcoming_course_id || "false");
 
-      const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/create_edit_upcoming_course.php',{
+      const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza_hub/create_edit_upcoming_course.php',{
         method:'POST',
         body:formData,
       });
@@ -288,7 +288,7 @@ function Form({formState, setFormState, editModeState, courseData, FetchAllUpcom
                 }}/>
                 {
                   courseData?.course_photo ?
-                  <img src={courseData ? 'https://www.tanzcoffee.co.tz/mwangaza-backend/'+courseData.course_photo : ""} alt='pic' style={{objectFit:'cover', width:'50%', aspectRatio:16/9, boxShadow:'1px 2px 3px black'}}/> :""
+                  <img src={courseData ? 'https://www.tanzcoffee.co.tz/mwangaza_hub/'+courseData.course_photo : ""} alt='pic' style={{objectFit:'cover', width:'50%', aspectRatio:16/9, boxShadow:'1px 2px 3px black'}}/> :""
                 }
             </div>
             <div style={{display:'flex', gap:'15px', alignItems:'center', borderBottom:'1px solid rgba(29, 61, 69, 0.64)', justifyContent:'space-between', paddingBottom:'15px', flexWrap:'wrap'}}>

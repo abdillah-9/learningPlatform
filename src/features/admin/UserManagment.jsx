@@ -24,7 +24,7 @@ export default function UserManager() {
     try {
       setLoading(true);
       const res = await fetch(
-        "https://www.tanzcoffee.co.tz/mwangaza-backend/check_access.php",
+        "https://www.tanzcoffee.co.tz/mwangaza_hub/check_access.php",
         {
           method: "POST",
           credentials: "include",

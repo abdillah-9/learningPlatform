@@ -21,7 +21,7 @@ export default function ViewAllCourses(){
             fData.append('course','Math');
         try{
             setLoading(true);
-          const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/get_all_courses.php",{
+          const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza_hub/get_all_courses.php",{
             method:'POST',
             body:fData,
           });
@@ -69,7 +69,7 @@ export default function ViewAllCourses(){
                         <span>Upcoming Courses</span>  
                     </div> 
                     {/* <div style={{display:'flex', gap:'10px', alignItems:'center'}}>
-                        <img src={userData?.user_pic ? `https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData?.user_pic}` : pic } 
+                        <img src={userData?.user_pic ? `https://www.tanzcoffee.co.tz/mwangaza_hub/uploads/users/${userData?.user_pic}` : pic } 
                         alt='user pic' width={'70px'} height={'60px'} style={{borderRadius:'50%'}}/>
                         <span>{userData?.full_name}</span>  
                         <span style={{fontSize:'20px'}}><MdArrowDropDown/></span>   
@@ -96,7 +96,7 @@ export default function ViewAllCourses(){
                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <img
                     src={course?.picture
-                    ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${course.picture}`
+                    ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${course.picture}`
                     : pic}
                     alt="slide"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', aspectRatio: 16 / 9 }}

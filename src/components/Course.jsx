@@ -23,7 +23,7 @@ export default function Course(){
             const formData = new FormData();
             formData.append('courseId',courseId);
             try{
-                const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza-backend/get_selected_course.php',{
+                const res = await fetch('https://www.tanzcoffee.co.tz/mwangaza_hub/get_selected_course.php',{
                     method:"POST",
                     body:formData
                 });
@@ -101,7 +101,7 @@ export default function Course(){
                     </div>
                     <img src={
                         courseData.course.picture
-                        ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${courseData.course.picture}`
+                        ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${courseData.course.picture}`
                         : course_image
                     }
 

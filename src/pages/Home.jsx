@@ -83,18 +83,10 @@ export default function Home(){
 function SlideShow() {
   const {userData} = useContext(AuthContext);
   const navigateTo = useNavigate();
-  const [animate, setAnimate] = useState(false);
+  const [animate, setAnimate] = useState(true);
   const [index, setIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);
-  
-  useEffect(() => {
-    const t = setTimeout(() => {
-      setAnimate(true);
-    }, 100); // 100ms is enough for mobile
-
-    return () => clearTimeout(t);
-  }, []);
 
   const images = [pic1, pic2, pic3, pic4, pic5];
   const texts = [
@@ -222,7 +214,7 @@ useEffect(() => {
 
 
       {/* Heading */}
-      <div className={`${animate ? 'slideTop PicTop' : ''}`} style={{ ...topSlideshowTexts, color: 'white',fontWeight:500 }}>
+      <div className={`slideTop PicTop`} style={{ ...topSlideshowTexts, color: 'white',fontWeight:500 }}>
         <div className="PicFont" style={{fontWeight:700, marginBottom:'20px'}}>{headings[index]}</div>
         <div className="PicFontMini">{texts[index]}</div>
       </div>

@@ -24,7 +24,7 @@ export default function App() {
     }  
     console.log('userData inside App '+JSON.stringify(userData));
   return (
-      <BrowserRouter>
+    <BrowserRouter basename="/mwangaza_hub">
         <Routes>
               <Route path={"/"} 
                      element={

@@ -220,13 +220,44 @@ useEffect(() => {
       </div>
 
       {/* NEXT/PREV BUTTONS */}
-      <div className="PicTop" style={{ position: "absolute", top: "50%", left: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: '#253957', cursor: 'pointer' }} onClick={prev}>
-        <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
-      </div>
+        {/* PREV */}
+        <div
+          className="PicTop"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "2%",
+            transform: "translateY(-50%)",
+            zIndex: 30,
+            borderRadius: "50%",
+            padding: "8px",
+            backgroundColor: "#253957",
+            cursor: "pointer",
+          }}
+          onClick={prev}
+        >
+          <CgChevronDoubleLeft style={{ fontSize: "25px", color: "white" }} />
+        </div>
 
-      <div className="PicTop" style={{ position: "absolute", top: "50%", right: '2%', transform: "translateY(-50%)", zIndex: 10, borderRadius: '50%', padding: '10px 13px', backgroundColor: '#253957', cursor: 'pointer' }} onClick={next}>
-        <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
-      </div>
+        {/* NEXT */}
+        <div
+          className="PicTop"
+          style={{
+            position: "absolute",
+            top: "50%",
+            right: "2%",
+            transform: "translateY(-50%)",
+            zIndex: 30,
+            borderRadius: "50%",
+            padding: "8px",
+            backgroundColor: "#253957",
+            cursor: "pointer",
+          }}
+          onClick={next}
+        >
+          <CgChevronDoubleRight style={{ fontSize: "25px", color: "white" }} />
+        </div>
+
     </div>
   );
 }

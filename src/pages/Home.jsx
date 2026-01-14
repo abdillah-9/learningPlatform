@@ -93,7 +93,7 @@ function SlideShow() {
     "Own your company and be your own C.E.O",
     "It's 21st Century, Pursue a Business Opportunity Through Creation of a Company",
     "Money Without Financial Intelligence Is Money Gone Soon",
-    "An Asset Puts Money in Your Pocket, Liability Takes Money Out of Your Pock",
+    "An Asset Puts Money in Your Pocket, Liability Takes Money Out of Your Pocket",
     "Embrace a Mindset of Lifelong, Voluntary Pursuit of New Knowledge"
   ];
   const headings = [

@@ -215,8 +215,8 @@ useEffect(() => {
 
       {/* Heading */}
       <div className={`slideTop PicTop`} style={{ ...topSlideshowTexts, color: 'white',fontWeight:500, border:'1px solid red', display:'flex', alignItems:'center', flexDirection:"column" }}>
-        <div className="PicFont" style={{fontWeight:700, marginBottom:'20px', width:'70%'}}>{headings[index]}</div>
-        <div className="PicFontMini" style={{width:'70%'}}>{texts[index]}</div>
+        <div className="PicFont" style={{fontWeight:700, marginBottom:'20px', width:'70%', maxWidth:'400px'}}>{headings[index]}</div>
+        <div className="PicFontMini" style={{width:'70%',maxWidth:'400px'}}>{texts[index]}</div>
       </div>
 
       {/* NEXT/PREV BUTTONS */}

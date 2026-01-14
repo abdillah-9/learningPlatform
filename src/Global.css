@@ -566,8 +566,7 @@ html, body{
   font-size: 20px;
 }
 .PicTop{
-  top: 50%;
-  will-change: transform;
+  top: 40%;
 }
 @media screen and (max-width:720px){
 .PicFont{

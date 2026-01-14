@@ -9,7 +9,7 @@ import { TbLogout } from 'react-icons/tb'
 import { replace, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../AuthProvider'
 import { HiMiniUsers, HiOutlineClipboardDocumentCheck, HiOutlineClipboardDocumentList } from 'react-icons/hi2'
-import logo from '../../assets/logo.jpg';
+import logo from '../../assets/logo.webp';
 import MiniLoadingSpinner from '../../components/MiniLoadingSpinner'
 
 export default function AdminDashboard({setActive,active}) {

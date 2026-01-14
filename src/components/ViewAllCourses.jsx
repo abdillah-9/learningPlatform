@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { MdArrowDropDown } from 'react-icons/md';
 import { HiMiniArrowLongRight } from 'react-icons/hi2';
-import pic from '../assets/logo.jpg';
+import pic from '../assets/logo.webp';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider';
 import MiniLoadingSpinner from './MiniLoadingSpinner';

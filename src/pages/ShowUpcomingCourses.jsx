@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo.jpg"
+import logo from "../assets/logo.webp"
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { IoIosMail, IoMdCall, IoMdHome } from "react-icons/io";
@@ -49,7 +49,7 @@ export default function ShowUpcomingCourses(){
                     <img src={MwangazaLogo} alt="logo"                      
                     width={'60px'} height={'60px'} 
                     style={{borderRadius:'50%'}} />
-                <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> MMwangaza Knowledge Hub</span>
+                <span style={{fontSize:'17px', fontWeight:600, textAlign:'center'}}> Mwangaza Knowledge Hub</span>
                 </div>
                 <div style={{display:'flex', gap:'15px', fontSize:'14px',fontWeight:500, flexWrap:'wrap', justifyContent:'space-between'}}> 
                   <span style={{cursor:'pointer'}} onClick={()=>{navigateTo('/')}}>

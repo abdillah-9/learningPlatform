@@ -270,7 +270,7 @@ function TopNavBar({sideBarOpened, setSideBar}) {
               <span>Home</span>  
             </div>            
             <img
-              src={`https://www.tanzcoffee.co.tz/mwangaza-backend/uploads/users/${userData.user_pic}`}
+              src={`https://www.tanzcoffee.co.tz/mwangaza_hub/uploads/users/${userData.user_pic}`}
               style={{ borderRadius: "50%", width:'50px', height:'45px', objectFit:'cover', marginRight:'15px' }}
             />
             {/* <div style={{ fontSize: "14px", display:'flex', flexWrap:'wrap', gap:'7px', alignItems:'center' }}>

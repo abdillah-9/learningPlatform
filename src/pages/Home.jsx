@@ -37,7 +37,7 @@ export default function Home(){
         const fData = new FormData();
         fData.append('course','Math');
     try{
-      const res = await fetch("https://www.tanzcoffee.co.tz/mwangaza-backend/get_all_courses.php",{
+      const res = await fetch("https://www.tanzcoffee.co.tz/get_all_courses.php",{
         method:'POST',
         body:fData,
       });
@@ -241,7 +241,7 @@ function MiniSlideShow({ items, decodeHTML }) {
           
           <div style={{ position: 'relative', width: '100%',height:'auto', aspectRatio:16/9, backgroundColor:'#253957' }}>
           <img
-            src={ item.picture != null ? `https://www.tanzcoffee.co.tz/mwangaza-backend/${item.picture}` : pic1}
+            src={ item.picture != null ? `https://www.tanzcoffee.co.tz/${item.picture}` : pic1}
             alt={item.name}
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />

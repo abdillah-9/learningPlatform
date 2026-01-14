@@ -83,7 +83,7 @@ export default function Home(){
 function SlideShow() {
   const {userData} = useContext(AuthContext);
   const navigateTo = useNavigate();
-  const [animate, setAnimate] = useState(true);
+  const [animate, setAnimate] = useState(false);
   const [index, setIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);
@@ -273,7 +273,7 @@ function MiniSlideShow({ items, decodeHTML }) {
 }
 
 function UltraMiniSlideShow() {
-  const [animate, setAnimate] = useState(false);
+  const [animate, setAnimate] = useState(true);
   const [index, setIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState([]);
   const [allLoaded, setAllLoaded] = useState(false);

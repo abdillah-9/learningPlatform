@@ -410,16 +410,25 @@ if(!coursesList){
 }
   const [index, setIndex] = useState(0); // 0, 3, 6
 
+  useEffect(() => {
+    setIndex(0);
+  }, [coursesList]);
+
   const next = () => {
-    setIndex((prev) => (prev + 3) % coursesList.length);
+    if (coursesList.length <= 3) return;
+    setIndex(prev => Math.min(prev + 3, coursesList.length - 3));
   };
 
   const prev = () => {
-    setIndex((prev) => (prev - 3 + coursesList.length) % coursesList.length);
+    if (coursesList.length <= 3) return;
+    setIndex(prev => Math.max(prev - 3, 0));
   };
 
   // slice 3 items
-  const itemsToShow = coursesList.slice(index, index + 3);
+const itemsToShow =
+  coursesList.length <= 3
+    ? coursesList
+    : coursesList.slice(index, index + 3);
 
   return(
     <div style={{display:'flex',gap:'45px', flexDirection:'column', padding:'50px 20px'}}>

@@ -204,6 +204,6 @@ function SignIn(){
 }
 
 const activeL = {
-    borderBottom:'3px solid rgba(145, 152, 255, 1)',
-    color:'rgba(145, 152, 255, 1)'
+    borderBottom:'3px solid #253957',
+    color:'#253957'
 }

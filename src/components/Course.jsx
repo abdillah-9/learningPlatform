@@ -95,27 +95,34 @@ export default function Course(){
                         <p style={{paddingBottom:'20px', borderBottom:'2px solid rgba(200,200,200,0.8)',fontSize:'16px', color:'rgba(54, 53, 53, 0.8)',width:'90%'}}
                         dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.description)}}>
                         </p>
-                        <span style={{background:'#eebd3e', padding:'10px', color:'#ffffffff', fontSize:'18px', textAlign:'center', marginTop:'20px', width:'fit-content', borderRadius:'5px', cursor:'pointer', fontWeight:400, maxWidth:'70vw'}}>
+                        <span style={{background:'#eebd3e', padding:'10px', color:'#ffffffff', fontSize:'18px', textAlign:'center', marginTop:'20px', width:'fit-content', borderRadius:'5px', cursor:'pointer', fontWeight:600, maxWidth:'70vw'}}>
                             Building a Generation of Founders and C.E.Os
                         </span>
                     </div>
-                    <img src={
-                        courseData.course.picture
-                        ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${courseData.course.picture}`
-                        : course_image
-                    }
+                    {
+                        courseData?.course?.picture 
+                        ?
+                            <img src={
+                            courseData?.course?.picture
+                            ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${courseData.course.picture}`
+                            : ""
+                        }
 
-                    alt="pic" width={'100%'} style={{aspectRatio:1/0.6, maxWidth:"300px"}}/>
+                            alt="" width={'100%'} style={{aspectRatio:1/0.6, maxWidth:"300px"}}/>
+                        :
+                            <span style={{aspectRatio:1/0.6, maxWidth:"300px", width:'100%'}}>
+                            </span>
+                    }
                 </div>
 
                 {/** Body */}
                 <div style={{display:'flex', flexWrap:'wrap', justifyContent:'space-between', gap:'50px', paddingTop:'50px'}}>
-                    <div style={{display:'flex',flexDirection:'column', gap:'50px', flexGrow:1, width:'60%', textAlign:'justify'}}>
+                    <div style={{display:'flex',flexDirection:'column', gap:'50px', flexGrow:1, width:'60%'}}>
                         <div style={{display:'flex', flexDirection:'row',gap:'40px', justifyContent:'space-between', flexWrap:'wrap'}}>
                             
                             {/* About Left */}
                             <div style={{maxWidth:'700px', width:'100%'}}>
-                                <h2 style={{textAlign:'left'}}>About This Course</h2>
+                                <h2 style={{textAlign:'left', fontWeight:600}}>About This Course</h2>
                                 <p dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.about)}} style={{whiteSpace:'pre-wrap'}}>
                                 </p>
                             </div>
@@ -163,7 +170,7 @@ export default function Course(){
 
                         {/**Course Modules */}
                         <div style={{display:'flex', flexDirection:'column',gap:'10px'}}>
-                            <h2 style={{textAlign:'left'}}>
+                            <h2 style={{textAlign:'left', fontWeight:600}}>
                                 Course Modules
                             </h2>
                             <section style={{display:'flex', flexDirection:'column', gap:'20px'}}>
@@ -200,18 +207,18 @@ export default function Course(){
 
                         {/** Who should take this course */}
                         <div style={{display:'flex', flexDirection:'column',gap:'10px', maxWidth:'700px', fontSize:'15px', color:'rgba(24, 23, 23, 0.8)'}}>
-                            <h2 style={{textAlign:'left', color:'black'}}>
+                            <h2 style={{textAlign:'left', fontWeight:600, color:'black'}}>
                                 Who Should Take This Course
                             </h2>
                             <div dangerouslySetInnerHTML={{__html:decodeHTML(courseData.course.target_audience)}}>
                             </div>
-                            {/* <h2 style={{textAlign:'left', color:'black', fontSize:'16px'}}>
+                            {/* <h2 style={{textAlign:'left', fontWeight:600, color:'black', fontSize:'16px'}}>
                                 Click Enroll Now to get started
                             </h2> */}
                         </div>
                         {/** Hint */}
                         <div style={{display:'flex', flexDirection:'column',gap:'10px',maxWidth:'900px'}}>
-                            <h2 style={{textAlign:'left'}}>
+                            <h2 style={{textAlign:'left', fontWeight:600}}>
                                 How to Access a Course or Module
                             </h2>
                             <p style={{boxShadow:'1px 0.5px 5px #253957', padding:'20px', borderRadius:'40px', cursor:'pointer', whiteSpace:'pre-wrap'}}

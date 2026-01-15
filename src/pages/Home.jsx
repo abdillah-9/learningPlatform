@@ -240,11 +240,17 @@ function MiniSlideShow({ items, decodeHTML }) {
         <div key={i} className="slideShowHeight" style={{ minWidth:'220px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
           
           <div style={{ position: 'relative', width: '100%',height:'auto', aspectRatio:16/9, backgroundColor:'#253957' }}>
-          <img
-            src={ item.picture != null ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${item.picture}` : pic1}
-            alt={item.name}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
+          {
+            item?.picture 
+            ?
+              <img
+                src={ item.picture != null ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${item.picture}` : ""}
+                alt={item.name}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            :
+              <span style={{ width: '100%', height: '100%', objectFit: 'cover' }}></span>
+          }
 
           </div>
 

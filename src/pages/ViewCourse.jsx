@@ -86,8 +86,6 @@ export default function AAviewLastCourse() {
     return course.modules.find((mod) => String(mod.id) === moduleId);
   }, [course, moduleId]);
 
-
-
   const totalSlides = slides.length;
   const currentSlideBlocks = slides[slideIndex];
 

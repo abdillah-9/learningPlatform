@@ -107,9 +107,9 @@ export default function App() {
               />
 
               <Route path='/upcoming_courses' element={
-                <ProtectedRoute>
+                <PublicRoute>
                   <ShowUpcomingCourses/>
-                </ProtectedRoute>
+                </PublicRoute>
               } />
               <Route path="*" element={<NotFoundPage />} />
               <Route path={"/unAuthorized"} element={<UnAuthorizedPage/>}/>

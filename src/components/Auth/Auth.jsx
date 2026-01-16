@@ -44,7 +44,7 @@ export default function Auth(){
 
     return(
         <div style={{display:'flex', flexWrap:'wrap',justifyContent:'center', alignItems:'center'}}>
-            <div style={{display:'flex', flexDirection:'column',color:'white' , padding:'50px', flexGrow:1, minHeight:'100vh'}} className="authBackground">
+            <div style={{display:'flex', flexDirection:'column',color:'white' , padding:'50px', flexGrow:1, minHeight:'100vh', backgroundColor:'#253957'}}>
                 <div style={{display:'flex', flexWrap:'wrap', gap:'15px', alignItems:'center'}}>
                     <img src={MwangazaLogo} alt="logo" width={'40px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
                     <span>Mwangaza Knowledge Hub</span>

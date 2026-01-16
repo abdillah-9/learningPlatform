@@ -79,7 +79,7 @@ export default function ViewAllCourses(){
 
             {/** Main Courses  */}
             
-            <div style={{display:'flex', width:'100%', gap:'20px', padding:'20px', flexWrap:'wrap',height:'100vh', overflow:'auto',justifyContent:'space-between'}}>
+            <div style={{display:'flex', width:'100%', gap:'20px', padding:'20px', flexWrap:'wrap',height:'100vh', overflow:'auto'}}>
             {coursesList ? coursesList.map((course) => (
             <div
                 className="slideShowHeight"
@@ -88,9 +88,9 @@ export default function ViewAllCourses(){
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: '5px',
-                width: '250px',
-                flexGrow:1,
-                height:'200px'
+                width: '100%',
+                maxWidth:'300px',
+                height:'200px',
                 }}
             >
                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>

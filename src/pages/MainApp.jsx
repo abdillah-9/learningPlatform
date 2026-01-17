@@ -94,7 +94,7 @@ export default function MainApp() {
         </div>
       </div>
         {/** Footer */}
-        <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'10px 50px 5px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+        <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'15px 50px 0px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
             {/** Logo and company name */}
             <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>
@@ -104,7 +104,7 @@ export default function MainApp() {
                 </span>
             </div>
             {/** Course number & Course name */}
-            <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'40px'}}>
+            <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'30px'}}>
                 <RiTwitterXFill />
                 <IoIosMail />
                 <IoMdCall />                

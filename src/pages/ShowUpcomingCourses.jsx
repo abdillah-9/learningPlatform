@@ -64,7 +64,7 @@ export default function ShowUpcomingCourses(){
                 </div>
             </div>
             
-            <div style={{minHeight:'50vh',padding:'30px 10px', display:'flex', flexDirection:'column', gap:'40px'}}>
+            <div style={{minHeight:'65vh',padding:'30px 10px', display:'flex', flexDirection:'column', gap:'40px'}}>
               {upcomingCourses? upcomingCourses?.map((course, index)=>(
                 <div key={index} style={{display:'flex',flexWrap:'wrap', gap:'20px', maxWidth:'800px', boxShadow:'1px 2px 10px #253957'}}>
                     <span style={{aspectRatio:16/9,width:'100%',maxWidth:'350px'}}>
@@ -75,7 +75,7 @@ export default function ShowUpcomingCourses(){
                             {course.name}
                         </span>
                         <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', gap:'20px', flexWrap:'wrap'}}>
-                          <span style={{fontSize:"13px", fontWeight:300}}>
+                          <span style={{fontSize:"13px", fontWeight:300, maxWidth:"70%"}}>
                               {course.desc}
                           </span>
                           <span style={{fontSize:"13px", fontWeight:600}}>
@@ -95,7 +95,7 @@ export default function ShowUpcomingCourses(){
 function Footer(){
     const navigateTo = useNavigate();
   return(
-      <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+      <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'20px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
           {/** Logo and company name */}
           <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center', gap:'10px'}}>

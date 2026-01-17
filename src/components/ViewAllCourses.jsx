@@ -79,7 +79,7 @@ export default function ViewAllCourses(){
 
             {/** Main Courses  */}
             
-            <div style={{display:'flex', width:'100%', gap:'20px', padding:'20px', flexWrap:'wrap',height:'100vh', overflow:'auto', justifyContent:'center',alignItems: "flex-start"}}>
+            <div style={{display:'flex', width:'100%', gap:'25px', padding:'20px', flexWrap:'wrap',minHeight:'65vh', overflow:'auto', justifyContent:'center',alignItems: "flex-start"}}>
             {coursesList ? coursesList.map((course) => (
             <div
                 className="slideShowHeight"
@@ -88,8 +88,9 @@ export default function ViewAllCourses(){
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: '5px',
-                width:'220px',
-                height:'187px'
+                width:'28%',
+                minWidth:'220px',
+                aspectRatio:1/0.8,
                 }}
             >
                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>
@@ -98,7 +99,7 @@ export default function ViewAllCourses(){
                     ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${course.picture}`
                     : pic}
                     alt="slide"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', aspectRatio: 16 / 9 }}
+                    style={{ width: '100%', aspectRatio:16/9}}
                 />
                 </div>
 
@@ -114,7 +115,7 @@ export default function ViewAllCourses(){
                     flexDirection: 'column',
                     gap: '5px',
                     padding: '10px',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
                 }}
                 onClick={() => navigateTo(`/enroll_course/${course.id}`)}
                 >
@@ -146,7 +147,7 @@ export default function ViewAllCourses(){
 
             </div>
             {/** Footer */}
-            <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+            <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'20px 50px 0px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
         
                 {/** Logo and company name */}
                 <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>

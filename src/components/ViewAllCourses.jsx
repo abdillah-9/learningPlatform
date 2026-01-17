@@ -79,7 +79,7 @@ export default function ViewAllCourses(){
 
             {/** Main Courses  */}
             
-            <div style={{display:'flex', width:'100%', gap:'25px', padding:'20px', flexWrap:'wrap',minHeight:'65vh', overflow:'auto', justifyContent:'center',alignItems: "flex-start"}}>
+            <div style={{display:'flex', width:'100%', gap:'25px', padding:'20px', flexWrap:'wrap',minHeight:'65vh', overflow:'auto',alignItems: "flex-start", justifyContent:'flex-start'}}>
             {coursesList ? coursesList.map((course) => (
             <div
                 className="slideShowHeight"
@@ -88,17 +88,18 @@ export default function ViewAllCourses(){
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: '5px',
-                width:'28%',
+                width:'30%',
                 minWidth:'220px',
                 aspectRatio:1/0.8,
+                backgroundColor:'#253957'
                 }}
             >
                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <img
                     src={course?.picture
                     ? `https://www.tanzcoffee.co.tz/mwangaza_hub/${course.picture}`
-                    : pic}
-                    alt="slide"
+                    : ""}
+                    alt=""
                     style={{ width: '100%', aspectRatio:16/9}}
                 />
                 </div>

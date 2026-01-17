@@ -67,8 +67,8 @@ export default function ShowUpcomingCourses(){
             <div style={{minHeight:'65vh',padding:'30px 10px', display:'flex', flexDirection:'column', gap:'40px'}}>
               {upcomingCourses? upcomingCourses?.map((course, index)=>(
                 <div key={index} style={{display:'flex',flexWrap:'wrap', gap:'20px', maxWidth:'800px', boxShadow:'1px 2px 10px #253957'}}>
-                    <span style={{aspectRatio:16/9,width:'100%',maxWidth:'350px'}}>
-                        <img src={course?.pic ? course?.pic : logo} alt="pic" width={"100%"} height={"100%"} style={{objectFit:'cover', }}/>
+                    <span style={{aspectRatio:16/9,width:'100%',maxWidth:'350px', backgroundColor:'#253957'}}>
+                        <img src={course?.pic ? course?.pic : ""} alt="" width={"100%"} height={"100%"} style={{objectFit:'cover', }}/>
                     </span>
                     <div style={{fontSize:"15px", fontWeight:700, width:'100%', maxWidth:"400px", display:"flex", justifyContent:'space-around', flexDirection:'column', padding:'12px'}}>
                         <span>

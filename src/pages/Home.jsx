@@ -235,9 +235,9 @@ function MiniSlideShow({ items, decodeHTML }) {
   const navigateTo = useNavigate();
 
   return (
-    <div style={{display:'flex', justifyContent:'center', gap:'25px', flexWrap:'wrap',padding:'0px 7px'}}>
+    <div style={{display:'flex', justifyContent:'center', gap:'25px', flexWrap:'wrap',padding:'0px 7px', width:'100%'}}>
       {items.map((item, i) => (
-        <div key={item.id} className="slideShowHeight" style={{ minWidth:'220px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.85, borderRadius:'5px'}}>
+        <div key={item.id} className="slideShowHeight" style={{ minWidth:'220px',width: "30%", position: "relative", overflow: "hidden",aspectRatio:1/0.8, borderRadius:'5px'}}>
           
           <div style={{ position: 'relative', width: '100%',height:'auto', aspectRatio:16/9, backgroundColor:'#253957' }}>
           {
@@ -403,61 +403,75 @@ useEffect(() => {
   );
 }
 
-function PopularCourses({coursesList, decodeHTML}){
+function PopularCourses({ coursesList, decodeHTML }) {
+  if (!coursesList) return;
 
-if(!coursesList){
-  return;
-}
-  const [index, setIndex] = useState(0); // 0, 3, 6
+  const PAGE_SIZE = 3;
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    setIndex(0);
+    setPage(0);
   }, [coursesList]);
 
+  const totalPages = Math.ceil(coursesList.length / PAGE_SIZE);
+  const isFirstPage = page === 0;
+  const isLastPage = page === totalPages - 1;
+
   const next = () => {
-    if (coursesList.length <= 3) return;
-    setIndex(prev => Math.min(prev + 3, coursesList.length - 3));
+    if (!isLastPage) {
+      setPage(prev => prev + 1);
+    }
   };
 
   const prev = () => {
-    if (coursesList.length <= 3) return;
-    setIndex(prev => Math.max(prev - 3, 0));
+    if (!isFirstPage) {
+      setPage(prev => prev - 1);
+    }
   };
 
-  // slice 3 items
-const itemsToShow =
-  coursesList.length <= 3
-    ? coursesList
-    : coursesList.slice(index, index + 3);
+  const start = page * PAGE_SIZE;
+  const itemsToShow = coursesList.slice(start, start + PAGE_SIZE);
 
-  return(
-    <div style={{display:'flex',gap:'45px', flexDirection:'column', padding:'50px 20px'}}>
-      <div style={{fontWeight:700, fontSize:'20px', padding:'10px 13px 0px 13px', display:'flex', flexDirection:'column', gap:'10px'}}>
-        <span>
-          COURSES
-        </span>
-      <span style={{padding:'10px 12px', fontStyle:'italic', fontWeight:500, borderRadius:'20px', border:'1px solid #0b0232a5', width:'fit-content', fontSize:'16px'}}>
-        Click on your favorite course to get started
-      </span>
+  return (
+    <div style={{ display:'flex', gap:'45px', flexDirection:'column', padding:'50px 20px' }}>
+      <div style={{ fontWeight:700, fontSize:'20px' }}>
+        COURSES
       </div>
-      
-      <div style={{display:'flex', width:'100%',  alignItems:'center'}}>
-        
-        <div style={{ zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#253957', cursor: 'pointer', height:'fit-content' }} onClick={prev}>
-          <CgChevronDoubleLeft style={{ fontSize: '25px', color: 'white' }} />
+
+      <div style={{ display:'flex', width:'100%', alignItems:'center' }}>
+        {/* PREV */}
+        <div
+          onClick={prev}
+          style={{
+            borderRadius: '50%',
+            padding: '7px 10px',
+            backgroundColor: '#253957',
+            cursor: isFirstPage ? 'not-allowed' : 'pointer',
+            opacity: isFirstPage ? 0.4 : 1
+          }}
+        >
+          <CgChevronDoubleLeft style={{ fontSize:'25px', color:'white' }} />
         </div>
 
-        <MiniSlideShow items={itemsToShow} decodeHTML={decodeHTML}/>
+        <MiniSlideShow items={itemsToShow} decodeHTML={decodeHTML} />
 
-        <div style={{zIndex: 10, borderRadius: '50%', padding: '7px 10px', backgroundColor: '#253957', cursor: 'pointer', height:'fit-content' }} onClick={next}>
-          <CgChevronDoubleRight style={{ fontSize: '25px', color: 'white' }} />
+        {/* NEXT */}
+        <div
+          onClick={next}
+          style={{
+            borderRadius: '50%',
+            padding: '7px 10px',
+            backgroundColor: '#253957',
+            cursor: isLastPage ? 'not-allowed' : 'pointer',
+            opacity: isLastPage ? 0.4 : 1
+          }}
+        >
+          <CgChevronDoubleRight style={{ fontSize:'25px', color:'white' }} />
         </div>
-
       </div>
     </div>
   );
 }
-
 
 function StartJourney(){
   const navigateTo = useNavigate();

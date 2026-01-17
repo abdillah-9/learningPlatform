@@ -94,7 +94,7 @@ export default function MainApp() {
         </div>
       </div>
         {/** Footer */}
-        <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'40px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+        <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'10px 50px 5px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
 
             {/** Logo and company name */}
             <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>

@@ -104,7 +104,7 @@ export default function MainApp() {
                 </span>
             </div>
             {/** Course number & Course name */}
-            <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'30px'}}>
+            <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'15px'}}>
                 <RiTwitterXFill />
                 <IoIosMail />
                 <IoMdCall />                

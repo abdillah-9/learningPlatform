@@ -21,6 +21,14 @@ export default function AAviewLastCourse() {
 
   const [course, setCourse] = useState(null);
   const [slideIndex, setSlideIndex] = useState(0);
+  // Scroll to top on slide change
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" // smooth scroll effect
+    });
+  }, [slideIndex]);
+
 
   const BLOCKS_PER_SLIDE = 4;
 

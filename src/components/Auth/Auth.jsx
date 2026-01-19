@@ -191,7 +191,7 @@ function SignIn(){
 
                 <div style={{display:'flex', flexWrap:'wrap', gap:'20px', alignItems:'center'}}>
                     <input type="submit" name="submit" value='Sign In' style={{backgroundColor:'#253957', color:'white', padding:'8px 13px', width:'fit-content', fontSize:'20px', border:'1px solid rgba(0,0,0,0)', display:'block', cursor:'pointer', borderRadius:'5px', height:'fit-content'}} />
-                    <p style={{color:'rgba(146,146,146,1)', fontSize:'18px', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/forgot_password')}}>
+                    <p style={{color:'rgba(110, 110, 110, 1)', fontSize:'18px', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/forgot_password')}}>
                         Forgot Password?
                     </p>
                     {/* <p style={{color:'rgba(146,146,146,1)', fontSize:'18px', cursor:'pointer'}} onClick={()=>{navigateTo('/auth/admin_home')}}>

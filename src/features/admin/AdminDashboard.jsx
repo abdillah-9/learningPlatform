@@ -84,7 +84,7 @@ console.log("Decoded token payload:", decodedPayload);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUserData(null);
-    alert(data.message);s
+    alert('user deleted successful');
   } catch (e) {
     console.error(e);
   }

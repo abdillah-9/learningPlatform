@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.webp"
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
-import { BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
+import { BsFacebook, BsLinkedin, BsTiktok, BsWhatsapp } from "react-icons/bs";
 import { IoIosMail, IoMdCall, IoMdHome } from "react-icons/io";
 import { useEffect, useState } from "react";
 import MiniLoadingSpinner from "../components/MiniLoadingSpinner";
-import { RiTwitterXFill } from "react-icons/ri";
+import { RiInstagramFill, RiTwitterXFill } from "react-icons/ri";
 
 export default function ShowUpcomingCourses(){
     const navigateTo = useNavigate();
@@ -64,7 +64,7 @@ export default function ShowUpcomingCourses(){
                 </div>
             </div>
             
-            <div style={{minHeight:'65vh',padding:'30px 10px', display:'flex', flexDirection:'column', gap:'40px'}}>
+            <div style={{minHeight:'68vh',padding:'30px 10px', display:'flex', flexDirection:'column', gap:'40px'}}>
               {upcomingCourses? upcomingCourses?.map((course, index)=>(
                 <div key={index} style={{display:'flex',flexWrap:'wrap', gap:'20px', maxWidth:'800px', boxShadow:'1px 2px 10px #253957'}}>
                     <span style={{aspectRatio:16/9,width:'100%',maxWidth:'350px', backgroundColor:'#253957'}}>
@@ -95,20 +95,57 @@ export default function ShowUpcomingCourses(){
 function Footer(){
     const navigateTo = useNavigate();
   return(
-      <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'20px 50px 20px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+      <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'15px 50px 10px 50px', color:'white', flexWrap:'wrap', gap:"15px", alignItems:'center'}}>
 
           {/** Logo and company name */}
-          <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center', gap:'10px'}}>
+          <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center', gap:'10px', border:'1px solid re'}}>
               <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
-              <span>
+              <span style={{textAlign:'cente'}}>
                   Mwangaza Knowledge Hub
               </span>
           </div>
           {/** Course number & Course name */}
-          <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'20px', marginBottom:'20px'}}>
-              <RiTwitterXFill />
-              <IoIosMail />
-              <IoMdCall />                
+          <div
+            style={{
+              display: "flex",
+              border:'1px solid re',
+              justifyContent:'cente',
+              gap: "20px",
+              fontSize: "25px",
+              position: "relative",
+              width:'210px'
+            }}
+          >
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/mwangaza_knowledge_hub?utm_source=qr&igsh=eXduemNmOWE2bzN4"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Instagram"
+              style={{ color: "inherit", cursor: "pointer" }}
+            >
+              <RiInstagramFill />
+            </a>
+
+            {/* TikTok */}
+            <a
+              href="https://www.tiktok.com/@mwangaza_knowledge_hub?_r=1&_t=ZM-92tTyzrRBmK"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="TikTok"
+              style={{ color: "inherit", cursor: "pointer" }}
+            >
+              <BsTiktok />
+            </a>
+
+            {/* Call */}
+            <a
+              href="tel:0788491086"
+              title="Call 0788491086"
+              style={{ color: "inherit", cursor: "pointer" }}
+            >
+              <IoMdCall />
+            </a>
           </div>
       </footer>
   )

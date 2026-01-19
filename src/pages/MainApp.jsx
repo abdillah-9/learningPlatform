@@ -12,8 +12,9 @@ import AvailableCourses from "../features/admin/AvailableCourses.jsx";
 import AdminDashboard from "../features/admin/AdminDashboard.jsx";
 import SetAccess from "../features/admin/SetAccess.jsx";
 import { FaUniversalAccess } from "react-icons/fa";
-import { RiHome9Fill, RiTwitterXFill } from "react-icons/ri";
+import { RiHome9Fill, RiInstagramFill, RiTwitterXFill } from "react-icons/ri";
 import { IoIosMail, IoMdCall } from "react-icons/io";
+import { BsTiktok } from "react-icons/bs";
 
 export default function MainApp() {
   const {userData} = useContext(AuthContext);
@@ -94,22 +95,59 @@ export default function MainApp() {
         </div>
       </div>
         {/** Footer */}
-        <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'15px 50px 0px 50px', color:'white', flexWrap:'wrap', gap:"15px"}}>
+        <footer style={{backgroundColor:'#253957', display:'flex', justifyContent:'space-between', padding:'15px 50px 10px 50px', color:'white', flexWrap:'wrap', gap:"15px", alignItems:'center'}}>
 
-            {/** Logo and company name */}
-            <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center'}}>
-                <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
-                <span>
-                    Mwangaza Knowledge Hub
-                </span>
-            </div>
-            {/** Course number & Course name */}
-            <div style={{display:'flex', gap:'20px', fontSize:'30px', position:'relative', minHeight:'70px', top:'40px', marginBottom:'15px'}}>
-                <RiTwitterXFill />
-                <IoIosMail />
-                <IoMdCall />                
-            </div>
-        </footer>
+          {/** Logo and company name */}
+          <div style={{fontSize:'20px', fontWeight:500, display:'flex', flexDirection:'column', alignItems:'center', gap:'10px', border:'1px solid re'}}>
+              <img src={MwangazaLogo} alt="logo" width={'60px'} height={'auto'} style={{aspectRatio:1/0.95, borderRadius:'50%'}} />
+              <span style={{textAlign:'cente'}}>
+                  Mwangaza Knowledge Hub
+              </span>
+          </div>
+          {/** Course number & Course name */}
+          <div
+            style={{
+              display: "flex",
+              border:'1px solid re',
+              justifyContent:'cente',
+              gap: "20px",
+              fontSize: "25px",
+              position: "relative",
+              width:'210px'
+            }}
+          >
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/mwangaza_knowledge_hub?utm_source=qr&igsh=eXduemNmOWE2bzN4"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Instagram"
+              style={{ color: "inherit", cursor: "pointer" }}
+            >
+              <RiInstagramFill />
+            </a>
+
+            {/* TikTok */}
+            <a
+              href="https://www.tiktok.com/@mwangaza_knowledge_hub?_r=1&_t=ZM-92tTyzrRBmK"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="TikTok"
+              style={{ color: "inherit", cursor: "pointer" }}
+            >
+              <BsTiktok />
+            </a>
+
+            {/* Call */}
+            <a
+              href="tel:0788491086"
+              title="Call 0788491086"
+              style={{ color: "inherit", cursor: "pointer" }}
+            >
+              <IoMdCall />
+            </a>
+          </div>
+      </footer>
     </div>
   );
 }

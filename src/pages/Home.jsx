@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { BsBook, BsFacebook, BsLinkedin, BsWhatsapp } from "react-icons/bs";
+import { BsBook, BsFacebook, BsLinkedin, BsTiktok, BsWhatsapp } from "react-icons/bs";
 import pic1 from '../assets/pic1.webp';
 import pic2 from '../assets/pic2.webp';
 import pic3 from '../assets/pic3.webp';
@@ -16,7 +16,7 @@ import '../Homepage.css';
 import Sospeter from '../assets/Sospeter.webp';
 import SospeterNew from '../assets/SospeterNew.jpg';
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
-import { PiArrowBendUpRightThin } from "react-icons/pi";
+import { PiArrowBendUpRightThin, PiTiktokLogoBold, PiTiktokLogoFill, PiTiktokLogoThin } from "react-icons/pi";
 import { HiArrowRight, HiMiniArrowLongRight, HiUser } from "react-icons/hi2";
 import { BookAIcon, BookOpenCheckIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -520,7 +520,7 @@ function Footer(){
     const navigateTo = useNavigate();
     const {userData} = useContext(AuthContext);
   return(
-    <div style={{backgroundColor:'#253957', display:'flex', flexWrap:'wrap', color:'white', padding:'30px', justifyContent:'space-around', gap:'40px'}}>
+    <div style={{backgroundColor:'#253957', display:'flex', flexWrap:'wrap', color:'white', padding:'20px 30px', justifyContent:'space-around', gap:'40px'}}>
       <div style={{display:'flex', flexDirection:'column', justifyContent:'center', width:'30%', minWidth:'300px', gap:'20px'}}>
         <div style={{display:'flex',gap:'5px', flexDirection:'column', justifyContent:'center'}}>
           <span style={{display:'block',left:'95px', position:'relative'}}>
@@ -531,11 +531,38 @@ function Footer(){
         <div>
             Building a Generation of Founders and C.E.Os
         </div>
-        <div style={{display:"flex", gap:'15px'}}>
-          <span><BsFacebook/></span>
-          <span><BsWhatsapp/></span>
-          <span><BsLinkedin/></span>
+        <div style={{ display: "flex", gap: "15px" }}>
+          <a
+            href="https://www.tiktok.com/@mwangaza_knowledge_hub?_r=1&_t=ZM-92tTyzrRBmK"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TikTok"
+            style={{ cursor: "pointer", color: "inherit" }}
+          >
+            <BsTiktok size={18}/>
+          </a>
+
+          <a
+            href="https://chat.whatsapp.com/Dhlg8qsAxQU5IO1XKHU89w"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="WhatsApp"
+            style={{ cursor: "pointer", color: "inherit" }}
+          >
+            <BsWhatsapp size={18}/>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/company/mwangaza-knowledge-hub/about/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+            style={{ cursor: "pointer", color: "inherit" }}
+          >
+            <BsLinkedin size={18}/>
+          </a>
         </div>
+
       </div>
 
       <div style={{display:'flex', flexDirection:'column',width:'30%', minWidth:'300px', gap:'20px'}}>

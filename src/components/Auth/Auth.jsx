@@ -60,6 +60,7 @@ export default function Auth(){
                 <div style={{display:'flex', gap:'12px', fontSize:'20px', borderBottom:'2px solid rgba(146, 146, 146, 1)',maxWidth:'500px'}}>
                     <span style={ authLink == 'register' ? {...activeL, padding:'15px', fontWeight:500} : {padding:'15px', fontWeight:500, cursor:'pointer'}} onClick={()=>{setAuthLink('register'); navigateTo('/auth/register')}}>Register</span>
                     <span style={ authLink == 'sign_in' ? {...activeL, padding:'15px', fontWeight:500} : {padding:'15px', fontWeight:500, cursor:'pointer'}} onClick={()=>{setAuthLink('sign_in');  navigateTo('/auth/sign_in');}}>Sign In</span>
+                    <span style={ authLink == 'home' ? {...activeL, padding:'15px', fontWeight:500} : {padding:'15px', fontWeight:500, cursor:'pointer'}} onClick={()=>{navigateTo('/');}}>Home</span>
                 </div>
                 {
                     authLink == 'register' ? <SignUp/> : <SignIn />

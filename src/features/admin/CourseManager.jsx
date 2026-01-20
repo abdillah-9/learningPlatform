@@ -422,13 +422,13 @@ setCourseData(
               {/* TITLE ROW */}
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <h4>Module {index + 1}</h4>
-                <button
+                {/* <button
                   type="button"
                   onClick={() => removeModule(index)}
                   style={btnDelete}
                 >
                   Remove
-                </button>
+                </button> */}
               </div>
 
               <label>Module Title</label>
@@ -508,14 +508,14 @@ setCourseData(
 
                   <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <strong>Block {bIndex + 1}</strong>
-
+{/* 
                     <button
                       type="button"
                       onClick={() => removeBlock(index, bIndex)}
                       style={btnSmallDelete}
                     >
                       Remove
-                    </button>
+                    </button> */}
                   </div>
 
                   {/* TYPE SWITCH */}

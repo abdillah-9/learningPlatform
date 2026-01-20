@@ -50,6 +50,42 @@ export default function AvailableCourses() {
     }
   };
 
+  const deleteModuleHandler = async (moduleId) => {
+    if (!window.confirm("Delete this module and ALL its blocks?")) return;
+
+    try {
+      const formData = new FormData();
+      formData.append("moduleId", moduleId);
+
+      const res = await fetch(
+        "https://www.tanzcoffee.co.tz/mwangaza_hub/delete_module.php",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const result = await res.json();
+
+      if (!result.success) {
+        alert(result.message || "Failed to delete module");
+        return;
+      }
+
+      // Remove module from UI
+      setCourses(prev =>
+        prev.map(course => ({
+          ...course,
+          modules: course.modules.filter(m => m.id !== moduleId),
+        }))
+      );
+
+    } catch (err) {
+      console.error(err);
+      alert("Error deleting module");
+    }
+  };
+
   const deleteBlockHandler = async (blockId) => {
     if (!window.confirm("Delete this block permanently?")) return;
 
@@ -123,6 +159,7 @@ export default function AvailableCourses() {
         setPage={setPage}
         decodeHTML={decodeHTML}
         deleteBlockHandler={deleteBlockHandler}
+        deleteModuleHandler={deleteModuleHandler}
       />
     </div>
   );
@@ -176,7 +213,7 @@ function ShowCourses({
   setEditModeState, setCourseData,
   editModeState, page, 
   setPage , decodeHTML,
-  deleteBlockHandler
+  deleteBlockHandler, deleteModuleHandler,
   }) {
 
   useEffect(() => {
@@ -275,6 +312,20 @@ function ShowCourses({
               }}
             >
               <strong>{`Module ${moduleIndex + 1}: ${module.title}`}</strong>
+              <button
+                style={{
+                  marginLeft: "10px",
+                  background: "#b02a37",
+                  color: "white",
+                  border: "none",
+                  padding: "4px 8px",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                }}
+                onClick={() => deleteModuleHandler(module.id)}
+              >
+                Remove Module
+              </button>
               <div style={{ marginLeft: "20px", marginTop: "5px" }}>
                 {module.blocks.length > 0 ? (
                   module?.blocks?.map((block, blockIndex) => (

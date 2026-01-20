@@ -261,16 +261,16 @@ function UsersActions(){
                    alt='user_pic'
                    style={{width:'65px', aspectRatio:1/0.9, objectFit:'cover', borderRadius:'50%'}}
               />
-              <span style={{fontSize:"16px", width:'120px', fontWeight:600}}>
+              <span style={{fontSize:"16px", fontWeight:600, flex: '1 1 120px'}}>
                 {std.phone_number}
               </span>
-              <span style={{fontSize:"16px", width:'120px', fontWeight:600}}>
+              <span style={{fontSize:"16px", fontWeight:600, flex: '1 1 120px'}}>
                 {std.username_email}
               </span>
-              <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
+              <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, flex: '1 1 100px'}}>
                 {std.user_role}
               </span>
-              <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, minWidth:'100px'}}>
+              <span style={{color:'rgba(100,100,100,0.6)', fontWeight:500, flex: '1 1 100px'}}>
                 ID_{std.id}
               </span>
               {/** Delete std */}

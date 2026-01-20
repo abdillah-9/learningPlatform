@@ -135,51 +135,51 @@ export default function AAviewLastCourse() {
   const nextSlide = () => slideIndex < totalSlides - 1 && setSlideIndex(slideIndex + 1);
   const prevSlide = () => slideIndex > 0 && setSlideIndex(slideIndex - 1);
 
-  const renderFile = (block) => {
-    if (!block) return null;
+const renderFile = (block) => {
+  if (!block) return null;
 
-    // 🔹 SECURE STREAM FILES
-    if ((block.type === "file" || block.type === "fileFull") && block.videoToken) {
-      const tokenData = JSON.parse(atob(block.videoToken));
-      const filePath = tokenData.file || "";
-      const ext = filePath.split(".").pop().toLowerCase();
+  const url = block.fileUrl; // direct file URL
+  if (!url) return null;
 
-      const url = `https://www.tanzcoffee.co.tz/mwangaza_hub/stream_video.php?token=${block.videoToken}`;
+  const ext = url.split(".").pop().toLowerCase();
 
-      // 🖼️ Images
-      if (["jpg", "jpeg", "png", "gif", "webp"].includes(ext)) {
-        return <img src={url} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />;
-      }
+  // Images
+  if (["jpg", "jpeg", "png", "gif", "webp"].includes(ext)) {
+    return <img src={url} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />;
+  }
 
-      // 🎥 Videos
-      if (["mp4", "webm", "ogg"].includes(ext)) {
-        return (
-          <video
-            src={url}
-            controls
-            controlsList="nodownload"
-            disablePictureInPicture
-            style={{ width: "100%", height: "100%" }}
-          />
-        );
-      }
+  // Videos
+  if (["mp4", "webm", "ogg"].includes(ext)) {
+    return (
+      <video
+        key={block.id}
+        src={url}
+        controls
+        playsInline
+        preload="metadata"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "contain",
+          background: "#fafafa",   
+        }}
+      />
 
-      // 🎧 Audio
-      if (["mp3", "wav", "ogg"].includes(ext)) {
-        return <audio src={url} controls />;
-      }
+    );
+  }
 
-      // 📄 PDF
-      if (ext === "pdf") {
-        return <iframe src={url} width="100%" height="100%" title="PDF" />;
-      }
+  // Audio
+  if (["mp3", "wav", "ogg"].includes(ext)) {
+    return <audio src={url} controls />;
+  }
 
-      return <a href={url} target="_blank" rel="noreferrer">Download File</a>;
-    }
+  // PDF
+  if (ext === "pdf") {
+    return <iframe src={url} width="100%" height="100%" title="PDF" />;
+  }
 
-    return null;
-  };
-
+  return <a href={url} target="_blank" rel="noreferrer">Download File</a>;
+};
 
   //alert("Current module"+JSON.stringify(currentModule));
   return (

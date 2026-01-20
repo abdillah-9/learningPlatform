@@ -9,7 +9,7 @@ import pic6 from '../assets/pic6.jpeg';
 import pic7 from '../assets/pic7.jpg';
 import man from '../assets/icon.jpeg';
 import woman from '../assets/woman.png';
-import video from '../assets/696f3c6ee055f_Business Branding 03.mp4';
+// import video from '../assets/696f3c6ee055f_Business Branding 03.mp4';
 import pic9 from '../assets/pic9.jpeg';
 import AI_Gen_2 from '../assets/AI Gen 2.webp';
 import { CgChevronDoubleLeft, CgChevronDoubleRight } from "react-icons/cg";

@@ -50,45 +50,6 @@ export default function AvailableCourses() {
     }
   };
 
-  const deleteBlockHandler = async (blockId) => {
-    if (!window.confirm("Delete this block permanently?")) return;
-
-    try {
-      const formData = new FormData();
-      formData.append("blockId", blockId);
-
-      const res = await fetch(
-        "https://www.tanzcoffee.co.tz/mwangaza_hub/delete_block.php",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      const result = await res.json();
-
-      if (!result.success) {
-        alert(result.message || "Failed to delete block");
-        return;
-      }
-
-      // Remove from UI immediately
-      setCourses(prev =>
-        prev.map(course => ({
-          ...course,
-          modules: course.modules.map(module => ({
-            ...module,
-            blocks: module.blocks.filter(b => b.id !== blockId),
-          })),
-        }))
-      );
-
-    } catch (err) {
-      console.error(err);
-      alert("Error deleting block");
-    }
-  };
-
   return (
     <div style={{ padding: "15px" }}>
       <QuickActions
@@ -122,7 +83,6 @@ export default function AvailableCourses() {
         page={page}
         setPage={setPage}
         decodeHTML={decodeHTML}
-        deleteBlockHandler={deleteBlockHandler}
       />
     </div>
   );
@@ -169,15 +129,7 @@ function QuickActions({ formState, setFormState, setEditModeState, setCourseData
   );
 }
 
-function ShowCourses({
-  loading, setLoading, 
-  setCourses, courses ,
-  fetchCourses ,setFormState,
-  setEditModeState, setCourseData,
-  editModeState, page, 
-  setPage , decodeHTML,
-  deleteBlockHandler
-  }) {
+function ShowCourses({loading, setLoading, setCourses, courses ,fetchCourses ,setFormState, setEditModeState, setCourseData, editModeState, page, setPage , decodeHTML}) {
 
   useEffect(() => {
     fetchCourses(page);
@@ -289,21 +241,6 @@ function ShowCourses({
                     >
                       <strong>{`Block ${blockIndex + 1} (${block.type})`}</strong>
                       <BlockRenderer block={block} decodeHTML={decodeHTML}/>
-                      {/* ✅ REMOVE BLOCK BUTTON */}
-                      <button
-                        style={{
-                          marginTop: "8px",
-                          background: "#dc3545",
-                          color: "white",
-                          border: "none",
-                          padding: "5px 10px",
-                          borderRadius: "4px",
-                          cursor: "pointer",
-                        }}
-                        onClick={() => deleteBlockHandler(block.id)}
-                      >
-                        Remove Block
-                      </button>
                     </div>
                   ))
                 ) : (

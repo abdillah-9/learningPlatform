@@ -153,18 +153,19 @@ const renderFile = (block) => {
     return (
       <video
         key={block.id}
-        src={url}
         controls
         playsInline
         preload="metadata"
         style={{
           width: "100%",
           height: "100%",
-          objectFit: "contain",
-          background: "#fafafa",   
+          objectFit: "cover`",
+          background: "#fafafa",
         }}
-      />
-
+      >
+        <source src={url} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     );
   }
 

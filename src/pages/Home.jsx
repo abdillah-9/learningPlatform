@@ -22,6 +22,8 @@ import { HiArrowRight, HiMiniArrowLongRight, HiUser } from "react-icons/hi2";
 import { BookAIcon, BookOpenCheckIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
+import { IoLogoLinkedin } from "react-icons/io";
+import { RiInstagramFill } from "react-icons/ri";
 
 export default function Home(){
   const [coursesList, setCoursesList] = useState([]);
@@ -532,35 +534,48 @@ function Footer(){
         <div>
             Building a Generation of Founders and C.E.Os
         </div>
-        <div style={{ display: "flex", gap: "15px" }}>
+        <div
+          style={{
+            display: "flex",
+            //border: "1px solid red", 
+            //justifyContent: "center",
+            gap: "20px",
+            fontSize: "23px",
+            position: "relative",
+            width: "210px",
+          }}
+        >
+          {/* Instagram */}
           <a
-            href="https://www.tiktok.com/@mwangaza_knowledge_hub?_r=1&_t=ZM-92tTyzrRBmK"
+            href="https://www.instagram.com/iam_sospeter?igsh=MXJpajZ3MXVvaWg1aA=="
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+            style={{ color: "inherit", cursor: "pointer" }}
+          >
+            <RiInstagramFill style={{fontSize:'26px'}}/>
+          </a>
+
+          {/* TikTok */}
+          <a
+            href="https://www.tiktok.com/@sospeter_owuor?_r=1&_t=ZS-93JEfZWK6qN"
             target="_blank"
             rel="noopener noreferrer"
             title="TikTok"
-            style={{ cursor: "pointer", color: "inherit" }}
+            style={{ color: "inherit", cursor: "pointer" }}
           >
-            <BsTiktok size={18}/>
+            <BsTiktok />
           </a>
 
+          {/* LinkedIn */}
           <a
-            href="https://chat.whatsapp.com/Dhlg8qsAxQU5IO1XKHU89w"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="WhatsApp"
-            style={{ cursor: "pointer", color: "inherit" }}
-          >
-            <BsWhatsapp size={18}/>
-          </a>
-
-          <a
-            href="https://www.linkedin.com/company/mwangaza-knowledge-hub/about/"
+            href="https://www.linkedin.com/in/sospeter-owuor-8b9359182/"
             target="_blank"
             rel="noopener noreferrer"
             title="LinkedIn"
-            style={{ cursor: "pointer", color: "inherit" }}
+            style={{ color: "inherit", cursor: "pointer" }}
           >
-            <BsLinkedin size={18}/>
+            <IoLogoLinkedin  style={{fontSize:'30px'}}/>
           </a>
         </div>
 

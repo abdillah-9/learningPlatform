@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.webp"
 import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import { BsFacebook, BsLinkedin, BsTiktok, BsWhatsapp } from "react-icons/bs";
-import { IoIosMail, IoMdCall, IoMdHome } from "react-icons/io";
+import { IoIosMail, IoLogoLinkedin, IoMdCall, IoMdHome } from "react-icons/io";
 import { useEffect, useState } from "react";
 import MiniLoadingSpinner from "../components/MiniLoadingSpinner";
 import { RiInstagramFill, RiTwitterXFill } from "react-icons/ri";
@@ -104,49 +104,50 @@ function Footer(){
                   Mwangaza Knowledge Hub
               </span>
           </div>
-          {/** Course number & Course name */}
-          <div
-            style={{
-              display: "flex",
-              border:'1px solid re',
-              justifyContent:'cente',
-              gap: "20px",
-              fontSize: "25px",
-              position: "relative",
-              width:'210px'
-            }}
+        <div
+          style={{
+            display: "flex",
+            //border: "1px solid red", 
+            //justifyContent: "center",
+            gap: "20px",
+            fontSize: "23px",
+            position: "relative",
+            width: "210px",
+          }}
+        >
+          {/* Instagram */}
+          <a
+            href="https://www.instagram.com/iam_sospeter?igsh=MXJpajZ3MXVvaWg1aA=="
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+            style={{ color: "inherit", cursor: "pointer" }}
           >
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/mwangaza_knowledge_hub?utm_source=qr&igsh=eXduemNmOWE2bzN4"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Instagram"
-              style={{ color: "inherit", cursor: "pointer" }}
-            >
-              <RiInstagramFill />
-            </a>
+            <RiInstagramFill style={{fontSize:'26px'}}/>
+          </a>
 
-            {/* TikTok */}
-            <a
-              href="https://www.tiktok.com/@mwangaza_knowledge_hub?_r=1&_t=ZM-92tTyzrRBmK"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="TikTok"
-              style={{ color: "inherit", cursor: "pointer" }}
-            >
-              <BsTiktok />
-            </a>
+          {/* TikTok */}
+          <a
+            href="https://www.tiktok.com/@sospeter_owuor?_r=1&_t=ZS-93JEfZWK6qN"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TikTok"
+            style={{ color: "inherit", cursor: "pointer" }}
+          >
+            <BsTiktok />
+          </a>
 
-            {/* Call */}
-            <a
-              href="tel:0788491086"
-              title="Call 0788491086"
-              style={{ color: "inherit", cursor: "pointer" }}
-            >
-              <IoMdCall />
-            </a>
-          </div>
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/sospeter-owuor-8b9359182/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+            style={{ color: "inherit", cursor: "pointer" }}
+          >
+            <IoLogoLinkedin  style={{fontSize:'30px'}}/>
+          </a>
+        </div>
       </footer>
   )
 }

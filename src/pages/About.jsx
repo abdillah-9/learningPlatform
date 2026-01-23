@@ -4,7 +4,7 @@ import MwangazaLogo from '../assets/MwangazaLogo.jpg';
 import aboutImage from '../assets/About1.jpeg';
 import miniAboutImage from '../assets/About2.jpg';
 import { RiInstagramFill, RiTwitterXFill } from 'react-icons/ri';
-import { IoIosMail, IoMdCall } from 'react-icons/io';
+import { IoIosMail, IoLogoLinkedin, IoMdCall } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import { BsTiktok } from 'react-icons/bs';
 
@@ -117,28 +117,28 @@ export default function About(){
         <div
           style={{
             display: "flex",
-            border:'1px solid re',
-            justifyContent:'cente',
+            //border: "1px solid red", 
+            //justifyContent: "center",
             gap: "20px",
-            fontSize: "25px",
+            fontSize: "23px",
             position: "relative",
-            width:'210px'
+            width: "210px",
           }}
         >
           {/* Instagram */}
           <a
-            href="https://www.instagram.com/mwangaza_knowledge_hub?utm_source=qr&igsh=eXduemNmOWE2bzN4"
+            href="https://www.instagram.com/iam_sospeter?igsh=MXJpajZ3MXVvaWg1aA=="
             target="_blank"
             rel="noopener noreferrer"
             title="Instagram"
             style={{ color: "inherit", cursor: "pointer" }}
           >
-            <RiInstagramFill />
+            <RiInstagramFill style={{fontSize:'26px'}}/>
           </a>
 
           {/* TikTok */}
           <a
-            href="https://www.tiktok.com/@mwangaza_knowledge_hub?_r=1&_t=ZM-92tTyzrRBmK"
+            href="https://www.tiktok.com/@sospeter_owuor?_r=1&_t=ZS-93JEfZWK6qN"
             target="_blank"
             rel="noopener noreferrer"
             title="TikTok"
@@ -147,13 +147,15 @@ export default function About(){
             <BsTiktok />
           </a>
 
-          {/* Call */}
+          {/* LinkedIn */}
           <a
-            href="tel:0788491086"
-            title="Call 0788491086"
+            href="https://www.linkedin.com/in/sospeter-owuor-8b9359182/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
             style={{ color: "inherit", cursor: "pointer" }}
           >
-            <IoMdCall />
+            <IoLogoLinkedin  style={{fontSize:'30px'}}/>
           </a>
         </div>
     </footer>
